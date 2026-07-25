@@ -1,0 +1,88 @@
+id: anythingllm
+name: AnythingLLM
+version: "1.0"
+description: All-in-one private ChatGPT-style app with built-in RAG, AI agents, and document workspaces.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==
+website: https://anythingllm.com
+documentation: https://docs.anythingllm.com
+categories:
+  - ai
+  - llm
+  - chat
+  - rag
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the AnythingLLM web UI (auto-assigned)
+    type: port
+    default: "3001"
+    hidden: true
+  - name: JWT_SECRET
+    description: Secret used to sign AnythingLLM session tokens (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: SIG_KEY
+    description: Signing key for AnythingLLM internal payloads (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: SIG_SALT
+    description: Signing salt for AnythingLLM internal payloads (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: AnythingLLM Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    anythingllm:
+      image: mintplexlabs/anythingllm:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      cap_add:
+        - SYS_ADMIN
+      ports:
+        - "${HTTP_PORT}:3001"
+      environment:
+        STORAGE_DIR: "/app/server/storage"
+        JWT_SECRET: "${JWT_SECRET}"
+        SIG_KEY: "${SIG_KEY}"
+        SIG_SALT: "${SIG_SALT}"
+        DISABLE_TELEMETRY: "true"
+      volumes:
+        - anythingllm-storage:/app/server/storage
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3001/api/ping"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+  volumes:
+    anythingllm-storage:
+
+post_install: |
+  AnythingLLM is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - On first launch, create your admin account and pick an LLM provider.
+
+  AnythingLLM does not bundle an LLM. Point it at any provider from the
+  in-app setup wizard (Settings -> LLM Preference):
+
+  - Ollama: set the base URL to http://<your-server>:11434 (or the
+    docker service URL if Ollama runs in the same network).
+  - Prompture Hub / any OpenAI-compatible endpoint: choose the
+    "Generic OpenAI" provider and supply the base URL + API key.
+
+  Uploaded documents and the local vector store live in the
+  anythingllm-storage volume.

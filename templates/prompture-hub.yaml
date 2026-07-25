@@ -1,0 +1,119 @@
+id: prompture-hub
+name: Prompture Hub
+version: "0.0.2"
+description: Self-hosted LLM gateway. Hold real provider keys server-side, issue scoped hub keys, and meter every call. Drop-in OpenAI-compatible API.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyTDQuNSA2djEybDcuNSA0IDcuNS00VjZ6Ii8+PHBhdGggZD0iTTEyIDIybDcuNS00VjZNMTIgMnYxMCIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjIiLz48L3N2Zz4=
+website: https://github.com/jhd3197/prompture-hub
+documentation: https://github.com/jhd3197/prompture-hub#readme
+categories:
+  - ai
+  - llm
+  - gateway
+  - prompture
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Prompture Hub dashboard and API (auto-assigned)
+    type: port
+    default: "1984"
+    hidden: true
+  - name: HUB_ADMIN_TOKEN
+    description: Admin token for the hub (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: HUB_SESSION_SECRET
+    description: Session secret for dashboard login (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Prompture Hub Dashboard & API
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    hub:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:1984"
+      environment:
+        HUB_HOST: "0.0.0.0"
+        HUB_PORT: "1984"
+        HUB_DB_PATH: "/data/prompture_hub.db"
+        HUB_ADMIN_TOKEN: "${HUB_ADMIN_TOKEN}"
+        HUB_SESSION_SECRET: "${HUB_SESSION_SECRET}"
+        HUB_BASE_URL: "http://localhost:${HTTP_PORT}"
+      volumes:
+        - hub_data:/data
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:1984/health"]
+        interval: 30s
+        timeout: 5s
+        retries: 3
+        start_period: 10s
+
+  volumes:
+    hub_data:
+
+files:
+  - path: Dockerfile
+    content: |
+      FROM python:3.12-slim
+
+      ENV PYTHONDONTWRITEBYTECODE=1 \
+          PYTHONUNBUFFERED=1 \
+          PIP_NO_CACHE_DIR=1 \
+          PIP_DISABLE_PIP_VERSION_CHECK=1
+
+      RUN apt-get update \
+       && apt-get install -y --no-install-recommends curl \
+       && rm -rf /var/lib/apt/lists/*
+
+      RUN pip install --no-cache-dir prompture-hub==0.0.1
+
+      RUN useradd --uid 10001 --create-home --shell /bin/bash hub \
+       && mkdir -p /data \
+       && chown -R hub:hub /data
+
+      USER hub
+
+      ENV HUB_HOST=0.0.0.0 \
+          HUB_PORT=1984 \
+          HUB_DB_PATH=/data/prompture_hub.db
+
+      EXPOSE 1984
+
+      HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+        CMD curl -fsS http://127.0.0.1:1984/health || exit 1
+
+      CMD ["python", "-m", "uvicorn", "prompture_hub.main:app", "--host", "0.0.0.0", "--port", "1984"]
+
+post_install: |
+  Prompture Hub is installed and running!
+
+  - Dashboard: http://your-server:${HTTP_PORT}/
+  - OpenAI-compatible API: http://your-server:${HTTP_PORT}/v1/chat/completions
+  - Admin token (save it now): ${HUB_ADMIN_TOKEN}
+
+  Create a scoped hub key:
+    curl -X POST http://your-server:${HTTP_PORT}/admin/keys \
+      -H "Authorization: Bearer ${HUB_ADMIN_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d '{"name":"serverkit-ai","allowed_models":["ollama/llama3.1:8b"],"daily_spend_cap_usd":1.0}'
+
+  To use with ServerKit's AI features, point the AI provider URL to
+  http://localhost:${HTTP_PORT}/v1 and use a hub key instead of a raw provider key.
+
+  Before enabling OAuth (Google/GitHub), update HUB_BASE_URL in the app's
+  environment to the public domain you attach to this app.

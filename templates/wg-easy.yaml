@@ -1,0 +1,73 @@
+id: wg-easy
+name: WG-Easy
+version: "1.0"
+description: The easiest way to run WireGuard VPN with a web admin UI.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiByeD0iMSIvPjxyZWN0IHg9IjIiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiByeD0iMSIvPjxyZWN0IHg9IjkiIHk9IjIiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTUgMTZ2LTNhMSAxIDAgMCAxIDEtMWgxMmExIDEgMCAwIDEgMSAxdjNNMTIgMTJWOCIvPjwvc3ZnPg==
+website: https://github.com/wg-easy/wg-easy
+documentation: https://github.com/wg-easy/wg-easy/wiki
+categories:
+  - networking
+  - vpn
+  - security
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the WG-Easy web admin UI (auto-assigned)
+    type: port
+    default: "51821"
+    hidden: true
+  - name: WG_HOST
+    description: Public IP or hostname clients connect to — REQUIRED
+    type: string
+    default: ""
+    required: true
+  - name: ADMIN_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: WG-Easy Web Admin UI
+
+requirements:
+  memory: 128MB
+  storage: 500MB
+
+compose:
+  services:
+    wg-easy:
+      image: ghcr.io/wg-easy/wg-easy:13
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "51820:51820/udp"
+        - "${HTTP_PORT}:51821"
+      environment:
+        WG_HOST: "${WG_HOST}"
+        PASSWORD: "${ADMIN_PASSWORD}"
+        WG_PORT: "51820"
+        WG_DEFAULT_DNS: "1.1.1.1"
+      cap_add:
+        - NET_ADMIN
+        - SYS_MODULE
+      sysctls:
+        net.ipv4.ip_forward: "1"
+        net.ipv4.conf.all.src_valid_mark: "1"
+      volumes:
+        - wg-easy-config:/etc/wireguard
+
+  volumes:
+    wg-easy-config:
+
+post_install: |
+  WG-Easy is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Login with the admin password: ${ADMIN_PASSWORD}
+
+  IMPORTANT:
+  - You MUST set WG_HOST to your server's public IP or hostname. If you left it
+    blank, edit the app's environment now and set it, then restart.
+  - UDP port 51820 must be open in your firewall for VPN clients to connect.

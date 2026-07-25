@@ -1,0 +1,57 @@
+id: actualbudget
+name: Actual Budget
+version: "1.0"
+description: Privacy-first personal budgeting app using envelope budgeting with optional bank sync.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDEyVjdINWEyIDIgMCAwIDEgMC00aDE0djQiLz48cGF0aCBkPSJNMyA1djE0YTIgMiAwIDAgMCAyIDJoMTZ2LTUiLz48cGF0aCBkPSJNMTggMTJhMiAyIDAgMCAwIDAgNGg0di00eiIvPjwvc3ZnPg==
+website: https://actualbudget.org
+documentation: https://actualbudget.org/docs/install/docker
+categories:
+  - finance
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Actual Budget web UI (auto-assigned)
+    type: port
+    default: "5006"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Actual Budget Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    actualbudget:
+      image: actualbudget/actual-server:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5006"
+      environment:
+        ACTUAL_LOGIN_METHOD: "password"
+      volumes:
+        - actualbudget-data:/data
+      healthcheck:
+        test: ["CMD-SHELL", "node -e \"require('http').get('http://127.0.0.1:5006/', r => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))\""]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+  volumes:
+    actualbudget-data:
+
+post_install: |
+  Actual Budget is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  On your first visit you will be asked to create a server password and then
+  set up your budget account. There is no pre-seeded login; choose your own
+  password when prompted, then start building your envelope budget.

@@ -1,0 +1,65 @@
+id: prowlarr
+name: Prowlarr
+version: "1.0"
+description: Indexer manager and proxy that integrates your indexers with the PVR apps
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==
+website: https://wiki.servarr.com/prowlarr
+documentation: https://wiki.servarr.com/prowlarr
+categories:
+  - media
+  - automation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Prowlarr web UI (auto-assigned)
+    type: port
+    default: "9696"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Prowlarr Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    prowlarr:
+      image: lscr.io/linuxserver/prowlarr:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9696"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - prowlarr-config:/config
+      networks:
+        - default
+        - media
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9696/ping"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+  volumes:
+    prowlarr-config:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  Prowlarr is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Add your indexers here once, then connect Sonarr and Radarr so Prowlarr
+    syncs those indexers to them automatically.
+  - This app shares the "serverkit-media" Docker network, so Prowlarr can reach
+    the other media apps (Sonarr, Radarr, qBittorrent, etc.) directly by their
+    container names — no extra networking setup required.

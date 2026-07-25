@@ -1,0 +1,369 @@
+id: plane
+name: Plane
+version: "1.0"
+description: Open-source project management and issue tracking with cycles, modules, and views (a Jira/Linear alternative).
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxwYXRoIGQ9Ik04IDd2N00xMiA3djEwTTE2IDd2NCIvPjwvc3ZnPg==
+website: https://plane.so
+documentation: https://docs.plane.so/self-hosting/methods/docker-compose
+categories:
+  - productivity
+  - project-management
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Plane web UI (auto-assigned)
+    type: port
+    default: "80"
+    hidden: true
+  - name: SECRET_KEY
+    description: Django secret key used to sign sessions and tokens (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: LIVE_SERVER_SECRET_KEY
+    description: Secret key for the real-time collaboration server (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: POSTGRES_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+  - name: AMQP_PASSWORD
+    description: RabbitMQ password (auto-generated)
+    type: password
+    length: 24
+    hidden: true
+  - name: AWS_ACCESS_KEY_ID
+    description: Access key for the bundled object storage
+    type: string
+    default: "access-key"
+    hidden: true
+  - name: AWS_SECRET_ACCESS_KEY
+    description: Secret key for the bundled object storage (auto-generated)
+    type: random
+    length: 40
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Plane Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    proxy:
+      image: makeplane/plane-proxy:v1.3.0
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        NGINX_PORT: "80"
+        SITE_ADDRESS: ":80"
+        APP_DOMAIN: "localhost"
+        FILE_SIZE_LIMIT: "5242880"
+        BUCKET_NAME: "uploads"
+      volumes:
+        - plane-proxy-config:/config
+        - plane-proxy-data:/data
+      depends_on:
+        - web
+        - api
+        - space
+        - admin
+        - live
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://127.0.0.1:80"]
+        interval: 10s
+        timeout: 10s
+        retries: 15
+        start_period: 30s
+
+    web:
+      image: makeplane/plane-frontend:v1.3.0
+      container_name: ${APP_NAME}-web
+      restart: unless-stopped
+      depends_on:
+        - api
+        - worker
+
+    space:
+      image: makeplane/plane-space:v1.3.0
+      container_name: ${APP_NAME}-space
+      restart: unless-stopped
+      depends_on:
+        - api
+        - worker
+        - web
+
+    admin:
+      image: makeplane/plane-admin:v1.3.0
+      container_name: ${APP_NAME}-admin
+      restart: unless-stopped
+      depends_on:
+        - api
+        - web
+
+    live:
+      image: makeplane/plane-live:v1.3.0
+      container_name: ${APP_NAME}-live
+      restart: unless-stopped
+      environment:
+        API_BASE_URL: "http://api:8000"
+        LIVE_SERVER_SECRET_KEY: "${LIVE_SERVER_SECRET_KEY}"
+        REDIS_HOST: plane-redis
+        REDIS_PORT: "6379"
+        REDIS_URL: "redis://plane-redis:6379/"
+      depends_on:
+        - api
+        - web
+
+    api:
+      image: makeplane/plane-backend:v1.3.0
+      container_name: ${APP_NAME}-api
+      restart: unless-stopped
+      command: ./bin/docker-entrypoint-api.sh
+      environment:
+        WEB_URL: "http://localhost"
+        DEBUG: "0"
+        CORS_ALLOWED_ORIGINS: "http://localhost"
+        GUNICORN_WORKERS: "1"
+        SECRET_KEY: "${SECRET_KEY}"
+        API_KEY_RATE_LIMIT: "60/minute"
+        DATABASE_URL: "postgresql://plane:${POSTGRES_PASSWORD}@plane-db:5432/plane"
+        PGHOST: plane-db
+        PGDATABASE: plane
+        POSTGRES_USER: plane
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_DB: plane
+        POSTGRES_PORT: "5432"
+        REDIS_HOST: plane-redis
+        REDIS_PORT: "6379"
+        REDIS_URL: "redis://plane-redis:6379/"
+        AMQP_URL: "amqp://plane:${AMQP_PASSWORD}@plane-mq:5672/plane"
+        USE_MINIO: "1"
+        MINIO_ENDPOINT_SSL: "0"
+        AWS_REGION: ""
+        AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+        AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+        AWS_S3_ENDPOINT_URL: "http://plane-minio:9000"
+        AWS_S3_BUCKET_NAME: "uploads"
+        LIVE_SERVER_SECRET_KEY: "${LIVE_SERVER_SECRET_KEY}"
+      volumes:
+        - plane-logs-api:/code/plane/logs
+      depends_on:
+        - plane-db
+        - plane-redis
+        - plane-mq
+        - migrator
+
+    worker:
+      image: makeplane/plane-backend:v1.3.0
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: ./bin/docker-entrypoint-worker.sh
+      environment:
+        WEB_URL: "http://localhost"
+        DEBUG: "0"
+        CORS_ALLOWED_ORIGINS: "http://localhost"
+        GUNICORN_WORKERS: "1"
+        SECRET_KEY: "${SECRET_KEY}"
+        DATABASE_URL: "postgresql://plane:${POSTGRES_PASSWORD}@plane-db:5432/plane"
+        PGHOST: plane-db
+        PGDATABASE: plane
+        POSTGRES_USER: plane
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_DB: plane
+        POSTGRES_PORT: "5432"
+        REDIS_HOST: plane-redis
+        REDIS_PORT: "6379"
+        REDIS_URL: "redis://plane-redis:6379/"
+        AMQP_URL: "amqp://plane:${AMQP_PASSWORD}@plane-mq:5672/plane"
+        USE_MINIO: "1"
+        MINIO_ENDPOINT_SSL: "0"
+        AWS_REGION: ""
+        AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+        AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+        AWS_S3_ENDPOINT_URL: "http://plane-minio:9000"
+        AWS_S3_BUCKET_NAME: "uploads"
+        LIVE_SERVER_SECRET_KEY: "${LIVE_SERVER_SECRET_KEY}"
+      volumes:
+        - plane-logs-worker:/code/plane/logs
+      depends_on:
+        - api
+        - plane-db
+        - plane-redis
+        - plane-mq
+
+    beat-worker:
+      image: makeplane/plane-backend:v1.3.0
+      container_name: ${APP_NAME}-beat-worker
+      restart: unless-stopped
+      command: ./bin/docker-entrypoint-beat.sh
+      environment:
+        WEB_URL: "http://localhost"
+        DEBUG: "0"
+        CORS_ALLOWED_ORIGINS: "http://localhost"
+        GUNICORN_WORKERS: "1"
+        SECRET_KEY: "${SECRET_KEY}"
+        DATABASE_URL: "postgresql://plane:${POSTGRES_PASSWORD}@plane-db:5432/plane"
+        PGHOST: plane-db
+        PGDATABASE: plane
+        POSTGRES_USER: plane
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_DB: plane
+        POSTGRES_PORT: "5432"
+        REDIS_HOST: plane-redis
+        REDIS_PORT: "6379"
+        REDIS_URL: "redis://plane-redis:6379/"
+        AMQP_URL: "amqp://plane:${AMQP_PASSWORD}@plane-mq:5672/plane"
+        USE_MINIO: "1"
+        MINIO_ENDPOINT_SSL: "0"
+        AWS_REGION: ""
+        AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+        AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+        AWS_S3_ENDPOINT_URL: "http://plane-minio:9000"
+        AWS_S3_BUCKET_NAME: "uploads"
+        LIVE_SERVER_SECRET_KEY: "${LIVE_SERVER_SECRET_KEY}"
+      volumes:
+        - plane-logs-beat:/code/plane/logs
+      depends_on:
+        - api
+        - plane-db
+        - plane-redis
+        - plane-mq
+
+    migrator:
+      image: makeplane/plane-backend:v1.3.0
+      container_name: ${APP_NAME}-migrator
+      restart: "no"
+      command: ./bin/docker-entrypoint-migrator.sh
+      environment:
+        WEB_URL: "http://localhost"
+        DEBUG: "0"
+        CORS_ALLOWED_ORIGINS: "http://localhost"
+        GUNICORN_WORKERS: "1"
+        SECRET_KEY: "${SECRET_KEY}"
+        DATABASE_URL: "postgresql://plane:${POSTGRES_PASSWORD}@plane-db:5432/plane"
+        PGHOST: plane-db
+        PGDATABASE: plane
+        POSTGRES_USER: plane
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_DB: plane
+        POSTGRES_PORT: "5432"
+        REDIS_HOST: plane-redis
+        REDIS_PORT: "6379"
+        REDIS_URL: "redis://plane-redis:6379/"
+        USE_MINIO: "1"
+        AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+        AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+        AWS_S3_ENDPOINT_URL: "http://plane-minio:9000"
+        AWS_S3_BUCKET_NAME: "uploads"
+      volumes:
+        - plane-logs-migrator:/code/plane/logs
+      depends_on:
+        - plane-db
+        - plane-redis
+
+    plane-db:
+      image: postgres:15.7-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      command: postgres -c 'max_connections=1000'
+      environment:
+        PGDATA: /var/lib/postgresql/data
+        POSTGRES_USER: plane
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+        POSTGRES_DB: plane
+      volumes:
+        - plane-pgdata:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U plane -d plane"]
+        interval: 10s
+        timeout: 20s
+        retries: 10
+
+    plane-redis:
+      image: valkey/valkey:7.2.11-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+      volumes:
+        - plane-redisdata:/data
+      healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 10s
+        timeout: 20s
+        retries: 10
+
+    plane-mq:
+      image: rabbitmq:3.13.6-management-alpine
+      container_name: ${APP_NAME}-mq
+      restart: unless-stopped
+      environment:
+        RABBITMQ_DEFAULT_USER: plane
+        RABBITMQ_DEFAULT_PASS: "${AMQP_PASSWORD}"
+        RABBITMQ_DEFAULT_VHOST: plane
+      volumes:
+        - plane-rabbitmq:/var/lib/rabbitmq
+      healthcheck:
+        test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+        interval: 30s
+        timeout: 30s
+        retries: 5
+
+    plane-minio:
+      image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+      container_name: ${APP_NAME}-minio
+      restart: unless-stopped
+      command: server /export --console-address ":9090"
+      environment:
+        MINIO_ROOT_USER: "${AWS_ACCESS_KEY_ID}"
+        MINIO_ROOT_PASSWORD: "${AWS_SECRET_ACCESS_KEY}"
+      volumes:
+        - plane-uploads:/export
+      healthcheck:
+        test: ["CMD", "mc", "ready", "local"]
+        interval: 10s
+        timeout: 20s
+        retries: 10
+
+  volumes:
+    plane-pgdata:
+    plane-redisdata:
+    plane-rabbitmq:
+    plane-uploads:
+    plane-proxy-config:
+    plane-proxy-data:
+    plane-logs-api:
+    plane-logs-worker:
+    plane-logs-beat:
+    plane-logs-migrator:
+
+post_install: |
+  Plane is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the URL and create the first account. The FIRST user to sign up
+    becomes the instance admin.
+
+  Instance administration:
+  - The God-mode / admin panel lives at /god-mode on the same address
+    (e.g. http://your-server:${HTTP_PORT}/god-mode). Use it to configure
+    SMTP, authentication, AI, and other instance settings.
+
+  For production:
+  - Attach a real domain to this app, then update the API/worker
+    WEB_URL and CORS_ALLOWED_ORIGINS environment variables (currently set
+    to http://localhost) to your public URL — sign-in, file uploads, and
+    real-time collaboration depend on these matching the address users hit.
+
+  This stack runs several containers: web/space/admin frontends, the
+  Django api plus celery worker + beat-worker, a live collaboration
+  server, an nginx proxy router, PostgreSQL, Valkey (Redis), RabbitMQ,
+  and a built-in S3-compatible object store for uploads.

@@ -1,0 +1,60 @@
+id: stirling-pdf
+name: Stirling PDF
+version: "1.0"
+description: Local web toolkit for splitting, merging, converting and OCR-ing PDF files.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSIvPjwvc3ZnPg==
+website: https://www.stirlingpdf.com
+documentation: https://docs.stirlingpdf.com
+categories:
+  - documents
+  - productivity
+  - pdf
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Stirling PDF web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Stirling PDF Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    stirling-pdf:
+      image: ghcr.io/stirling-tools/s-pdf:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        DOCKER_ENABLE_SECURITY: "false"
+        LANGS: "en_GB"
+      volumes:
+        - stirling-pdf-data:/usr/share/tessdata
+        - stirling-pdf-configs:/configs
+      healthcheck:
+        test: ["CMD-SHELL", "curl -fsS --max-time 5 http://127.0.0.1:8080/api/v1/info/status || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+  volumes:
+    stirling-pdf-data:
+    stirling-pdf-configs:
+
+post_install: |
+  Stirling PDF is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and start splitting, merging, converting, compressing or
+  OCR-ing PDFs. Everything runs locally on your server; no files leave the host.

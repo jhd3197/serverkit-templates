@@ -1,0 +1,75 @@
+id: ollama-webui
+name: Ollama + Open WebUI
+version: "1.0"
+description: Local LLM inference with Ollama and a friendly chat interface (Open WebUI).
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjIiLz48cGF0aCBkPSJNOCAxMmg4TTEyIDh2OCIvPjwvc3ZnPg==
+website: https://openwebui.com
+documentation: https://docs.openwebui.com
+categories:
+  - ai
+  - llm
+  - chat
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Open WebUI dashboard (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Open WebUI Dashboard
+
+requirements:
+  memory: 2GB
+  storage: 10GB
+
+compose:
+  services:
+    ollama:
+      image: ollama/ollama:latest
+      container_name: ${APP_NAME}-ollama
+      restart: unless-stopped
+      volumes:
+        - ollama-data:/root/.ollama
+      healthcheck:
+        test: ["CMD", "ollama", "list"]
+        interval: 5s
+        timeout: 30s
+        retries: 10
+
+    webui:
+      image: ghcr.io/open-webui/open-webui:main
+      container_name: ${APP_NAME}-webui
+      restart: unless-stopped
+      depends_on:
+        - ollama
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        OLLAMA_BASE_URL: http://ollama:11434
+      volumes:
+        - open-webui-data:/app/backend/data
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://127.0.0.1:8080"]
+        interval: 5s
+        timeout: 30s
+        retries: 10
+
+  volumes:
+    ollama-data:
+    open-webui-data:
+
+post_install: |
+  Ollama + Open WebUI is installed and running!
+
+  - Dashboard: http://your-server:${HTTP_PORT}
+  - Ollama API: http://${APP_NAME}-ollama:11434
+
+  Pull your first model:
+    docker exec ${APP_NAME}-ollama ollama pull llama3.1:8b
+
+  To let Prompture Hub proxy to this Ollama instance, set
+  OLLAMA_BASE_URL=http://${APP_NAME}-ollama:11434 in the Prompture Hub environment.

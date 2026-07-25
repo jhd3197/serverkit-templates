@@ -1,0 +1,61 @@
+id: qdrant
+name: Qdrant
+version: "1.0"
+description: Vector similarity search engine for AI/LLM and semantic-search applications.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiLz48cGF0aCBkPSJNMTIgMXYyMk0xIDloMjJNMSAxNWgyMiIvPjwvc3ZnPg==
+website: https://qdrant.tech
+documentation: https://qdrant.tech/documentation/
+categories:
+  - ai
+  - database
+  - search
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Qdrant HTTP API (auto-assigned)
+    type: port
+    default: "6333"
+    hidden: true
+  - name: API_KEY
+    description: API key for Qdrant (auto-generated)
+    type: random
+    length: 32
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Qdrant HTTP API
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    qdrant:
+      image: qdrant/qdrant:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:6333"
+      environment:
+        QDRANT__SERVICE__API_KEY: "${API_KEY}"
+      volumes:
+        - qdrant-storage:/qdrant/storage
+      healthcheck:
+        test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+        interval: 5s
+        timeout: 5s
+        retries: 3
+
+  volumes:
+    qdrant-storage:
+
+post_install: |
+  Qdrant is installed and running!
+
+  - API endpoint: http://your-server:${HTTP_PORT}
+  - API key: ${API_KEY}
+
+  Use it as the vector store for AnythingLLM, Open WebUI, or custom RAG apps
+  connected through Prompture Hub.

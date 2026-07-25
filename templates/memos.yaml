@@ -1,0 +1,54 @@
+id: memos
+name: Memos
+version: "1.0"
+description: Lightweight, privacy-first note-taking and micro-blogging app.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE1LjUgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjguNXoiLz48cGF0aCBkPSJNMTUgM3Y2aDYiLz48L3N2Zz4=
+website: https://www.usememos.com
+documentation: https://www.usememos.com/docs
+categories:
+  - notes
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Memos web UI (auto-assigned)
+    type: port
+    default: "5230"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Memos Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    memos:
+      image: neosmemo/memos:stable
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5230"
+      volumes:
+        - memos-data:/var/opt/memos
+      healthcheck:
+        test: ["CMD-SHELL", "curl -f http://127.0.0.1:5230/healthz || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    memos-data:
+
+post_install: |
+  Memos is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and create the first account — it automatically becomes the
+  host/admin user. Additional users can then be invited or registered.

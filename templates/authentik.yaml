@@ -1,0 +1,152 @@
+id: authentik
+name: Authentik
+version: "1.0"
+description: Open-source identity provider for single sign-on with OIDC, SAML, and LDAP.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==
+website: https://goauthentik.io
+documentation: https://docs.goauthentik.io
+categories:
+  - security
+  - identity
+  - sso
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Authentik web UI (auto-assigned)
+    type: port
+    default: "9000"
+    hidden: true
+  - name: SECRET_KEY
+    description: Secret key used to sign sessions and tokens (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: PG_PASS
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+  - name: BOOTSTRAP_TOKEN
+    description: Initial API token provisioned on first boot (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: ADMIN_PASSWORD
+    description: Default admin (akadmin) password (auto-generated)
+    type: password
+    length: 24
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Authentik Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    server:
+      image: ghcr.io/goauthentik/server:2024.10.5
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: server
+      ports:
+        - "${HTTP_PORT}:9000"
+      environment:
+        AUTHENTIK_SECRET_KEY: "${SECRET_KEY}"
+        AUTHENTIK_POSTGRESQL__HOST: "postgresql"
+        AUTHENTIK_POSTGRESQL__USER: "authentik"
+        AUTHENTIK_POSTGRESQL__NAME: "authentik"
+        AUTHENTIK_POSTGRESQL__PASSWORD: "${PG_PASS}"
+        AUTHENTIK_REDIS__HOST: "redis"
+        AUTHENTIK_BOOTSTRAP_PASSWORD: "${ADMIN_PASSWORD}"
+        AUTHENTIK_BOOTSTRAP_TOKEN: "${BOOTSTRAP_TOKEN}"
+      volumes:
+        - authentik-media:/media
+        - authentik-templates:/templates
+      depends_on:
+        - postgresql
+        - redis
+      healthcheck:
+        test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9000/-/health/live/ || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    worker:
+      image: ghcr.io/goauthentik/server:2024.10.5
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: worker
+      environment:
+        AUTHENTIK_SECRET_KEY: "${SECRET_KEY}"
+        AUTHENTIK_POSTGRESQL__HOST: "postgresql"
+        AUTHENTIK_POSTGRESQL__USER: "authentik"
+        AUTHENTIK_POSTGRESQL__NAME: "authentik"
+        AUTHENTIK_POSTGRESQL__PASSWORD: "${PG_PASS}"
+        AUTHENTIK_REDIS__HOST: "redis"
+        AUTHENTIK_BOOTSTRAP_PASSWORD: "${ADMIN_PASSWORD}"
+        AUTHENTIK_BOOTSTRAP_TOKEN: "${BOOTSTRAP_TOKEN}"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        - authentik-media:/media
+        - authentik-templates:/templates
+        - authentik-certs:/certs
+      depends_on:
+        - postgresql
+        - redis
+
+    postgresql:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-postgresql
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: authentik
+        POSTGRES_USER: authentik
+        POSTGRES_PASSWORD: "${PG_PASS}"
+      volumes:
+        - authentik-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U authentik -d authentik"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+      command: --save 60 1 --loglevel warning
+      volumes:
+        - authentik-redis:/data
+      healthcheck:
+        test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    authentik-db:
+    authentik-redis:
+    authentik-media:
+    authentik-templates:
+    authentik-certs:
+
+post_install: |
+  Authentik is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - First-run setup: http://your-server:${HTTP_PORT}/if/flow/initial-setup/
+  - Initial admin user: akadmin
+  - Admin password: ${ADMIN_PASSWORD}
+
+  An API token (${BOOTSTRAP_TOKEN}) is provisioned automatically for
+  programmatic access.
+
+  For production use, attach a real domain and serve Authentik over HTTPS.
+  To use Authentik as an OIDC/SAML identity provider for another app,
+  create a Provider and an Application from the admin interface, then point
+  that app's SSO settings at this server.

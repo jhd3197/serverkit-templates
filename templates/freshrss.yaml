@@ -1,0 +1,75 @@
+id: freshrss
+name: FreshRSS
+version: "1.0"
+description: Free, self-hosted RSS and Atom feed aggregator for following news and websites in one place.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTFhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik00IDRhMTYgMTYgMCAwIDEgMTYgMTYiLz48Y2lyY2xlIGN4PSI1IiBjeT0iMTkiIHI9IjEiLz48L3N2Zz4=
+website: https://freshrss.org
+documentation: https://freshrss.github.io/FreshRSS/
+categories:
+  - news
+  - rss
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the FreshRSS web UI (auto-assigned)
+    type: port
+    default: "80"
+    hidden: true
+  - name: PUID
+    description: User ID for file ownership
+    type: string
+    default: "1000"
+    hidden: true
+  - name: PGID
+    description: Group ID for file ownership
+    type: string
+    default: "1000"
+    hidden: true
+  - name: TZ
+    description: Timezone
+    type: string
+    default: "Etc/UTC"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: FreshRSS Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    freshrss:
+      image: lscr.io/linuxserver/freshrss:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        PUID: "${PUID}"
+        PGID: "${PGID}"
+        TZ: "${TZ}"
+      volumes:
+        - freshrss-config:/config
+      healthcheck:
+        test: ["CMD-SHELL", "curl -f http://127.0.0.1:80/ || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+  volumes:
+    freshrss-config:
+
+post_install: |
+  FreshRSS is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and complete the setup wizard to create your admin account.
+  By default FreshRSS uses its bundled SQLite database (no separate DB needed),
+  with all data stored in the /config volume.

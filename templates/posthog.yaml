@@ -1,0 +1,522 @@
+id: posthog
+name: PostHog
+version: "1.0"
+description: Open-source product analytics with session replay, feature flags, A/B testing, and event autocapture.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+
+website: https://posthog.com
+documentation: https://posthog.com/docs/self-host
+categories:
+  - analytics
+  - business
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the PostHog web UI (auto-assigned)
+    type: port
+    default: "8000"
+    hidden: true
+  - name: POSTHOG_SECRET
+    description: Django secret key used to sign sessions and tokens (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: POSTGRES_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+  - name: OBJECT_STORAGE_ACCESS_KEY_ID
+    description: Access key for the bundled object storage
+    type: string
+    default: "object_storage_root_user"
+    hidden: true
+  - name: OBJECT_STORAGE_SECRET_ACCESS_KEY
+    description: Secret key for the bundled object storage (auto-generated)
+    type: random
+    length: 40
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: PostHog Web UI
+
+requirements:
+  memory: 4GB
+  storage: 20GB
+
+compose:
+  services:
+    web:
+      image: posthog/posthog:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: /compose/start
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        OPT_OUT_CAPTURING: "true"
+        DISABLE_SECURE_SSL_REDIRECT: "true"
+        IS_BEHIND_PROXY: "true"
+        TRUST_ALL_PROXIES: "true"
+        DEPLOYMENT: hobby
+        SITE_URL: "http://localhost:${HTTP_PORT}"
+        SECRET_KEY: "${POSTHOG_SECRET}"
+        ENCRYPTION_SALT_KEYS: "00beef0000beef0000beef0000beef00"
+        DATABASE_URL: "postgres://posthog:${POSTGRES_PASSWORD}@posthog-db:5432/posthog"
+        PGHOST: posthog-db
+        PGUSER: posthog
+        PGPASSWORD: "${POSTGRES_PASSWORD}"
+        CLICKHOUSE_HOST: posthog-clickhouse
+        CLICKHOUSE_DATABASE: posthog
+        CLICKHOUSE_SECURE: "false"
+        CLICKHOUSE_VERIFY: "false"
+        KAFKA_HOSTS: posthog-kafka
+        REDIS_URL: "redis://posthog-redis:6379/"
+        OBJECT_STORAGE_ENABLED: "true"
+        OBJECT_STORAGE_ENDPOINT: "http://posthog-objectstorage:9000"
+        OBJECT_STORAGE_ACCESS_KEY_ID: "${OBJECT_STORAGE_ACCESS_KEY_ID}"
+        OBJECT_STORAGE_SECRET_ACCESS_KEY: "${OBJECT_STORAGE_SECRET_ACCESS_KEY}"
+        OBJECT_STORAGE_BUCKET: posthog
+      depends_on:
+        - posthog-db
+        - posthog-redis
+        - posthog-clickhouse
+        - posthog-kafka
+        - posthog-objectstorage
+
+    worker:
+      image: posthog/posthog:latest
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: ./bin/docker-worker-celery --with-scheduler
+      environment:
+        OPT_OUT_CAPTURING: "true"
+        DISABLE_SECURE_SSL_REDIRECT: "true"
+        IS_BEHIND_PROXY: "true"
+        TRUST_ALL_PROXIES: "true"
+        DEPLOYMENT: hobby
+        SITE_URL: "http://localhost:${HTTP_PORT}"
+        SECRET_KEY: "${POSTHOG_SECRET}"
+        ENCRYPTION_SALT_KEYS: "00beef0000beef0000beef0000beef00"
+        DATABASE_URL: "postgres://posthog:${POSTGRES_PASSWORD}@posthog-db:5432/posthog"
+        PGHOST: posthog-db
+        PGUSER: posthog
+        PGPASSWORD: "${POSTGRES_PASSWORD}"
+        CLICKHOUSE_HOST: posthog-clickhouse
+        CLICKHOUSE_DATABASE: posthog
+        CLICKHOUSE_SECURE: "false"
+        CLICKHOUSE_VERIFY: "false"
+        KAFKA_HOSTS: posthog-kafka
+        REDIS_URL: "redis://posthog-redis:6379/"
+        OBJECT_STORAGE_ENABLED: "true"
+        OBJECT_STORAGE_ENDPOINT: "http://posthog-objectstorage:9000"
+        OBJECT_STORAGE_ACCESS_KEY_ID: "${OBJECT_STORAGE_ACCESS_KEY_ID}"
+        OBJECT_STORAGE_SECRET_ACCESS_KEY: "${OBJECT_STORAGE_SECRET_ACCESS_KEY}"
+        OBJECT_STORAGE_BUCKET: posthog
+      depends_on:
+        - posthog-db
+        - posthog-redis
+        - posthog-clickhouse
+        - posthog-kafka
+        - posthog-objectstorage
+
+    plugins:
+      image: posthog/posthog:latest
+      container_name: ${APP_NAME}-plugins
+      restart: unless-stopped
+      command: ./bin/plugin-server --no-restart-loop
+      environment:
+        DATABASE_URL: "postgres://posthog:${POSTGRES_PASSWORD}@posthog-db:5432/posthog"
+        KAFKA_HOSTS: "posthog-kafka:9092"
+        REDIS_URL: "redis://posthog-redis:6379/"
+        CLICKHOUSE_HOST: posthog-clickhouse
+        CLICKHOUSE_DATABASE: posthog
+        CLICKHOUSE_SECURE: "false"
+        CLICKHOUSE_VERIFY: "false"
+        SITE_URL: "http://localhost:${HTTP_PORT}"
+        SECRET_KEY: "${POSTHOG_SECRET}"
+        ENCRYPTION_SALT_KEYS: "00beef0000beef0000beef0000beef00"
+        OBJECT_STORAGE_ENABLED: "true"
+        OBJECT_STORAGE_ENDPOINT: "http://posthog-objectstorage:9000"
+        OBJECT_STORAGE_ACCESS_KEY_ID: "${OBJECT_STORAGE_ACCESS_KEY_ID}"
+        OBJECT_STORAGE_SECRET_ACCESS_KEY: "${OBJECT_STORAGE_SECRET_ACCESS_KEY}"
+        OBJECT_STORAGE_BUCKET: posthog
+      depends_on:
+        - posthog-db
+        - posthog-redis
+        - posthog-clickhouse
+        - posthog-kafka
+        - posthog-objectstorage
+
+    posthog-db:
+      image: postgres:12-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_USER: posthog
+        POSTGRES_DB: posthog
+        POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      volumes:
+        - posthog-postgres-data:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U posthog"]
+        interval: 10s
+        timeout: 10s
+        retries: 15
+
+    posthog-redis:
+      image: redis:6.2.7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+      command: redis-server --maxmemory-policy allkeys-lru --maxmemory 200mb
+      volumes:
+        - posthog-redis-data:/data
+      healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 10s
+        timeout: 5s
+        retries: 10
+
+    posthog-zookeeper:
+      image: zookeeper:3.7.0
+      container_name: ${APP_NAME}-zookeeper
+      restart: unless-stopped
+      volumes:
+        - posthog-zookeeper-data:/data
+        - posthog-zookeeper-datalog:/datalog
+        - posthog-zookeeper-logs:/logs
+
+    posthog-kafka:
+      image: ghcr.io/posthog/kafka-container:v2.8.2
+      container_name: ${APP_NAME}-kafka
+      restart: unless-stopped
+      depends_on:
+        - posthog-zookeeper
+      environment:
+        KAFKA_BROKER_ID: "1001"
+        KAFKA_CFG_RESERVED_BROKER_MAX_ID: "1001"
+        KAFKA_CFG_LISTENERS: "PLAINTEXT://:9092"
+        KAFKA_CFG_ADVERTISED_LISTENERS: "PLAINTEXT://posthog-kafka:9092"
+        KAFKA_CFG_ZOOKEEPER_CONNECT: "posthog-zookeeper:2181"
+        ALLOW_PLAINTEXT_LISTENER: "yes"
+      volumes:
+        - posthog-kafka-data:/bitnami/kafka
+
+    posthog-clickhouse:
+      image: clickhouse/clickhouse-server:23.11.2.11-alpine
+      container_name: ${APP_NAME}-clickhouse
+      restart: unless-stopped
+      depends_on:
+        - posthog-kafka
+        - posthog-zookeeper
+      ulimits:
+        nofile:
+          soft: 262144
+          hard: 262144
+      volumes:
+        - posthog-clickhouse-data:/var/lib/clickhouse
+
+    posthog-objectstorage:
+      image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+      container_name: ${APP_NAME}-objectstorage
+      restart: unless-stopped
+      environment:
+        MINIO_ROOT_USER: "${OBJECT_STORAGE_ACCESS_KEY_ID}"
+        MINIO_ROOT_PASSWORD: "${OBJECT_STORAGE_SECRET_ACCESS_KEY}"
+      entrypoint: sh
+      command: -c 'mkdir -p /data/posthog && minio server --address ":9000" --console-address ":9001" /data'
+      volumes:
+        - posthog-object-storage:/data
+      healthcheck:
+        test: ["CMD", "mc", "ready", "local"]
+        interval: 10s
+        timeout: 20s
+        retries: 10
+
+  volumes:
+    posthog-postgres-data:
+    posthog-redis-data:
+    posthog-zookeeper-data:
+    posthog-zookeeper-datalog:
+    posthog-zookeeper-logs:
+    posthog-kafka-data:
+    posthog-clickhouse-data:
+    posthog-object-storage:
+
+files:
+  - path: /compose/start
+    mode: 493
+    content: |
+      #!/bin/bash
+      /compose/wait
+      ./bin/migrate
+      ./bin/docker-server
+
+  - path: /compose/wait
+    mode: 493
+    content: |
+      #!/usr/bin/env python3
+
+      import socket
+      import time
+
+      def loop():
+          print("Waiting for ClickHouse and Postgres to be ready")
+          try:
+              with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                  s.connect(('posthog-clickhouse', 9000))
+              print("Clickhouse is ready")
+              with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                  s.connect(('posthog-db', 5432))
+              print("Postgres is ready")
+          except ConnectionRefusedError as e:
+              time.sleep(5)
+              loop()
+
+      loop()
+
+  - path: /docker-entrypoint-initdb.d/init-db.sh
+    mode: 493
+    content: |
+      #!/bin/bash
+      set -e
+
+      # Only relevant inside the ClickHouse container; no-op elsewhere.
+      if [ -d /var/lib/clickhouse ]; then
+        mkdir -p /var/lib/clickhouse/format_schemas
+        cp -r /idl/* /var/lib/clickhouse/format_schemas/
+      fi
+
+  - path: /idl/events_json.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/events_json.json",
+        "title": "events_json",
+        "description": "Event schema that is destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "uuid": { "type": "string" },
+            "event": { "type": "string" },
+            "properties": { "type": "string" },
+            "timestamp": { "type": "number" },
+            "team_id": { "type": "number" },
+            "distinct_id": { "type": "string" },
+            "elements_chain": { "type": "string" },
+            "created_at": { "type": "number" },
+            "person_id": { "type": "string" },
+            "person_created_at": { "type": "number" },
+            "person_properties": { "type": "string" },
+            "group0_properties": { "type": "string" },
+            "group1_properties": { "type": "string" },
+            "group2_properties": { "type": "string" },
+            "group3_properties": { "type": "string" },
+            "group4_properties": { "type": "string" },
+            "group0_created_at": { "type": "number" },
+            "group1_created_at": { "type": "number" },
+            "group2_created_at": { "type": "number" },
+            "group3_created_at": { "type": "number" },
+            "group4_created_at": { "type": "number" }
+        },
+        "required": ["uuid", "event", "properties", "timestamp", "team_id"]
+      }
+
+  - path: /idl/events_dead_letter_queue.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/events_dead_letter_queue.json",
+        "title": "events_dead_letter_queue",
+        "description": "Events that failed to be validated or processed and are sent to the DLQ",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "event_uuid": { "type": "string" },
+            "event": { "type": "string" },
+            "properties": { "type": "string" },
+            "distinct_id": { "type": "string" },
+            "team_id": { "type": "number" },
+            "elements_chain": { "type": "string" },
+            "created_at": { "type": "number" },
+            "ip": { "type": "string" },
+            "site_url": { "type": "string" },
+            "now": { "type": "number" },
+            "raw_payload": { "type": "string" },
+            "error_timestamp": { "type": "number" },
+            "error_location": { "type": "string" },
+            "error": { "type": "string" },
+            "tags": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["raw_payload"]
+      }
+
+  - path: /idl/groups.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/groups.json",
+        "title": "groups",
+        "description": "Groups schema that is destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "group_type_index": { "type": "number" },
+            "group_key": { "type": "string" },
+            "created_at": { "type": "number" },
+            "team_id": { "type": "number" },
+            "group_properties": { "type": "string" }
+        },
+        "required": ["group_type_index", "group_key", "created_at", "team_id", "group_properties"]
+      }
+
+  - path: /idl/person.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/person.json",
+        "title": "person",
+        "description": "Person schema that is destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "created_at": { "type": "number" },
+            "team_id": { "type": "number" },
+            "properties": { "type": "string" },
+            "is_identified": { "type": "boolean" },
+            "is_deleted": { "type": "boolean" },
+            "version": { "type": "number" }
+        },
+        "required": ["id", "created_at", "team_id", "properties", "is_identified", "is_deleted", "version"]
+      }
+
+  - path: /idl/person_distinct_id.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/person_distinct_id.json",
+        "title": "person_distinct_id",
+        "description": "Person distinct id schema that is destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "distinct_id": { "type": "string" },
+            "person_id": { "type": "string" },
+            "team_id": { "type": "number" },
+            "_sign": { "type": "number" },
+            "is_deleted": { "type": "boolean" }
+        },
+        "required": ["distinct_id", "person_id", "team_id", "_sign", "is_deleted"]
+      }
+
+  - path: /idl/person_distinct_id2.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/person_distinct_id2.json",
+        "title": "person_distinct_id2",
+        "description": "Person distinct id2 schema that is destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "distinct_id": { "type": "string" },
+            "person_id": { "type": "string" },
+            "team_id": { "type": "number" },
+            "version": { "type": "number" },
+            "is_deleted": { "type": "boolean" }
+        },
+        "required": ["distinct_id", "person_id", "team_id", "version", "is_deleted"]
+      }
+
+  - path: /idl/plugin_log_entries.json
+    content: |
+      {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "file://posthog/idl/plugin_log_entries.json",
+        "title": "plugin_log_entries",
+        "description": "Plugin log entries that are destined for ClickHouse",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "team_id": { "type": "number" },
+            "plugin_id": { "type": "number" },
+            "plugin_config_id": { "type": "number" },
+            "timestamp": { "type": "number" },
+            "source": { "type": "string" },
+            "type": { "type": "string" },
+            "message": { "type": "string" },
+            "instance_id": { "type": "string" }
+        },
+        "required": ["id", "team_id", "plugin_id", "plugin_config_id", "timestamp", "source", "type", "message", "instance_id"]
+      }
+
+  - path: /etc/clickhouse-server/config.d/clickhouse-config.xml
+    content: |
+      <?xml version="1.0"?>
+      <clickhouse>
+          <format_schema_path>/var/lib/clickhouse/format_schemas/</format_schema_path>
+          <zookeeper>
+              <node>
+                  <host>posthog-zookeeper</host>
+                  <port>2181</port>
+              </node>
+          </zookeeper>
+          <macros>
+              <shard>01</shard>
+              <replica>ch1</replica>
+          </macros>
+          <remote_servers>
+              <posthog>
+                  <shard>
+                      <replica>
+                          <host>posthog-clickhouse</host>
+                          <port>9000</port>
+                      </replica>
+                  </shard>
+              </posthog>
+          </remote_servers>
+          <distributed_ddl>
+              <path>/clickhouse/task_queue/ddl</path>
+          </distributed_ddl>
+      </clickhouse>
+
+  - path: /etc/clickhouse-server/users.d/clickhouse-users.xml
+    content: |
+      <?xml version="1.0"?>
+      <clickhouse>
+          <profiles>
+              <default>
+                  <max_memory_usage>10000000000</max_memory_usage>
+                  <load_balancing>random</load_balancing>
+                  <allow_nondeterministic_mutations>1</allow_nondeterministic_mutations>
+              </default>
+          </profiles>
+          <users>
+              <default>
+                  <password></password>
+                  <networks>
+                      <ip>::/0</ip>
+                  </networks>
+                  <profile>default</profile>
+                  <quota>default</quota>
+              </default>
+          </users>
+      </clickhouse>
+
+post_install: |
+  PostHog is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the URL and complete the first signup. The FIRST account you create
+    sets up the organization and becomes the instance admin.
+
+  Heads up — this is a resource-heavy stack:
+  - It runs the PostHog web app plus a Celery worker and the plugin server,
+    PostgreSQL, Redis, ClickHouse (with ZooKeeper + Kafka for event ingestion),
+    and a built-in S3-compatible object store (used for session recordings).
+  - ClickHouse and Kafka are memory-hungry: give this app at least 4GB of RAM
+    and 20GB of disk. The first start runs database migrations and can take a
+    few minutes before the UI responds.
+
+  For production:
+  - Attach a real domain to this app, then update the web/worker/plugins
+    SITE_URL environment variable (currently http://localhost:${HTTP_PORT})
+    to your public https:// URL. Sign-in links, the tracking snippet, and
+    session replay all depend on SITE_URL matching the address users hit.

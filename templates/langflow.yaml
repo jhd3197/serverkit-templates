@@ -1,0 +1,104 @@
+id: langflow
+name: Langflow
+version: "1.0"
+description: Visual framework for building multi-agent and RAG applications.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiLz48cmVjdCB4PSIxNSIgeT0iMTUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTkgNmg2YTIgMiAwIDAgMSAyIDJ2NyIvPjwvc3ZnPg==
+website: https://www.langflow.org
+documentation: https://docs.langflow.org
+categories:
+  - ai
+  - llm
+  - workflow
+  - rag
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Langflow web UI (auto-assigned)
+    type: port
+    default: "7860"
+    hidden: true
+  - name: LANGFLOW_SUPERUSER
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: LANGFLOW_SUPERUSER_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+  - name: LANGFLOW_SECRET_KEY
+    description: Secret key used to encrypt stored credentials (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Langflow Web UI
+
+requirements:
+  memory: 2GB
+  storage: 4GB
+
+compose:
+  services:
+    langflow:
+      image: langflowai/langflow:1.7.2
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:7860"
+      environment:
+        LANGFLOW_DATABASE_URL: "postgresql://langflow:${DB_PASSWORD}@db:5432/langflow"
+        LANGFLOW_CONFIG_DIR: /app/langflow
+        LANGFLOW_SUPERUSER: "${LANGFLOW_SUPERUSER}"
+        LANGFLOW_SUPERUSER_PASSWORD: "${LANGFLOW_SUPERUSER_PASSWORD}"
+        LANGFLOW_SECRET_KEY: "${LANGFLOW_SECRET_KEY}"
+        LANGFLOW_AUTO_LOGIN: "false"
+        LANGFLOW_HOST: 0.0.0.0
+        PORT: "7860"
+      volumes:
+        - langflow-data:/app/langflow
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "curl -f http://127.0.0.1:7860/health || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: langflow
+        POSTGRES_USER: langflow
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - langflow-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U langflow -d langflow"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    langflow-data:
+    langflow-db:
+
+post_install: |
+  Langflow is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${LANGFLOW_SUPERUSER}
+  - Password: ${LANGFLOW_SUPERUSER_PASSWORD}
+
+  Sign in with the credentials above, then start building your first
+  multi-agent or RAG flow on the visual canvas.

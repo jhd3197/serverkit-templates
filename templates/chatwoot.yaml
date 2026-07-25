@@ -1,0 +1,147 @@
+id: chatwoot
+name: Chatwoot
+version: "1.0"
+description: Open-source customer engagement suite with live chat and a shared inbox.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0Ii8+PGxpbmUgeDE9IjQuOTMiIHkxPSI0LjkzIiB4Mj0iOS4xNyIgeTI9IjkuMTciLz48bGluZSB4MT0iMTQuODMiIHkxPSIxNC44MyIgeDI9IjE5LjA3IiB5Mj0iMTkuMDciLz48bGluZSB4MT0iMTQuODMiIHkxPSI5LjE3IiB4Mj0iMTkuMDciIHkyPSI0LjkzIi8+PGxpbmUgeDE9IjQuOTMiIHkxPSIxOS4wNyIgeDI9IjkuMTciIHkyPSIxNC44MyIvPjwvc3ZnPg==
+website: https://www.chatwoot.com
+documentation: https://www.chatwoot.com/docs/self-hosted/
+categories:
+  - business
+  - support
+  - communication
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Chatwoot web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: SECRET_KEY_BASE
+    description: Rails secret key base used to sign sessions and cookies (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+  - name: REDIS_PASSWORD
+    description: Redis password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Chatwoot Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    rails:
+      image: chatwoot/chatwoot:v3.16.0
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        SECRET_KEY_BASE: "${SECRET_KEY_BASE}"
+        RAILS_ENV: "production"
+        NODE_ENV: "production"
+        INSTALLATION_ENV: "docker"
+        POSTGRES_HOST: "postgres"
+        POSTGRES_DATABASE: "chatwoot"
+        POSTGRES_USERNAME: "chatwoot"
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+        REDIS_URL: "redis://:${REDIS_PASSWORD}@redis:6379"
+        REDIS_PASSWORD: "${REDIS_PASSWORD}"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+        RAILS_LOG_TO_STDOUT: "true"
+      command: ["sh", "-c", "bundle exec rails db:chatwoot_prepare && bundle exec rails s -p 3000 -b 0.0.0.0"]
+      volumes:
+        - chatwoot-storage:/app/storage
+      depends_on:
+        - postgres
+        - redis
+      healthcheck:
+        test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:3000"]
+        interval: 30s
+        timeout: 10s
+        retries: 10
+        start_period: 120s
+
+    sidekiq:
+      image: chatwoot/chatwoot:v3.16.0
+      container_name: ${APP_NAME}-sidekiq
+      restart: unless-stopped
+      environment:
+        SECRET_KEY_BASE: "${SECRET_KEY_BASE}"
+        RAILS_ENV: "production"
+        NODE_ENV: "production"
+        INSTALLATION_ENV: "docker"
+        POSTGRES_HOST: "postgres"
+        POSTGRES_DATABASE: "chatwoot"
+        POSTGRES_USERNAME: "chatwoot"
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+        REDIS_URL: "redis://:${REDIS_PASSWORD}@redis:6379"
+        REDIS_PASSWORD: "${REDIS_PASSWORD}"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+        RAILS_LOG_TO_STDOUT: "true"
+      command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
+      volumes:
+        - chatwoot-storage:/app/storage
+      depends_on:
+        - postgres
+        - redis
+
+    postgres:
+      image: pgvector/pgvector:pg16
+      container_name: ${APP_NAME}-postgres
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: chatwoot
+        POSTGRES_USER: chatwoot
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - chatwoot-postgres:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U chatwoot -d chatwoot"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+      command: redis-server --requirepass ${REDIS_PASSWORD}
+      volumes:
+        - chatwoot-redis:/data
+      healthcheck:
+        test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "PING"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  volumes:
+    chatwoot-storage:
+    chatwoot-postgres:
+    chatwoot-redis:
+
+post_install: |
+  Chatwoot is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and register the first account — this user becomes the
+  super admin of your installation.
+
+  For production:
+  - Set FRONTEND_URL to your real public domain (edit the app's environment),
+    otherwise links in invitations and emails will point to localhost.
+  - Configure SMTP so the app can send invitation and notification emails.

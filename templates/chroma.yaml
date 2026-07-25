@@ -1,0 +1,62 @@
+id: chroma
+name: Chroma
+version: "1.0"
+description: Open-source vector database for embeddings and semantic search in AI and RAG applications.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iNiIgY3k9IjciIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE3IiBjeT0iNiIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOSIgY3k9IjEzIiByPSIxLjUiLz48Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI2IiBjeT0iMTgiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE5IiBjeT0iMTciIHI9IjEuNSIvPjwvc3ZnPg==
+website: https://www.trychroma.com
+documentation: https://docs.trychroma.com
+categories:
+  - ai
+  - database
+  - search
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Chroma HTTP API (auto-assigned)
+    type: port
+    default: "8000"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Chroma HTTP API
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    chroma:
+      image: chromadb/chroma:1.0.15
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        IS_PERSISTENT: "TRUE"
+        PERSIST_DIRECTORY: "/data"
+        ANONYMIZED_TELEMETRY: "FALSE"
+      volumes:
+        - chroma-data:/data
+      healthcheck:
+        test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 20s
+
+  volumes:
+    chroma-data:
+
+post_install: |
+  Chroma is installed and running!
+
+  - API endpoint: http://your-server:${HTTP_PORT}
+  - Heartbeat check: http://your-server:${HTTP_PORT}/api/v2/heartbeat
+  - Data is persisted to the chroma-data volume (/data inside the container).
+
+  Use Chroma as the vector store for your RAG apps. It pairs well with
+  retrieval pipelines wired through Prompture Hub as the embeddings and
+  semantic-search backend.

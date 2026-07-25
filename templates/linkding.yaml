@@ -1,0 +1,67 @@
+id: linkding
+name: linkding
+version: "1.0"
+description: Minimal, fast self-hosted bookmark manager.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==
+website: https://linkding.link
+documentation: https://linkding.link/installation/
+categories:
+  - productivity
+  - bookmarks
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the linkding web UI (auto-assigned)
+    type: port
+    default: "9090"
+    hidden: true
+  - name: ADMIN_USERNAME
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: ADMIN_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: linkding Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    linkding:
+      image: sissbruecker/linkding:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9090"
+      environment:
+        LD_SUPERUSER_NAME: "${ADMIN_USERNAME}"
+        LD_SUPERUSER_PASSWORD: "${ADMIN_PASSWORD}"
+      volumes:
+        - linkding-data:/etc/linkding/data
+      healthcheck:
+        test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9090/health || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    linkding-data:
+
+post_install: |
+  linkding is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${ADMIN_USERNAME}
+  - Password: ${ADMIN_PASSWORD}
+
+  Sign in with the credentials above, then add the browser bookmarklet or
+  extension to start saving bookmarks.

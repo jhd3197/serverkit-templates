@@ -1,0 +1,61 @@
+id: typesense
+name: Typesense
+version: "1.0"
+description: Typo-tolerant search engine optimized for fast, instant search-as-you-type experiences.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==
+website: https://typesense.org
+documentation: https://typesense.org/docs/
+categories:
+  - search
+  - database
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Typesense HTTP API (auto-assigned)
+    type: port
+    default: "8108"
+    hidden: true
+  - name: API_KEY
+    description: Bootstrap API key for Typesense (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Typesense HTTP API
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    typesense:
+      image: typesense/typesense:27.1
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8108"
+      command: ["--data-dir", "/data", "--api-key=${API_KEY}", "--enable-cors"]
+      volumes:
+        - typesense-data:/data
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8108/health"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    typesense-data:
+
+post_install: |
+  Typesense is installed and running!
+
+  - API endpoint: http://your-server:${HTTP_PORT}
+  - API key: ${API_KEY}
+
+  Send the key as the `X-TYPESENSE-API-KEY: ${API_KEY}` header on every request.
+  Use this bootstrap key to create scoped, lower-privilege keys for your apps.

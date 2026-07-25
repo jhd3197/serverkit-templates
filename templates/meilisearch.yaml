@@ -1,0 +1,65 @@
+id: meilisearch
+name: Meilisearch
+version: "1.0"
+description: Lightning-fast, typo-tolerant search engine that many apps rely on for instant full-text search.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==
+website: https://www.meilisearch.com
+documentation: https://www.meilisearch.com/docs
+categories:
+  - search
+  - database
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Meilisearch HTTP API (auto-assigned)
+    type: port
+    default: "7700"
+    hidden: true
+  - name: MASTER_KEY
+    description: Master key protecting the Meilisearch API (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Meilisearch HTTP API
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    meilisearch:
+      image: getmeili/meilisearch:v1.12
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:7700"
+      environment:
+        MEILI_MASTER_KEY: "${MASTER_KEY}"
+        MEILI_ENV: "production"
+        MEILI_NO_ANALYTICS: "true"
+      volumes:
+        - meilisearch-data:/meili_data
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:7700/health"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    meilisearch-data:
+
+post_install: |
+  Meilisearch is installed and running!
+
+  - API endpoint: http://your-server:${HTTP_PORT}
+  - Master key: ${MASTER_KEY}
+
+  Send the master key as the `Authorization: Bearer ${MASTER_KEY}` header on every
+  request. Create scoped API keys from the `/keys` endpoint for your apps instead of
+  sharing the master key directly.

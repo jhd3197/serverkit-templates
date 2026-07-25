@@ -1,0 +1,132 @@
+id: librechat
+name: LibreChat
+version: "1.0"
+description: Open-source multi-model chat UI (OpenAI, Anthropic, Google, local) with conversation search.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDExLjVhOC4zOCA4LjM4IDAgMCAxLS45IDMuOCA4LjUgOC41IDAgMCAxLTcuNiA0LjcgOC4zOCA4LjM4IDAgMCAxLTMuOC0uOUwzIDIxbDEuOS01LjdhOC4zOCA4LjM4IDAgMCAxLS45LTMuOCA4LjUgOC41IDAgMCAxIDQuNy03LjYgOC4zOCA4LjM4IDAgMCAxIDMuOC0uOWguNWE4LjQ4IDguNDggMCAwIDEgOCA4eiIvPjwvc3ZnPg==
+website: https://librechat.ai
+documentation: https://www.librechat.ai/docs
+categories:
+  - ai
+  - llm
+  - chat
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the LibreChat web UI (auto-assigned)
+    type: port
+    default: "3080"
+    hidden: true
+  - name: MEILI_MASTER_KEY
+    description: Master key for the Meilisearch conversation-search backend (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: CREDS_KEY
+    description: 32-byte key used to encrypt stored user credentials (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: CREDS_IV
+    description: 16-byte initialization vector for credential encryption (auto-generated)
+    type: random
+    length: 32
+    hidden: true
+  - name: JWT_SECRET
+    description: Secret used to sign LibreChat access tokens (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: JWT_REFRESH_SECRET
+    description: Secret used to sign LibreChat refresh tokens (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: LibreChat Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    librechat:
+      image: ghcr.io/danny-avila/librechat:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      depends_on:
+        - mongodb
+        - meilisearch
+      ports:
+        - "${HTTP_PORT}:3080"
+      environment:
+        HOST: "0.0.0.0"
+        PORT: "3080"
+        MONGO_URI: "mongodb://mongodb:27017/LibreChat"
+        MEILI_HOST: "http://meilisearch:7700"
+        MEILI_MASTER_KEY: "${MEILI_MASTER_KEY}"
+        CREDS_KEY: "${CREDS_KEY}"
+        CREDS_IV: "${CREDS_IV}"
+        JWT_SECRET: "${JWT_SECRET}"
+        JWT_REFRESH_SECRET: "${JWT_REFRESH_SECRET}"
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3080/health"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+    mongodb:
+      image: mongo:7
+      container_name: ${APP_NAME}-mongodb
+      restart: unless-stopped
+      command: mongod --quiet --logpath /dev/null
+      volumes:
+        - librechat-mongo:/data/db
+      healthcheck:
+        test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+        interval: 15s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+    meilisearch:
+      image: getmeili/meilisearch:v1.12
+      container_name: ${APP_NAME}-meilisearch
+      restart: unless-stopped
+      environment:
+        MEILI_MASTER_KEY: "${MEILI_MASTER_KEY}"
+        MEILI_NO_ANALYTICS: "true"
+      volumes:
+        - librechat-meili:/meili_data
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:7700/health"]
+        interval: 15s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    librechat-mongo:
+    librechat-meili:
+
+post_install: |
+  LibreChat is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the URL and register an account. The FIRST registered user
+    becomes the owner/admin, so sign up right away.
+
+  LibreChat ships with no API keys configured. Add providers from the
+  UI or by editing the librechat.yaml config:
+
+  - OpenAI, Anthropic, and Google are supported out of the box once you
+    add the corresponding API keys.
+  - Any OpenAI-compatible endpoint works too — point LibreChat at
+    Prompture Hub or a LiteLLM proxy as a custom endpoint.
+
+  Conversation search is powered by Meilisearch; chat history is stored
+  in MongoDB. Both run as helper containers in this stack.

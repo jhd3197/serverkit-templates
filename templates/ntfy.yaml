@@ -1,0 +1,66 @@
+id: ntfy
+name: ntfy
+version: "1.0"
+description: Simple HTTP-based pub/sub service that pushes notifications to your phone or desktop via a POST.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE4IDhBNiA2IDAgMCAwIDYgOGMwIDctMyA5LTMgOWgxOHMtMy0yLTMtOXoiLz48cGF0aCBkPSJNMTMuNzMgMjFhMiAyIDAgMCAxLTMuNDYgMCIvPjwvc3ZnPg==
+website: https://ntfy.sh
+documentation: https://docs.ntfy.sh
+categories:
+  - notifications
+  - messaging
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the ntfy web UI and API (auto-assigned)
+    type: port
+    default: "80"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: ntfy Web UI & API
+
+requirements:
+  memory: 128MB
+  storage: 500MB
+
+compose:
+  services:
+    ntfy:
+      image: binwiederhier/ntfy:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: ["serve"]
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        NTFY_BASE_URL: "http://localhost:${HTTP_PORT}"
+        NTFY_BEHIND_PROXY: "true"
+        NTFY_AUTH_FILE: "/var/lib/ntfy/user.db"
+        NTFY_AUTH_DEFAULT_ACCESS: "deny-all"
+        NTFY_CACHE_FILE: "/var/cache/ntfy/cache.db"
+      volumes:
+        - ntfy-cache:/var/cache/ntfy
+        - ntfy-lib:/var/lib/ntfy
+      healthcheck:
+        test: ["CMD-SHELL", "wget -q --tries=1 http://127.0.0.1:80/v1/health -O - | grep -q '\"healthy\":true'"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    ntfy-cache:
+    ntfy-lib:
+
+post_install: |
+  ntfy is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Access is locked down (deny-all) by default. Create an admin user with:
+      docker exec ${APP_NAME} ntfy user add --role=admin <name>
+
+  Then subscribe to a topic in the web UI / mobile app and publish messages with a
+  simple POST: curl -d "Hello" http://your-server:${HTTP_PORT}/mytopic

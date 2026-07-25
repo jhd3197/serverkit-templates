@@ -1,0 +1,113 @@
+id: karakeep
+name: Karakeep
+version: "1.0"
+description: Self-hosted bookmark-everything app (formerly Hoarder) that saves links, notes, and images with AI tagging and full-text search.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==
+website: https://karakeep.app
+documentation: https://docs.karakeep.app
+categories:
+  - productivity
+  - bookmarks
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Karakeep web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: NEXTAUTH_SECRET
+    description: Secret used to sign Karakeep auth sessions (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: MEILI_MASTER_KEY
+    description: Master key for the Meilisearch full-text search backend (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Karakeep Web UI
+
+requirements:
+  memory: 1GB
+  storage: 3GB
+
+compose:
+  services:
+    web:
+      image: ghcr.io/karakeep-app/karakeep:release
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+        NEXTAUTH_URL: "http://localhost:${HTTP_PORT}"
+        NEXTAUTH_URL_INTERNAL: "http://localhost:3000"
+        MEILI_ADDR: "http://meilisearch:7700"
+        MEILI_MASTER_KEY: "${MEILI_MASTER_KEY}"
+        BROWSER_WEB_URL: "http://chrome:9222"
+        DATA_DIR: "/data"
+      volumes:
+        - karakeep-data:/data
+      depends_on:
+        - chrome
+        - meilisearch
+      healthcheck:
+        test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/api/health"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+    chrome:
+      image: gcr.io/zenika-hub/alpine-chrome:123
+      container_name: ${APP_NAME}-chrome
+      restart: unless-stopped
+      command:
+        - "--no-sandbox"
+        - "--disable-gpu"
+        - "--disable-dev-shm-usage"
+        - "--remote-debugging-address=0.0.0.0"
+        - "--remote-debugging-port=9222"
+        - "--hide-scrollbars"
+
+    meilisearch:
+      image: getmeili/meilisearch:v1.12
+      container_name: ${APP_NAME}-meilisearch
+      restart: unless-stopped
+      environment:
+        MEILI_MASTER_KEY: "${MEILI_MASTER_KEY}"
+        MEILI_NO_ANALYTICS: "true"
+      volumes:
+        - karakeep-meili:/meili_data
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:7700/health"]
+        interval: 15s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    karakeep-data:
+    karakeep-meili:
+
+post_install: |
+  Karakeep is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the URL and register the first user account, then sign in to
+    start saving bookmarks, notes, and images.
+
+  Three containers make up this stack: the web app, a headless Chrome
+  used to fetch and screenshot pages, and Meilisearch for full-text
+  search.
+
+  AI-based automatic tagging is optional. To enable it, add an inference
+  endpoint via environment variables — either an OpenAI API key
+  (OPENAI_API_KEY) or a local/self-hosted OpenAI-compatible endpoint
+  such as Ollama or Prompture Hub (OPENAI_BASE_URL + a model name in
+  INFERENCE_TEXT_MODEL). Restart the web container after changing them.

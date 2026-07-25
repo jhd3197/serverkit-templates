@@ -1,0 +1,125 @@
+id: paperless-ngx
+name: Paperless-ngx
+version: "1.0"
+description: Document management system that scans, OCRs, indexes and archives your documents into a searchable online archive.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSIvPjwvc3ZnPg==
+website: https://docs.paperless-ngx.com
+documentation: https://docs.paperless-ngx.com/configuration/
+categories:
+  - documents
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Paperless-ngx web UI (auto-assigned)
+    type: port
+    default: "8000"
+    hidden: true
+  - name: ADMIN_USERNAME
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: ADMIN_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+  - name: SECRET_KEY
+    description: Secret key used to sign sessions and tokens (auto-generated)
+    type: random
+    length: 64
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Paperless-ngx Web UI
+
+requirements:
+  memory: 1GB
+  storage: 5GB
+
+compose:
+  services:
+    paperless:
+      image: ghcr.io/paperless-ngx/paperless-ngx:2.13.5
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        PAPERLESS_REDIS: "redis://broker:6379"
+        PAPERLESS_DBHOST: "db"
+        PAPERLESS_DBNAME: "paperless"
+        PAPERLESS_DBUSER: "paperless"
+        PAPERLESS_DBPASS: "${DB_PASSWORD}"
+        PAPERLESS_SECRET_KEY: "${SECRET_KEY}"
+        PAPERLESS_ADMIN_USER: "${ADMIN_USERNAME}"
+        PAPERLESS_ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+        PAPERLESS_TIME_ZONE: "Etc/UTC"
+        PAPERLESS_OCR_LANGUAGE: "eng"
+      volumes:
+        - paperless-data:/usr/src/paperless/data
+        - paperless-media:/usr/src/paperless/media
+        - paperless-export:/usr/src/paperless/export
+        - paperless-consume:/usr/src/paperless/consume
+      depends_on:
+        - broker
+        - db
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "--max-time", "5", "http://127.0.0.1:8000/"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    broker:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-broker
+      restart: unless-stopped
+      volumes:
+        - paperless-redis:/data
+      healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: paperless
+        POSTGRES_USER: paperless
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - paperless-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U paperless -d paperless"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    paperless-data:
+    paperless-media:
+    paperless-export:
+    paperless-consume:
+    paperless-redis:
+    paperless-db:
+
+post_install: |
+  Paperless-ngx is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${ADMIN_USERNAME}
+  - Password: ${ADMIN_PASSWORD}
+
+  Sign in with the credentials above. Drop files into the consume folder
+  (volume paperless-consume) and Paperless will OCR, index and archive them
+  automatically. First-time indexing can take a minute or two to warm up.

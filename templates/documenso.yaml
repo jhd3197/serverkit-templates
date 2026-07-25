@@ -1,0 +1,138 @@
+id: documenso
+name: Documenso
+version: "1.0"
+description: Open-source document signing platform for sending and signing documents online.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE5bDctNyAzIDMtNyA3LTMtM3oiLz48cGF0aCBkPSJNMTggMTNsLTEuNS03LjVMMiAybDMuNSAxNC41TDEzIDE4bDUtNXoiLz48cGF0aCBkPSJNMiAybDcuNTg2IDcuNTg2Ii8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMiIvPjwvc3ZnPg==
+website: https://documenso.com
+documentation: https://docs.documenso.com
+categories:
+  - business
+  - documents
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Documenso web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: NEXTAUTH_SECRET
+    description: Secret used to sign authentication sessions (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: ENCRYPTION_KEY
+    description: Primary encryption key for stored secrets (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: ENCRYPTION_SECONDARY_KEY
+    description: Secondary encryption key for key rotation (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Documenso Web UI
+
+requirements:
+  memory: 2GB
+  storage: 4GB
+
+compose:
+  services:
+    documenso:
+      image: documenso/documenso:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+        NEXT_PRIVATE_ENCRYPTION_KEY: "${ENCRYPTION_KEY}"
+        NEXT_PRIVATE_ENCRYPTION_SECONDARY_KEY: "${ENCRYPTION_SECONDARY_KEY}"
+        NEXTAUTH_URL: "http://localhost:${HTTP_PORT}"
+        NEXT_PUBLIC_WEBAPP_URL: "http://localhost:${HTTP_PORT}"
+        NEXT_PRIVATE_DATABASE_URL: "postgresql://documenso:${DB_PASSWORD}@db:5432/documenso"
+        NEXT_PRIVATE_DIRECT_DATABASE_URL: "postgresql://documenso:${DB_PASSWORD}@db:5432/documenso"
+        NEXT_PRIVATE_SMTP_TRANSPORT: "smtp-auth"
+        NEXT_PRIVATE_SMTP_HOST: ""
+        NEXT_PRIVATE_SMTP_PORT: ""
+        NEXT_PRIVATE_SMTP_USERNAME: ""
+        NEXT_PRIVATE_SMTP_PASSWORD: ""
+        NEXT_PRIVATE_SMTP_FROM_NAME: "Documenso"
+        NEXT_PRIVATE_SMTP_FROM_ADDRESS: ""
+        NEXT_PRIVATE_SIGNING_TRANSPORT: "local"
+        NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH: "/opt/documenso/cert.p12"
+      volumes:
+        - documenso-data:/opt/documenso
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:3000/ || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: documenso
+        POSTGRES_USER: documenso
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - documenso-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U documenso -d documenso"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    documenso-data:
+    documenso-db:
+
+post_install: |
+  Documenso is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Create your admin account on first visit by signing up.
+
+  IMPORTANT — signing certificate required:
+  Documenso needs a PKCS#12 (.p12) signing certificate to seal signed
+  documents. It expects the file at /opt/documenso/cert.p12 inside the
+  container (the documenso-data volume). Until you provide one, document
+  signing will fail.
+
+  Generate a self-signed certificate and copy it into the data volume:
+
+    # 1) Generate a private key and self-signed cert (valid 1 year)
+    openssl genrsa -out private.key 2048
+    openssl req -new -x509 -key private.key -out certificate.crt -days 365 \
+      -subj "/CN=Documenso/O=YourOrg"
+
+    # 2) Bundle them into a PKCS#12 file (set/remember the passphrase)
+    openssl pkcs12 -export -out cert.p12 \
+      -inkey private.key -in certificate.crt -legacy \
+      -passout pass:changeme
+
+    # 3) Copy the cert into the running container's data volume
+    docker cp cert.p12 ${APP_NAME}:/opt/documenso/cert.p12
+
+  If you set a passphrase in step 2, also set the environment variable
+  NEXT_PRIVATE_SIGNING_LOCAL_FILE_PASSPHRASE to that value and recreate
+  the container.
+
+  SMTP for email delivery (invites, signing notifications) is left blank.
+  Fill in NEXT_PRIVATE_SMTP_HOST / PORT / USERNAME / PASSWORD /
+  FROM_ADDRESS to enable outgoing email.

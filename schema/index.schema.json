@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/jhd3197/serverkit-templates/main/schema/index.schema.json",
+  "title": "ServerKit template registry index",
+  "description": "Catalog of one-click app templates. ServerKit fetches this document from <repo_url>/index.json and resolves each template on demand from <repo_url>/templates/<id>.yaml.",
+  "type": "object",
+  "required": ["name", "schema_version", "templates"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Human-readable repository name, shown beside the templates it contributes."
+    },
+    "schema_version": {
+      "enum": [1],
+      "description": "1 = initial registry schema."
+    },
+    "updated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Date of the last index change (YYYY-MM-DD)."
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of entries in `templates`. Generated; validated for agreement."
+    },
+    "templates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/template" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "template": {
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Stable slug. MUST equal the filename stem of templates/<id>.yaml — the panel builds the download URL from it."
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name shown on the catalog card."
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the UPSTREAM APPLICATION (e.g. \"1.23\" for Uptime Kuma), not of this template. See `revision`."
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Revision of the TEMPLATE ITSELF, bumped for a compose/port/healthcheck fix that ships no new upstream version. RESERVED: current panels compare `version` for update detection and ignore this field, so bumping it alone will not yet prompt an update."
+        },
+        "description": {
+          "type": "string",
+          "description": "One-line summary for the catalog card."
+        },
+        "icon": {
+          "type": "string",
+          "description": "https URL or data: URI for the card icon.",
+          "pattern": "^(https://|data:image/)"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "description": "Free-form lowercase tags used for catalog filtering. Deliberately not an enum — the catalog spans ~100 categories and new apps coin new ones."
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 of templates/<id>.yaml. Not yet verified panel-side; published so verification can be enabled without a reindex, and so a diff names exactly which templates changed."
+        }
+      }
+    }
+  }
+}

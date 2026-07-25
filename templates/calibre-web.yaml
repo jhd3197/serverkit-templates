@@ -1,0 +1,79 @@
+id: calibre-web
+name: Calibre-Web
+version: "1.0"
+description: Clean web interface for browsing, reading, and downloading books from a Calibre ebook library.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCIvPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ii8+PC9zdmc+
+website: https://github.com/janeczku/calibre-web
+documentation: https://github.com/linuxserver/docker-calibre-web
+categories:
+  - media
+  - ebooks
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Calibre-Web web UI (auto-assigned)
+    type: port
+    default: "8083"
+    hidden: true
+  - name: PUID
+    description: User ID for file ownership
+    type: string
+    default: "1000"
+    hidden: true
+  - name: PGID
+    description: Group ID for file ownership
+    type: string
+    default: "1000"
+    hidden: true
+  - name: TZ
+    description: Timezone
+    type: string
+    default: "Etc/UTC"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Calibre-Web Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    calibre-web:
+      image: lscr.io/linuxserver/calibre-web:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8083"
+      environment:
+        PUID: "${PUID}"
+        PGID: "${PGID}"
+        TZ: "${TZ}"
+      volumes:
+        - calibre-web-config:/config
+        - calibre-web-books:/books
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://127.0.0.1:8083"]
+        interval: 30s
+        timeout: 20s
+        retries: 10
+        start_period: 30s
+
+  volumes:
+    calibre-web-config:
+    calibre-web-books:
+
+post_install: |
+  Calibre-Web is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Default login: admin / admin123 (change it immediately)
+
+  Calibre-Web reads an existing Calibre library, not raw files. Place a Calibre
+  library containing a metadata.db file into the /books volume (or create one
+  with the desktop Calibre app), then on first run point Calibre-Web at
+  /books as the database location.

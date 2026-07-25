@@ -1,0 +1,97 @@
+id: firefly-iii
+name: Firefly III
+version: "1.0"
+description: Self-hosted personal finance manager for budgeting, accounts, and money tracking.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMSIgeDI9IjEyIiB5Mj0iMjMiLz48cGF0aCBkPSJNMTcgNUg5LjVhMy41IDMuNSAwIDAgMCAwIDdoNWEzLjUgMy41IDAgMCAxIDAgN0g2Ii8+PC9zdmc+
+website: https://www.firefly-iii.org
+documentation: https://docs.firefly-iii.org
+categories:
+  - finance
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Firefly III web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+  - name: APP_KEY
+    description: Application encryption key, exactly 32 characters (auto-generated)
+    type: random
+    length: 32
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Firefly III Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    app:
+      image: fireflyiii/core:version-6.1.21
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        APP_KEY: "${APP_KEY}"
+        APP_URL: "http://localhost"
+        TZ: "Etc/UTC"
+        DB_CONNECTION: "pgsql"
+        DB_HOST: "db"
+        DB_PORT: "5432"
+        DB_DATABASE: "firefly"
+        DB_USERNAME: "firefly"
+        DB_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - firefly-iii-upload:/var/www/html/storage/upload
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "curl -f http://127.0.0.1:8080 || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: firefly
+        POSTGRES_USER: firefly
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - firefly-iii-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U firefly -d firefly"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    firefly-iii-upload:
+    firefly-iii-db:
+
+post_install: |
+  Firefly III is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and register the first user to create your administrator
+  account, then start adding asset accounts and budgets.
+
+  Tip: to enable recurring transactions and other scheduled jobs later, set a
+  STATIC_CRON_TOKEN environment variable and call the cron endpoint on a
+  schedule (see the documentation for details).

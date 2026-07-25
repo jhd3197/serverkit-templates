@@ -1,0 +1,50 @@
+id: uptime-kuma
+name: Uptime Kuma
+version: "1.23"
+description: A fancy self-hosted monitoring tool for websites and services
+icon: https://serverkit.ai/imgs/template-icons/uptime-kuma.svg
+categories:
+  - monitoring
+  - devops
+website: https://uptime.kuma.pet
+documentation: https://github.com/louislam/uptime-kuma/wiki
+
+variables:
+  - name: HTTP_PORT
+    type: port
+    default: "3001"
+    hidden: true
+    description: Port for web interface (auto-assigned if not specified)
+
+compose:
+  services:
+    app:
+      image: louislam/uptime-kuma:1
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3001"
+      volumes:
+        - data:/app/data
+      dns:
+        - 1.1.1.1
+        - 8.8.8.8
+
+  volumes:
+    data:
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Web Interface
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+post_install: |
+  Uptime Kuma is now running!
+
+  Access the web interface at: http://your-server:${HTTP_PORT}
+
+  First-time setup will ask you to create an admin account.

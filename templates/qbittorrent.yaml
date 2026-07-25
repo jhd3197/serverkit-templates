@@ -1,0 +1,70 @@
+id: qbittorrent
+name: qBittorrent
+version: "1.0"
+description: Open-source BitTorrent client with a full-featured web UI
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiLz48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiLz48L3N2Zz4=
+website: https://www.qbittorrent.org
+documentation: https://docs.linuxserver.io/images/docker-qbittorrent/
+categories:
+  - media
+  - downloads
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the qBittorrent web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: qBittorrent Web UI
+
+requirements:
+  memory: 512MB
+  storage: 5GB
+
+compose:
+  services:
+    qbittorrent:
+      image: lscr.io/linuxserver/qbittorrent:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+        WEBUI_PORT: "8080"
+      volumes:
+        - qbittorrent-config:/config
+        - qbittorrent-downloads:/downloads
+      networks:
+        - default
+        - media
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+  volumes:
+    qbittorrent-config:
+    qbittorrent-downloads:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  qBittorrent is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - On first start a temporary admin password is generated and printed to the
+    container logs. View it with:  docker logs ${APP_NAME}
+    Log in as "admin" with that password, then change it under
+    Tools > Options > Web UI.
+  - This app shares the "serverkit-media" Docker network, so the PVR apps
+    (Prowlarr, Sonarr, Radarr) can reach qBittorrent directly by its container
+    name — no extra networking setup required.

@@ -1,0 +1,80 @@
+id: flowise
+name: Flowise
+version: "1.0"
+description: Low-code drag-and-drop builder for LLM agents and chains.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiLz48cmVjdCB4PSIxNSIgeT0iMTUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTkgNmg2YTIgMiAwIDAgMSAyIDJ2NyIvPjwvc3ZnPg==
+website: https://flowiseai.com
+documentation: https://docs.flowiseai.com
+categories:
+  - ai
+  - llm
+  - workflow
+  - low-code
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Flowise web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: FLOWISE_USERNAME
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: FLOWISE_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+  - name: FLOWISE_SECRETKEY_OVERWRITE
+    description: Secret key used to encrypt stored credentials (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Flowise Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    flowise:
+      image: flowiseai/flowise:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        PORT: "3000"
+        FLOWISE_USERNAME: "${FLOWISE_USERNAME}"
+        FLOWISE_PASSWORD: "${FLOWISE_PASSWORD}"
+        DATABASE_PATH: /root/.flowise
+        APIKEY_PATH: /root/.flowise
+        SECRETKEY_PATH: /root/.flowise
+        LOG_PATH: /root/.flowise/logs
+        FLOWISE_SECRETKEY_OVERWRITE: "${FLOWISE_SECRETKEY_OVERWRITE}"
+      volumes:
+        - flowise-data:/root/.flowise
+      healthcheck:
+        test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000 || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+  volumes:
+    flowise-data:
+
+post_install: |
+  Flowise is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${FLOWISE_USERNAME}
+  - Password: ${FLOWISE_PASSWORD}
+
+  Sign in with the credentials above, then start building your first
+  agent or chain from the drag-and-drop canvas.

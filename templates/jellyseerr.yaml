@@ -1,0 +1,64 @@
+id: jellyseerr
+name: Jellyseerr
+version: "1.0"
+description: Media request and discovery portal for Jellyfin/Plex and the PVR apps
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+
+website: https://github.com/Fallenbagel/jellyseerr
+documentation: https://docs.jellyseerr.dev
+categories:
+  - media
+  - automation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Jellyseerr web UI (auto-assigned)
+    type: port
+    default: "5055"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Jellyseerr Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    jellyseerr:
+      image: fallenbagel/jellyseerr:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5055"
+      environment:
+        LOG_LEVEL: "info"
+        TZ: "Etc/UTC"
+      volumes:
+        - jellyseerr-config:/app/config
+      networks:
+        - default
+        - media
+      healthcheck:
+        test: ["CMD", "curl", "-fsS", "http://127.0.0.1:5055/api/v1/status"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+  volumes:
+    jellyseerr-config:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  Jellyseerr is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the web UI to run the setup wizard: connect your Jellyfin/Plex server,
+    then link Sonarr and Radarr so approved requests are sent to them.
+  - This app shares the "serverkit-media" Docker network, so Jellyseerr can reach
+    Sonarr, Radarr, and the other media apps directly by their container names —
+    no extra networking setup required.

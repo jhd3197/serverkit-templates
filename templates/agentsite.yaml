@@ -1,0 +1,51 @@
+id: agentsite
+name: AgentSite
+version: "1.0"
+kind: repo
+description: AI-powered website builder with multi-agent orchestration, deployed straight from its Git repository.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEwIiByeD0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iNSIgcj0iMiIvPjxwYXRoIGQ9Ik0xMiA3djQiLz48cGF0aCBkPSJNOCAxNmguMDEiLz48cGF0aCBkPSJNMTYgMTZoLjAxIi8+PC9zdmc+
+categories:
+  - ai
+  - website
+  - deployment
+website: https://github.com/jhd3197/AgentSite
+documentation: https://github.com/jhd3197/AgentSite#readme
+
+# Repo templates are not one-click compose stacks — they carry a `repo` block and
+# are deployed through the New Service wizard, which inspects the live repository
+# for manifests. The hints below are only used as a labeled fallback when the
+# public repo cannot be inspected.
+repo:
+  url: https://github.com/jhd3197/AgentSite.git
+  branch: main
+  service_name: agentsite
+  app_type: docker
+  build_method: dockerfile
+  port: 6391
+  dockerfile_path: Dockerfile
+  healthcheck_path: /api/health
+  strategy: docker_compose
+  manifest_files:
+    - docker-compose.yml
+    - render.yaml
+    - railway.json
+    - app.json
+  env:
+    - key: OPENAI_API_KEY
+      required: true
+      secret: true
+    - key: CLAUDE_API_KEY
+      required: true
+      secret: true
+    - key: GOOGLE_API_KEY
+      required: true
+      secret: true
+    - key: GROQ_API_KEY
+      required: true
+      secret: true
+    - key: GROK_API_KEY
+      required: true
+      secret: true
+    - key: OPENROUTER_API_KEY
+      required: true
+      secret: true

@@ -1,0 +1,1368 @@
+{
+  "name": "serverkit-official",
+  "schema_version": 1,
+  "updated": "2026-07-25",
+  "count": 106,
+  "templates": [
+    {
+      "id": "actualbudget",
+      "name": "Actual Budget",
+      "version": "1.0",
+      "description": "Privacy-first personal budgeting app using envelope budgeting with optional bank sync.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDEyVjdINWEyIDIgMCAwIDEgMC00aDE0djQiLz48cGF0aCBkPSJNMyA1djE0YTIgMiAwIDAgMCAyIDJoMTZ2LTUiLz48cGF0aCBkPSJNMTggMTJhMiAyIDAgMCAwIDAgNGg0di00eiIvPjwvc3ZnPg==",
+      "categories": [
+        "finance",
+        "productivity"
+      ],
+      "sha256": "99623bfbd7370ba8dee84f86fcbb20dbf230f837223ba3c626dc23ff2fc23c63"
+    },
+    {
+      "id": "agentsite",
+      "name": "AgentSite",
+      "version": "1.0",
+      "description": "AI-powered website builder with multi-agent orchestration, deployed straight from its Git repository.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEwIiByeD0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iNSIgcj0iMiIvPjxwYXRoIGQ9Ik0xMiA3djQiLz48cGF0aCBkPSJNOCAxNmguMDEiLz48cGF0aCBkPSJNMTYgMTZoLjAxIi8+PC9zdmc+",
+      "categories": [
+        "ai",
+        "website",
+        "deployment"
+      ],
+      "sha256": "f0bf5a8424321fd4920a1d12e0dc471e1d33070ae5a55efe1a9e8e52ab12fb60"
+    },
+    {
+      "id": "anythingllm",
+      "name": "AnythingLLM",
+      "version": "1.0",
+      "description": "All-in-one private ChatGPT-style app with built-in RAG, AI agents, and document workspaces.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "chat",
+        "rag"
+      ],
+      "sha256": "925bc8d68236be20d28bf991660d1f773c6d3ed11c8aa51bcd26e1798cf6f546"
+    },
+    {
+      "id": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "version": "1.0",
+      "description": "Self-hosted server for managing and streaming your audiobooks, podcasts, and ebooks.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgMTh2LTZhOSA5IDAgMCAxIDE4IDB2NiIvPjxwYXRoIGQ9Ik0yMSAxOWEyIDIgMCAwIDEtMiAyaC0xYTIgMiAwIDAgMS0yLTJ2LTNhMiAyIDAgMCAxIDItMmgzek0zIDE5YTIgMiAwIDAgMCAyIDJoMWEyIDIgMCAwIDAgMi0ydi0zYTIgMiAwIDAgMC0yLTJIM3oiLz48L3N2Zz4=",
+      "categories": [
+        "media",
+        "audiobooks"
+      ],
+      "sha256": "f474bb187b8db79a9ba5294ce872e79148709be1a2f27014f252bf82ee633906"
+    },
+    {
+      "id": "authelia",
+      "name": "Authelia",
+      "version": "4.37",
+      "description": "Authentication and authorization server providing 2FA and SSO",
+      "icon": "https://serverkit.ai/imgs/template-icons/authelia.png",
+      "categories": [
+        "security",
+        "authentication",
+        "sso"
+      ],
+      "sha256": "b87af13f9a03ff454df6248b5f2e9ef4f8fb75de95567840401cbcca3fb8fbf6"
+    },
+    {
+      "id": "authentik",
+      "name": "Authentik",
+      "version": "1.0",
+      "description": "Open-source identity provider for single sign-on with OIDC, SAML, and LDAP.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==",
+      "categories": [
+        "security",
+        "identity",
+        "sso"
+      ],
+      "sha256": "e60cd3be0d5b064d14a7bde6f5dd6b84afc9efbf0e9490b4e8cf2a334b879ba1"
+    },
+    {
+      "id": "beszel",
+      "name": "Beszel",
+      "version": "1.0",
+      "description": "Lightweight server monitoring hub with historical metrics and alerts.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==",
+      "categories": [
+        "monitoring"
+      ],
+      "sha256": "4afb5e5555b1c3cf0e5bc8e165a7a6de36b1be9d20aaaee294cf810632557754"
+    },
+    {
+      "id": "bookstack",
+      "name": "BookStack",
+      "version": "23.12",
+      "description": "Simple, self-hosted platform for organizing and storing information",
+      "icon": "https://serverkit.ai/imgs/template-icons/bookstack.png",
+      "categories": [
+        "productivity",
+        "wiki",
+        "documentation"
+      ],
+      "sha256": "e1dd3790545e2712de84434e73441ed5f38caf6032f3888f5bcea9198e95c5e2"
+    },
+    {
+      "id": "caddy",
+      "name": "Caddy",
+      "version": "2.7",
+      "description": "Fast, multi-platform web server with automatic HTTPS",
+      "icon": "https://serverkit.ai/imgs/template-icons/caddy.svg",
+      "categories": [
+        "networking",
+        "proxy",
+        "ssl"
+      ],
+      "sha256": "4f28b17e6ddb38e8250e2e931d71d187b562c92621b446cec2d5e58483de40da"
+    },
+    {
+      "id": "calibre-web",
+      "name": "Calibre-Web",
+      "version": "1.0",
+      "description": "Clean web interface for browsing, reading, and downloading books from a Calibre ebook library.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCIvPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ii8+PC9zdmc+",
+      "categories": [
+        "media",
+        "ebooks",
+        "productivity"
+      ],
+      "sha256": "f3b97ba1acd3d50a707ad513ad9e344ae26e4172b8e5c170b3cca45dcaa3abfb"
+    },
+    {
+      "id": "chatwoot",
+      "name": "Chatwoot",
+      "version": "1.0",
+      "description": "Open-source customer engagement suite with live chat and a shared inbox.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0Ii8+PGxpbmUgeDE9IjQuOTMiIHkxPSI0LjkzIiB4Mj0iOS4xNyIgeTI9IjkuMTciLz48bGluZSB4MT0iMTQuODMiIHkxPSIxNC44MyIgeDI9IjE5LjA3IiB5Mj0iMTkuMDciLz48bGluZSB4MT0iMTQuODMiIHkxPSI5LjE3IiB4Mj0iMTkuMDciIHkyPSI0LjkzIi8+PGxpbmUgeDE9IjQuOTMiIHkxPSIxOS4wNyIgeDI9IjkuMTciIHkyPSIxNC44MyIvPjwvc3ZnPg==",
+      "categories": [
+        "business",
+        "support",
+        "communication"
+      ],
+      "sha256": "83cbde2e607a773c63058cae756080441bf1cee22fa3112325403445d2816b1e"
+    },
+    {
+      "id": "chroma",
+      "name": "Chroma",
+      "version": "1.0",
+      "description": "Open-source vector database for embeddings and semantic search in AI and RAG applications.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iNiIgY3k9IjciIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE3IiBjeT0iNiIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOSIgY3k9IjEzIiByPSIxLjUiLz48Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI2IiBjeT0iMTgiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE5IiBjeT0iMTciIHI9IjEuNSIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "database",
+        "search"
+      ],
+      "sha256": "7d7cea9499d53dc3c920a750b57f751f32a3d92db189a2821a0f815162501eab"
+    },
+    {
+      "id": "code-server",
+      "name": "Code Server",
+      "version": "4.20",
+      "description": "VS Code in the browser with full IDE features and extensions support",
+      "icon": "https://serverkit.ai/imgs/template-icons/code-server.ico",
+      "categories": [
+        "development",
+        "ide",
+        "productivity"
+      ],
+      "sha256": "6719400fa699b4121922171a4e2a03fdebfa10f7135246bbbe4afbe4c2b5aeff"
+    },
+    {
+      "id": "crowdsec",
+      "name": "CrowdSec",
+      "version": "1.6",
+      "description": "Collaborative security engine for detecting and blocking threats",
+      "icon": "https://serverkit.ai/imgs/template-icons/crowdsec.png",
+      "categories": [
+        "security",
+        "firewall",
+        "threat-detection"
+      ],
+      "sha256": "4af7fd29d18aec7dbcc83a50dc9f36db33ef78b71380e991686add3769d966af"
+    },
+    {
+      "id": "directus",
+      "name": "Directus",
+      "version": "10.8",
+      "description": "Open-source data platform with instant REST and GraphQL API for any SQL database",
+      "icon": "https://serverkit.ai/imgs/template-icons/directus.ico",
+      "categories": [
+        "cms",
+        "headless",
+        "api",
+        "database"
+      ],
+      "sha256": "7e09384da842746dddcef5bb0afec2d0a59ff68bd5fb7b78b64a31afb4217f4a"
+    },
+    {
+      "id": "documenso",
+      "name": "Documenso",
+      "version": "1.0",
+      "description": "Open-source document signing platform for sending and signing documents online.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE5bDctNyAzIDMtNyA3LTMtM3oiLz48cGF0aCBkPSJNMTggMTNsLTEuNS03LjVMMiAybDMuNSAxNC41TDEzIDE4bDUtNXoiLz48cGF0aCBkPSJNMiAybDcuNTg2IDcuNTg2Ii8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMiIvPjwvc3ZnPg==",
+      "categories": [
+        "business",
+        "documents",
+        "productivity"
+      ],
+      "sha256": "b999b932513b63cd09c899641ad3f1734a31de6912b5dbb965501174405c3111"
+    },
+    {
+      "id": "drone",
+      "name": "Drone CI",
+      "version": "2.22",
+      "description": "Container-native continuous integration platform with simple pipeline configuration",
+      "icon": "https://serverkit.ai/imgs/template-icons/drone.svg",
+      "categories": [
+        "devops",
+        "ci-cd",
+        "docker"
+      ],
+      "sha256": "b26ea68e0405fe64cae897f0ab77ac8f137e91252c3728bfc3093a2983e556a5"
+    },
+    {
+      "id": "duplicati",
+      "name": "Duplicati",
+      "version": "2.0",
+      "description": "Free backup software to store encrypted backups online",
+      "icon": "https://serverkit.ai/imgs/template-icons/duplicati.png",
+      "categories": [
+        "storage",
+        "backup",
+        "encryption"
+      ],
+      "sha256": "f8cc0bbee211e67b9b8d9340a598e25f14fae093dfa8ae782f012dd6a2d94ecb"
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "version": "0.17",
+      "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
+      "icon": "https://serverkit.ai/imgs/template-icons/excalidraw.png",
+      "categories": [
+        "productivity",
+        "diagrams",
+        "whiteboard"
+      ],
+      "sha256": "a2f9313f8801bce4e326eb69c0da6d5c9b621a469b5c79af5e454c32053af851"
+    },
+    {
+      "id": "filebrowser",
+      "name": "File Browser",
+      "version": "2.27",
+      "description": "Web-based file manager with upload, download, and file sharing features",
+      "icon": "https://serverkit.ai/imgs/template-icons/filebrowser.svg",
+      "categories": [
+        "storage",
+        "files",
+        "management"
+      ],
+      "sha256": "3c730731eb8ad45ad30f7a0c0c9265350f788d650196dee7b8d23efdbe95fde7"
+    },
+    {
+      "id": "firefly-iii",
+      "name": "Firefly III",
+      "version": "1.0",
+      "description": "Self-hosted personal finance manager for budgeting, accounts, and money tracking.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMSIgeDI9IjEyIiB5Mj0iMjMiLz48cGF0aCBkPSJNMTcgNUg5LjVhMy41IDMuNSAwIDAgMCAwIDdoNWEzLjUgMy41IDAgMCAxIDAgN0g2Ii8+PC9zdmc+",
+      "categories": [
+        "finance",
+        "productivity"
+      ],
+      "sha256": "3df4f32c8443456ad5e7a581b5a72c36586f985b0a478b26451bb0360142bd5b"
+    },
+    {
+      "id": "flask-hello-world",
+      "name": "Flask - Hello World",
+      "version": "1.0",
+      "description": "Simple Flask app for testing and debugging. Shows server info, port, and connection status. No database needed.",
+      "icon": "https://serverkit.ai/imgs/template-icons/flask-hello-world.ico",
+      "categories": [
+        "development",
+        "api",
+        "testing"
+      ],
+      "sha256": "7300794a0428fd0a984593bb67db02bcc4b535701d8ae8daa6ee51a81abcf980"
+    },
+    {
+      "id": "flowise",
+      "name": "Flowise",
+      "version": "1.0",
+      "description": "Low-code drag-and-drop builder for LLM agents and chains.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiLz48cmVjdCB4PSIxNSIgeT0iMTUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTkgNmg2YTIgMiAwIDAgMSAyIDJ2NyIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "workflow",
+        "low-code"
+      ],
+      "sha256": "f2853ecaa73883fef19e23190b93618b1436a8ec73f55158803e72fe8a5b1d46"
+    },
+    {
+      "id": "freshrss",
+      "name": "FreshRSS",
+      "version": "1.0",
+      "description": "Free, self-hosted RSS and Atom feed aggregator for following news and websites in one place.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTFhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik00IDRhMTYgMTYgMCAwIDEgMTYgMTYiLz48Y2lyY2xlIGN4PSI1IiBjeT0iMTkiIHI9IjEiLz48L3N2Zz4=",
+      "categories": [
+        "news",
+        "rss",
+        "productivity"
+      ],
+      "sha256": "e86be9d67cf0bd0fd111fc22889b9da06f9752cdf7b9d327bb226765c939a0a1"
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "version": "5.75",
+      "description": "Professional publishing platform for blogs and newsletters",
+      "icon": "https://serverkit.ai/imgs/template-icons/ghost.ico",
+      "categories": [
+        "cms",
+        "blog",
+        "publishing"
+      ],
+      "sha256": "4d5670c9871a75d3b3cce4b153cc64ac3612da2b162f1ba762fc3857b243dcee"
+    },
+    {
+      "id": "gitea",
+      "name": "Gitea",
+      "version": "1.21",
+      "description": "Lightweight self-hosted Git service",
+      "icon": "https://serverkit.ai/imgs/template-icons/gitea.svg",
+      "categories": [
+        "devops",
+        "git",
+        "development"
+      ],
+      "sha256": "7a627940d834d60facf654842f9da9227a7ca75a134c666400f8674cd7ec0904"
+    },
+    {
+      "id": "gitlab-runner",
+      "name": "GitLab Runner",
+      "version": "16.6",
+      "description": "Application that works with GitLab CI/CD to run jobs in a pipeline",
+      "icon": "https://serverkit.ai/imgs/template-icons/gitlab-runner.png",
+      "categories": [
+        "devops",
+        "ci-cd",
+        "gitlab"
+      ],
+      "sha256": "a60b3c5cd5a8066aed243b0e6ec869c5214746724649fd3421d579062c25c53b"
+    },
+    {
+      "id": "gotify",
+      "name": "Gotify",
+      "version": "1.0",
+      "description": "Self-hosted push notification server with Android client support.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOCA4QTYgNiAwIDAgMCA2IDhjMCA3LTMgOS0zIDloMTJzLTMtMi0zLTl6Ii8+PHBhdGggZD0iTTEwLjMgMjFhMiAyIDAgMCAwIDMuNCAwIi8+PC9zdmc+",
+      "categories": [
+        "notifications",
+        "messaging"
+      ],
+      "sha256": "91fe5bba5bfcaa8f5553f5b3ffc8363ed02ea0b151e7aabd5a8cc542dbe1cba3"
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.2",
+      "description": "Open-source analytics and interactive visualization platform for metrics, logs, and traces",
+      "icon": "https://serverkit.ai/imgs/template-icons/grafana.svg",
+      "categories": [
+        "monitoring",
+        "analytics",
+        "visualization"
+      ],
+      "sha256": "e75b685742ebe5c7dce59f0b9a345d45d4cf4a3e2d2b8766484bea8e0e25f777"
+    },
+    {
+      "id": "grav",
+      "name": "Grav CMS",
+      "version": "1.7",
+      "description": "Modern flat-file CMS that is fast, simple, and flexible",
+      "icon": "https://serverkit.ai/imgs/template-icons/grav.png",
+      "categories": [
+        "cms",
+        "flat-file",
+        "blog"
+      ],
+      "sha256": "a6c561c2a84df33cc270d600e30e4d8d4e3c3fb6ac9d0e94d790fd6d97f01508"
+    },
+    {
+      "id": "homeassistant",
+      "name": "Home Assistant",
+      "version": "2024.1",
+      "description": "Open-source home automation platform with focus on local control and privacy",
+      "icon": "https://serverkit.ai/imgs/template-icons/homeassistant.png",
+      "categories": [
+        "home-automation",
+        "iot",
+        "smart-home"
+      ],
+      "sha256": "928199e59d930d4e293e3c7b7b7313e24554981e6fc584d700c963fb2d9596a4"
+    },
+    {
+      "id": "immich",
+      "name": "Immich",
+      "version": "1.91",
+      "description": "High-performance self-hosted photo and video backup solution with mobile apps",
+      "icon": "https://serverkit.ai/imgs/template-icons/immich.svg",
+      "categories": [
+        "media",
+        "photos",
+        "backup"
+      ],
+      "sha256": "126f0e0dc6f5a66a96aa0e853133c78ad46a48396aae52e1097b795057cb9e4e"
+    },
+    {
+      "id": "jaeger",
+      "name": "Jaeger",
+      "version": "1.52",
+      "description": "Open-source distributed tracing system for monitoring and troubleshooting microservices",
+      "icon": "https://serverkit.ai/imgs/template-icons/jaeger.png",
+      "categories": [
+        "monitoring",
+        "tracing",
+        "observability"
+      ],
+      "sha256": "d87ead225869b24a4baee47e4a7d049f881ff4a01c7a8c7e16278dc6fc73aae4"
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "version": "10.8",
+      "description": "Free and open-source media server for streaming movies, TV shows, music, and more",
+      "icon": "https://serverkit.ai/imgs/template-icons/jellyfin.svg",
+      "categories": [
+        "media",
+        "streaming",
+        "entertainment"
+      ],
+      "sha256": "a1ffd840607073ff255ef4be91f24366f84299f63e4eb8ebd18ea05b7d46b293"
+    },
+    {
+      "id": "jellyseerr",
+      "name": "Jellyseerr",
+      "version": "1.0",
+      "description": "Media request and discovery portal for Jellyfin/Plex and the PVR apps",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "e1d1db1cb45d7b2b02848b2dfc6e480a054598789717bceacab1d53c389de3a6"
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "version": "2.426",
+      "description": "Leading open-source automation server for building, deploying, and automating projects",
+      "icon": "https://serverkit.ai/imgs/template-icons/jenkins.svg",
+      "categories": [
+        "devops",
+        "ci-cd",
+        "automation"
+      ],
+      "sha256": "27d9dc6e5d9af8f5a56f8b6bac5a6b961cea8aef1066b1960614bff056f54622"
+    },
+    {
+      "id": "jitsi",
+      "name": "Jitsi Meet",
+      "version": "9111",
+      "description": "Secure, fully featured, and completely free video conferencing",
+      "icon": "https://serverkit.ai/imgs/template-icons/jitsi.ico",
+      "categories": [
+        "collaboration",
+        "video",
+        "conferencing"
+      ],
+      "sha256": "0197fa6651fc519d87cc8a912225160f5dc9b2ca5ec96619262517912308d3d4"
+    },
+    {
+      "id": "karakeep",
+      "name": "Karakeep",
+      "version": "1.0",
+      "description": "Self-hosted bookmark-everything app (formerly Hoarder) that saves links, notes, and images with AI tagging and full-text search.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "bookmarks"
+      ],
+      "sha256": "299ec370126f3554591fb6b170916638e286d59a13c9582dbe0e894c66a8538b"
+    },
+    {
+      "id": "keycloak",
+      "name": "Keycloak",
+      "version": "23.0",
+      "description": "Open-source identity and access management for modern applications",
+      "icon": "https://serverkit.ai/imgs/template-icons/keycloak.svg",
+      "categories": [
+        "security",
+        "authentication",
+        "sso"
+      ],
+      "sha256": "499ac09b2304a9b76f6c825017c18273e9ef89867ab091bb215669cd3f460421"
+    },
+    {
+      "id": "langflow",
+      "name": "Langflow",
+      "version": "1.0",
+      "description": "Visual framework for building multi-agent and RAG applications.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiLz48cmVjdCB4PSIxNSIgeT0iMTUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTkgNmg2YTIgMiAwIDAgMSAyIDJ2NyIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "workflow",
+        "rag"
+      ],
+      "sha256": "6cf99c1d97cb3beeebe54e054be0cb4397193f232e3b77cc8e282ec2706540a3"
+    },
+    {
+      "id": "librechat",
+      "name": "LibreChat",
+      "version": "1.0",
+      "description": "Open-source multi-model chat UI (OpenAI, Anthropic, Google, local) with conversation search.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDExLjVhOC4zOCA4LjM4IDAgMCAxLS45IDMuOCA4LjUgOC41IDAgMCAxLTcuNiA0LjcgOC4zOCA4LjM4IDAgMCAxLTMuOC0uOUwzIDIxbDEuOS01LjdhOC4zOCA4LjM4IDAgMCAxLS45LTMuOCA4LjUgOC41IDAgMCAxIDQuNy03LjYgOC4zOCA4LjM4IDAgMCAxIDMuOC0uOWguNWE4LjQ4IDguNDggMCAwIDEgOCA4eiIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "chat"
+      ],
+      "sha256": "8fcce6c6ff5acf0ddcef90c594b724f61aa11804be94c5dbb1786ee295534f7f"
+    },
+    {
+      "id": "linkding",
+      "name": "linkding",
+      "version": "1.0",
+      "description": "Minimal, fast self-hosted bookmark manager.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "bookmarks"
+      ],
+      "sha256": "e3ea95150a2265d57818a9baa008be0bc33105f012ff0cc109851914df188a29"
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "version": "1.0",
+      "description": "OpenAI-compatible proxy and gateway that routes requests across 100+ LLM providers.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjMiLz48Y2lyY2xlIGN4PSIxOCIgY3k9IjYiIHI9IjMiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTYgOXYyYTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjlNMTIgMTV2MCIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "gateway"
+      ],
+      "sha256": "6766b2e6cb0a347aa1cd7a407725be969d0295fdcef9c975897fa514f594bf06"
+    },
+    {
+      "id": "loki",
+      "name": "Grafana Loki",
+      "version": "2.9",
+      "description": "Horizontally scalable, highly available log aggregation system inspired by Prometheus",
+      "icon": "https://serverkit.ai/imgs/template-icons/loki.svg",
+      "categories": [
+        "monitoring",
+        "logging",
+        "observability"
+      ],
+      "sha256": "b01ebb70a5d4ce8b17f29324317802bc800e5c7b371286302bd27614794d7b37"
+    },
+    {
+      "id": "matrix-synapse",
+      "name": "Matrix Synapse",
+      "version": "1.98",
+      "description": "Decentralized communication server for secure, federated messaging",
+      "icon": "https://serverkit.ai/imgs/template-icons/matrix-synapse.svg",
+      "categories": [
+        "collaboration",
+        "chat",
+        "federation"
+      ],
+      "sha256": "f1159123caa966f1dda4364878fad9f70a6ad8777eefc1552922e9054deee45e"
+    },
+    {
+      "id": "mattermost",
+      "name": "Mattermost",
+      "version": "9.2",
+      "description": "Open-source Slack alternative for secure team collaboration and messaging",
+      "icon": "https://serverkit.ai/imgs/template-icons/mattermost.png",
+      "categories": [
+        "collaboration",
+        "chat",
+        "communication"
+      ],
+      "sha256": "f0b1e6f88b4f9482ea14894b2c004dbeb4f29b8669cc5c03df329097ee6edb9a"
+    },
+    {
+      "id": "meilisearch",
+      "name": "Meilisearch",
+      "version": "1.0",
+      "description": "Lightning-fast, typo-tolerant search engine that many apps rely on for instant full-text search.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==",
+      "categories": [
+        "search",
+        "database"
+      ],
+      "sha256": "a2cc6d5fdfdc738c6ed32180db99cab57be704b3a6d7ea38c5afbad085be6847"
+    },
+    {
+      "id": "memos",
+      "name": "Memos",
+      "version": "1.0",
+      "description": "Lightweight, privacy-first note-taking and micro-blogging app.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE1LjUgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjguNXoiLz48cGF0aCBkPSJNMTUgM3Y2aDYiLz48L3N2Zz4=",
+      "categories": [
+        "notes",
+        "productivity"
+      ],
+      "sha256": "d2f02412648a4b8a2c32b3b416fc0816b9289f04f94a13654da3767832d57ab5"
+    },
+    {
+      "id": "metabase",
+      "name": "Metabase",
+      "version": "1.0",
+      "description": "Open-source business intelligence and dashboards tool for exploring your data.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+",
+      "categories": [
+        "analytics",
+        "business",
+        "productivity"
+      ],
+      "sha256": "930ed907c88079dbd52e3d87064051d551e4223fbe1e9a3e80070fb13bbd9318"
+    },
+    {
+      "id": "miniflux",
+      "name": "Miniflux",
+      "version": "1.0",
+      "description": "Minimalist and fast self-hosted RSS feed reader backed by PostgreSQL.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTFhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik00IDRhMTYgMTYgMCAwIDEgMTYgMTYiLz48Y2lyY2xlIGN4PSI1IiBjeT0iMTkiIHI9IjEiLz48L3N2Zz4=",
+      "categories": [
+        "news",
+        "rss"
+      ],
+      "sha256": "46bfcc8a98d87c0df7a9605fef9e2fbcf4e2e8e6f68d1532735ca014a9a5db66"
+    },
+    {
+      "id": "minio",
+      "name": "MinIO",
+      "version": "2024-01",
+      "description": "High-performance, S3-compatible object storage for cloud-native applications",
+      "icon": "https://serverkit.ai/imgs/template-icons/minio.png",
+      "categories": [
+        "storage",
+        "s3",
+        "cloud"
+      ],
+      "sha256": "9c26ed3680fae1a871fabdd55f19e173b31edb4ba3dc252ab3ad16b411d77593"
+    },
+    {
+      "id": "mongo-express",
+      "name": "Mongo Express",
+      "version": "1.0",
+      "description": "Web-based MongoDB admin interface for managing databases and collections",
+      "icon": "https://serverkit.ai/imgs/template-icons/mongo-express.ico",
+      "categories": [
+        "database",
+        "mongodb",
+        "management"
+      ],
+      "sha256": "0cab474cc46366946a425429e855954923070f16f922460b550b4ca316da9820"
+    },
+    {
+      "id": "mosquitto",
+      "name": "Eclipse Mosquitto",
+      "version": "2.0",
+      "description": "Lightweight MQTT message broker for IoT and home automation",
+      "icon": "https://serverkit.ai/imgs/template-icons/mosquitto.svg",
+      "categories": [
+        "home-automation",
+        "iot",
+        "messaging"
+      ],
+      "sha256": "cad5d206986a86a960a4bc962e698c0fdc7118e737849744f137fd24b5804b0b"
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "version": "1.22",
+      "description": "Extendable workflow automation tool for connecting apps and services",
+      "icon": "https://serverkit.ai/imgs/template-icons/n8n.ico",
+      "categories": [
+        "productivity",
+        "automation",
+        "integration"
+      ],
+      "sha256": "3367a458502b1fde7681e7d2167d9443b334f0c3371e2c29822e64edf4fd660e"
+    },
+    {
+      "id": "navidrome",
+      "name": "Navidrome",
+      "version": "0.50",
+      "description": "Modern music server and streamer compatible with Subsonic/Airsonic",
+      "icon": "https://serverkit.ai/imgs/template-icons/navidrome.png",
+      "categories": [
+        "media",
+        "music",
+        "streaming"
+      ],
+      "sha256": "4cdca24835442427195dfb06cc106919e0276212df0a99064d85dbe2ccad0a67"
+    },
+    {
+      "id": "netdata",
+      "name": "Netdata",
+      "version": "1.44",
+      "description": "Real-time performance and health monitoring for systems and applications",
+      "icon": "https://serverkit.ai/imgs/template-icons/netdata.ico",
+      "categories": [
+        "monitoring",
+        "metrics",
+        "realtime"
+      ],
+      "sha256": "c4662d01522f9be8330afb1b2f66be6b1f502201480b9fdce5d270c46b4831ef"
+    },
+    {
+      "id": "nextcloud",
+      "name": "Nextcloud",
+      "version": "28.0",
+      "description": "Self-hosted productivity platform with file sync and collaboration",
+      "icon": "https://serverkit.ai/imgs/template-icons/nextcloud.svg",
+      "categories": [
+        "storage",
+        "collaboration",
+        "productivity"
+      ],
+      "sha256": "7e71a794abb889c40f63197407ea0b805601280f10690052382e75b60a968e4f"
+    },
+    {
+      "id": "nginx-proxy-manager",
+      "name": "Nginx Proxy Manager",
+      "version": "2.10",
+      "description": "Easy-to-use reverse proxy with SSL management",
+      "icon": "https://serverkit.ai/imgs/template-icons/nginx-proxy-manager.png",
+      "categories": [
+        "networking",
+        "proxy",
+        "ssl"
+      ],
+      "sha256": "b1161ab1ef9404110e94d1cd935f3562351659dc5da991546a848731367f69c8"
+    },
+    {
+      "id": "node-app",
+      "name": "Node.js Application",
+      "version": "20",
+      "description": "Custom Node.js application. Supports Node 18-21. Perfect for Express, Next.js, or any Node.js project.",
+      "icon": "https://serverkit.ai/imgs/template-icons/node-app.svg",
+      "categories": [
+        "development",
+        "api",
+        "custom"
+      ],
+      "sha256": "6515175e43394df847c825d94c75196565be3907e9e3c93465785de8d0c752e1"
+    },
+    {
+      "id": "nodebb",
+      "name": "NodeBB",
+      "version": "1.0",
+      "description": "Modern, real-time forum and community platform built on Node.js.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdi0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3TTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==",
+      "categories": [
+        "community",
+        "forum",
+        "business"
+      ],
+      "sha256": "df665341386113ac08c8b7aebe725da745df0dfcae2bed1d86a53f44dbd66e11"
+    },
+    {
+      "id": "nodered",
+      "name": "Node-RED",
+      "version": "3.1",
+      "description": "Flow-based programming tool for wiring together hardware devices and APIs",
+      "icon": "https://serverkit.ai/imgs/template-icons/nodered.svg",
+      "categories": [
+        "home-automation",
+        "automation",
+        "iot"
+      ],
+      "sha256": "66a6a6c8db04fb7185fd6ed5437eab3afefc945db071639af94275b44b57569e"
+    },
+    {
+      "id": "ntfy",
+      "name": "ntfy",
+      "version": "1.0",
+      "description": "Simple HTTP-based pub/sub service that pushes notifications to your phone or desktop via a POST.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE4IDhBNiA2IDAgMCAwIDYgOGMwIDctMyA5LTMgOWgxOHMtMy0yLTMtOXoiLz48cGF0aCBkPSJNMTMuNzMgMjFhMiAyIDAgMCAxLTMuNDYgMCIvPjwvc3ZnPg==",
+      "categories": [
+        "notifications",
+        "messaging"
+      ],
+      "sha256": "bf1c11d5dbdbff16605bae5471fdc00a82dd0152b27db0e0feb0208008e2883a"
+    },
+    {
+      "id": "ollama-webui",
+      "name": "Ollama + Open WebUI",
+      "version": "1.0",
+      "description": "Local LLM inference with Ollama and a friendly chat interface (Open WebUI).",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjIiLz48cGF0aCBkPSJNOCAxMmg4TTEyIDh2OCIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "chat"
+      ],
+      "sha256": "ba9ffd4cd4ca9d89cdb1eee99e54987ee3963fef3aba7745157c2cf39f02560a"
+    },
+    {
+      "id": "outline",
+      "name": "Outline",
+      "version": "0.74",
+      "description": "Beautiful, real-time collaborative team wiki and knowledge base",
+      "icon": "https://serverkit.ai/imgs/template-icons/outline.svg",
+      "categories": [
+        "productivity",
+        "wiki",
+        "collaboration"
+      ],
+      "sha256": "4a9885935239ecedde7d2fa99794aa02fedec513e4c784579e8a6aee9f648ef3"
+    },
+    {
+      "id": "paperless-ngx",
+      "name": "Paperless-ngx",
+      "version": "1.0",
+      "description": "Document management system that scans, OCRs, indexes and archives your documents into a searchable online archive.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSIvPjwvc3ZnPg==",
+      "categories": [
+        "documents",
+        "productivity"
+      ],
+      "sha256": "c31e3c6eca098dcf46d7711dd6c94fd054e51b7dab4b13ebfe44eca8fa7c506b"
+    },
+    {
+      "id": "payload",
+      "name": "Payload CMS",
+      "version": "2.5",
+      "description": "Modern TypeScript headless CMS with powerful admin panel and customization",
+      "icon": "https://serverkit.ai/imgs/template-icons/payload.svg",
+      "categories": [
+        "cms",
+        "headless",
+        "typescript"
+      ],
+      "sha256": "c9f8d9cc65dcc4885c5fe5173f4f734589fc15e981e358a751c1e759cc0ce922"
+    },
+    {
+      "id": "pgadmin",
+      "name": "pgAdmin 4",
+      "version": "8.2",
+      "description": "Web-based PostgreSQL administration and development platform",
+      "icon": "https://serverkit.ai/imgs/template-icons/pgadmin.ico",
+      "categories": [
+        "database",
+        "postgresql",
+        "management"
+      ],
+      "sha256": "8d9f9fb916d2f8b40d095dac064b9b89e5fb745cebf0a5d22b0d7c10de7f8d52"
+    },
+    {
+      "id": "photoprism",
+      "name": "PhotoPrism",
+      "version": "231128",
+      "description": "AI-powered photo management application with face recognition and auto-tagging",
+      "icon": "https://serverkit.ai/imgs/template-icons/photoprism.svg",
+      "categories": [
+        "media",
+        "photos",
+        "ai"
+      ],
+      "sha256": "3a0bf9de39539d005605b933f5ef8dff2803bb24b2dbca3f9b2bda4c2bd96401"
+    },
+    {
+      "id": "php-app",
+      "name": "PHP Application",
+      "version": "8.3",
+      "description": "Custom PHP application with Apache. Supports PHP 8.0-8.3. Perfect for Laravel, WordPress themes, or any PHP project.",
+      "icon": "https://serverkit.ai/imgs/template-icons/php-app.svg",
+      "categories": [
+        "development",
+        "web",
+        "custom"
+      ],
+      "sha256": "e1e683e7062d95fb6847f6a64033d17e8284000a28fef59277f8c14529cd209f"
+    },
+    {
+      "id": "phpmyadmin",
+      "name": "phpMyAdmin",
+      "version": "5.2",
+      "description": "Web-based MySQL and MariaDB administration tool",
+      "icon": "https://serverkit.ai/imgs/template-icons/phpmyadmin.png",
+      "categories": [
+        "database",
+        "mysql",
+        "management"
+      ],
+      "sha256": "c3aca40dbe6c28a37d7fab979e311667a5ad2b9be7145856f1b641a8fe096645"
+    },
+    {
+      "id": "pihole",
+      "name": "Pi-hole",
+      "version": "1.0",
+      "description": "Network-wide ad-blocking DNS sinkhole with a web dashboard.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIyMiAzIDIgMyAxMCAxMi40NiAxMCAxOSAxNCAyMSAxNCAxMi40NiAyMiAzIi8+PC9zdmc+",
+      "categories": [
+        "networking",
+        "dns",
+        "security"
+      ],
+      "sha256": "0be5ae62bdb47d266952a8d78aff9ae9c2efcf4aee230cff34aea272e9fff70a"
+    },
+    {
+      "id": "plane",
+      "name": "Plane",
+      "version": "1.0",
+      "description": "Open-source project management and issue tracking with cycles, modules, and views (a Jira/Linear alternative).",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxwYXRoIGQ9Ik04IDd2N00xMiA3djEwTTE2IDd2NCIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "project-management"
+      ],
+      "sha256": "d2a0ab6002292e30d19cb046eb4e37ca949a7c495bb73779fb521f218e1d3875"
+    },
+    {
+      "id": "plausible",
+      "name": "Plausible Analytics",
+      "version": "2.0",
+      "description": "Privacy-friendly, lightweight alternative to Google Analytics",
+      "icon": "https://serverkit.ai/imgs/template-icons/plausible.ico",
+      "categories": [
+        "analytics",
+        "privacy",
+        "monitoring"
+      ],
+      "sha256": "a3b3cf84f2da8afae4f58f9929c942e2e75bfa8675547725039762d3e16f0e80"
+    },
+    {
+      "id": "plex",
+      "name": "Plex Media Server",
+      "version": "1.32",
+      "description": "Organize and stream your personal media collection to any device",
+      "icon": "https://serverkit.ai/imgs/template-icons/plex.png",
+      "categories": [
+        "media",
+        "streaming",
+        "entertainment"
+      ],
+      "sha256": "05f5ea97141645daffb61ce2e853285e62bfe05086a8168919f26febb3df3b16"
+    },
+    {
+      "id": "portainer",
+      "name": "Portainer",
+      "version": "2.19",
+      "description": "Lightweight Docker management UI with container visualization",
+      "icon": "https://serverkit.ai/imgs/template-icons/portainer.png",
+      "categories": [
+        "devops",
+        "docker",
+        "management"
+      ],
+      "sha256": "b2e624248955da56e8d95bee294b2f9a8f8be3bd73ddebd29cfcd7f5bbc3fa1b"
+    },
+    {
+      "id": "posthog",
+      "name": "PostHog",
+      "version": "1.0",
+      "description": "Open-source product analytics with session replay, feature flags, A/B testing, and event autocapture.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+",
+      "categories": [
+        "analytics",
+        "business"
+      ],
+      "sha256": "c0a6473c35723e414d7dce2ba1f239f993d99fcae13df5273de91e45195d9c86"
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "2.48",
+      "description": "Open-source monitoring and alerting toolkit designed for reliability and scalability",
+      "icon": "https://serverkit.ai/imgs/template-icons/prometheus.svg",
+      "categories": [
+        "monitoring",
+        "metrics",
+        "alerting"
+      ],
+      "sha256": "020ec30f21feb7ce9603e763d3909b5aa9c332913ac571caf2512ce4294725df"
+    },
+    {
+      "id": "prompture-hub",
+      "name": "Prompture Hub",
+      "version": "0.0.2",
+      "description": "Self-hosted LLM gateway. Hold real provider keys server-side, issue scoped hub keys, and meter every call. Drop-in OpenAI-compatible API.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyTDQuNSA2djEybDcuNSA0IDcuNS00VjZ6Ii8+PHBhdGggZD0iTTEyIDIybDcuNS00VjZNMTIgMnYxMCIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjIiLz48L3N2Zz4=",
+      "categories": [
+        "ai",
+        "llm",
+        "gateway",
+        "prompture"
+      ],
+      "sha256": "8e5d43878049549266dfe067795b81414705bc720885e2538549e966298e84b4"
+    },
+    {
+      "id": "prowlarr",
+      "name": "Prowlarr",
+      "version": "1.0",
+      "description": "Indexer manager and proxy that integrates your indexers with the PVR apps",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "6851208bf5ada3dc6e035501082e2a8727757e8a90348ba64e678bc138eb10e4"
+    },
+    {
+      "id": "python-app",
+      "name": "Python Application",
+      "version": "3.12",
+      "description": "Custom Python application. Supports Python 3.9-3.12. Perfect for Flask, FastAPI, Django, or any Python project.",
+      "icon": "https://serverkit.ai/imgs/template-icons/python-app.svg",
+      "categories": [
+        "development",
+        "api",
+        "custom"
+      ],
+      "sha256": "440537608cb23b0de257dd1ea1ad9df135c385df1df636969569549fb5ca55a1"
+    },
+    {
+      "id": "qbittorrent",
+      "name": "qBittorrent",
+      "version": "1.0",
+      "description": "Open-source BitTorrent client with a full-featured web UI",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiLz48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiLz48L3N2Zz4=",
+      "categories": [
+        "media",
+        "downloads"
+      ],
+      "sha256": "9dc3b111322cb8eeeb819adb50c3a96717b0a61da5413d5c4e5bfba143bef1bd"
+    },
+    {
+      "id": "qdrant",
+      "name": "Qdrant",
+      "version": "1.0",
+      "description": "Vector similarity search engine for AI/LLM and semantic-search applications.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiLz48cGF0aCBkPSJNMTIgMXYyMk0xIDloMjJNMSAxNWgyMiIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "database",
+        "search"
+      ],
+      "sha256": "3083de67665e4acd43e92768cb87767f1990887e87176851ac11cbbbb633caf9"
+    },
+    {
+      "id": "radarr",
+      "name": "Radarr",
+      "version": "1.0",
+      "description": "PVR for movies that monitors, grabs, sorts, and renames films automatically",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "104e40326a24b9c02e3fbda31848d03a3c5717dfe8fcf68c1b7192141b427430"
+    },
+    {
+      "id": "redis-commander",
+      "name": "Redis Commander",
+      "version": "0.8",
+      "description": "Web-based Redis management tool for viewing and editing data",
+      "icon": "https://serverkit.ai/imgs/template-icons/redis-commander.ico",
+      "categories": [
+        "database",
+        "redis",
+        "management"
+      ],
+      "sha256": "7f29043cee6bd0e6bda966c90e9cc949b9d5137e0d038c4718b3434522db19d1"
+    },
+    {
+      "id": "registry",
+      "name": "Docker Registry",
+      "version": "2.8",
+      "description": "Private Docker container image registry for storing and distributing container images",
+      "icon": "https://serverkit.ai/imgs/template-icons/registry.png",
+      "categories": [
+        "devops",
+        "docker",
+        "registry"
+      ],
+      "sha256": "884b1b65faeeb6bc640930fde36a076fcb8cbd58798dbdcc15c3f68a1783d338"
+    },
+    {
+      "id": "rocketchat",
+      "name": "Rocket.Chat",
+      "version": "6.5",
+      "description": "Open-source team communication platform with chat, video, and file sharing",
+      "icon": "https://serverkit.ai/imgs/template-icons/rocketchat.svg",
+      "categories": [
+        "collaboration",
+        "chat",
+        "communication"
+      ],
+      "sha256": "526326c84c890eb6f23ab4fcccc7e5b19b02d7b5683104fc1c264a63d6eba377"
+    },
+    {
+      "id": "seafile",
+      "name": "Seafile",
+      "version": "11.0",
+      "description": "Open-source file sync and share platform with built-in collaboration",
+      "icon": "https://serverkit.ai/imgs/template-icons/seafile.png",
+      "categories": [
+        "storage",
+        "sync",
+        "collaboration"
+      ],
+      "sha256": "31895cce3a004cdab5764edc1d7e268a82ac767bbc5b4e325450852d14b7170b"
+    },
+    {
+      "id": "searxng",
+      "name": "SearXNG",
+      "version": "1.0",
+      "description": "Privacy-respecting metasearch engine that aggregates results from many sources without tracking you.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==",
+      "categories": [
+        "search",
+        "privacy"
+      ],
+      "sha256": "52668e78d7e7d8718b2db1f72b1beb48e11e6df61b0b95e36dce610b3847b9c8"
+    },
+    {
+      "id": "signoz",
+      "name": "SigNoz",
+      "version": "1.0",
+      "description": "OpenTelemetry-native observability platform for traces, metrics, and logs (an open-source APM alternative to Datadog).",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==",
+      "categories": [
+        "monitoring",
+        "observability",
+        "apm"
+      ],
+      "sha256": "2ed99d31bbd5b5d46c28185f611062e5d7029d9e881d546a19f1638ddb6e0500"
+    },
+    {
+      "id": "sonarqube",
+      "name": "SonarQube",
+      "version": "10.3",
+      "description": "Continuous inspection of code quality and security vulnerabilities",
+      "icon": "https://serverkit.ai/imgs/template-icons/sonarqube.ico",
+      "categories": [
+        "devops",
+        "code-quality",
+        "security"
+      ],
+      "sha256": "b5632b791bf12ba85620f4b8ed0238ce9f760c57dd93702b0e5e8195d673ef23"
+    },
+    {
+      "id": "sonarr",
+      "name": "Sonarr",
+      "version": "1.0",
+      "description": "PVR for TV series that monitors, grabs, sorts, and renames episodes automatically",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "4b330b81ce8e58d737f9b310ae042fdbb71c37a531eaad8605b6b0db6fef062f"
+    },
+    {
+      "id": "stirling-pdf",
+      "name": "Stirling PDF",
+      "version": "1.0",
+      "description": "Local web toolkit for splitting, merging, converting and OCR-ing PDF files.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSIvPjwvc3ZnPg==",
+      "categories": [
+        "documents",
+        "productivity",
+        "pdf"
+      ],
+      "sha256": "28bbafe13de32394347db095c2913846a0437ac2457adba346bf8a85aa14368c"
+    },
+    {
+      "id": "strapi",
+      "name": "Strapi",
+      "version": "4.15",
+      "description": "Open-source headless CMS with customizable API and admin panel",
+      "icon": "https://serverkit.ai/imgs/template-icons/strapi.svg",
+      "categories": [
+        "cms",
+        "headless",
+        "api"
+      ],
+      "sha256": "46d89eb3c5f5aedbd0356cdf70b5526845c66ca7eaced65125129957e45ca795"
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "version": "1.27",
+      "description": "Continuous file synchronization for decentralized, peer-to-peer sync",
+      "icon": "https://serverkit.ai/imgs/template-icons/syncthing.svg",
+      "categories": [
+        "storage",
+        "sync",
+        "backup"
+      ],
+      "sha256": "68e9a79001ca76e6c82b8c2fd829bac6eb31375a094d219465f30e65fea7dbaa"
+    },
+    {
+      "id": "traefik",
+      "name": "Traefik",
+      "version": "3.0",
+      "description": "Modern HTTP reverse proxy and load balancer with automatic HTTPS",
+      "icon": "https://serverkit.ai/imgs/template-icons/traefik.png",
+      "categories": [
+        "networking",
+        "proxy",
+        "ssl"
+      ],
+      "sha256": "f257b67b07ef7ecaa7f9a35c1603a047f5bed8d77d75cfb4b2cd4f9f5b6c1c32"
+    },
+    {
+      "id": "typesense",
+      "name": "Typesense",
+      "version": "1.0",
+      "description": "Typo-tolerant search engine optimized for fast, instant search-as-you-type experiences.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==",
+      "categories": [
+        "search",
+        "database"
+      ],
+      "sha256": "1dd875901ab5b6e3ad8364d945ecd0350be47c53d7a3516b5245334a45ec8c38"
+    },
+    {
+      "id": "umami",
+      "name": "Umami",
+      "version": "2.9",
+      "description": "Simple, fast, privacy-focused alternative to Google Analytics",
+      "icon": "https://serverkit.ai/imgs/template-icons/umami.ico",
+      "categories": [
+        "analytics",
+        "privacy",
+        "monitoring"
+      ],
+      "sha256": "c4e174303b6e2e3011a9f169adaebfb8f5ce5823751f13f36be2f6d9c2a16815"
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "version": "1.23",
+      "description": "A fancy self-hosted monitoring tool for websites and services",
+      "icon": "https://serverkit.ai/imgs/template-icons/uptime-kuma.svg",
+      "categories": [
+        "monitoring",
+        "devops"
+      ],
+      "sha256": "8944625d3d67eca7147bb6a3af558c67fb410824323ea95587352a580f1319cb"
+    },
+    {
+      "id": "vault",
+      "name": "HashiCorp Vault",
+      "version": "1.15",
+      "description": "Secrets management and data protection platform for securing sensitive data",
+      "icon": "https://serverkit.ai/imgs/template-icons/vault.svg",
+      "categories": [
+        "devops",
+        "security",
+        "secrets"
+      ],
+      "sha256": "6b59c13e543f56f4ed080d076b9467a51ff9afc578812315e818d29e406bdaad"
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "version": "1.30",
+      "description": "Lightweight Bitwarden-compatible password manager server",
+      "icon": "https://serverkit.ai/imgs/template-icons/vaultwarden.svg",
+      "categories": [
+        "security",
+        "passwords",
+        "privacy"
+      ],
+      "sha256": "98a64ecf710856f37a59b844a5348d440000b64ffe3e7b2d4a281d9ae34e8ba1"
+    },
+    {
+      "id": "vikunja",
+      "name": "Vikunja",
+      "version": "1.0",
+      "description": "Self-hosted to-do list and task and project manager.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iOSAxMSAxMiAxNCAyMiA0Ii8+PHBhdGggZD0iTTIxIDEydjdhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDExIi8+PC9zdmc+",
+      "categories": [
+        "productivity",
+        "tasks"
+      ],
+      "sha256": "119dadfac79f9cdcbb634f638829ff8c7d62861e532e6d58e673dcfe83d286d6"
+    },
+    {
+      "id": "wg-easy",
+      "name": "WG-Easy",
+      "version": "1.0",
+      "description": "The easiest way to run WireGuard VPN with a web admin UI.",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiByeD0iMSIvPjxyZWN0IHg9IjIiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiByeD0iMSIvPjxyZWN0IHg9IjkiIHk9IjIiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+PHBhdGggZD0iTTUgMTZ2LTNhMSAxIDAgMCAxIDEtMWgxMmExIDEgMCAwIDEgMSAxdjNNMTIgMTJWOCIvPjwvc3ZnPg==",
+      "categories": [
+        "networking",
+        "vpn",
+        "security"
+      ],
+      "sha256": "ff1268fdeb7ac77756ef7e450faf8e86a4d4698030e382ae9a45cad1caef42e4"
+    },
+    {
+      "id": "wikijs",
+      "name": "Wiki.js",
+      "version": "2.5",
+      "description": "Modern and powerful wiki app built on Node.js",
+      "icon": "https://serverkit.ai/imgs/template-icons/wikijs.svg",
+      "categories": [
+        "productivity",
+        "wiki",
+        "documentation"
+      ],
+      "sha256": "59d45c60c386d9c7a4ab02bee4120aaf222c51d4f688c88177bc4ef299a8853a"
+    },
+    {
+      "id": "wordpress-external-db",
+      "name": "WordPress (External Database)",
+      "version": "6.4",
+      "description": "WordPress CMS connecting to an existing external MySQL database. Use this for dev/prod setups sharing the same database with different table prefixes.",
+      "icon": "https://serverkit.ai/imgs/template-icons/wordpress-external-db.png",
+      "categories": [
+        "cms",
+        "blog",
+        "website",
+        "development"
+      ],
+      "sha256": "26ee89ce1d9c442e7eed9a750109dfb8408fc33ba8e61d3481dc755fe8825eb8"
+    },
+    {
+      "id": "wordpress",
+      "name": "WordPress",
+      "version": "6.4",
+      "description": "World's most popular content management system for blogs and websites",
+      "icon": "https://serverkit.ai/imgs/template-icons/wordpress.png",
+      "categories": [
+        "cms",
+        "blog",
+        "website"
+      ],
+      "sha256": "caf69eb3ee97fd0ea82a69d9d931ab1c50367a842fcb573a2329498bdcad519a"
+    },
+    {
+      "id": "zigbee2mqtt",
+      "name": "Zigbee2MQTT",
+      "version": "1.35",
+      "description": "Bridge Zigbee devices to MQTT without proprietary bridges or gateways",
+      "icon": "https://serverkit.ai/imgs/template-icons/zigbee2mqtt.png",
+      "categories": [
+        "home-automation",
+        "iot",
+        "zigbee"
+      ],
+      "sha256": "1a09b69f54e3b4a911892c091b6438e3108b67d76668bbb23217355093706fef"
+    }
+  ]
+}

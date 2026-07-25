@@ -1,0 +1,84 @@
+id: metabase
+name: Metabase
+version: "1.0"
+description: Open-source business intelligence and dashboards tool for exploring your data.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+
+website: https://www.metabase.com
+documentation: https://www.metabase.com/docs/latest/
+categories:
+  - analytics
+  - business
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Metabase web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password for the Metabase metadata database (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Metabase Web UI
+
+requirements:
+  memory: 2GB
+  storage: 2GB
+
+compose:
+  services:
+    metabase:
+      image: metabase/metabase:v0.51.6
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        MB_DB_TYPE: "postgres"
+        MB_DB_DBNAME: "metabase"
+        MB_DB_PORT: "5432"
+        MB_DB_USER: "metabase"
+        MB_DB_PASS: "${DB_PASSWORD}"
+        MB_DB_HOST: "db"
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:3000/api/health || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 90s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: metabase
+        POSTGRES_USER: metabase
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - metabase-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U metabase -d metabase"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    metabase-db:
+
+post_install: |
+  Metabase is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  On first visit, complete the setup wizard at the web UI to create your
+  admin account, then connect the data sources you want to analyze and
+  start building dashboards.

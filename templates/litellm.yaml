@@ -1,0 +1,103 @@
+id: litellm
+name: LiteLLM
+version: "1.0"
+description: OpenAI-compatible proxy and gateway that routes requests across 100+ LLM providers.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjMiLz48Y2lyY2xlIGN4PSIxOCIgY3k9IjYiIHI9IjMiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTYgOXYyYTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjlNMTIgMTV2MCIvPjwvc3ZnPg==
+website: https://litellm.ai
+documentation: https://docs.litellm.ai
+categories:
+  - ai
+  - llm
+  - gateway
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the LiteLLM proxy and dashboard (auto-assigned)
+    type: port
+    default: "4000"
+    hidden: true
+  - name: LITELLM_MASTER_KEY
+    description: Master key for authenticating against the LiteLLM proxy (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+  - name: UI_USERNAME
+    description: Admin username for the LiteLLM dashboard
+    type: string
+    default: "admin"
+  - name: UI_PASSWORD
+    description: Admin password for the LiteLLM dashboard (auto-generated)
+    type: password
+    length: 24
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: LiteLLM Proxy & Dashboard
+
+requirements:
+  memory: 1GB
+  storage: 1GB
+
+compose:
+  services:
+    litellm:
+      image: ghcr.io/berriai/litellm:main-stable
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:4000"
+      environment:
+        LITELLM_MASTER_KEY: "${LITELLM_MASTER_KEY}"
+        UI_USERNAME: "${UI_USERNAME}"
+        UI_PASSWORD: "${UI_PASSWORD}"
+      command:
+        - "--config"
+        - "/app/config.yaml"
+        - "--port"
+        - "4000"
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      volumes:
+        - litellm-data:/app/data
+      healthcheck:
+        test: ["CMD", "python", "-c", "import requests as r; r.get('http://127.0.0.1:4000/health/liveliness').raise_for_status()"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    litellm-data:
+
+files:
+  - path: /app/config.yaml
+    content: |
+      model_list:
+        - model_name: llama3.1
+          litellm_params:
+            model: ollama/llama3.1:8b
+            api_base: http://host.docker.internal:11434
+
+      litellm_settings:
+        drop_params: true
+        telemetry: false
+
+post_install: |
+  LiteLLM is installed and running!
+
+  - Proxy (OpenAI-compatible): http://your-server:${HTTP_PORT}
+  - Admin dashboard: http://your-server:${HTTP_PORT}/ui
+  - Dashboard login: ${UI_USERNAME} / ${UI_PASSWORD}
+  - Master key (save it now): ${LITELLM_MASTER_KEY}
+
+  Call any configured model with the OpenAI SDK:
+    curl http://your-server:${HTTP_PORT}/v1/chat/completions \
+      -H "Authorization: Bearer ${LITELLM_MASTER_KEY}" \
+      -H "Content-Type: application/json" \
+      -d '{"model":"llama3.1","messages":[{"role":"user","content":"Hello"}]}'
+
+  The starter config.yaml points at a local Ollama instance via
+  host.docker.internal. Edit it to add OpenAI, Anthropic, Groq, and other
+  providers. LiteLLM complements Prompture Hub as a drop-in OpenAI-compatible
+  endpoint for your AI apps.

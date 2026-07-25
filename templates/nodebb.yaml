@@ -1,0 +1,107 @@
+id: nodebb
+name: NodeBB
+version: "1.0"
+description: Modern, real-time forum and community platform built on Node.js.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdi0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3TTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==
+website: https://nodebb.org
+documentation: https://docs.nodebb.org
+categories:
+  - community
+  - forum
+  - business
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the NodeBB web UI (auto-assigned)
+    type: port
+    default: "4567"
+    hidden: true
+  - name: ADMIN_USERNAME
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: ADMIN_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: NodeBB Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    nodebb:
+      image: ghcr.io/nodebb/nodebb:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:4567"
+      environment:
+        NODEBB_URL: "http://localhost:${HTTP_PORT}"
+        NODEBB_DB: "postgres"
+        NODEBB_DB_HOST: "db"
+        NODEBB_DB_PORT: "5432"
+        NODEBB_DB_NAME: "nodebb"
+        NODEBB_DB_USER: "nodebb"
+        NODEBB_DB_PASSWORD: "${DB_PASSWORD}"
+        NODEBB_ADMIN_USERNAME: "${ADMIN_USERNAME}"
+        NODEBB_ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+        NODEBB_ADMIN_EMAIL: "admin@example.com"
+      volumes:
+        - nodebb-uploads:/usr/src/app/public/uploads
+        - nodebb-config:/usr/src/app/config
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/4567' || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: nodebb
+        POSTGRES_USER: nodebb
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - nodebb-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U nodebb -d nodebb"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    nodebb-uploads:
+    nodebb-config:
+    nodebb-db:
+
+post_install: |
+  NodeBB is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${ADMIN_USERNAME}
+  - Password: ${ADMIN_PASSWORD}
+
+  On first start, open the URL and complete the web installer if
+  prompted. If the installer appears, point it at the PostgreSQL
+  database (host "db", port 5432, name "nodebb", user "nodebb") and
+  create the administrator account.
+
+  Once setup finishes, sign in with the credentials above and manage
+  your community from the Admin Control Panel.

@@ -1,0 +1,57 @@
+id: beszel
+name: Beszel
+version: "1.0"
+description: Lightweight server monitoring hub with historical metrics and alerts.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==
+website: https://beszel.dev
+documentation: https://beszel.dev/guide/getting-started
+categories:
+  - monitoring
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Beszel web UI (auto-assigned)
+    type: port
+    default: "8090"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Beszel Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    beszel:
+      image: henrygd/beszel:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8090"
+      volumes:
+        - beszel-data:/beszel_data
+        - beszel-socket:/beszel_socket
+      healthcheck:
+        test: ["CMD", "/beszel", "health", "--url", "http://127.0.0.1:8090"]
+        interval: 30s
+        timeout: 20s
+        retries: 10
+        start_period: 5s
+
+  volumes:
+    beszel-data:
+    beszel-socket:
+
+post_install: |
+  Beszel is installed and running!
+
+  This is the monitoring HUB. Agents are installed separately on each host.
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Open the UI and create your first (admin) account.
+  - Then add systems: each monitored host runs the henrygd/beszel-agent
+    container using the public key shown in the UI for that system.

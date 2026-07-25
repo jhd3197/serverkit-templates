@@ -1,0 +1,66 @@
+id: pihole
+name: Pi-hole
+version: "1.0"
+description: Network-wide ad-blocking DNS sinkhole with a web dashboard.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIyMiAzIDIgMyAxMCAxMi40NiAxMCAxOSAxNCAyMSAxNCAxMi40NiAyMiAzIi8+PC9zdmc+
+website: https://pi-hole.net
+documentation: https://docs.pi-hole.net
+categories:
+  - networking
+  - dns
+  - security
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Pi-hole web dashboard (auto-assigned)
+    type: port
+    default: "80"
+    hidden: true
+  - name: WEB_PASSWORD
+    description: Web dashboard admin password (auto-generated)
+    type: password
+    length: 24
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Pi-hole Web Dashboard
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    pihole:
+      image: pihole/pihole:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+        - "53:53/tcp"
+        - "53:53/udp"
+      environment:
+        TZ: "Etc/UTC"
+        FTLCONF_webserver_api_password: "${WEB_PASSWORD}"
+        FTLCONF_dns_listeningMode: "all"
+      cap_add:
+        - NET_ADMIN
+        - SYS_NICE
+      volumes:
+        - pihole-config:/etc/pihole
+
+  volumes:
+    pihole-config:
+
+post_install: |
+  Pi-hole is installed and running!
+
+  - Dashboard: http://your-server:${HTTP_PORT}/admin
+  - Password: ${WEB_PASSWORD}
+
+  Point your router's (or each client's) DNS at this server's IP to enable
+  network-wide ad blocking.
+
+  NOTE: Binding host port 53 can clash with systemd-resolved. If the DNS
+  ports fail to bind, you may need to free port 53 on the host first.

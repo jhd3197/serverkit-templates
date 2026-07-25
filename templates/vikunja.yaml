@@ -1,0 +1,69 @@
+id: vikunja
+name: Vikunja
+version: "1.0"
+description: Self-hosted to-do list and task and project manager.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iOSAxMSAxMiAxNCAyMiA0Ii8+PHBhdGggZD0iTTIxIDEydjdhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDExIi8+PC9zdmc+
+website: https://vikunja.io
+documentation: https://vikunja.io/docs
+categories:
+  - productivity
+  - tasks
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Vikunja web UI (auto-assigned)
+    type: port
+    default: "3456"
+    hidden: true
+  - name: JWT_SECRET
+    description: Secret used to sign authentication tokens (auto-generated)
+    type: random
+    length: 48
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Vikunja Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    vikunja:
+      image: vikunja/vikunja:0.24.6
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3456"
+      environment:
+        VIKUNJA_SERVICE_JWTSECRET: "${JWT_SECRET}"
+        VIKUNJA_DATABASE_TYPE: "sqlite"
+        VIKUNJA_DATABASE_PATH: "/db/vikunja.db"
+      volumes:
+        - vikunja-db:/db
+        - vikunja-files:/app/vikunja/files
+      healthcheck:
+        test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3456/api/v1/info || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 20s
+
+  volumes:
+    vikunja-db:
+    vikunja-files:
+
+post_install: |
+  Vikunja is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+
+  Open the web UI and register the first user to create your account, then
+  start creating projects and tasks.
+
+  Tip: set VIKUNJA_SERVICE_PUBLICURL to your public address (e.g.
+  https://tasks.example.com) once you assign a domain, so links and the API
+  resolve correctly.

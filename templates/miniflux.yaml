@@ -1,0 +1,90 @@
+id: miniflux
+name: Miniflux
+version: "1.0"
+description: Minimalist and fast self-hosted RSS feed reader backed by PostgreSQL.
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTFhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik00IDRhMTYgMTYgMCAwIDEgMTYgMTYiLz48Y2lyY2xlIGN4PSI1IiBjeT0iMTkiIHI9IjEiLz48L3N2Zz4=
+website: https://miniflux.app
+documentation: https://miniflux.app/docs/index.html
+categories:
+  - news
+  - rss
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Miniflux web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+  - name: ADMIN_USERNAME
+    description: Default admin username
+    type: string
+    default: "admin"
+  - name: ADMIN_PASSWORD
+    description: Default admin password (auto-generated)
+    type: password
+    length: 24
+  - name: DB_PASSWORD
+    description: PostgreSQL password (auto-generated)
+    type: password
+    length: 32
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Miniflux Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    miniflux:
+      image: miniflux/miniflux:2.2.5
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        DATABASE_URL: "postgres://miniflux:${DB_PASSWORD}@db/miniflux?sslmode=disable"
+        RUN_MIGRATIONS: "1"
+        CREATE_ADMIN: "1"
+        ADMIN_USERNAME: "${ADMIN_USERNAME}"
+        ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      depends_on:
+        - db
+      healthcheck:
+        test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/healthcheck || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 30s
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_USER: miniflux
+        POSTGRES_DB: miniflux
+        POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      volumes:
+        - miniflux-db:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U miniflux -d miniflux"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  volumes:
+    miniflux-db:
+
+post_install: |
+  Miniflux is installed and running!
+
+  - Web UI: http://your-server:${HTTP_PORT}
+  - Username: ${ADMIN_USERNAME}
+  - Password: ${ADMIN_PASSWORD}
+
+  Sign in with the credentials above, then add your first feed subscription.
