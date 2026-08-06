@@ -40,7 +40,7 @@ ICON_RE = re.compile(r'^(https://|data:image/)')
 
 KNOWN_TOP = {'name', 'schema_version', 'updated', 'count', 'templates'}
 KNOWN_ENTRY = {'id', 'name', 'version', 'revision', 'description', 'icon',
-               'categories', 'sha256'}
+               'categories', 'featured', 'sha256'}
 
 errors: list[str] = []
 warnings: list[str] = []

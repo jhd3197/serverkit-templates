@@ -11,6 +11,9 @@ categories:
   - gateway
   - prompture
 
+# First-party: floats to the top of the catalog and of the `ai` filter.
+featured: true
+
 variables:
   - name: HTTP_PORT
     description: Port for the Prompture Hub dashboard and API (auto-assigned)

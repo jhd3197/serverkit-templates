@@ -37,7 +37,7 @@ REPO_NAME = "serverkit-official"
 # renders the catalog straight from the index and only downloads the full YAML
 # when someone opens or installs a template, so everything the card needs must
 # be here — but nothing more, to keep the index small.
-CARD_FIELDS = ("name", "version", "description", "icon", "categories")
+CARD_FIELDS = ("name", "version", "description", "icon", "categories", "featured")
 
 
 def _sha256(path: Path) -> str:

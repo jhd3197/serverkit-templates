@@ -1,7 +1,7 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-07-25",
+  "updated": "2026-08-06",
   "count": 106,
   "templates": [
     {
@@ -1005,7 +1005,8 @@
         "gateway",
         "prompture"
       ],
-      "sha256": "8e5d43878049549266dfe067795b81414705bc720885e2538549e966298e84b4"
+      "featured": true,
+      "sha256": "2d98930e84491bf40977f00a1c9d337905becd04e350c6741745f8ecaa75c2b7"
     },
     {
       "id": "prowlarr",

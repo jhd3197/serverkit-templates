@@ -71,6 +71,10 @@
           },
           "description": "Free-form lowercase tags used for catalog filtering. Deliberately not an enum — the catalog spans ~100 categories and new apps coin new ones."
         },
+        "featured": {
+          "type": "boolean",
+          "description": "Float this template to the top of the catalog, and to the top of whatever category filter is active. Reserved for first-party templates; ordering is otherwise alphabetical. Mirrors `featured` in the serverkit-extensions index."
+        },
         "sha256": {
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
