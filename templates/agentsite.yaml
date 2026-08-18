@@ -3,7 +3,7 @@ name: AgentSite
 version: "1.0"
 kind: repo
 description: AI-powered website builder with multi-agent orchestration, deployed straight from its Git repository.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEwIiByeD0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iNSIgcj0iMiIvPjxwYXRoIGQ9Ik0xMiA3djQiLz48cGF0aCBkPSJNOCAxNmguMDEiLz48cGF0aCBkPSJNMTYgMTZoLjAxIi8+PC9zdmc+
+icon: https://serverkit.ai/imgs/template-icons/agentsite.png
 categories:
   - ai
   - website
