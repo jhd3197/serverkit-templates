@@ -24,28 +24,35 @@ repo:
   port: 6391
   dockerfile_path: Dockerfile
   healthcheck_path: /api/health
-  strategy: docker_compose
+  strategy: serverkit
   manifest_files:
+    - serverkit.yaml
     - docker-compose.yml
     - render.yaml
     - railway.json
     - app.json
+  # AgentSite is model-agnostic and needs ONE provider key, not all six —
+  # every key is optional so the wizard does not star them all as required.
   env:
     - key: OPENAI_API_KEY
-      required: true
+      required: false
       secret: true
     - key: CLAUDE_API_KEY
-      required: true
+      required: false
       secret: true
     - key: GOOGLE_API_KEY
-      required: true
+      required: false
       secret: true
     - key: GROQ_API_KEY
-      required: true
+      required: false
       secret: true
     - key: GROK_API_KEY
-      required: true
+      required: false
       secret: true
     - key: OPENROUTER_API_KEY
-      required: true
+      required: false
       secret: true
+
+requirements:
+  memory: 1GB
+  storage: 4GB

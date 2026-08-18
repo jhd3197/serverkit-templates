@@ -1,7 +1,7 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-08-06",
+  "updated": "2026-08-18",
   "count": 106,
   "templates": [
     {
@@ -27,7 +27,7 @@
         "website",
         "deployment"
       ],
-      "sha256": "f0bf5a8424321fd4920a1d12e0dc471e1d33070ae5a55efe1a9e8e52ab12fb60"
+      "sha256": "aed815b58c02b73de2c0459e9546dbbf537780855b81da2e1d7e492b7b69418d"
     },
     {
       "id": "anythingllm",
