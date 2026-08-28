@@ -1,0 +1,61 @@
+id: technitium
+name: Technitium DNS
+version: "1.0"
+description: Authoritative and recursive DNS server with ad blocking, DNS-over-HTTPS, and a full web console
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==
+website: https://technitium.com/dns/
+documentation: https://github.com/TechnitiumSoftware/DnsServer/blob/master/README.md
+categories:
+  - networking
+  - dns
+  - security
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Technitium web console (auto-assigned)
+    type: port
+    default: "5380"
+    hidden: true
+  - name: DNS_PORT
+    description: DNS port exposed to your network
+    default: "53"
+  - name: ADMIN_PASSWORD
+    description: Password for the admin account
+    type: password
+    generate: password
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Web console
+  - port: "${DNS_PORT}"
+    protocol: tcp
+    description: DNS
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    technitium:
+      image: technitium/dns-server:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5380"
+        - "${DNS_PORT}:53/tcp"
+        - "${DNS_PORT}:53/udp"
+      environment:
+        DNS_SERVER_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      volumes:
+        - technitium-config:/etc/dns
+  volumes:
+    technitium-config:
+
+post_install: |
+  Technitium DNS is running.
+
+  - Web console: http://your-server:${HTTP_PORT} — log in as "admin" with the
+    password configured at install time.
+  - Point your devices or router at this server on port ${DNS_PORT}.

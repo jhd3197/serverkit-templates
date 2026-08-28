@@ -1,0 +1,59 @@
+id: sabnzbd
+name: SABnzbd
+version: "1.0"
+description: Free and easy binary newsreader — automated Usenet downloading with a full API
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiLz48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiLz48L3N2Zz4=
+website: https://sabnzbd.org
+documentation: https://sabnzbd.org/wiki/
+categories:
+  - media
+  - downloads
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the SABnzbd web UI (auto-assigned)
+    type: port
+    default: "8082"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: SABnzbd Web UI
+
+requirements:
+  memory: 512MB
+  storage: 20GB
+
+compose:
+  services:
+    sabnzbd:
+      image: lscr.io/linuxserver/sabnzbd:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - sabnzbd-config:/config
+        - sabnzbd-downloads:/downloads
+        - sabnzbd-incomplete:/incomplete-downloads
+      networks:
+        - default
+        - media
+  volumes:
+    sabnzbd-config:
+    sabnzbd-downloads:
+    sabnzbd-incomplete:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  SABnzbd is running at http://your-server:${HTTP_PORT}
+
+  - Run the quick-start wizard and add your Usenet provider. On the shared
+    "serverkit-media" network the *arr apps can reach it by container name.

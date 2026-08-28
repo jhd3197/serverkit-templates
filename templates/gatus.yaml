@@ -1,0 +1,59 @@
+id: gatus
+name: Gatus
+version: "1.0"
+description: Automated developer-oriented status page — monitor HTTP, TCP, ICMP, and DNS with alerting
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwLjg0IDQuNjFhNS41IDUuNSAwIDAgMC03Ljc4IDBMMTIgNS42N2wtMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAtNy43OCA3Ljc4bDEuMDYgMS4wNkwxMiAyMS4yM2w3Ljc4LTcuNzggMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAgMC03Ljc4eiIvPjwvc3ZnPg==
+website: https://gatus.io
+documentation: https://github.com/TwiN/gatus#readme
+categories:
+  - monitoring
+  - devops
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Gatus status page (auto-assigned)
+    type: port
+    default: "8117"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Gatus status page
+
+requirements:
+  memory: 128MB
+  storage: 512MB
+
+compose:
+  services:
+    gatus:
+      image: twinproduction/gatus:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      volumes:
+        - gatus-data:/data
+
+files:
+  - path: /config/config.yaml
+    content: |
+      storage:
+        type: sqlite
+        path: /data/data.db
+
+      endpoints:
+        - name: example
+          group: external
+          url: https://example.org
+          interval: 5m
+          conditions:
+            - "[STATUS] == 200"
+            - "[RESPONSE_TIME] < 1000"
+
+post_install: |
+  Gatus is running at http://your-server:${HTTP_PORT}
+
+  - Edit config.yaml in the app directory to add your endpoints and alerting
+    (Slack, Discord, ntfy, email...), then restart the app.

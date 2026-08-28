@@ -1,0 +1,45 @@
+id: docuseal
+name: DocuSeal
+version: "1.0"
+description: Open-source document signing — create fillable PDF forms and collect legally-binding e-signatures
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==
+website: https://www.docuseal.com
+documentation: https://www.docuseal.com/docs
+categories:
+  - documents
+  - business
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the DocuSeal web UI (auto-assigned)
+    type: port
+    default: "3015"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: DocuSeal Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    docuseal:
+      image: docuseal/docuseal:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      volumes:
+        - docuseal-data:/data
+  volumes:
+    docuseal-data:
+
+post_install: |
+  DocuSeal is running at http://your-server:${HTTP_PORT}
+
+  - Create the admin account on first load, then upload a PDF and drag
+    signature fields onto it to send for signing.

@@ -1,0 +1,59 @@
+id: postgres
+name: PostgreSQL
+version: "1.0"
+description: The world's most advanced open-source relational database
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://www.postgresql.org
+documentation: https://www.postgresql.org/docs/
+categories:
+  - database
+  - development
+
+variables:
+  - name: DB_PORT
+    description: Port PostgreSQL listens on (auto-assigned)
+    type: port
+    default: "5432"
+    hidden: true
+  - name: POSTGRES_DB
+    description: Initial database name
+    default: "app"
+  - name: POSTGRES_USER
+    description: Database superuser name
+    default: "postgres"
+  - name: POSTGRES_PASSWORD
+    description: Database password
+    type: password
+    generate: password
+
+ports:
+  - port: "${DB_PORT}"
+    protocol: tcp
+    description: PostgreSQL
+
+requirements:
+  memory: 512MB
+  storage: 5GB
+
+compose:
+  services:
+    postgres:
+      image: postgres:17-alpine
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${DB_PORT}:5432"
+      environment:
+        POSTGRES_DB: ${POSTGRES_DB}
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      volumes:
+        - postgres-data:/var/lib/postgresql/data
+  volumes:
+    postgres-data:
+
+post_install: |
+  PostgreSQL 17 is running on port ${DB_PORT}
+
+  - Connect: postgresql://${POSTGRES_USER}:<password>@your-server:${DB_PORT}/${POSTGRES_DB}
+  - Pair it with the pgAdmin template for a web admin UI.

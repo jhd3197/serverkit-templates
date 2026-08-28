@@ -1,0 +1,71 @@
+id: joplin-server
+name: Joplin Server
+version: "1.0"
+description: Sync server for Joplin — the open-source note-taking app with end-to-end encryption
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==
+website: https://joplinapp.org
+documentation: https://joplinapp.org/help/dev/spec/server/
+categories:
+  - notes
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Joplin Server (auto-assigned)
+    type: port
+    default: "22300"
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Joplin Server web UI and sync API
+
+requirements:
+  memory: 512MB
+  storage: 5GB
+
+compose:
+  services:
+    joplin:
+      image: joplin/server:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:22300"
+      environment:
+        APP_PORT: "22300"
+        APP_BASE_URL: "http://localhost:${HTTP_PORT}"
+        DB_CLIENT: pg
+        POSTGRES_HOST: db
+        POSTGRES_PORT: "5432"
+        POSTGRES_DATABASE: joplin
+        POSTGRES_USER: joplin
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: joplin
+        POSTGRES_USER: joplin
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - joplin-db:/var/lib/postgresql/data
+  volumes:
+    joplin-db:
+
+post_install: |
+  Joplin Server is running at http://your-server:${HTTP_PORT}
+
+  - Default login: admin@localhost / admin — change it immediately.
+  - Point the Joplin apps at this URL under Options > Synchronisation
+    (target: Joplin Server).

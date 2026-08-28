@@ -1,0 +1,50 @@
+id: redis
+name: Redis
+version: "1.0"
+description: In-memory data store for caching, queues, sessions, and pub/sub
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://redis.io
+documentation: https://redis.io/docs/
+categories:
+  - database
+  - development
+
+variables:
+  - name: DB_PORT
+    description: Port Redis listens on (auto-assigned)
+    type: port
+    default: "6379"
+    hidden: true
+  - name: REDIS_PASSWORD
+    description: Redis password (requirepass)
+    type: password
+    generate: password
+
+ports:
+  - port: "${DB_PORT}"
+    protocol: tcp
+    description: Redis
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+      ports:
+        - "${DB_PORT}:6379"
+      volumes:
+        - redis-data:/data
+  volumes:
+    redis-data:
+
+post_install: |
+  Redis 7 is running on port ${DB_PORT} (password-protected, AOF persistence on)
+
+  - Connect: redis://:<password>@your-server:${DB_PORT}/0
+  - Pair it with the Redis Commander template for a web admin UI.

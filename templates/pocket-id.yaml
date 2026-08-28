@@ -1,0 +1,55 @@
+id: pocket-id
+name: Pocket ID
+version: "1.0"
+description: Simple OIDC provider with passkey-first authentication for your self-hosted services
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjxwYXRoIGQ9Ik05IDEybDIgMiA0LTQiLz48L3N2Zz4=
+website: https://pocket-id.org
+documentation: https://pocket-id.org/docs/setup/installation/
+categories:
+  - security
+  - authentication
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Pocket ID web UI (auto-assigned)
+    type: port
+    default: "1411"
+    hidden: true
+  - name: ENCRYPTION_KEY
+    description: Encryption key for stored secrets
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Pocket ID Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    pocket-id:
+      image: ghcr.io/pocket-id/pocket-id:v2
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:1411"
+      environment:
+        APP_URL: "http://localhost:${HTTP_PORT}"
+        ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+        TRUST_PROXY: "false"
+      volumes:
+        - pocket-id-data:/app/data
+  volumes:
+    pocket-id-data:
+
+post_install: |
+  Pocket ID is running at http://your-server:${HTTP_PORT}
+
+  - Open /setup to create the first admin and register your passkey.
+  - Passkeys require HTTPS in production — serve it behind an SSL site and
+    update APP_URL accordingly.

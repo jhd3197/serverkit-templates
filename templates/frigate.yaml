@@ -1,0 +1,61 @@
+id: frigate
+name: Frigate
+version: "1.0"
+description: Complete local NVR with realtime AI object detection for your IP cameras — no cloud required
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIzIDE5YTIgMiAwIDAgMS0yIDJIM2EyIDIgMCAwIDEtMi0yVjhhMiAyIDAgMCAxIDItMmg0bDItM2g2bDIgM2g0YTIgMiAwIDAgMSAyIDJ6Ii8+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMyIgcj0iNCIvPjwvc3ZnPg==
+website: https://frigate.video
+documentation: https://docs.frigate.video
+categories:
+  - home-automation
+  - security
+  - cameras
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Frigate web UI (auto-assigned)
+    type: port
+    default: "8971"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Frigate Web UI
+  - port: "8554"
+    protocol: tcp
+    description: RTSP restreaming
+
+requirements:
+  memory: 2GB
+  storage: 20GB
+
+compose:
+  services:
+    frigate:
+      image: ghcr.io/blakeblackshear/frigate:stable
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      shm_size: "512mb"
+      ports:
+        - "${HTTP_PORT}:8971"
+        - "8554:8554"
+        - "8555:8555/tcp"
+        - "8555:8555/udp"
+      volumes:
+        - frigate-config:/config
+        - frigate-media:/media/frigate
+        - /etc/localtime:/etc/localtime:ro
+      tmpfs:
+        - /tmp/cache:size=1g
+  volumes:
+    frigate-config:
+    frigate-media:
+
+post_install: |
+  Frigate is running at http://your-server:${HTTP_PORT}
+
+  - First-run admin credentials are printed in the container logs
+    (docker logs ${APP_NAME}).
+  - Add your cameras in the built-in config editor (Settings > Configuration).
+  - For hardware acceleration (Coral TPU / GPU), add the device mappings to the
+    compose file per the Frigate docs.

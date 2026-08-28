@@ -1,0 +1,61 @@
+id: minecraft-server
+name: Minecraft Server
+version: "1.0"
+description: Dedicated Minecraft Java Edition server with automatic version management (itzg image)
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjYiIHkxPSIxMiIgeDI9IjEwIiB5Mj0iMTIiLz48bGluZSB4MT0iOCIgeTE9IjEwIiB4Mj0iOCIgeTI9IjE0Ii8+PGxpbmUgeDE9IjE1IiB5MT0iMTMiIHgyPSIxNS4wMSIgeTI9IjEzIi8+PGxpbmUgeDE9IjE4IiB5MT0iMTEiIHgyPSIxOC4wMSIgeTI9IjExIi8+PHJlY3QgeD0iMiIgeT0iNiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEyIiByeD0iMiIvPjwvc3ZnPg==
+website: https://www.minecraft.net
+documentation: https://docker-minecraft-server.readthedocs.io
+categories:
+  - gaming
+
+variables:
+  - name: SERVER_PORT
+    description: Minecraft server port
+    default: "25565"
+  - name: EULA
+    description: Setting TRUE means you accept the Minecraft EULA (required to run)
+    options:
+      - "TRUE"
+      - "FALSE"
+    default: "TRUE"
+  - name: MEMORY
+    description: JVM memory allocation
+    default: "2G"
+  - name: MC_VERSION
+    description: Minecraft version (LATEST or a specific version like 1.21.4)
+    default: "LATEST"
+
+ports:
+  - port: "${SERVER_PORT}"
+    protocol: tcp
+    description: Minecraft server
+
+requirements:
+  memory: 4GB
+  storage: 10GB
+
+compose:
+  services:
+    minecraft:
+      image: itzg/minecraft-server:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${SERVER_PORT}:25565"
+      environment:
+        EULA: ${EULA}
+        MEMORY: ${MEMORY}
+        VERSION: ${MC_VERSION}
+        TYPE: VANILLA
+      volumes:
+        - minecraft-data:/data
+  volumes:
+    minecraft-data:
+
+post_install: |
+  Minecraft server is starting on port ${SERVER_PORT} — the first boot
+  downloads the server jar and generates the world.
+
+  - Connect from Minecraft Java Edition using your-server:${SERVER_PORT}
+  - Change TYPE (PAPER, FABRIC, FORGE...) and add mods via the environment —
+    see the itzg image docs.

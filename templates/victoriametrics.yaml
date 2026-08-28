@@ -1,0 +1,47 @@
+id: victoriametrics
+name: VictoriaMetrics
+version: "1.0"
+description: Fast, cost-effective time series database and monitoring solution — a drop-in Prometheus alternative
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+
+website: https://victoriametrics.com
+documentation: https://docs.victoriametrics.com
+categories:
+  - monitoring
+  - database
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the VictoriaMetrics API and UI (auto-assigned)
+    type: port
+    default: "8428"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: VictoriaMetrics API and vmui
+
+requirements:
+  memory: 512MB
+  storage: 10GB
+
+compose:
+  services:
+    victoriametrics:
+      image: victoriametrics/victoria-metrics:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: -storageDataPath=/storage -retentionPeriod=12
+      ports:
+        - "${HTTP_PORT}:8428"
+      volumes:
+        - victoriametrics-data:/storage
+  volumes:
+    victoriametrics-data:
+
+post_install: |
+  VictoriaMetrics is running at http://your-server:${HTTP_PORT}
+
+  - Query UI: http://your-server:${HTTP_PORT}/vmui
+  - It accepts Prometheus remote_write, InfluxDB line protocol, and more.
+    Retention is set to 12 months (-retentionPeriod).

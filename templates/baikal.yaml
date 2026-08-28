@@ -1,0 +1,47 @@
+id: baikal
+name: Baïkal
+version: "1.0"
+description: Lightweight CalDAV and CardDAV server — sync calendars and contacts across all your devices
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxsaW5lIHgxPSIxNiIgeTE9IjIiIHgyPSIxNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeTE9IjIiIHgyPSI4IiB5Mj0iNiIvPjxsaW5lIHgxPSIzIiB5MT0iMTAiIHgyPSIyMSIgeTI9IjEwIi8+PC9zdmc+
+website: https://sabre.io/baikal/
+documentation: https://sabre.io/baikal/install/
+categories:
+  - productivity
+  - sync
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Baikal web UI (auto-assigned)
+    type: port
+    default: "8114"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Baikal admin and DAV endpoints
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    baikal:
+      image: ckulka/baikal:nginx
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      volumes:
+        - baikal-config:/var/www/baikal/config
+        - baikal-data:/var/www/baikal/Specific
+  volumes:
+    baikal-config:
+    baikal-data:
+
+post_install: |
+  Baikal is running at http://your-server:${HTTP_PORT}
+
+  - Open /admin to run the setup wizard (SQLite works fine), create users, and
+    then point your devices' CalDAV/CardDAV clients at /dav.php.

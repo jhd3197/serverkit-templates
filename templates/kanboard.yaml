@@ -1,0 +1,46 @@
+id: kanboard
+name: Kanboard
+version: "1.0"
+description: Minimalist kanban project management — simple, fast, and self-contained
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjUiIGhlaWdodD0iMTgiIHJ4PSIxIi8+PHJlY3QgeD0iMTAiIHk9IjMiIHdpZHRoPSI1IiBoZWlnaHQ9IjEyIiByeD0iMSIvPjxyZWN0IHg9IjE3IiB5PSIzIiB3aWR0aD0iNSIgaGVpZ2h0PSI4IiByeD0iMSIvPjwvc3ZnPg==
+website: https://kanboard.org
+documentation: https://docs.kanboard.org
+categories:
+  - productivity
+  - collaboration
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Kanboard web UI (auto-assigned)
+    type: port
+    default: "8100"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Kanboard Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    kanboard:
+      image: kanboard/kanboard:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      volumes:
+        - kanboard-data:/var/www/app/data
+        - kanboard-plugins:/var/www/app/plugins
+  volumes:
+    kanboard-data:
+    kanboard-plugins:
+
+post_install: |
+  Kanboard is running at http://your-server:${HTTP_PORT}
+
+  - Default login: admin / admin — change it immediately.

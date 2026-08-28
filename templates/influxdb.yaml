@@ -1,0 +1,63 @@
+id: influxdb
+name: InfluxDB
+version: "1.0"
+description: Purpose-built time series database for metrics, events, and IoT data
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://www.influxdata.com
+documentation: https://docs.influxdata.com/influxdb/v2/
+categories:
+  - database
+  - monitoring
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the InfluxDB UI and API (auto-assigned)
+    type: port
+    default: "8086"
+    hidden: true
+  - name: ADMIN_PASSWORD
+    description: Password for the admin user
+    type: password
+    generate: password
+  - name: ORG
+    description: Initial organization name
+    default: "serverkit"
+  - name: BUCKET
+    description: Initial bucket name
+    default: "default"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: InfluxDB UI and API
+
+requirements:
+  memory: 1GB
+  storage: 10GB
+
+compose:
+  services:
+    influxdb:
+      image: influxdb:2
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8086"
+      environment:
+        DOCKER_INFLUXDB_INIT_MODE: setup
+        DOCKER_INFLUXDB_INIT_USERNAME: admin
+        DOCKER_INFLUXDB_INIT_PASSWORD: ${ADMIN_PASSWORD}
+        DOCKER_INFLUXDB_INIT_ORG: ${ORG}
+        DOCKER_INFLUXDB_INIT_BUCKET: ${BUCKET}
+      volumes:
+        - influxdb-data:/var/lib/influxdb2
+        - influxdb-config:/etc/influxdb2
+  volumes:
+    influxdb-data:
+    influxdb-config:
+
+post_install: |
+  InfluxDB is running at http://your-server:${HTTP_PORT}
+
+  - Log in as "admin" with the password configured at install time.
+  - Create API tokens in the UI for Telegraf, Grafana, or your apps.

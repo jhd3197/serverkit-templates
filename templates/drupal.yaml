@@ -1,0 +1,71 @@
+id: drupal
+name: Drupal
+version: "1.0"
+description: Enterprise-grade open-source CMS for ambitious digital experiences
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIuNjlsNS42NiA1LjY2YTggOCAwIDEgMS0xMS4zMSAweiIvPjwvc3ZnPg==
+website: https://www.drupal.org
+documentation: https://www.drupal.org/documentation
+categories:
+  - cms
+  - website
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Drupal site (auto-assigned)
+    type: port
+    default: "8108"
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Drupal site
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    drupal:
+      image: drupal:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      volumes:
+        - drupal-modules:/var/www/html/modules
+        - drupal-profiles:/var/www/html/profiles
+        - drupal-themes:/var/www/html/themes
+        - drupal-sites:/var/www/html/sites
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: drupal
+        POSTGRES_USER: drupal
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - drupal-db:/var/lib/postgresql/data
+  volumes:
+    drupal-modules:
+    drupal-profiles:
+    drupal-themes:
+    drupal-sites:
+    drupal-db:
+
+post_install: |
+  Drupal is running at http://your-server:${HTTP_PORT}
+
+  - Run the web installer. Database settings: PostgreSQL, database "drupal",
+    user "drupal", host "db", and the generated password from this install's
+    environment (shown in the app's .env file).

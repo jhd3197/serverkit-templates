@@ -1,0 +1,49 @@
+id: apprise-api
+name: Apprise API
+version: "1.0"
+description: One API to send notifications to 100+ services — Telegram, Discord, Slack, email, ntfy, and more
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMiIgeDI9IjExIiB5Mj0iMTMiLz48cG9seWdvbiBwb2ludHM9IjIyIDIgMTUgMjIgMTEgMTMgMiA5IDIyIDIiLz48L3N2Zz4=
+website: https://github.com/caronc/apprise-api
+documentation: https://github.com/caronc/apprise-api#readme
+categories:
+  - notifications
+  - automation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Apprise API (auto-assigned)
+    type: port
+    default: "8105"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Apprise API and web UI
+
+requirements:
+  memory: 256MB
+  storage: 512MB
+
+compose:
+  services:
+    apprise-api:
+      image: lscr.io/linuxserver/apprise-api:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - apprise-config:/config
+  volumes:
+    apprise-config:
+
+post_install: |
+  Apprise API is running at http://your-server:${HTTP_PORT}
+
+  - Save notification configs under a key, then POST to /notify/<key> from any
+    app or script to fan out messages.

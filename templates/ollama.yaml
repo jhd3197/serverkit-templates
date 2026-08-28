@@ -1,0 +1,48 @@
+id: ollama
+name: Ollama
+version: "1.0"
+description: Run Llama, Gemma, Mistral, Qwen, and other open LLMs locally with a simple API
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==
+website: https://ollama.com
+documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+categories:
+  - ai
+  - llm
+
+variables:
+  - name: API_PORT
+    description: Port for the Ollama API (auto-assigned)
+    type: port
+    default: "11434"
+    hidden: true
+
+ports:
+  - port: "${API_PORT}"
+    protocol: http
+    description: Ollama API
+
+requirements:
+  memory: 8GB
+  storage: 30GB
+
+compose:
+  services:
+    ollama:
+      image: ollama/ollama:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${API_PORT}:11434"
+      volumes:
+        - ollama-models:/root/.ollama
+  volumes:
+    ollama-models:
+
+post_install: |
+  Ollama is running on port ${API_PORT}
+
+  - Pull your first model: docker exec ${APP_NAME} ollama pull llama3.2
+  - Pair it with the Open WebUI template for a chat interface (point it at
+    http://your-server:${API_PORT}).
+  - For NVIDIA GPU acceleration, add the gpu device reservation to the compose
+    file per the Ollama docs.

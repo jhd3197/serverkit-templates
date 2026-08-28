@@ -1,0 +1,55 @@
+id: mongodb
+name: MongoDB
+version: "1.0"
+description: Popular document database for modern applications — flexible JSON-like storage with powerful queries
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://www.mongodb.com
+documentation: https://www.mongodb.com/docs/
+categories:
+  - database
+  - development
+
+variables:
+  - name: DB_PORT
+    description: Port MongoDB listens on (auto-assigned)
+    type: port
+    default: "27017"
+    hidden: true
+  - name: MONGO_USER
+    description: Root user name
+    default: "root"
+  - name: MONGO_PASSWORD
+    description: Root password
+    type: password
+    generate: password
+
+ports:
+  - port: "${DB_PORT}"
+    protocol: tcp
+    description: MongoDB
+
+requirements:
+  memory: 1GB
+  storage: 5GB
+
+compose:
+  services:
+    mongodb:
+      image: mongo:8
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${DB_PORT}:27017"
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      volumes:
+        - mongodb-data:/data/db
+  volumes:
+    mongodb-data:
+
+post_install: |
+  MongoDB 8 is running on port ${DB_PORT}
+
+  - Connect: mongodb://${MONGO_USER}:<password>@your-server:${DB_PORT}/
+  - Pair it with Mongo Express (template) for a web admin UI.

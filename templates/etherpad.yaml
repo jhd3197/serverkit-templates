@@ -1,0 +1,51 @@
+id: etherpad
+name: Etherpad
+version: "1.0"
+description: Real-time collaborative document editing in the browser — the classic shared notepad
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDNhMi44MyAyLjgzIDAgMSAxIDQgNEw3LjUgMjAuNSAyIDIybDEuNS01LjV6Ii8+PC9zdmc+
+website: https://etherpad.org
+documentation: https://docs.etherpad.org
+categories:
+  - notes
+  - collaboration
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Etherpad web UI (auto-assigned)
+    type: port
+    default: "9001"
+    hidden: true
+  - name: ADMIN_PASSWORD
+    description: Password for the admin interface
+    type: password
+    generate: password
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Etherpad Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    etherpad:
+      image: etherpad/etherpad:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9001"
+      environment:
+        ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      volumes:
+        - etherpad-data:/opt/etherpad-lite/var
+  volumes:
+    etherpad-data:
+
+post_install: |
+  Etherpad is running at http://your-server:${HTTP_PORT}
+
+  - Open any URL like /p/my-pad to start a collaborative pad instantly.
+  - Admin interface: /admin (user "admin" with the generated password).

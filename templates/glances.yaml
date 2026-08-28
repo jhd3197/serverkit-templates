@@ -1,0 +1,48 @@
+id: glances
+name: Glances
+version: "1.0"
+description: Cross-platform system monitoring — CPU, memory, disks, network, and containers in one web view
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==
+website: https://nicolargo.github.io/glances/
+documentation: https://glances.readthedocs.io
+categories:
+  - monitoring
+  - system
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Glances web UI (auto-assigned)
+    type: port
+    default: "61208"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Glances Web UI
+
+requirements:
+  memory: 256MB
+  storage: 256MB
+
+compose:
+  services:
+    glances:
+      image: nicolargo/glances:latest-full
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      pid: host
+      ports:
+        - "${HTTP_PORT}:61208"
+      environment:
+        GLANCES_OPT: "-w"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        - /etc/os-release:/etc/os-release:ro
+  volumes: {}
+
+post_install: |
+  Glances is running at http://your-server:${HTTP_PORT}
+
+  - It reads host processes (pid: host) and container stats via the read-only
+    Docker socket.

@@ -1,0 +1,42 @@
+id: drawio
+name: draw.io
+version: "1.0"
+description: Self-hosted diagrams.net — flowcharts, network diagrams, UML, and whiteboards in the browser
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDNhMi44MyAyLjgzIDAgMSAxIDQgNEw3LjUgMjAuNSAyIDIybDEuNS01LjV6Ii8+PC9zdmc+
+website: https://www.drawio.com
+documentation: https://github.com/jgraph/docker-drawio#readme
+categories:
+  - productivity
+  - diagrams
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the draw.io web UI (auto-assigned)
+    type: port
+    default: "8111"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: draw.io Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    drawio:
+      image: jgraph/drawio:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+  volumes: {}
+
+post_install: |
+  draw.io is running at http://your-server:${HTTP_PORT}
+
+  - Diagrams are saved to your device or connected cloud storage — the server
+    itself is stateless.

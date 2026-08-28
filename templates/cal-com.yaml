@@ -1,0 +1,80 @@
+id: cal-com
+name: Cal.com
+version: "1.0"
+description: Open-source scheduling infrastructure — the self-hosted Calendly alternative
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxsaW5lIHgxPSIxNiIgeTE9IjIiIHgyPSIxNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeTE9IjIiIHgyPSI4IiB5Mj0iNiIvPjxsaW5lIHgxPSIzIiB5MT0iMTAiIHgyPSIyMSIgeTI9IjEwIi8+PC9zdmc+
+website: https://cal.com
+documentation: https://cal.com/docs/self-hosting
+categories:
+  - productivity
+  - scheduling
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Cal.com web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: NEXTAUTH_SECRET
+    description: Secret for signing auth tokens
+    type: password
+    generate: password
+    hidden: true
+  - name: CALENDSO_ENCRYPTION_KEY
+    description: Encryption key for stored credentials
+    type: password
+    generate: password
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Cal.com Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    calcom:
+      image: calcom/cal.com:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        NEXT_PUBLIC_WEBAPP_URL: "http://localhost:${HTTP_PORT}"
+        NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+        CALENDSO_ENCRYPTION_KEY: ${CALENDSO_ENCRYPTION_KEY}
+        DATABASE_URL: "postgresql://calcom:${DB_PASSWORD}@db:5432/calcom"
+        DATABASE_DIRECT_URL: "postgresql://calcom:${DB_PASSWORD}@db:5432/calcom"
+        NODE_ENV: production
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: calcom
+        POSTGRES_USER: calcom
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - calcom-db:/var/lib/postgresql/data
+  volumes:
+    calcom-db:
+
+post_install: |
+  Cal.com is starting — the first boot runs database migrations and can take a
+  few minutes.
+
+  - Web UI: http://your-server:${HTTP_PORT} — the setup wizard creates the
+    first admin user.
+  - If you serve it from another hostname, update NEXT_PUBLIC_WEBAPP_URL.

@@ -1,0 +1,98 @@
+id: twenty
+name: Twenty
+version: "1.0"
+description: Modern open-source CRM — a community-driven Salesforce alternative with a Notion-like feel
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdi0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==
+website: https://twenty.com
+documentation: https://twenty.com/developers/section/self-hosting
+categories:
+  - business
+  - crm
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Twenty web UI (auto-assigned)
+    type: port
+    default: "3020"
+    hidden: true
+  - name: APP_SECRET
+    description: Application secret
+    type: password
+    generate: password
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Twenty Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    twenty:
+      image: twentycrm/twenty:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        SERVER_URL: "http://localhost:${HTTP_PORT}"
+        APP_SECRET: ${APP_SECRET}
+        PG_DATABASE_URL: "postgres://twenty:${DB_PASSWORD}@db:5432/twenty"
+        REDIS_URL: "redis://redis:6379"
+        STORAGE_TYPE: local
+      volumes:
+        - twenty-data:/app/packages/twenty-server/.local-storage
+      depends_on:
+        - db
+        - redis
+
+    twenty-worker:
+      image: twentycrm/twenty:latest
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: ["yarn", "worker:prod"]
+      environment:
+        APP_SECRET: ${APP_SECRET}
+        PG_DATABASE_URL: "postgres://twenty:${DB_PASSWORD}@db:5432/twenty"
+        REDIS_URL: "redis://redis:6379"
+        STORAGE_TYPE: local
+        DISABLE_DB_MIGRATIONS: "true"
+        DISABLE_CRON_JOBS_REGISTRATION: "true"
+      volumes:
+        - twenty-data:/app/packages/twenty-server/.local-storage
+      depends_on:
+        - db
+        - redis
+
+    db:
+      image: postgres:16
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: twenty
+        POSTGRES_USER: twenty
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - twenty-db:/var/lib/postgresql/data
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+  volumes:
+    twenty-data:
+    twenty-db:
+
+post_install: |
+  Twenty is starting — first boot runs migrations and can take a few minutes.
+
+  - Web UI: http://your-server:${HTTP_PORT} — create the first workspace.

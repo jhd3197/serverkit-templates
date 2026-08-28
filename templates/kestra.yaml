@@ -1,0 +1,90 @@
+id: kestra
+name: Kestra
+version: "1.0"
+description: Event-driven declarative orchestration platform — build, schedule, and monitor workflows in YAML
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIxMiAyIDIgNyAxMiAxMiAyMiA3IDEyIDIiLz48cG9seWxpbmUgcG9pbnRzPSIyIDE3IDEyIDIyIDIyIDE3Ii8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIvPjwvc3ZnPg==
+website: https://kestra.io
+documentation: https://kestra.io/docs
+categories:
+  - development
+  - automation
+  - devops
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Kestra web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Kestra Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    kestra:
+      image: kestra/kestra:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      user: "root"
+      command: server standalone
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        KESTRA_CONFIGURATION: |
+          datasources:
+            postgres:
+              url: jdbc:postgresql://db:5432/kestra
+              driverClassName: org.postgresql.Driver
+              username: kestra
+              password: ${DB_PASSWORD}
+          kestra:
+            repository:
+              type: postgres
+            storage:
+              type: local
+              local:
+                basePath: "/app/storage"
+            queue:
+              type: postgres
+            tasks:
+              tmpDir:
+                path: /tmp/kestra-wd/tmp
+            url: "http://localhost:${HTTP_PORT}/"
+      volumes:
+        - kestra-data:/app/storage
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /tmp/kestra-wd:/tmp/kestra-wd
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: kestra
+        POSTGRES_USER: kestra
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - kestra-db:/var/lib/postgresql/data
+  volumes:
+    kestra-data:
+    kestra-db:
+
+post_install: |
+  Kestra is running at http://your-server:${HTTP_PORT}
+
+  - Create your first flow in the UI editor. The Docker socket is mounted so
+    script tasks can run in isolated containers.

@@ -1,0 +1,55 @@
+id: pigallery2
+name: PiGallery2
+version: "1.0"
+description: Fast directory-first photo gallery — point it at your existing photo folders, no imports needed
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxjaXJjbGUgY3g9IjguNSIgY3k9IjguNSIgcj0iMS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjEgMTUgMTYgMTAgNSAyMSIvPjwvc3ZnPg==
+website: https://bpatrik.github.io/pigallery2/
+documentation: https://github.com/bpatrik/pigallery2#readme
+categories:
+  - media
+  - photos
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the PiGallery2 web UI (auto-assigned)
+    type: port
+    default: "8103"
+    hidden: true
+  - name: PHOTOS_DIR
+    description: Host directory containing your photos (mounted read-only)
+    default: "/srv/photos"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: PiGallery2 Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    pigallery2:
+      image: bpatrik/pigallery2:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        NODE_ENV: production
+      volumes:
+        - pigallery2-config:/app/data/config
+        - pigallery2-db:/app/data/db
+        - pigallery2-tmp:/app/data/tmp
+        - ${PHOTOS_DIR}:/app/data/images:ro
+  volumes:
+    pigallery2-config:
+    pigallery2-db:
+    pigallery2-tmp:
+
+post_install: |
+  PiGallery2 is running at http://your-server:${HTTP_PORT}
+
+  - It indexes the photos mounted from ${PHOTOS_DIR} automatically.
+  - Default login: admin / admin — change it in the settings.

@@ -1,0 +1,115 @@
+id: glitchtip
+name: GlitchTip
+version: "1.0"
+description: Open-source error tracking, compatible with Sentry SDKs — simple to run, easy on resources
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==
+website: https://glitchtip.com
+documentation: https://glitchtip.com/documentation
+categories:
+  - development
+  - monitoring
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the GlitchTip web UI (auto-assigned)
+    type: port
+    default: "8104"
+    hidden: true
+  - name: SECRET_KEY
+    description: Django secret key
+    type: password
+    generate: password
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: GlitchTip Web UI
+
+requirements:
+  memory: 1GB
+  storage: 5GB
+
+compose:
+  services:
+    glitchtip-web:
+      image: glitchtip/glitchtip:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        DATABASE_URL: "postgres://glitchtip:${DB_PASSWORD}@db:5432/glitchtip"
+        REDIS_URL: "redis://redis:6379/0"
+        SECRET_KEY: ${SECRET_KEY}
+        GLITCHTIP_DOMAIN: "http://localhost:${HTTP_PORT}"
+        EMAIL_URL: "consolemail://"
+        DEFAULT_FROM_EMAIL: "glitchtip@localhost"
+        CELERY_WORKER_AUTOSCALE: "1,3"
+      volumes:
+        - glitchtip-uploads:/code/uploads
+      depends_on:
+        - db
+        - redis
+
+    glitchtip-worker:
+      image: glitchtip/glitchtip:latest
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: ./bin/run-celery-with-beat.sh
+      environment:
+        DATABASE_URL: "postgres://glitchtip:${DB_PASSWORD}@db:5432/glitchtip"
+        REDIS_URL: "redis://redis:6379/0"
+        SECRET_KEY: ${SECRET_KEY}
+        GLITCHTIP_DOMAIN: "http://localhost:${HTTP_PORT}"
+        EMAIL_URL: "consolemail://"
+        DEFAULT_FROM_EMAIL: "glitchtip@localhost"
+        CELERY_WORKER_AUTOSCALE: "1,3"
+      volumes:
+        - glitchtip-uploads:/code/uploads
+      depends_on:
+        - db
+        - redis
+
+    glitchtip-migrate:
+      image: glitchtip/glitchtip:latest
+      container_name: ${APP_NAME}-migrate
+      restart: "no"
+      command: ./bin/run-migrate.sh
+      environment:
+        DATABASE_URL: "postgres://glitchtip:${DB_PASSWORD}@db:5432/glitchtip"
+        REDIS_URL: "redis://redis:6379/0"
+        SECRET_KEY: ${SECRET_KEY}
+      depends_on:
+        - db
+        - redis
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: glitchtip
+        POSTGRES_USER: glitchtip
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - glitchtip-db:/var/lib/postgresql/data
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+  volumes:
+    glitchtip-uploads:
+    glitchtip-db:
+
+post_install: |
+  GlitchTip is running at http://your-server:${HTTP_PORT}
+
+  - Register the first account, create an organization and project, then point
+    any Sentry-compatible SDK at the project DSN.

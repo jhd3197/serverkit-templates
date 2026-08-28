@@ -1,0 +1,61 @@
+id: kopia
+name: Kopia
+version: "1.0"
+description: Fast and secure backup tool with encryption, deduplication, and cloud storage support — managed from a web UI
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMTIiIHgyPSIyIiB5Mj0iMTIiLz48cGF0aCBkPSJNNS40NSA1LjExTDIgMTJ2NmEyIDIgMCAwIDAgMiAyaDE2YTIgMiAwIDAgMCAyLTJ2LTZsLTMuNDUtNi44OUEyIDIgMCAwIDAgMTYuNzYgNEg3LjI0YTIgMiAwIDAgMC0xLjc5IDEuMTF6Ii8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjYuMDEiIHkyPSIxNiIvPjxsaW5lIHgxPSIxMCIgeTE9IjE2IiB4Mj0iMTAuMDEiIHkyPSIxNiIvPjwvc3ZnPg==
+website: https://kopia.io
+documentation: https://kopia.io/docs/
+categories:
+  - storage
+  - backup
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Kopia web UI (auto-assigned)
+    type: port
+    default: "51515"
+    hidden: true
+  - name: UI_PASSWORD
+    description: Password for the web UI (user is "admin")
+    type: password
+    generate: password
+  - name: BACKUP_SOURCE
+    description: Host directory to make available for backup (mounted read-only at /data)
+    default: "/srv"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Kopia Web UI
+
+requirements:
+  memory: 512MB
+  storage: 10GB
+
+compose:
+  services:
+    kopia:
+      image: kopia/kopia:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      command: server start --insecure --address 0.0.0.0:51515 --server-username admin --server-password ${UI_PASSWORD}
+      ports:
+        - "${HTTP_PORT}:51515"
+      volumes:
+        - kopia-config:/app/config
+        - kopia-cache:/app/cache
+        - kopia-logs:/app/logs
+        - kopia-repository:/repository
+        - ${BACKUP_SOURCE}:/data:ro
+  volumes:
+    kopia-config:
+    kopia-cache:
+    kopia-logs:
+    kopia-repository:
+
+post_install: |
+  Kopia is running at http://your-server:${HTTP_PORT}
+
+  - Log in as "admin" with the password configured at install time.
+  - Create a repository (local /repository or S3/B2/etc.), then snapshot /data
+    (your host's ${BACKUP_SOURCE}).

@@ -1,0 +1,120 @@
+id: netbox
+name: NetBox
+version: "1.0"
+description: The source of truth for your network — IPAM and DCIM for racks, devices, cables, VLANs, and prefixes
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjgiIHJ4PSIyIi8+PHJlY3QgeD0iMiIgeT0iMTQiIHdpZHRoPSIyMCIgaGVpZ2h0PSI4IiByeD0iMiIvPjxsaW5lIHgxPSI2IiB5MT0iNiIgeDI9IjYuMDEiIHkyPSI2Ii8+PGxpbmUgeDE9IjYiIHkxPSIxOCIgeDI9IjYuMDEiIHkyPSIxOCIvPjwvc3ZnPg==
+website: https://netboxlabs.com/community/
+documentation: https://docs.netbox.dev
+categories:
+  - networking
+  - documentation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the NetBox web UI (auto-assigned)
+    type: port
+    default: "8097"
+    hidden: true
+  - name: SECRET_KEY
+    description: Django secret key (50+ characters)
+    type: password
+    length: 50
+    generate: password
+    hidden: true
+  - name: SUPERUSER_EMAIL
+    description: Admin account email
+    default: "admin@example.com"
+    required: true
+  - name: SUPERUSER_PASSWORD
+    description: Admin account password
+    type: password
+    generate: password
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: NetBox Web UI
+
+requirements:
+  memory: 2GB
+  storage: 5GB
+
+compose:
+  services:
+    netbox:
+      image: netboxcommunity/netbox:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        DB_HOST: db
+        DB_NAME: netbox
+        DB_USER: netbox
+        DB_PASSWORD: ${DB_PASSWORD}
+        REDIS_HOST: redis
+        REDIS_PORT: "6379"
+        REDIS_DATABASE: "0"
+        REDIS_CACHE_HOST: redis
+        REDIS_CACHE_PORT: "6379"
+        REDIS_CACHE_DATABASE: "1"
+        SECRET_KEY: ${SECRET_KEY}
+        SKIP_SUPERUSER: "false"
+        SUPERUSER_NAME: admin
+        SUPERUSER_EMAIL: ${SUPERUSER_EMAIL}
+        SUPERUSER_PASSWORD: ${SUPERUSER_PASSWORD}
+      volumes:
+        - netbox-media:/opt/netbox/netbox/media
+      depends_on:
+        - db
+        - redis
+
+    netbox-worker:
+      image: netboxcommunity/netbox:latest
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py rqworker
+      environment:
+        DB_HOST: db
+        DB_NAME: netbox
+        DB_USER: netbox
+        DB_PASSWORD: ${DB_PASSWORD}
+        REDIS_HOST: redis
+        REDIS_PORT: "6379"
+        REDIS_DATABASE: "0"
+        REDIS_CACHE_HOST: redis
+        REDIS_CACHE_PORT: "6379"
+        REDIS_CACHE_DATABASE: "1"
+        SECRET_KEY: ${SECRET_KEY}
+      depends_on:
+        - netbox
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: netbox
+        POSTGRES_USER: netbox
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - netbox-db:/var/lib/postgresql/data
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+  volumes:
+    netbox-media:
+    netbox-db:
+
+post_install: |
+  NetBox is starting — first boot runs migrations and can take a few minutes.
+
+  - Web UI: http://your-server:${HTTP_PORT} — log in as "admin" with the
+    password configured at install time.

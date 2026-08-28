@@ -1,0 +1,52 @@
+id: lychee
+name: Lychee
+version: "1.0"
+description: Beautiful self-hosted photo management — upload, organize, tag, and share your photos
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxjaXJjbGUgY3g9IjguNSIgY3k9IjguNSIgcj0iMS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjEgMTUgMTYgMTAgNSAyMSIvPjwvc3ZnPg==
+website: https://lycheeorg.dev
+documentation: https://lycheeorg.dev/docs/
+categories:
+  - media
+  - photos
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Lychee web UI (auto-assigned)
+    type: port
+    default: "8102"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Lychee Web UI
+
+requirements:
+  memory: 512MB
+  storage: 10GB
+
+compose:
+  services:
+    lychee:
+      image: lycheeorg/lychee:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        PHP_TZ: UTC
+        APP_URL: "http://localhost:${HTTP_PORT}"
+        DB_CONNECTION: sqlite
+      volumes:
+        - lychee-conf:/conf
+        - lychee-uploads:/uploads
+        - lychee-sym:/sym
+  volumes:
+    lychee-conf:
+    lychee-uploads:
+    lychee-sym:
+
+post_install: |
+  Lychee is running at http://your-server:${HTTP_PORT}
+
+  - Create the admin account on first load, then start uploading albums.

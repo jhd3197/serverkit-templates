@@ -1,0 +1,56 @@
+id: tandoor
+name: Tandoor Recipes
+version: "1.0"
+description: Smart recipe manager with meal planning, shopping lists, and cookbook imports for your household
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgMnY3YzAgMS4xLjkgMiAyIDJoNGEyIDIgMCAwIDAgMi0yVjIiLz48cGF0aCBkPSJNNyAydjIwIi8+PHBhdGggZD0iTTIxIDE1VjJhNSA1IDAgMCAwLTUgNXY2YzAgMS4xLjkgMiAyIDJoM3oiLz48cGF0aCBkPSJNMjEgMTV2NyIvPjwvc3ZnPg==
+website: https://tandoor.dev
+documentation: https://docs.tandoor.dev
+categories:
+  - productivity
+  - home
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Tandoor web UI (auto-assigned)
+    type: port
+    default: "8180"
+    hidden: true
+  - name: SECRET_KEY
+    description: Django secret key
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Tandoor Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    tandoor:
+      image: vabene1111/recipes:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        SECRET_KEY: ${SECRET_KEY}
+        GUNICORN_MEDIA: "1"
+      volumes:
+        - tandoor-staticfiles:/opt/recipes/staticfiles
+        - tandoor-mediafiles:/opt/recipes/mediafiles
+  volumes:
+    tandoor-staticfiles:
+    tandoor-mediafiles:
+
+post_install: |
+  Tandoor is running at http://your-server:${HTTP_PORT}
+
+  - Create the first superuser account on first load.
+  - This setup uses the built-in SQLite database; switch to PostgreSQL via the
+    DB_ENGINE environment variables for large installations.

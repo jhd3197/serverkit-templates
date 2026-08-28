@@ -1,0 +1,64 @@
+id: mysql
+name: MySQL
+version: "1.0"
+description: The world's most popular open-source relational database
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://www.mysql.com
+documentation: https://dev.mysql.com/doc/
+categories:
+  - database
+  - development
+
+variables:
+  - name: DB_PORT
+    description: Port MySQL listens on (auto-assigned)
+    type: port
+    default: "3306"
+    hidden: true
+  - name: MYSQL_DATABASE
+    description: Initial database name
+    default: "app"
+  - name: MYSQL_USER
+    description: Database user name
+    default: "app"
+  - name: MYSQL_PASSWORD
+    description: Database user password
+    type: password
+    generate: password
+  - name: MYSQL_ROOT_PASSWORD
+    description: Root password
+    type: password
+    generate: password
+
+ports:
+  - port: "${DB_PORT}"
+    protocol: tcp
+    description: MySQL
+
+requirements:
+  memory: 1GB
+  storage: 5GB
+
+compose:
+  services:
+    mysql:
+      image: mysql:8.4
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${DB_PORT}:3306"
+      environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      volumes:
+        - mysql-data:/var/lib/mysql
+  volumes:
+    mysql-data:
+
+post_install: |
+  MySQL 8.4 is running on port ${DB_PORT}
+
+  - Connect: mysql://${MYSQL_USER}:<password>@your-server:${DB_PORT}/${MYSQL_DATABASE}
+  - Pair it with the phpMyAdmin template for a web admin UI.

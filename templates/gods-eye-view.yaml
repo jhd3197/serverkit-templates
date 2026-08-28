@@ -1,0 +1,59 @@
+id: gods-eye-view
+name: God's Eye View
+version: "1.0"
+kind: repo
+description: Spy-satellite simulator in your browser — live aircraft, ships, satellites, earthquakes, and public cameras on a photorealistic 3D globe, with AI voice control
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48bGluZSB4MT0iMiIgeTE9IjEyIiB4Mj0iMjIiIHkyPSIxMiIvPjxwYXRoIGQ9Ik0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg==
+website: https://github.com/bilawalsidhu/gods-eye-view
+documentation: https://github.com/bilawalsidhu/gods-eye-view#readme
+categories:
+  - media
+  - maps
+  - ai
+
+# Deployed from its Git repository through the New Service wizard (like
+# AgentSite). It is a Node/Vite app — no Dockerfile upstream — so the hints
+# below carry the build and start commands.
+repo:
+  url: https://github.com/bilawalsidhu/gods-eye-view.git
+  branch: main
+  service_name: gods-eye-view
+  app_type: node
+  port: 4173
+  build_command: npm install
+  start_command: npm run dev -- --host 0.0.0.0 --port 4173
+  healthcheck_path: /
+  manifest_files:
+    - package.json
+  # GOOGLE_MAPS_API_KEY is the only required key (Map Tiles API enabled, and
+  # restrict it — it is client-exposed by design). Everything else is optional
+  # and lights up extra layers.
+  env:
+    - key: GOOGLE_MAPS_API_KEY
+      required: true
+      secret: true
+    - key: CESIUM_ION_TOKEN
+      required: false
+      secret: true
+    - key: OPENAI_API_KEY
+      required: false
+      secret: true
+    - key: AISSTREAM_API_KEY
+      required: false
+      secret: true
+    - key: FIRMS_MAP_KEY
+      required: false
+      secret: true
+    - key: TOMTOM_API_KEY
+      required: false
+      secret: true
+    - key: OPENSKY_CLIENT_ID
+      required: false
+      secret: false
+    - key: OPENSKY_CLIENT_SECRET
+      required: false
+      secret: true
+
+requirements:
+  memory: 2GB
+  storage: 4GB

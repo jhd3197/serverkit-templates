@@ -1,0 +1,76 @@
+id: hedgedoc
+name: HedgeDoc
+version: "1.0"
+description: Collaborative real-time markdown editor — write, present, and share notes with your team
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==
+website: https://hedgedoc.org
+documentation: https://docs.hedgedoc.org
+categories:
+  - notes
+  - collaboration
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the HedgeDoc web UI (auto-assigned)
+    type: port
+    default: "3010"
+    hidden: true
+  - name: SESSION_SECRET
+    description: Secret for signing sessions
+    type: password
+    generate: password
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: HedgeDoc Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    hedgedoc:
+      image: quay.io/hedgedoc/hedgedoc:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        CMD_DB_URL: "postgres://hedgedoc:${DB_PASSWORD}@db:5432/hedgedoc"
+        CMD_DOMAIN: "localhost"
+        CMD_PORT: "3000"
+        CMD_URL_ADDPORT: "true"
+        CMD_SESSION_SECRET: ${SESSION_SECRET}
+        CMD_ALLOW_ANONYMOUS: "true"
+      volumes:
+        - hedgedoc-uploads:/hedgedoc/public/uploads
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: hedgedoc
+        POSTGRES_USER: hedgedoc
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - hedgedoc-db:/var/lib/postgresql/data
+  volumes:
+    hedgedoc-uploads:
+    hedgedoc-db:
+
+post_install: |
+  HedgeDoc is running at http://your-server:${HTTP_PORT}
+
+  - Sign up to create your account. If you serve it from another hostname,
+    update CMD_DOMAIN (and set CMD_PROTOCOL_USESSL behind HTTPS).
