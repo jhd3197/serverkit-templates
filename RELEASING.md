@@ -9,6 +9,7 @@ load.
 
 ```bash
 python3 scripts/generate_index.py        # rebuild the catalog
+python3 scripts/generate_readme.py       # rebuild the README template list
 python3 scripts/validate.py              # must exit 0
 git diff --stat                          # sanity-check what moved
 ```
