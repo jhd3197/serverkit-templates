@@ -1,0 +1,91 @@
+id: ghostfolio
+name: Ghostfolio
+version: "1.0"
+description: Open-source wealth management software to track stocks, ETFs, and crypto across your portfolio
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjMgNiAxMy41IDE1LjUgOC41IDEwLjUgMSAxOCIvPjxwb2x5bGluZSBwb2ludHM9IjE3IDYgMjMgNiAyMyAxMiIvPjwvc3ZnPg==
+website: https://ghostfol.io
+documentation: https://github.com/ghostfolio/ghostfolio#readme
+categories:
+  - finance
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Ghostfolio web UI (auto-assigned)
+    type: port
+    default: "3333"
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+  - name: REDIS_PASSWORD
+    description: Redis password
+    type: password
+    generate: password
+    hidden: true
+  - name: ACCESS_TOKEN_SALT
+    description: Salt for access tokens
+    type: password
+    generate: password
+    hidden: true
+  - name: JWT_SECRET_KEY
+    description: Secret for signing JWTs
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Ghostfolio Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    ghostfolio:
+      image: ghostfolio/ghostfolio:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3333"
+      environment:
+        NODE_ENV: production
+        DATABASE_URL: "postgresql://ghostfolio:${DB_PASSWORD}@db:5432/ghostfolio?connect_timeout=300&sslmode=prefer"
+        REDIS_HOST: redis
+        REDIS_PORT: "6379"
+        REDIS_PASSWORD: ${REDIS_PASSWORD}
+        ACCESS_TOKEN_SALT: ${ACCESS_TOKEN_SALT}
+        JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      depends_on:
+        - db
+        - redis
+
+    db:
+      image: postgres:15-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: ghostfolio
+        POSTGRES_USER: ghostfolio
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - ghostfolio-db:/var/lib/postgresql/data
+
+    redis:
+      image: redis:7-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+      command: redis-server --requirepass ${REDIS_PASSWORD}
+  volumes:
+    ghostfolio-db:
+
+post_install: |
+  Ghostfolio is running at http://your-server:${HTTP_PORT}
+
+  - Click "Get Started" and create your account; the first user gets the
+    admin role. Then add your accounts and transactions.

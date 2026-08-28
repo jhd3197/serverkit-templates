@@ -1,0 +1,76 @@
+id: kimai
+name: Kimai
+version: "1.0"
+description: Professional time-tracking for teams and freelancers with invoicing, projects, and detailed reports
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cG9seWxpbmUgcG9pbnRzPSIxMiA2IDEyIDEyIDE2IDE0Ii8+PC9zdmc+
+website: https://www.kimai.org
+documentation: https://www.kimai.org/documentation/
+categories:
+  - business
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Kimai web UI (auto-assigned)
+    type: port
+    default: "8001"
+    hidden: true
+  - name: ADMIN_EMAIL
+    description: Admin account email
+    default: "admin@example.com"
+    required: true
+  - name: ADMIN_PASSWORD
+    description: Admin account password
+    type: password
+    generate: password
+  - name: DB_PASSWORD
+    description: MySQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Kimai Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    kimai:
+      image: kimai/kimai2:apache
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8001"
+      environment:
+        DATABASE_URL: "mysql://kimai:${DB_PASSWORD}@db:3306/kimai?charset=utf8mb4&serverVersion=8.3.0"
+        ADMINMAIL: ${ADMIN_EMAIL}
+        ADMINPASS: ${ADMIN_PASSWORD}
+      volumes:
+        - kimai-data:/opt/kimai/var/data
+      depends_on:
+        - db
+
+    db:
+      image: mysql:8.3
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        MYSQL_DATABASE: kimai
+        MYSQL_USER: kimai
+        MYSQL_PASSWORD: ${DB_PASSWORD}
+        MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      volumes:
+        - kimai-db:/var/lib/mysql
+  volumes:
+    kimai-data:
+    kimai-db:
+
+post_install: |
+  Kimai is running at http://your-server:${HTTP_PORT}
+
+  - Log in with the admin email and password configured at install time.

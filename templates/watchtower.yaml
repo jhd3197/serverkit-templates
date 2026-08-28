@@ -1,0 +1,39 @@
+id: watchtower
+name: Watchtower
+version: "1.0"
+description: Automatically update running Docker containers when new images are published
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjMgNCAyMyAxMCAxNyAxMCIvPjxwb2x5bGluZSBwb2ludHM9IjEgMjAgMSAxNCA3IDE0Ii8+PHBhdGggZD0iTTMuNTEgOWE5IDkgMCAwIDEgMTQuODUtMy4zNkwyMyAxME0xIDE0bDQuNjQgNC4zNkE5IDkgMCAwIDAgMjAuNDkgMTUiLz48L3N2Zz4=
+website: https://containrrr.dev/watchtower/
+documentation: https://containrrr.dev/watchtower/arguments/
+categories:
+  - devops
+  - automation
+
+variables:
+  - name: POLL_INTERVAL
+    description: Seconds between update checks
+    default: "86400"
+
+requirements:
+  memory: 128MB
+  storage: 256MB
+
+compose:
+  services:
+    watchtower:
+      image: containrrr/watchtower:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      environment:
+        WATCHTOWER_CLEANUP: "true"
+        WATCHTOWER_POLL_INTERVAL: ${POLL_INTERVAL}
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+
+post_install: |
+  Watchtower is running in the background.
+
+  - It checks for new images every ${POLL_INTERVAL} seconds, updates the
+    containers, and removes old images (cleanup is enabled).
+  - Note: apps ServerKit manages by template version may be updated outside
+    ServerKit's update flow while Watchtower is active.

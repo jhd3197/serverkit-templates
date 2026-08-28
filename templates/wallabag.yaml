@@ -1,0 +1,49 @@
+id: wallabag
+name: Wallabag
+version: "1.0"
+description: Save and classify articles to read later — a self-hosted alternative to Pocket
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==
+website: https://wallabag.org
+documentation: https://doc.wallabag.org
+categories:
+  - productivity
+  - bookmarks
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Wallabag web UI (auto-assigned)
+    type: port
+    default: "8094"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Wallabag Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    wallabag:
+      image: wallabag/wallabag:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        SYMFONY__ENV__DOMAIN_NAME: "http://localhost:${HTTP_PORT}"
+      volumes:
+        - wallabag-data:/var/www/wallabag/data
+        - wallabag-images:/var/www/wallabag/web/assets/images
+  volumes:
+    wallabag-data:
+    wallabag-images:
+
+post_install: |
+  Wallabag is running at http://your-server:${HTTP_PORT}
+
+  - Default login: wallabag / wallabag — change it immediately.
+  - Browser extensions and mobile apps can sync with this instance.

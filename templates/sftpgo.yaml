@@ -1,0 +1,54 @@
+id: sftpgo
+name: SFTPGo
+version: "1.0"
+description: Full-featured SFTP, FTP/S, and WebDAV server with a web admin UI and virtual folders
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIyIDE5YTIgMiAwIDAgMS0yIDJINGEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmg1bDIgM2g5YTIgMiAwIDAgMSAyIDJ6Ii8+PC9zdmc+
+website: https://sftpgo.com
+documentation: https://docs.sftpgo.com
+categories:
+  - storage
+  - networking
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the SFTPGo admin web UI (auto-assigned)
+    type: port
+    default: "8095"
+    hidden: true
+  - name: SFTP_PORT
+    description: SFTP port
+    default: "2022"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: SFTPGo admin UI
+  - port: "${SFTP_PORT}"
+    protocol: tcp
+    description: SFTP
+
+requirements:
+  memory: 256MB
+  storage: 5GB
+
+compose:
+  services:
+    sftpgo:
+      image: drakkan/sftpgo:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+        - "${SFTP_PORT}:2022"
+      volumes:
+        - sftpgo-data:/srv/sftpgo
+        - sftpgo-home:/var/lib/sftpgo
+  volumes:
+    sftpgo-data:
+    sftpgo-home:
+
+post_install: |
+  SFTPGo is running at http://your-server:${HTTP_PORT}
+
+  - Create the admin account on first load, then add users; they connect over
+    SFTP on port ${SFTP_PORT}.

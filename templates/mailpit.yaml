@@ -1,0 +1,54 @@
+id: mailpit
+name: Mailpit
+version: "1.0"
+description: Email testing tool with a modern web UI — catch outgoing mail from your apps via SMTP
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgNGgxNmMxLjEgMCAyIC45IDIgMnYxMmMwIDEuMS0uOSAyLTIgMkg0Yy0xLjEgMC0yLS45LTItMlY2YzAtMS4xLjktMiAyLTJ6Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjIsNiAxMiwxMyAyLDYiLz48L3N2Zz4=
+website: https://mailpit.axllent.org
+documentation: https://mailpit.axllent.org/docs/
+categories:
+  - development
+  - email
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Mailpit web UI (auto-assigned)
+    type: port
+    default: "8025"
+    hidden: true
+  - name: SMTP_PORT
+    description: SMTP port your apps send mail to
+    default: "1025"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Mailpit Web UI
+  - port: "${SMTP_PORT}"
+    protocol: tcp
+    description: SMTP
+
+requirements:
+  memory: 128MB
+  storage: 1GB
+
+compose:
+  services:
+    mailpit:
+      image: axllent/mailpit:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8025"
+        - "${SMTP_PORT}:1025"
+      environment:
+        MP_DATABASE: /data/mailpit.db
+      volumes:
+        - mailpit-data:/data
+  volumes:
+    mailpit-data:
+
+post_install: |
+  Mailpit is running at http://your-server:${HTTP_PORT}
+
+  - Point your apps' SMTP settings at this server, port ${SMTP_PORT}; every
+    message is captured and shown in the web UI instead of being delivered.

@@ -1,0 +1,44 @@
+id: dozzle
+name: Dozzle
+version: "1.0"
+description: Realtime log viewer for Docker containers — no database, just a fast web UI over the Docker socket
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iNCAxNyAxMCAxMSA0IDUiLz48bGluZSB4MT0iMTIiIHkxPSIxOSIgeDI9IjIwIiB5Mj0iMTkiLz48L3N2Zz4=
+website: https://dozzle.dev
+documentation: https://dozzle.dev/guide/getting-started
+categories:
+  - monitoring
+  - devops
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Dozzle web UI (auto-assigned)
+    type: port
+    default: "8888"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Dozzle Web UI
+
+requirements:
+  memory: 128MB
+  storage: 256MB
+
+compose:
+  services:
+    dozzle:
+      image: amir20/dozzle:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+  volumes: {}
+
+post_install: |
+  Dozzle is running at http://your-server:${HTTP_PORT}
+
+  - It streams logs live from every container on this host via the read-only
+    Docker socket mount.

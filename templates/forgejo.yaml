@@ -1,0 +1,57 @@
+id: forgejo
+name: Forgejo
+version: "1.0"
+description: Self-hosted lightweight software forge — the community fork of Gitea powering Codeberg
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjYiIHkxPSIzIiB4Mj0iNiIgeTI9IjE1Ii8+PGNpcmNsZSBjeD0iMTgiIGN5PSI2IiByPSIzIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTE4IDlhOSA5IDAgMCAxLTkgOSIvPjwvc3ZnPg==
+website: https://forgejo.org
+documentation: https://forgejo.org/docs/latest/
+categories:
+  - development
+  - git
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Forgejo web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: SSH_PORT
+    description: SSH port for git operations
+    default: "2222"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Forgejo Web UI
+  - port: "${SSH_PORT}"
+    protocol: tcp
+    description: Git over SSH
+
+requirements:
+  memory: 512MB
+  storage: 5GB
+
+compose:
+  services:
+    forgejo:
+      image: codeberg.org/forgejo/forgejo:12
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+        - "${SSH_PORT}:22"
+      environment:
+        USER_UID: "1000"
+        USER_GID: "1000"
+      volumes:
+        - forgejo-data:/data
+        - /etc/timezone:/etc/timezone:ro
+        - /etc/localtime:/etc/localtime:ro
+  volumes:
+    forgejo-data:
+
+post_install: |
+  Forgejo is running at http://your-server:${HTTP_PORT}
+
+  - Complete the installer on first load; the first registered user becomes
+    admin. Use port ${SSH_PORT} for git-over-SSH remotes.

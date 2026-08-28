@@ -1,0 +1,48 @@
+id: homepage
+name: Homepage
+version: "1.0"
+description: Modern, fast, fully static-generated dashboard with 100+ service widgets and Docker integration
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjciIGhlaWdodD0iOSIvPjxyZWN0IHg9IjE0IiB5PSIzIiB3aWR0aD0iNyIgaGVpZ2h0PSI1Ii8+PHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNyIgaGVpZ2h0PSI5Ii8+PHJlY3QgeD0iMyIgeT0iMTYiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiLz48L3N2Zz4=
+website: https://gethomepage.dev
+documentation: https://gethomepage.dev/configs/
+categories:
+  - productivity
+  - dashboard
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Homepage web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Homepage dashboard
+
+requirements:
+  memory: 256MB
+  storage: 512MB
+
+compose:
+  services:
+    homepage:
+      image: ghcr.io/gethomepage/homepage:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        HOMEPAGE_ALLOWED_HOSTS: "*"
+      volumes:
+        - homepage-config:/app/config
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+  volumes:
+    homepage-config:
+
+post_install: |
+  Homepage is running at http://your-server:${HTTP_PORT}
+
+  - Edit the YAML files in the config volume to add services, bookmarks and widgets.
+  - The Docker socket is mounted read-only so container widgets work out of the box.

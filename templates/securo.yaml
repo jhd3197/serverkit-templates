@@ -1,0 +1,127 @@
+id: securo
+name: Securo
+version: "1.0"
+description: Privacy-first personal finance manager with bank sync, budgets, goals, multi-currency, and optional self-hosted AI agents
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDEyVjdINWEyIDIgMCAwIDEgMC00aDE0djQiLz48cGF0aCBkPSJNMyA1djE0YTIgMiAwIDAgMCAyIDJoMTZ2LTUiLz48cGF0aCBkPSJNMTggMTJhMiAyIDAgMCAwIDAgNGg0di00eiIvPjwvc3ZnPg==
+website: https://usesecuro.com
+documentation: https://docs.usesecuro.com
+categories:
+  - finance
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Securo web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: SECRET_KEY
+    description: Application secret key
+    type: password
+    generate: password
+    hidden: true
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Securo Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    frontend:
+      image: ghcr.io/securo-finance/securo-frontend:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        BACKEND_URL: "http://backend:8000"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+      depends_on:
+        - backend
+
+    backend:
+      image: ghcr.io/securo-finance/securo-backend:latest
+      container_name: ${APP_NAME}-backend
+      restart: unless-stopped
+      command: ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+      environment:
+        DATABASE_URL: "postgresql+asyncpg://postgres:${DB_PASSWORD}@db:5432/securo"
+        SECRET_KEY: ${SECRET_KEY}
+        DEBUG: "false"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+        REDIS_URL: "redis://redis:6379/0"
+        STORAGE_LOCAL_PATH: /app/data/attachments
+      volumes:
+        - securo-attachments:/app/data/attachments
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      depends_on:
+        - db
+        - redis
+
+    worker:
+      image: ghcr.io/securo-finance/securo-backend:latest
+      container_name: ${APP_NAME}-worker
+      restart: unless-stopped
+      command: ["celery", "-A", "app.worker", "worker", "--loglevel=info", "--concurrency=2"]
+      environment:
+        DATABASE_URL: "postgresql+asyncpg://postgres:${DB_PASSWORD}@db:5432/securo"
+        SECRET_KEY: ${SECRET_KEY}
+        REDIS_URL: "redis://redis:6379/0"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+        STORAGE_LOCAL_PATH: /app/data/attachments
+      volumes:
+        - securo-attachments:/app/data/attachments
+      depends_on:
+        - db
+        - redis
+
+    beat:
+      image: ghcr.io/securo-finance/securo-backend:latest
+      container_name: ${APP_NAME}-beat
+      restart: unless-stopped
+      command: ["celery", "-A", "app.worker", "beat", "--loglevel=info"]
+      environment:
+        DATABASE_URL: "postgresql+asyncpg://postgres:${DB_PASSWORD}@db:5432/securo"
+        SECRET_KEY: ${SECRET_KEY}
+        REDIS_URL: "redis://redis:6379/0"
+        FRONTEND_URL: "http://localhost:${HTTP_PORT}"
+      depends_on:
+        - db
+        - redis
+
+    db:
+      image: pgvector/pgvector:pg16
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+        POSTGRES_DB: securo
+      volumes:
+        - securo-db:/var/lib/postgresql/data
+
+    redis:
+      image: redis:8-alpine
+      container_name: ${APP_NAME}-redis
+      restart: unless-stopped
+  volumes:
+    securo-attachments:
+    securo-db:
+
+post_install: |
+  Securo is running at http://your-server:${HTTP_PORT}
+
+  - Open the UI and create your account.
+  - Bank sync (Pluggy, Enable Banking, SimpleFIN) and the optional AI agents
+    are configured via extra environment variables — see the docs.

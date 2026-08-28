@@ -1,0 +1,48 @@
+id: baserow
+name: Baserow
+version: "1.0"
+description: Open-source no-code database and Airtable alternative with real-time collaboration
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=
+website: https://baserow.io
+documentation: https://baserow.io/docs/index
+categories:
+  - database
+  - productivity
+  - low-code
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Baserow web UI (auto-assigned)
+    type: port
+    default: "8085"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Baserow Web UI
+
+requirements:
+  memory: 2GB
+  storage: 4GB
+
+compose:
+  services:
+    baserow:
+      image: baserow/baserow:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        BASEROW_PUBLIC_URL: "http://localhost:${HTTP_PORT}"
+      volumes:
+        - baserow-data:/baserow/data
+  volumes:
+    baserow-data:
+
+post_install: |
+  Baserow is running at http://your-server:${HTTP_PORT}
+
+  - Create the first account to get started. If you access it from another
+    hostname, update BASEROW_PUBLIC_URL accordingly.

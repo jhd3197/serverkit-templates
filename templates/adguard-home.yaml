@@ -1,0 +1,57 @@
+id: adguard-home
+name: AdGuard Home
+version: "1.0"
+description: Network-wide ad and tracker blocking DNS server with parental controls and per-client settings
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==
+website: https://adguard.com/en/adguard-home/overview.html
+documentation: https://github.com/AdguardTeam/AdGuardHome/wiki
+categories:
+  - networking
+  - security
+  - dns
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the AdGuard Home web UI (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: DNS_PORT
+    description: DNS port exposed to your network
+    default: "53"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Web UI and initial setup
+  - port: "${DNS_PORT}"
+    protocol: tcp
+    description: DNS
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    adguard:
+      image: adguard/adguardhome:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${DNS_PORT}:53/tcp"
+        - "${DNS_PORT}:53/udp"
+        - "${HTTP_PORT}:3000"
+      volumes:
+        - adguard-work:/opt/adguardhome/work
+        - adguard-conf:/opt/adguardhome/conf
+  volumes:
+    adguard-work:
+    adguard-conf:
+
+post_install: |
+  AdGuard Home is running.
+
+  - Finish setup at http://your-server:${HTTP_PORT} — when asked for the admin
+    interface port, keep 3000 so the published port keeps working.
+  - Point your router or devices at this server on port ${DNS_PORT} for DNS.

@@ -1,0 +1,68 @@
+id: healthchecks
+name: Healthchecks
+version: "1.0"
+description: Cron job and scheduled task monitoring — get alerted when your background jobs do not run on time
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwLjg0IDQuNjFhNS41IDUuNSAwIDAgMC03Ljc4IDBMMTIgNS42N2wtMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAtNy43OCA3Ljc4bDEuMDYgMS4wNkwxMiAyMS4yM2w3Ljc4LTcuNzggMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAgMC03Ljc4eiIvPjwvc3ZnPg==
+website: https://healthchecks.io
+documentation: https://healthchecks.io/docs/self_hosted/
+categories:
+  - monitoring
+  - devops
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Healthchecks web UI (auto-assigned)
+    type: port
+    default: "8000"
+    hidden: true
+  - name: SUPERUSER_EMAIL
+    description: Admin account email
+    default: "admin@example.com"
+    required: true
+  - name: SUPERUSER_PASSWORD
+    description: Admin account password
+    type: password
+    generate: password
+  - name: SECRET_KEY
+    description: Django secret key
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Healthchecks Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    healthchecks:
+      image: lscr.io/linuxserver/healthchecks:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+        SITE_ROOT: "http://localhost:${HTTP_PORT}"
+        SITE_NAME: "Healthchecks"
+        SUPERUSER_EMAIL: ${SUPERUSER_EMAIL}
+        SUPERUSER_PASSWORD: ${SUPERUSER_PASSWORD}
+        SECRET_KEY: ${SECRET_KEY}
+        ALLOWED_HOSTS: "*"
+      volumes:
+        - healthchecks-config:/config
+  volumes:
+    healthchecks-config:
+
+post_install: |
+  Healthchecks is running at http://your-server:${HTTP_PORT}
+
+  - Log in with the superuser email and password configured at install time.
+  - Create a check for each cron job and have the job ping its unique URL.

@@ -1,0 +1,55 @@
+id: roundcube
+name: Roundcube
+version: "1.0"
+description: Browser-based multilingual IMAP webmail client with a modern responsive interface
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgNGgxNmMxLjEgMCAyIC45IDIgMnYxMmMwIDEuMS0uOSAyLTIgMkg0Yy0xLjEgMC0yLS45LTItMlY2YzAtMS4xLjktMiAyLTJ6Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjIsNiAxMiwxMyAyLDYiLz48L3N2Zz4=
+website: https://roundcube.net
+documentation: https://github.com/roundcube/roundcubemail/wiki
+categories:
+  - productivity
+  - email
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Roundcube web UI (auto-assigned)
+    type: port
+    default: "8093"
+    hidden: true
+  - name: IMAP_HOST
+    description: IMAP server (e.g. ssl://imap.example.com)
+    default: "ssl://imap.example.com"
+    required: true
+  - name: SMTP_HOST
+    description: SMTP server (e.g. ssl://smtp.example.com)
+    default: "ssl://smtp.example.com"
+    required: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Roundcube Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    roundcube:
+      image: roundcube/roundcubemail:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        ROUNDCUBEMAIL_DEFAULT_HOST: ${IMAP_HOST}
+        ROUNDCUBEMAIL_SMTP_SERVER: ${SMTP_HOST}
+      volumes:
+        - roundcube-db:/var/roundcube/db
+  volumes:
+    roundcube-db:
+
+post_install: |
+  Roundcube is running at http://your-server:${HTTP_PORT}
+
+  - Log in with the credentials of any mailbox on the configured IMAP server.

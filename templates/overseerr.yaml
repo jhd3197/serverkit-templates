@@ -1,0 +1,55 @@
+id: overseerr
+name: Overseerr
+version: "1.0"
+description: Request management and media discovery tool for Plex that integrates with Sonarr and Radarr
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==
+website: https://overseerr.dev
+documentation: https://docs.overseerr.dev
+categories:
+  - media
+  - automation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Overseerr web UI (auto-assigned)
+    type: port
+    default: "5055"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Overseerr Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    overseerr:
+      image: lscr.io/linuxserver/overseerr:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5055"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - overseerr-config:/config
+      networks:
+        - default
+        - media
+  volumes:
+    overseerr-config:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  Overseerr is running at http://your-server:${HTTP_PORT}
+
+  - Sign in with Plex, then connect Sonarr and Radarr so approved requests are
+    grabbed automatically. Uses the shared "serverkit-media" network.

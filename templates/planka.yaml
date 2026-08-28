@@ -1,0 +1,89 @@
+id: planka
+name: Planka
+version: "1.0"
+description: Elegant open-source kanban board for workgroups — a realtime Trello alternative
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjUiIGhlaWdodD0iMTgiIHJ4PSIxIi8+PHJlY3QgeD0iMTAiIHk9IjMiIHdpZHRoPSI1IiBoZWlnaHQ9IjEyIiByeD0iMSIvPjxyZWN0IHg9IjE3IiB5PSIzIiB3aWR0aD0iNSIgaGVpZ2h0PSI4IiByeD0iMSIvPjwvc3ZnPg==
+website: https://planka.app
+documentation: https://docs.planka.cloud
+categories:
+  - productivity
+  - collaboration
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Planka web UI (auto-assigned)
+    type: port
+    default: "1337"
+    hidden: true
+  - name: SECRET_KEY
+    description: Secret key for signing sessions
+    type: password
+    generate: password
+    hidden: true
+  - name: ADMIN_EMAIL
+    description: Admin account email
+    default: "admin@example.com"
+    required: true
+  - name: ADMIN_PASSWORD
+    description: Admin account password
+    type: password
+    generate: password
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Planka Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    planka:
+      image: ghcr.io/plankanban/planka:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:1337"
+      environment:
+        BASE_URL: "http://localhost:${HTTP_PORT}"
+        SECRET_KEY: ${SECRET_KEY}
+        DATABASE_URL: "postgresql://postgres:${DB_PASSWORD}@db/planka"
+        DEFAULT_ADMIN_EMAIL: ${ADMIN_EMAIL}
+        DEFAULT_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+        DEFAULT_ADMIN_NAME: Admin
+        DEFAULT_ADMIN_USERNAME: admin
+      volumes:
+        - planka-favicons:/app/public/favicons
+        - planka-user-avatars:/app/public/user-avatars
+        - planka-background-images:/app/public/background-images
+        - planka-attachments:/app/private/attachments
+      depends_on:
+        - db
+
+    db:
+      image: postgres:16-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: planka
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - planka-db:/var/lib/postgresql/data
+  volumes:
+    planka-favicons:
+    planka-user-avatars:
+    planka-background-images:
+    planka-attachments:
+    planka-db:
+
+post_install: |
+  Planka is running at http://your-server:${HTTP_PORT}
+
+  - Log in with the admin email and password configured at install time.

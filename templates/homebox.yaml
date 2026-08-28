@@ -1,0 +1,44 @@
+id: homebox
+name: HomeBox
+version: "1.0"
+description: Inventory and organization system for your home — track items, locations, warranties, and maintenance
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+
+website: https://homebox.software
+documentation: https://homebox.software/en/quick-start.html
+categories:
+  - productivity
+  - home
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the HomeBox web UI (auto-assigned)
+    type: port
+    default: "7745"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: HomeBox Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    homebox:
+      image: ghcr.io/sysadminsmedia/homebox:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:7745"
+      volumes:
+        - homebox-data:/data
+  volumes:
+    homebox-data:
+
+post_install: |
+  HomeBox is running at http://your-server:${HTTP_PORT}
+
+  - Register the first account to get started, then add locations and items.

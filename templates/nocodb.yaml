@@ -1,0 +1,46 @@
+id: nocodb
+name: NocoDB
+version: "1.0"
+description: Open-source Airtable alternative — turns any database into a smart spreadsheet with forms, kanban, and APIs
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+
+website: https://nocodb.com
+documentation: https://docs.nocodb.com
+categories:
+  - database
+  - productivity
+  - low-code
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the NocoDB web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: NocoDB Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    nocodb:
+      image: nocodb/nocodb:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      volumes:
+        - nocodb-data:/usr/app/data
+  volumes:
+    nocodb-data:
+
+post_install: |
+  NocoDB is running at http://your-server:${HTTP_PORT}
+
+  - Sign up the first user (becomes super admin). Uses built-in SQLite by
+    default; connect external databases from the UI.

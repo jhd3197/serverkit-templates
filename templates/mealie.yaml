@@ -1,0 +1,48 @@
+id: mealie
+name: Mealie
+version: "1.0"
+description: Self-hosted recipe manager and meal planner with one-click recipe import from any URL
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgMnY3YzAgMS4xLjkgMiAyIDJoNGEyIDIgMCAwIDAgMi0yVjIiLz48cGF0aCBkPSJNNyAydjIwIi8+PHBhdGggZD0iTTIxIDE1VjJhNSA1IDAgMCAwLTUgNXY2YzAgMS4xLjkgMiAyIDJoM3oiLz48cGF0aCBkPSJNMjEgMTV2NyIvPjwvc3ZnPg==
+website: https://mealie.io
+documentation: https://docs.mealie.io
+categories:
+  - productivity
+  - home
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Mealie web UI (auto-assigned)
+    type: port
+    default: "9925"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Mealie Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    mealie:
+      image: ghcr.io/mealie-recipes/mealie:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9000"
+      environment:
+        ALLOW_SIGNUP: "false"
+        BASE_URL: "http://localhost:${HTTP_PORT}"
+      volumes:
+        - mealie-data:/app/data
+  volumes:
+    mealie-data:
+
+post_install: |
+  Mealie is running at http://your-server:${HTTP_PORT}
+
+  - Default login: changeme@example.com / MyPassword — change it immediately.
+  - Import recipes by pasting a URL; Mealie scrapes ingredients and steps.

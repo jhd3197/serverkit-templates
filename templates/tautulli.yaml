@@ -1,0 +1,55 @@
+id: tautulli
+name: Tautulli
+version: "1.0"
+description: Monitoring and statistics dashboard for your Plex Media Server with notifications and history
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==
+website: https://tautulli.com
+documentation: https://github.com/Tautulli/Tautulli/wiki
+categories:
+  - media
+  - monitoring
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Tautulli web UI (auto-assigned)
+    type: port
+    default: "8181"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Tautulli Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    tautulli:
+      image: lscr.io/linuxserver/tautulli:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8181"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - tautulli-config:/config
+      networks:
+        - default
+        - media
+  volumes:
+    tautulli-config:
+  networks:
+    media:
+      name: serverkit-media
+
+post_install: |
+  Tautulli is running at http://your-server:${HTTP_PORT}
+
+  - Run the setup wizard and point it at your Plex server. On the shared
+    "serverkit-media" network it can reach a Plex container by name.

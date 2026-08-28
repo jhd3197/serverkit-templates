@@ -1,9 +1,21 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-08-18",
-  "count": 106,
+  "updated": "2026-08-28",
+  "count": 159,
   "templates": [
+    {
+      "id": "2fauth",
+      "name": "2FAuth",
+      "version": "1.0",
+      "description": "Web app to manage and generate your two-factor authentication (2FA) codes \u2014 a self-hosted authenticator",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDJsLTIgMm0tNy42MSA3LjYxYTUuNSA1LjUgMCAxIDEtNy43NzggNy43NzggNS41IDUuNSAwIDAgMSA3Ljc3Ny03Ljc3N3ptMCAwTDE1LjUgNy41bTAgMGwzIDNMMjIgN2wtMy0zbS0zLjUgMy41TDE5IDQiLz48L3N2Zz4=",
+      "categories": [
+        "security",
+        "authentication"
+      ],
+      "sha256": "a688d6f79efb3825dc38fcccf2fadd63529c5e8f6786ba4b937f12db54b6f3f2"
+    },
     {
       "id": "actualbudget",
       "name": "Actual Budget",
@@ -15,6 +27,19 @@
         "productivity"
       ],
       "sha256": "99623bfbd7370ba8dee84f86fcbb20dbf230f837223ba3c626dc23ff2fc23c63"
+    },
+    {
+      "id": "adguard-home",
+      "name": "AdGuard Home",
+      "version": "1.0",
+      "description": "Network-wide ad and tracker blocking DNS server with parental controls and per-client settings",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==",
+      "categories": [
+        "networking",
+        "security",
+        "dns"
+      ],
+      "sha256": "69f29b06c1bda72be923cc96e8fa160add8116a48bf59ab96022e39770d91597"
     },
     {
       "id": "agentsite",
@@ -42,6 +67,19 @@
         "rag"
       ],
       "sha256": "925bc8d68236be20d28bf991660d1f773c6d3ed11c8aa51bcd26e1798cf6f546"
+    },
+    {
+      "id": "appsmith",
+      "name": "Appsmith",
+      "version": "1.0",
+      "description": "Open-source low-code platform to build internal tools, admin panels, and dashboards on any datasource",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIxMiAyIDIgNyAxMiAxMiAyMiA3IDEyIDIiLz48cG9seWxpbmUgcG9pbnRzPSIyIDE3IDEyIDIyIDIyIDE3Ii8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIvPjwvc3ZnPg==",
+      "categories": [
+        "development",
+        "low-code",
+        "productivity"
+      ],
+      "sha256": "cb3b2080b975632984ed88a7ecdc3d1b83de4720a13d72c1590a0f0c32f558e8"
     },
     {
       "id": "audiobookshelf",
@@ -80,6 +118,43 @@
         "sso"
       ],
       "sha256": "e60cd3be0d5b064d14a7bde6f5dd6b84afc9efbf0e9490b4e8cf2a334b879ba1"
+    },
+    {
+      "id": "backrest",
+      "name": "Backrest",
+      "version": "1.0",
+      "description": "Web UI and orchestrator for restic \u2014 scheduled, encrypted, deduplicated backups to local or cloud storage",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMTIiIHgyPSIyIiB5Mj0iMTIiLz48cGF0aCBkPSJNNS40NSA1LjExTDIgMTJ2NmEyIDIgMCAwIDAgMiAyaDE2YTIgMiAwIDAgMCAyLTJ2LTZsLTMuNDUtNi44OUEyIDIgMCAwIDAgMTYuNzYgNEg3LjI0YTIgMiAwIDAgMC0xLjc5IDEuMTF6Ii8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjYuMDEiIHkyPSIxNiIvPjxsaW5lIHgxPSIxMCIgeTE9IjE2IiB4Mj0iMTAuMDEiIHkyPSIxNiIvPjwvc3ZnPg==",
+      "categories": [
+        "storage",
+        "backup"
+      ],
+      "sha256": "9f0ee6a9654e61fcbd53532c4c6a2f6f1a7dce0e8b43f491ac700cb06dab2fe7"
+    },
+    {
+      "id": "baserow",
+      "name": "Baserow",
+      "version": "1.0",
+      "description": "Open-source no-code database and Airtable alternative with real-time collaboration",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjEyIiBjeT0iNSIgcng9IjkiIHJ5PSIzIi8+PHBhdGggZD0iTTIxIDEyYzAgMS42Ni00IDMtOSAzcy05LTEuMzQtOS0zIi8+PHBhdGggZD0iTTMgNXYxNGMwIDEuNjYgNCAzIDkgM3M5LTEuMzQgOS0zVjUiLz48L3N2Zz4=",
+      "categories": [
+        "database",
+        "productivity",
+        "low-code"
+      ],
+      "sha256": "08d7e3fba8f6bed56e4dbceff020a40d5b5a4c949068a77d80f0caddae626c51"
+    },
+    {
+      "id": "bazarr",
+      "name": "Bazarr",
+      "version": "1.0",
+      "description": "Companion to Sonarr and Radarr that downloads and manages subtitles for your media library",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxsaW5lIHgxPSI2IiB5MT0iMTIiIHgyPSIxNCIgeTI9IjEyIi8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjE4IiB5Mj0iMTYiLz48L3N2Zz4=",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "9cc26ccf8ab25154f025d797b25e252570795523c46dbbf592de82378f80d767"
     },
     {
       "id": "beszel",
@@ -130,6 +205,18 @@
         "productivity"
       ],
       "sha256": "f3b97ba1acd3d50a707ad513ad9e344ae26e4172b8e5c170b3cca45dcaa3abfb"
+    },
+    {
+      "id": "changedetection",
+      "name": "changedetection.io",
+      "version": "1.0",
+      "description": "Website change detection and monitoring with notifications to 90+ services",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEgMTJzNC04IDExLTggMTEgOCAxMSA4LTQgOC0xMSA4LTExLTgtMTEtOHoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+PC9zdmc+",
+      "categories": [
+        "monitoring",
+        "automation"
+      ],
+      "sha256": "e292dd8ade5b01972781b4db3b5d93e2c17ff7a47cb7dcd4cb61ec335f26449d"
     },
     {
       "id": "chatwoot",
@@ -184,6 +271,18 @@
       "sha256": "4af7fd29d18aec7dbcc83a50dc9f36db33ef78b71380e991686add3769d966af"
     },
     {
+      "id": "dashy",
+      "name": "Dashy",
+      "version": "1.0",
+      "description": "Self-hosted startpage with status checking, themes, widgets, and a built-in UI config editor",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjciIGhlaWdodD0iOSIvPjxyZWN0IHg9IjE0IiB5PSIzIiB3aWR0aD0iNyIgaGVpZ2h0PSI1Ii8+PHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNyIgaGVpZ2h0PSI5Ii8+PHJlY3QgeD0iMyIgeT0iMTYiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiLz48L3N2Zz4=",
+      "categories": [
+        "productivity",
+        "dashboard"
+      ],
+      "sha256": "bcce9dd48a0678503197bed0a1ac2361fec0e6b4bb4cd204c76eee023d995666"
+    },
+    {
       "id": "directus",
       "name": "Directus",
       "version": "10.8",
@@ -198,6 +297,31 @@
       "sha256": "7e09384da842746dddcef5bb0afec2d0a59ff68bd5fb7b78b64a31afb4217f4a"
     },
     {
+      "id": "dockge",
+      "name": "Dockge",
+      "version": "1.0",
+      "description": "Reactive self-hosted Docker Compose stack manager from the maker of Uptime Kuma",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+",
+      "categories": [
+        "devops",
+        "management"
+      ],
+      "sha256": "e302835523178a384ada19bfa0293f379ebfabe96c413ea8db3248753ea80217"
+    },
+    {
+      "id": "docmost",
+      "name": "Docmost",
+      "version": "1.0",
+      "description": "Open-source collaborative wiki and documentation software \u2014 an alternative to Confluence and Notion",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==",
+      "categories": [
+        "documents",
+        "collaboration",
+        "wiki"
+      ],
+      "sha256": "237343806331022c352b004bf260df5440626eaf944d37ba22a222820853c04f"
+    },
+    {
       "id": "documenso",
       "name": "Documenso",
       "version": "1.0",
@@ -209,6 +333,18 @@
         "productivity"
       ],
       "sha256": "b999b932513b63cd09c899641ad3f1734a31de6912b5dbb965501174405c3111"
+    },
+    {
+      "id": "dozzle",
+      "name": "Dozzle",
+      "version": "1.0",
+      "description": "Realtime log viewer for Docker containers \u2014 no database, just a fast web UI over the Docker socket",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iNCAxNyAxMCAxMSA0IDUiLz48bGluZSB4MT0iMTIiIHkxPSIxOSIgeDI9IjIwIiB5Mj0iMTkiLz48L3N2Zz4=",
+      "categories": [
+        "monitoring",
+        "devops"
+      ],
+      "sha256": "0a69e03b36dac70afdb8bacf75bc9fddadb27f1aad89e5a2e980ea0c63b90454"
     },
     {
       "id": "drone",
@@ -235,6 +371,42 @@
         "encryption"
       ],
       "sha256": "f8cc0bbee211e67b9b8d9340a598e25f14fae093dfa8ae782f012dd6a2d94ecb"
+    },
+    {
+      "id": "element",
+      "name": "Element",
+      "version": "1.0",
+      "description": "Glossy Matrix web client \u2014 secure decentralized chat with E2E encryption",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDExLjVhOC4zOCA4LjM4IDAgMCAxLS45IDMuOCA4LjUgOC41IDAgMCAxLTcuNiA0LjcgOC4zOCA4LjM4IDAgMCAxLTMuOC0uOUwzIDIxbDEuOS01LjdhOC4zOCA4LjM4IDAgMCAxLS45LTMuOCA4LjUgOC41IDAgMCAxIDQuNy03LjYgOC4zOCA4LjM4IDAgMCAxIDMuOC0uOWguNWE4LjQ4IDguNDggMCAwIDEgOCA4di41eiIvPjwvc3ZnPg==",
+      "categories": [
+        "collaboration",
+        "chat"
+      ],
+      "sha256": "5e0b412c843cdde004c6ada3d789c4befa5d2c4e7b3b0bb13fb87f3830bcdd43"
+    },
+    {
+      "id": "esphome",
+      "name": "ESPHome",
+      "version": "1.0",
+      "description": "Create custom firmwares for ESP32/ESP8266 smart-home devices with simple YAML configuration",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxyZWN0IHg9IjkiIHk9IjkiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiLz48bGluZSB4MT0iOSIgeTE9IjEiIHgyPSI5IiB5Mj0iNCIvPjxsaW5lIHgxPSIxNSIgeTE9IjEiIHgyPSIxNSIgeTI9IjQiLz48bGluZSB4MT0iOSIgeTE9IjIwIiB4Mj0iOSIgeTI9IjIzIi8+PGxpbmUgeDE9IjE1IiB5MT0iMjAiIHgyPSIxNSIgeTI9IjIzIi8+PGxpbmUgeDE9IjIwIiB5MT0iOSIgeDI9IjIzIiB5Mj0iOSIvPjxsaW5lIHgxPSIyMCIgeTE9IjE0IiB4Mj0iMjMiIHkyPSIxNCIvPjxsaW5lIHgxPSIxIiB5MT0iOSIgeDI9IjQiIHkyPSI5Ii8+PGxpbmUgeDE9IjEiIHkxPSIxNCIgeDI9IjQiIHkyPSIxNCIvPjwvc3ZnPg==",
+      "categories": [
+        "home-automation",
+        "iot"
+      ],
+      "sha256": "524888b36298c43fc531732e4b549bcd19c2687cdb2214d2531b77027361703e"
+    },
+    {
+      "id": "espocrm",
+      "name": "EspoCRM",
+      "version": "1.0",
+      "description": "Full-featured open-source CRM \u2014 leads, opportunities, accounts, email campaigns, and workflows",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdi0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==",
+      "categories": [
+        "business",
+        "crm"
+      ],
+      "sha256": "f9c0312089f08c46b0b62d8671f40fb789eb297fdbabaa1c01b3baa91ab5f385"
     },
     {
       "id": "excalidraw",
@@ -302,6 +474,18 @@
       "sha256": "f2853ecaa73883fef19e23190b93618b1436a8ec73f55158803e72fe8a5b1d46"
     },
     {
+      "id": "forgejo",
+      "name": "Forgejo",
+      "version": "1.0",
+      "description": "Self-hosted lightweight software forge \u2014 the community fork of Gitea powering Codeberg",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjYiIHkxPSIzIiB4Mj0iNiIgeTI9IjE1Ii8+PGNpcmNsZSBjeD0iMTgiIGN5PSI2IiByPSIzIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTE4IDlhOSA5IDAgMCAxLTkgOSIvPjwvc3ZnPg==",
+      "categories": [
+        "development",
+        "git"
+      ],
+      "sha256": "7a293f7affb51b62e36a404dee4c6d2f7d155df713670237969bf5766365dce5"
+    },
+    {
       "id": "freshrss",
       "name": "FreshRSS",
       "version": "1.0",
@@ -328,6 +512,18 @@
       "sha256": "4d5670c9871a75d3b3cce4b153cc64ac3612da2b162f1ba762fc3857b243dcee"
     },
     {
+      "id": "ghostfolio",
+      "name": "Ghostfolio",
+      "version": "1.0",
+      "description": "Open-source wealth management software to track stocks, ETFs, and crypto across your portfolio",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjMgNiAxMy41IDE1LjUgOC41IDEwLjUgMSAxOCIvPjxwb2x5bGluZSBwb2ludHM9IjE3IDYgMjMgNiAyMyAxMiIvPjwvc3ZnPg==",
+      "categories": [
+        "finance",
+        "productivity"
+      ],
+      "sha256": "10f7f456b53bc865372251274cf8ee20461d11b71ee33dcc05c41a54afeb8c3c"
+    },
+    {
       "id": "gitea",
       "name": "Gitea",
       "version": "1.21",
@@ -352,6 +548,19 @@
         "gitlab"
       ],
       "sha256": "a60b3c5cd5a8066aed243b0e6ec869c5214746724649fd3421d579062c25c53b"
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab CE",
+      "version": "1.0",
+      "description": "Complete DevOps platform \u2014 git hosting, CI/CD, issues, registry, and more (heavy, needs 4GB+ RAM)",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iMyIvPjxjaXJjbGUgY3g9IjYiIGN5PSI2IiByPSIzIi8+PHBhdGggZD0iTTYgMjFWOWE5IDkgMCAwIDAgOSA5Ii8+PC9zdmc+",
+      "categories": [
+        "development",
+        "devops",
+        "git"
+      ],
+      "sha256": "b5bbbc7c162605733cbb12fa3837b98f94b2d1eedc166355a39265f5e0b1bc69"
     },
     {
       "id": "gotify",
@@ -392,6 +601,55 @@
       "sha256": "a6c561c2a84df33cc270d600e30e4d8d4e3c3fb6ac9d0e94d790fd6d97f01508"
     },
     {
+      "id": "grist",
+      "name": "Grist",
+      "version": "1.0",
+      "description": "Modern relational spreadsheet that combines the flexibility of a spreadsheet with the robustness of a database",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+",
+      "categories": [
+        "database",
+        "productivity",
+        "low-code"
+      ],
+      "sha256": "374fed83daa9817d3d50ec2b0c9ccfccea5c222e603c598c751c7a1b555621b4"
+    },
+    {
+      "id": "grocy",
+      "name": "Grocy",
+      "version": "1.0",
+      "description": "ERP for your fridge \u2014 groceries, chores, and household management with stock tracking and barcode support",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iOSIgY3k9IjIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMSIgcj0iMSIvPjxwYXRoIGQ9Ik0xIDFoNGwyLjY4IDEzLjM5YTIgMiAwIDAgMCAyIDEuNjFoOS43MmEyIDIgMCAwIDAgMi0xLjYxTDIzIDZINiIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "home"
+      ],
+      "sha256": "0d751b7a29937512270e124cc0d007b6c03d620eb8510193cb1d39a23a8a46bd"
+    },
+    {
+      "id": "healthchecks",
+      "name": "Healthchecks",
+      "version": "1.0",
+      "description": "Cron job and scheduled task monitoring \u2014 get alerted when your background jobs do not run on time",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwLjg0IDQuNjFhNS41IDUuNSAwIDAgMC03Ljc4IDBMMTIgNS42N2wtMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAtNy43OCA3Ljc4bDEuMDYgMS4wNkwxMiAyMS4yM2w3Ljc4LTcuNzggMS4wNi0xLjA2YTUuNSA1LjUgMCAwIDAgMC03Ljc4eiIvPjwvc3ZnPg==",
+      "categories": [
+        "monitoring",
+        "devops"
+      ],
+      "sha256": "34454ce9481e7d70a408dd3ed8fd591ba69dba23eac486fa689f646edeed3ba3"
+    },
+    {
+      "id": "homarr",
+      "name": "Homarr",
+      "version": "1.0",
+      "description": "Sleek customizable dashboard for your homelab with drag-and-drop widgets and app integrations",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjciIGhlaWdodD0iNyIvPjxyZWN0IHg9IjE0IiB5PSIzIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+PHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+PHJlY3QgeD0iMyIgeT0iMTQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz48L3N2Zz4=",
+      "categories": [
+        "productivity",
+        "dashboard"
+      ],
+      "sha256": "c27bcb318248d7cf4b50bcf4e54815a037b241e6f19f4d449f4b9092f8d2da37"
+    },
+    {
       "id": "homeassistant",
       "name": "Home Assistant",
       "version": "2024.1",
@@ -405,6 +663,30 @@
       "sha256": "928199e59d930d4e293e3c7b7b7313e24554981e6fc584d700c963fb2d9596a4"
     },
     {
+      "id": "homebox",
+      "name": "HomeBox",
+      "version": "1.0",
+      "description": "Inventory and organization system for your home \u2014 track items, locations, warranties, and maintenance",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+",
+      "categories": [
+        "productivity",
+        "home"
+      ],
+      "sha256": "dbdef3f7c19ab61f005b53aed2fe2ddeb4efeb9a31db15356043c84544380539"
+    },
+    {
+      "id": "homepage",
+      "name": "Homepage",
+      "version": "1.0",
+      "description": "Modern, fast, fully static-generated dashboard with 100+ service widgets and Docker integration",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjciIGhlaWdodD0iOSIvPjxyZWN0IHg9IjE0IiB5PSIzIiB3aWR0aD0iNyIgaGVpZ2h0PSI1Ii8+PHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNyIgaGVpZ2h0PSI5Ii8+PHJlY3QgeD0iMyIgeT0iMTYiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiLz48L3N2Zz4=",
+      "categories": [
+        "productivity",
+        "dashboard"
+      ],
+      "sha256": "d80019129b99d1f370cf4203c3b1f9804fb48f99764c031882a60f5a31462b45"
+    },
+    {
       "id": "immich",
       "name": "Immich",
       "version": "1.91",
@@ -416,6 +698,18 @@
         "backup"
       ],
       "sha256": "126f0e0dc6f5a66a96aa0e853133c78ad46a48396aae52e1097b795057cb9e4e"
+    },
+    {
+      "id": "it-tools",
+      "name": "IT-Tools",
+      "version": "1.0",
+      "description": "Collection of 80+ handy developer tools \u2014 JWT decoder, hash generators, converters, and more, all offline",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0LjcgNi4zYTEgMSAwIDAgMCAwIDEuNGwxLjYgMS42YTEgMSAwIDAgMCAxLjQgMGwzLjc3LTMuNzdhNiA2IDAgMCAxLTcuOTQgNy45NGwtNi45MSA2LjkxYTIuMTIgMi4xMiAwIDAgMS0zLTNsNi45MS02LjkxYTYgNiAwIDAgMSA3Ljk0LTcuOTRsLTMuNzYgMy43NnoiLz48L3N2Zz4=",
+      "categories": [
+        "development",
+        "productivity"
+      ],
+      "sha256": "f328ade51fdf76736419c554dff4fd5a153eb80b8ed06f3aae3362d026434563"
     },
     {
       "id": "jaeger",
@@ -494,6 +788,18 @@
       "sha256": "299ec370126f3554591fb6b170916638e286d59a13c9582dbe0e894c66a8538b"
     },
     {
+      "id": "kavita",
+      "name": "Kavita",
+      "version": "1.0",
+      "description": "Fast and friendly self-hosted digital library for manga, comics, and ebooks with cross-device reading",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIgM2g2YTQgNCAwIDAgMSA0IDR2MTRhMyAzIDAgMCAwLTMtM0gyeiIvPjxwYXRoIGQ9Ik0yMiAzaC02YTQgNCAwIDAgMC00IDR2MTRhMyAzIDAgMCAxIDMtM2g3eiIvPjwvc3ZnPg==",
+      "categories": [
+        "media",
+        "books"
+      ],
+      "sha256": "bde72093f71424cc8b4f255b995217e0e18a00f24214e66265d7a56d6ac42d89"
+    },
+    {
       "id": "keycloak",
       "name": "Keycloak",
       "version": "23.0",
@@ -505,6 +811,30 @@
         "sso"
       ],
       "sha256": "499ac09b2304a9b76f6c825017c18273e9ef89867ab091bb215669cd3f460421"
+    },
+    {
+      "id": "kimai",
+      "name": "Kimai",
+      "version": "1.0",
+      "description": "Professional time-tracking for teams and freelancers with invoicing, projects, and detailed reports",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cG9seWxpbmUgcG9pbnRzPSIxMiA2IDEyIDEyIDE2IDE0Ii8+PC9zdmc+",
+      "categories": [
+        "business",
+        "productivity"
+      ],
+      "sha256": "859e16fbdc9745068d66ed4af09581e4b7ab29e7f78609626cf6f6e12172f9a2"
+    },
+    {
+      "id": "komga",
+      "name": "Komga",
+      "version": "1.0",
+      "description": "Media server for comics, mangas, BDs, and magazines with OPDS support and a slick web reader",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCIvPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ii8+PC9zdmc+",
+      "categories": [
+        "media",
+        "books"
+      ],
+      "sha256": "ed7220bcf0f38dceab22892d23e7d25efebc5ed17edde6bdcbfb36dd8da5b817"
     },
     {
       "id": "langflow",
@@ -534,6 +864,30 @@
       "sha256": "8fcce6c6ff5acf0ddcef90c594b724f61aa11804be94c5dbb1786ee295534f7f"
     },
     {
+      "id": "librespeed",
+      "name": "LibreSpeed",
+      "version": "1.0",
+      "description": "Lightweight self-hosted speed test \u2014 measure download, upload, ping, and jitter from any browser",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxNCIgcj0iOCIvPjxsaW5lIHgxPSIxMiIgeTE9IjE0IiB4Mj0iMTYiIHkyPSIxMCIvPjwvc3ZnPg==",
+      "categories": [
+        "monitoring",
+        "networking"
+      ],
+      "sha256": "3265b3df835be5aa536a2357b6a7a3b06ae394a58817034a42f06ffe5135e110"
+    },
+    {
+      "id": "lidarr",
+      "name": "Lidarr",
+      "version": "1.0",
+      "description": "Music collection manager that monitors, grabs, sorts, and renames albums automatically",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTkgMThWNWwxMi0ydjEzIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PGNpcmNsZSBjeD0iMTgiIGN5PSIxNiIgcj0iMyIvPjwvc3ZnPg==",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "2b5882871a95d5db780ae8b8f51559998ae4177c8c02b8c57f11722c92183106"
+    },
+    {
       "id": "linkding",
       "name": "linkding",
       "version": "1.0",
@@ -544,6 +898,31 @@
         "bookmarks"
       ],
       "sha256": "e3ea95150a2265d57818a9baa008be0bc33105f012ff0cc109851914df188a29"
+    },
+    {
+      "id": "linkwarden",
+      "name": "Linkwarden",
+      "version": "1.0",
+      "description": "Collaborative bookmark manager that archives full copies of every page you save",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEwIDEzYTUgNSAwIDAgMCA3LjU0LjU0bDMtM2E1IDUgMCAwIDAtNy4wNy03LjA3bC0xLjcyIDEuNzEiLz48cGF0aCBkPSJNMTQgMTFhNSA1IDAgMCAwLTcuNTQtLjU0bC0zIDNhNSA1IDAgMCAwIDcuMDcgNy4wN2wxLjcxLTEuNzEiLz48L3N2Zz4=",
+      "categories": [
+        "productivity",
+        "bookmarks"
+      ],
+      "sha256": "cad1d5bcd3e66b654e5ad52780d62587b82789c92ba321342095109f078ef1b8"
+    },
+    {
+      "id": "listmonk",
+      "name": "listmonk",
+      "version": "1.0",
+      "description": "High-performance self-hosted newsletter and mailing list manager with a modern dashboard",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMiIgeDI9IjExIiB5Mj0iMTMiLz48cG9seWdvbiBwb2ludHM9IjIyIDIgMTUgMjIgMTEgMTMgMiA5IDIyIDIiLz48L3N2Zz4=",
+      "categories": [
+        "business",
+        "email",
+        "marketing"
+      ],
+      "sha256": "c27299b55ebf4d6cee3ed79baa30d9d6fd71b0a985b4ab356284614ce86e0c9e"
     },
     {
       "id": "litellm",
@@ -572,6 +951,30 @@
       "sha256": "b01ebb70a5d4ce8b17f29324317802bc800e5c7b371286302bd27614794d7b37"
     },
     {
+      "id": "mailpit",
+      "name": "Mailpit",
+      "version": "1.0",
+      "description": "Email testing tool with a modern web UI \u2014 catch outgoing mail from your apps via SMTP",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgNGgxNmMxLjEgMCAyIC45IDIgMnYxMmMwIDEuMS0uOSAyLTIgMkg0Yy0xLjEgMC0yLS45LTItMlY2YzAtMS4xLjktMiAyLTJ6Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjIsNiAxMiwxMyAyLDYiLz48L3N2Zz4=",
+      "categories": [
+        "development",
+        "email"
+      ],
+      "sha256": "a15e1748ebb88abac557d16207b6c0ba7b90cc46abc1b84936f4117a44a60aff"
+    },
+    {
+      "id": "matomo",
+      "name": "Matomo",
+      "version": "1.0",
+      "description": "Google Analytics alternative that protects your data and your customers' privacy",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+",
+      "categories": [
+        "analytics",
+        "privacy"
+      ],
+      "sha256": "6451eb1105b3527618d0261cfcb550ecdc87a7479031c1383c67615ac00dc091"
+    },
+    {
       "id": "matrix-synapse",
       "name": "Matrix Synapse",
       "version": "1.98",
@@ -596,6 +999,18 @@
         "communication"
       ],
       "sha256": "f0b1e6f88b4f9482ea14894b2c004dbeb4f29b8669cc5c03df329097ee6edb9a"
+    },
+    {
+      "id": "mealie",
+      "name": "Mealie",
+      "version": "1.0",
+      "description": "Self-hosted recipe manager and meal planner with one-click recipe import from any URL",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgMnY3YzAgMS4xLjkgMiAyIDJoNGEyIDIgMCAwIDAgMi0yVjIiLz48cGF0aCBkPSJNNyAydjIwIi8+PHBhdGggZD0iTTIxIDE1VjJhNSA1IDAgMCAwLTUgNXY2YzAgMS4xLjkgMiAyIDJoM3oiLz48cGF0aCBkPSJNMjEgMTV2NyIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "home"
+      ],
+      "sha256": "2db8e543b48665cb9125d7c7fdf7be1dfefc7566048db57ed8773047fbe25bf6"
     },
     {
       "id": "meilisearch",
@@ -633,6 +1048,18 @@
         "productivity"
       ],
       "sha256": "930ed907c88079dbd52e3d87064051d551e4223fbe1e9a3e80070fb13bbd9318"
+    },
+    {
+      "id": "metube",
+      "name": "MeTube",
+      "version": "1.0",
+      "description": "Web UI for yt-dlp \u2014 download videos and audio from YouTube and hundreds of other sites",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiLz48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiLz48L3N2Zz4=",
+      "categories": [
+        "media",
+        "downloads"
+      ],
+      "sha256": "ae9f213765c9546c472cd4858e3663f53bd29a6a47e0fd2f2bfdc817a87ee40e"
     },
     {
       "id": "miniflux",
@@ -751,6 +1178,19 @@
       "sha256": "b1161ab1ef9404110e94d1cd935f3562351659dc5da991546a848731367f69c8"
     },
     {
+      "id": "nocodb",
+      "name": "NocoDB",
+      "version": "1.0",
+      "description": "Open-source Airtable alternative \u2014 turns any database into a smart spreadsheet with forms, kanban, and APIs",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi4xOCIvPjxsaW5lIHgxPSI3IiB5MT0iMiIgeDI9IjciIHkyPSIyMiIvPjxsaW5lIHgxPSIxNyIgeTE9IjIiIHgyPSIxNyIgeTI9IjIyIi8+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiLz48bGluZSB4MT0iMiIgeTE9IjciIHgyPSI3IiB5Mj0iNyIvPjxsaW5lIHgxPSIyIiB5MT0iMTciIHgyPSI3IiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz48bGluZSB4MT0iMTciIHkxPSI3IiB4Mj0iMjIiIHkyPSI3Ii8+PC9zdmc+",
+      "categories": [
+        "database",
+        "productivity",
+        "low-code"
+      ],
+      "sha256": "93b5a3abd80fdbcb06602f0ef34d45c033dffcb0fe19f8015ef6d3324ceca5ac"
+    },
+    {
       "id": "node-app",
       "name": "Node.js Application",
       "version": "20",
@@ -802,6 +1242,18 @@
       "sha256": "bf1c11d5dbdbff16605bae5471fdc00a82dd0152b27db0e0feb0208008e2883a"
     },
     {
+      "id": "odoo",
+      "name": "Odoo",
+      "version": "1.0",
+      "description": "All-in-one open-source business suite \u2014 CRM, accounting, inventory, e-commerce, HR, and 40+ apps",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iNyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxwYXRoIGQ9Ik0xNiAyMVY1YTIgMiAwIDAgMC0yLTJoLTRhMiAyIDAgMCAwLTIgMnYxNiIvPjwvc3ZnPg==",
+      "categories": [
+        "business",
+        "erp"
+      ],
+      "sha256": "282bffce2c9180c0415d435c0fc55df0352ec35a5ce717660faea66bdb55a70a"
+    },
+    {
       "id": "ollama-webui",
       "name": "Ollama + Open WebUI",
       "version": "1.0",
@@ -815,6 +1267,19 @@
       "sha256": "ba9ffd4cd4ca9d89cdb1eee99e54987ee3963fef3aba7745157c2cf39f02560a"
     },
     {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "version": "1.0",
+      "description": "Feature-rich self-hosted ChatGPT-style interface for Ollama and any OpenAI-compatible API, with RAG and multi-user support",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==",
+      "categories": [
+        "ai",
+        "llm",
+        "chat"
+      ],
+      "sha256": "6e62ac75392907cce95546ea9318ace23f85d06cb679c8d05898b0b83f41fadd"
+    },
+    {
       "id": "outline",
       "name": "Outline",
       "version": "0.74",
@@ -826,6 +1291,30 @@
         "collaboration"
       ],
       "sha256": "4a9885935239ecedde7d2fa99794aa02fedec513e4c784579e8a6aee9f648ef3"
+    },
+    {
+      "id": "overseerr",
+      "name": "Overseerr",
+      "version": "1.0",
+      "description": "Request management and media discovery tool for Plex that integrates with Sonarr and Radarr",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSIvPjwvc3ZnPg==",
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "sha256": "bc41384672a9607fb4be4cb3d8afcd2ba3708231fe1a746e785a740743cf320d"
+    },
+    {
+      "id": "pairdrop",
+      "name": "PairDrop",
+      "version": "1.0",
+      "description": "AirDrop for the web \u2014 share files between devices on your network directly in the browser",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMiIvPjxwYXRoIGQ9Ik0xNi4yNCA3Ljc2YTYgNiAwIDAgMSAwIDguNDkiLz48cGF0aCBkPSJNNy43NiAxNi4yNGE2IDYgMCAwIDEgMC04LjQ5Ii8+PHBhdGggZD0iTTE5LjA3IDQuOTNhMTAgMTAgMCAwIDEgMCAxNC4xNCIvPjxwYXRoIGQ9Ik00LjkzIDE5LjA3YTEwIDEwIDAgMCAxIDAtMTQuMTQiLz48L3N2Zz4=",
+      "categories": [
+        "storage",
+        "sharing"
+      ],
+      "sha256": "ff38f7380fb2d3b734e36bbdf74608a2dabd767d08b76530104ea2784cef9431"
     },
     {
       "id": "paperless-ngx",
@@ -918,6 +1407,18 @@
       "sha256": "0be5ae62bdb47d266952a8d78aff9ae9c2efcf4aee230cff34aea272e9fff70a"
     },
     {
+      "id": "pingvin-share",
+      "name": "Pingvin Share",
+      "version": "1.0",
+      "description": "Self-hosted file sharing platform \u2014 a WeTransfer alternative with links, expiry, and password protection",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTgiIGN5PSI1IiByPSIzIi8+PGNpcmNsZSBjeD0iNiIgY3k9IjEyIiByPSIzIi8+PGNpcmNsZSBjeD0iMTgiIGN5PSIxOSIgcj0iMyIvPjxsaW5lIHgxPSI4LjU5IiB5MT0iMTMuNTEiIHgyPSIxNS40MiIgeTI9IjE3LjQ5Ii8+PGxpbmUgeDE9IjE1LjQxIiB5MT0iNi41MSIgeDI9IjguNTkiIHkyPSIxMC40OSIvPjwvc3ZnPg==",
+      "categories": [
+        "storage",
+        "sharing"
+      ],
+      "sha256": "74810a65aad157e7afb5c764d9768ee9ae5f7ba498768aefa4b63d865845d7b1"
+    },
+    {
       "id": "plane",
       "name": "Plane",
       "version": "1.0",
@@ -928,6 +1429,18 @@
         "project-management"
       ],
       "sha256": "d2a0ab6002292e30d19cb046eb4e37ca949a7c495bb73779fb521f218e1d3875"
+    },
+    {
+      "id": "planka",
+      "name": "Planka",
+      "version": "1.0",
+      "description": "Elegant open-source kanban board for workgroups \u2014 a realtime Trello alternative",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjUiIGhlaWdodD0iMTgiIHJ4PSIxIi8+PHJlY3QgeD0iMTAiIHk9IjMiIHdpZHRoPSI1IiBoZWlnaHQ9IjEyIiByeD0iMSIvPjxyZWN0IHg9IjE3IiB5PSIzIiB3aWR0aD0iNSIgaGVpZ2h0PSI4IiByeD0iMSIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "collaboration"
+      ],
+      "sha256": "26b0b09b6d85b0bc250e745f98ad3ed02c2628d822e84f30ebb476035bfb55b5"
     },
     {
       "id": "plausible",
@@ -1071,6 +1584,18 @@
       "sha256": "104e40326a24b9c02e3fbda31848d03a3c5717dfe8fcf68c1b7192141b427430"
     },
     {
+      "id": "rallly",
+      "name": "Rallly",
+      "version": "1.0",
+      "description": "Schedule group meetings without back-and-forth emails \u2014 an open-source Doodle alternative",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIvPjxsaW5lIHgxPSIxNiIgeTE9IjIiIHgyPSIxNiIgeTI9IjYiLz48bGluZSB4MT0iOCIgeTE9IjIiIHgyPSI4IiB5Mj0iNiIvPjxsaW5lIHgxPSIzIiB5MT0iMTAiIHgyPSIyMSIgeTI9IjEwIi8+PC9zdmc+",
+      "categories": [
+        "productivity",
+        "collaboration"
+      ],
+      "sha256": "5d1aca451252b6d132120f54478e83412162dcbb3abc2372e4c16df0f15c6b9d"
+    },
+    {
       "id": "redis-commander",
       "name": "Redis Commander",
       "version": "0.8",
@@ -1110,6 +1635,30 @@
       "sha256": "526326c84c890eb6f23ab4fcccc7e5b19b02d7b5683104fc1c264a63d6eba377"
     },
     {
+      "id": "roundcube",
+      "name": "Roundcube",
+      "version": "1.0",
+      "description": "Browser-based multilingual IMAP webmail client with a modern responsive interface",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgNGgxNmMxLjEgMCAyIC45IDIgMnYxMmMwIDEuMS0uOSAyLTIgMkg0Yy0xLjEgMC0yLS45LTItMlY2YzAtMS4xLjktMiAyLTJ6Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjIsNiAxMiwxMyAyLDYiLz48L3N2Zz4=",
+      "categories": [
+        "productivity",
+        "email"
+      ],
+      "sha256": "f2af05e9d996b3f8bcd68b2f8b574ef2ac46f4aa9e188491a27c5af73402d4c5"
+    },
+    {
+      "id": "rustdesk-server",
+      "name": "RustDesk Server",
+      "version": "1.0",
+      "description": "Self-hosted signaling and relay server for RustDesk \u2014 the open-source TeamViewer alternative",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxsaW5lIHgxPSI4IiB5MT0iMjEiIHgyPSIxNiIgeTI9IjIxIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTciIHgyPSIxMiIgeTI9IjIxIi8+PC9zdmc+",
+      "categories": [
+        "networking",
+        "remote-access"
+      ],
+      "sha256": "da938978fa13591b12d943bcad52db2f270f7b74a6676766babccdf5c0bc2603"
+    },
+    {
       "id": "seafile",
       "name": "Seafile",
       "version": "11.0",
@@ -1133,6 +1682,30 @@
         "privacy"
       ],
       "sha256": "52668e78d7e7d8718b2db1f72b1beb48e11e6df61b0b95e36dce610b3847b9c8"
+    },
+    {
+      "id": "securo",
+      "name": "Securo",
+      "version": "1.0",
+      "description": "Privacy-first personal finance manager with bank sync, budgets, goals, multi-currency, and optional self-hosted AI agents",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDEyVjdINWEyIDIgMCAwIDEgMC00aDE0djQiLz48cGF0aCBkPSJNMyA1djE0YTIgMiAwIDAgMCAyIDJoMTZ2LTUiLz48cGF0aCBkPSJNMTggMTJhMiAyIDAgMCAwIDAgNGg0di00eiIvPjwvc3ZnPg==",
+      "categories": [
+        "finance",
+        "productivity"
+      ],
+      "sha256": "bf136badd50263bfdab9bea34414be98874197998d0aa02acd3473fa82bd0a4c"
+    },
+    {
+      "id": "sftpgo",
+      "name": "SFTPGo",
+      "version": "1.0",
+      "description": "Full-featured SFTP, FTP/S, and WebDAV server with a web admin UI and virtual folders",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIyIDE5YTIgMiAwIDAgMS0yIDJINGEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmg1bDIgM2g5YTIgMiAwIDAgMSAyIDJ6Ii8+PC9zdmc+",
+      "categories": [
+        "storage",
+        "networking"
+      ],
+      "sha256": "b9b36e674f02b3b1e425846d9d9f2aa7c9429add6369ef8a8fe9bab09b9ac9d0"
     },
     {
       "id": "signoz",
@@ -1212,6 +1785,18 @@
       "sha256": "68e9a79001ca76e6c82b8c2fd829bac6eb31375a094d219465f30e65fea7dbaa"
     },
     {
+      "id": "tautulli",
+      "name": "Tautulli",
+      "version": "1.0",
+      "description": "Monitoring and statistics dashboard for your Plex Media Server with notifications and history",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==",
+      "categories": [
+        "media",
+        "monitoring"
+      ],
+      "sha256": "b1ab500c9d16007a0e395c74f38a027dd0a268908fb339cd6c1babd5602c1cbb"
+    },
+    {
       "id": "traefik",
       "name": "Traefik",
       "version": "3.0",
@@ -1223,6 +1808,18 @@
         "ssl"
       ],
       "sha256": "f257b67b07ef7ecaa7f9a35c1603a047f5bed8d77d75cfb4b2cd4f9f5b6c1c32"
+    },
+    {
+      "id": "trilium",
+      "name": "Trilium Notes",
+      "version": "1.0",
+      "description": "Hierarchical note-taking application with rich editing, scripting, and knowledge-base features",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==",
+      "categories": [
+        "notes",
+        "productivity"
+      ],
+      "sha256": "6ba014bdfc33c80929d8d9fc86854c73bc8219ae649410588274c196959fac3d"
     },
     {
       "id": "typesense",
@@ -1288,6 +1885,18 @@
       "sha256": "98a64ecf710856f37a59b844a5348d440000b64ffe3e7b2d4a281d9ae34e8ba1"
     },
     {
+      "id": "verdaccio",
+      "name": "Verdaccio",
+      "version": "1.0",
+      "description": "Lightweight private npm proxy registry \u2014 cache packages and publish private modules",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjE2LjUiIHkxPSI5LjQiIHgyPSI3LjUiIHkyPSI0LjIxIi8+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+",
+      "categories": [
+        "development",
+        "devops"
+      ],
+      "sha256": "709792f934c9879182834d28bbf619324b7080e3af628ae8510e309f0b5ddc57"
+    },
+    {
       "id": "vikunja",
       "name": "Vikunja",
       "version": "1.0",
@@ -1298,6 +1907,42 @@
         "tasks"
       ],
       "sha256": "119dadfac79f9cdcbb634f638829ff8c7d62861e532e6d58e673dcfe83d286d6"
+    },
+    {
+      "id": "wallabag",
+      "name": "Wallabag",
+      "version": "1.0",
+      "description": "Save and classify articles to read later \u2014 a self-hosted alternative to Pocket",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDIxbC03LTUtNyA1VjVhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAyeiIvPjwvc3ZnPg==",
+      "categories": [
+        "productivity",
+        "bookmarks"
+      ],
+      "sha256": "fadb53b279cd05daccf423085f931f5156f37aa4d5efb17b074bc4800716758b"
+    },
+    {
+      "id": "wallos",
+      "name": "Wallos",
+      "version": "1.0",
+      "description": "Personal subscription tracker \u2014 monitor recurring costs, renewal dates, and spending by category",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMSIgeT0iNCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxsaW5lIHgxPSIxIiB5MT0iMTAiIHgyPSIyMyIgeTI9IjEwIi8+PC9zdmc+",
+      "categories": [
+        "finance",
+        "productivity"
+      ],
+      "sha256": "60b2b3408a93dba241fed650e728daedebeb3607816575dea7d7adf754dd374a"
+    },
+    {
+      "id": "watchtower",
+      "name": "Watchtower",
+      "version": "1.0",
+      "description": "Automatically update running Docker containers when new images are published",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjMgNCAyMyAxMCAxNyAxMCIvPjxwb2x5bGluZSBwb2ludHM9IjEgMjAgMSAxNCA3IDE0Ii8+PHBhdGggZD0iTTMuNTEgOWE5IDkgMCAwIDEgMTQuODUtMy4zNkwyMyAxME0xIDE0bDQuNjQgNC4zNkE5IDkgMCAwIDAgMjAuNDkgMTUiLz48L3N2Zz4=",
+      "categories": [
+        "devops",
+        "automation"
+      ],
+      "sha256": "558fb9c0bdff43a295e90a2d4c23c2eaf051e7e5303222bd8916f4d428fa088f"
     },
     {
       "id": "wg-easy",

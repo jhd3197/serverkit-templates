@@ -1,0 +1,52 @@
+id: dockge
+name: Dockge
+version: "1.0"
+description: Reactive self-hosted Docker Compose stack manager from the maker of Uptime Kuma
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+
+website: https://dockge.kuma.pet
+documentation: https://github.com/louislam/dockge#readme
+categories:
+  - devops
+  - management
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Dockge web UI (auto-assigned)
+    type: port
+    default: "5001"
+    hidden: true
+  - name: STACKS_DIR
+    description: Host directory where compose stacks are stored
+    default: "/opt/stacks"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Dockge Web UI
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+compose:
+  services:
+    dockge:
+      image: louislam/dockge:1
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5001"
+      environment:
+        DOCKGE_STACKS_DIR: ${STACKS_DIR}
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - dockge-data:/app/data
+        - ${STACKS_DIR}:${STACKS_DIR}
+  volumes:
+    dockge-data:
+
+post_install: |
+  Dockge is running at http://your-server:${HTTP_PORT}
+
+  - Create the admin account on first load. Stacks are stored on the host at
+    ${STACKS_DIR} so they survive reinstalls.

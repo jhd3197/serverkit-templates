@@ -1,0 +1,51 @@
+id: kavita
+name: Kavita
+version: "1.0"
+description: Fast and friendly self-hosted digital library for manga, comics, and ebooks with cross-device reading
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIgM2g2YTQgNCAwIDAgMSA0IDR2MTRhMyAzIDAgMCAwLTMtM0gyeiIvPjxwYXRoIGQ9Ik0yMiAzaC02YTQgNCAwIDAgMC00IDR2MTRhMyAzIDAgMCAxIDMtM2g3eiIvPjwvc3ZnPg==
+website: https://www.kavitareader.com
+documentation: https://wiki.kavitareader.com
+categories:
+  - media
+  - books
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Kavita web UI (auto-assigned)
+    type: port
+    default: "5000"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Kavita Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    kavita:
+      image: lscr.io/linuxserver/kavita:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5000"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+      volumes:
+        - kavita-config:/config
+        - kavita-library:/data
+  volumes:
+    kavita-config:
+    kavita-library:
+
+post_install: |
+  Kavita is running at http://your-server:${HTTP_PORT}
+
+  - Create the admin account, then add a library pointing at /data
+    (the kavita-library volume).

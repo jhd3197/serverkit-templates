@@ -1,0 +1,47 @@
+id: komga
+name: Komga
+version: "1.0"
+description: Media server for comics, mangas, BDs, and magazines with OPDS support and a slick web reader
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCIvPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ii8+PC9zdmc+
+website: https://komga.org
+documentation: https://komga.org/docs/introduction
+categories:
+  - media
+  - books
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Komga web UI (auto-assigned)
+    type: port
+    default: "25600"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Komga Web UI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    komga:
+      image: gotson/komga:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:25600"
+      volumes:
+        - komga-config:/config
+        - komga-data:/data
+  volumes:
+    komga-config:
+    komga-data:
+
+post_install: |
+  Komga is running at http://your-server:${HTTP_PORT}
+
+  - Create the first admin account, then add a library pointing at /data
+    (put your comics into the komga-data volume or bind-mount your collection).

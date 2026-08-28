@@ -1,0 +1,42 @@
+id: element
+name: Element
+version: "1.0"
+description: Glossy Matrix web client — secure decentralized chat with E2E encryption
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDExLjVhOC4zOCA4LjM4IDAgMCAxLS45IDMuOCA4LjUgOC41IDAgMCAxLTcuNiA0LjcgOC4zOCA4LjM4IDAgMCAxLTMuOC0uOUwzIDIxbDEuOS01LjdhOC4zOCA4LjM4IDAgMCAxLS45LTMuOCA4LjUgOC41IDAgMCAxIDQuNy03LjYgOC4zOCA4LjM4IDAgMCAxIDMuOC0uOWguNWE4LjQ4IDguNDggMCAwIDEgOCA4di41eiIvPjwvc3ZnPg==
+website: https://element.io
+documentation: https://github.com/element-hq/element-web#readme
+categories:
+  - collaboration
+  - chat
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Element web app (auto-assigned)
+    type: port
+    default: "8096"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Element Web
+
+requirements:
+  memory: 128MB
+  storage: 256MB
+
+compose:
+  services:
+    element:
+      image: vectorim/element-web:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+  volumes: {}
+
+post_install: |
+  Element is running at http://your-server:${HTTP_PORT}
+
+  - Sign in with any Matrix account. Pair it with the Matrix Synapse template
+    to run your own homeserver.

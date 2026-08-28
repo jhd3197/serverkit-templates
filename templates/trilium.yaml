@@ -1,0 +1,45 @@
+id: trilium
+name: Trilium Notes
+version: "1.0"
+description: Hierarchical note-taking application with rich editing, scripting, and knowledge-base features
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiIvPjxwb2x5bGluZSBwb2ludHM9IjE0IDIgMTQgOCAyMCA4Ii8+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiLz48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyIvPjwvc3ZnPg==
+website: https://github.com/TriliumNext/Notes
+documentation: https://github.com/TriliumNext/Notes/wiki
+categories:
+  - notes
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Trilium web UI (auto-assigned)
+    type: port
+    default: "8080"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Trilium Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    trilium:
+      image: triliumnext/notes:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      volumes:
+        - trilium-data:/home/node/trilium-data
+  volumes:
+    trilium-data:
+
+post_install: |
+  Trilium is running at http://your-server:${HTTP_PORT}
+
+  - Set up your document and password on first load. Desktop clients can sync
+    against this server instance.

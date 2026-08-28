@@ -1,0 +1,54 @@
+id: 2fauth
+name: 2FAuth
+version: "1.0"
+description: Web app to manage and generate your two-factor authentication (2FA) codes — a self-hosted authenticator
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDJsLTIgMm0tNy42MSA3LjYxYTUuNSA1LjUgMCAxIDEtNy43NzggNy43NzggNS41IDUuNSAwIDAgMSA3Ljc3Ny03Ljc3N3ptMCAwTDE1LjUgNy41bTAgMGwzIDNMMjIgN2wtMy0zbS0zLjUgMy41TDE5IDQiLz48L3N2Zz4=
+website: https://docs.2fauth.app
+documentation: https://docs.2fauth.app/getting-started/installation/docker/
+categories:
+  - security
+  - authentication
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the 2FAuth web UI (auto-assigned)
+    type: port
+    default: "8092"
+    hidden: true
+  - name: APP_KEY
+    description: 32-character encryption key
+    type: password
+    length: 32
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: 2FAuth Web UI
+
+requirements:
+  memory: 256MB
+  storage: 512MB
+
+compose:
+  services:
+    2fauth:
+      image: 2fauth/2fauth:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8000"
+      environment:
+        APP_KEY: ${APP_KEY}
+        APP_URL: "http://localhost:${HTTP_PORT}"
+      volumes:
+        - 2fauth-data:/2fauth
+  volumes:
+    2fauth-data:
+
+post_install: |
+  2FAuth is running at http://your-server:${HTTP_PORT}
+
+  - Register the first account, then import your TOTP accounts via QR codes
+    or from another authenticator app.

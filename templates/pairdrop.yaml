@@ -1,0 +1,45 @@
+id: pairdrop
+name: PairDrop
+version: "1.0"
+description: AirDrop for the web — share files between devices on your network directly in the browser
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMiIvPjxwYXRoIGQ9Ik0xNi4yNCA3Ljc2YTYgNiAwIDAgMSAwIDguNDkiLz48cGF0aCBkPSJNNy43NiAxNi4yNGE2IDYgMCAwIDEgMC04LjQ5Ii8+PHBhdGggZD0iTTE5LjA3IDQuOTNhMTAgMTAgMCAwIDEgMCAxNC4xNCIvPjxwYXRoIGQ9Ik00LjkzIDE5LjA3YTEwIDEwIDAgMCAxIDAtMTQuMTQiLz48L3N2Zz4=
+website: https://pairdrop.net
+documentation: https://github.com/schlagmichdoch/PairDrop#readme
+categories:
+  - storage
+  - sharing
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the PairDrop web UI (auto-assigned)
+    type: port
+    default: "3001"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: PairDrop Web UI
+
+requirements:
+  memory: 128MB
+  storage: 256MB
+
+compose:
+  services:
+    pairdrop:
+      image: lscr.io/linuxserver/pairdrop:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:3000"
+      environment:
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "Etc/UTC"
+  volumes: {}
+
+post_install: |
+  PairDrop is running at http://your-server:${HTTP_PORT}
+
+  - Open it on two devices on the same network and share files directly.

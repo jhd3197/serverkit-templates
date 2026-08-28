@@ -1,0 +1,57 @@
+id: backrest
+name: Backrest
+version: "1.0"
+description: Web UI and orchestrator for restic — scheduled, encrypted, deduplicated backups to local or cloud storage
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMTIiIHgyPSIyIiB5Mj0iMTIiLz48cGF0aCBkPSJNNS40NSA1LjExTDIgMTJ2NmEyIDIgMCAwIDAgMiAyaDE2YTIgMiAwIDAgMCAyLTJ2LTZsLTMuNDUtNi44OUEyIDIgMCAwIDAgMTYuNzYgNEg3LjI0YTIgMiAwIDAgMC0xLjc5IDEuMTF6Ii8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjYuMDEiIHkyPSIxNiIvPjxsaW5lIHgxPSIxMCIgeTE9IjE2IiB4Mj0iMTAuMDEiIHkyPSIxNiIvPjwvc3ZnPg==
+website: https://github.com/garethgeorge/backrest
+documentation: https://garethgeorge.github.io/backrest/introduction/getting-started
+categories:
+  - storage
+  - backup
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Backrest web UI (auto-assigned)
+    type: port
+    default: "9898"
+    hidden: true
+  - name: BACKUP_SOURCE
+    description: Host directory to make available for backup (mounted read-only at /userdata)
+    default: "/srv"
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Backrest Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    backrest:
+      image: garethgeorge/backrest:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9898"
+      environment:
+        BACKREST_DATA: /data
+        BACKREST_CONFIG: /config/config.json
+        XDG_CACHE_HOME: /cache
+      volumes:
+        - backrest-data:/data
+        - backrest-config:/config
+        - backrest-cache:/cache
+        - ${BACKUP_SOURCE}:/userdata:ro
+  volumes:
+    backrest-data:
+    backrest-config:
+    backrest-cache:
+
+post_install: |
+  Backrest is running at http://your-server:${HTTP_PORT}
+
+  - Create a repository (local or S3/B2/SFTP), then add a plan that backs up
+    /userdata (your host's ${BACKUP_SOURCE}).

@@ -1,0 +1,46 @@
+id: appsmith
+name: Appsmith
+version: "1.0"
+description: Open-source low-code platform to build internal tools, admin panels, and dashboards on any datasource
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIxMiAyIDIgNyAxMiAxMiAyMiA3IDEyIDIiLz48cG9seWxpbmUgcG9pbnRzPSIyIDE3IDEyIDIyIDIyIDE3Ii8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIvPjwvc3ZnPg==
+website: https://www.appsmith.com
+documentation: https://docs.appsmith.com
+categories:
+  - development
+  - low-code
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Appsmith web UI (auto-assigned)
+    type: port
+    default: "8088"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Appsmith Web UI
+
+requirements:
+  memory: 4GB
+  storage: 10GB
+
+compose:
+  services:
+    appsmith:
+      image: appsmith/appsmith-ce:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      volumes:
+        - appsmith-stacks:/appsmith-stacks
+  volumes:
+    appsmith-stacks:
+
+post_install: |
+  Appsmith is running at http://your-server:${HTTP_PORT}
+
+  - First start can take a few minutes while embedded services initialize.
+  - Create the admin account on first load.

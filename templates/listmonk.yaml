@@ -1,0 +1,83 @@
+id: listmonk
+name: listmonk
+version: "1.0"
+description: High-performance self-hosted newsletter and mailing list manager with a modern dashboard
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMiIgeDI9IjExIiB5Mj0iMTMiLz48cG9seWdvbiBwb2ludHM9IjIyIDIgMTUgMjIgMTEgMTMgMiA5IDIyIDIiLz48L3N2Zz4=
+website: https://listmonk.app
+documentation: https://listmonk.app/docs/
+categories:
+  - business
+  - email
+  - marketing
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the listmonk web UI (auto-assigned)
+    type: port
+    default: "9000"
+    hidden: true
+  - name: ADMIN_USERNAME
+    description: Admin username
+    default: "admin"
+  - name: ADMIN_PASSWORD
+    description: Admin password (min 8 characters)
+    type: password
+    generate: password
+  - name: DB_PASSWORD
+    description: PostgreSQL password
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: listmonk Web UI
+
+requirements:
+  memory: 512MB
+  storage: 2GB
+
+compose:
+  services:
+    listmonk:
+      image: listmonk/listmonk:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:9000"
+      command: ["sh", "-c", "./listmonk --install --idempotent --yes --config '' && ./listmonk --config ''"]
+      environment:
+        LISTMONK_app__address: "0.0.0.0:9000"
+        LISTMONK_db__host: db
+        LISTMONK_db__port: "5432"
+        LISTMONK_db__user: listmonk
+        LISTMONK_db__password: ${DB_PASSWORD}
+        LISTMONK_db__database: listmonk
+        LISTMONK_db__ssl_mode: disable
+        LISTMONK_ADMIN_USER: ${ADMIN_USERNAME}
+        LISTMONK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      volumes:
+        - listmonk-uploads:/listmonk/uploads
+      depends_on:
+        - db
+
+    db:
+      image: postgres:17-alpine
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      environment:
+        POSTGRES_DB: listmonk
+        POSTGRES_USER: listmonk
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - listmonk-db:/var/lib/postgresql/data
+  volumes:
+    listmonk-uploads:
+    listmonk-db:
+
+post_install: |
+  listmonk is running at http://your-server:${HTTP_PORT}
+
+  - Log in with the admin credentials configured at install time, then set up
+    your SMTP server under Settings before sending campaigns.

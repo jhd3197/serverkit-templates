@@ -1,0 +1,45 @@
+id: verdaccio
+name: Verdaccio
+version: "1.0"
+description: Lightweight private npm proxy registry — cache packages and publish private modules
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjE2LjUiIHkxPSI5LjQiIHgyPSI3LjUiIHkyPSI0LjIxIi8+PHBhdGggZD0iTTIxIDE2VjhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2eiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjcgNi45NiAxMiAxMi4wMSAyMC43MyA2Ljk2Ii8+PGxpbmUgeDE9IjEyIiB5MT0iMjIuMDgiIHgyPSIxMiIgeTI9IjEyIi8+PC9zdmc+
+website: https://verdaccio.org
+documentation: https://verdaccio.org/docs/what-is-verdaccio
+categories:
+  - development
+  - devops
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Verdaccio web UI (auto-assigned)
+    type: port
+    default: "4873"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Verdaccio registry and Web UI
+
+requirements:
+  memory: 256MB
+  storage: 5GB
+
+compose:
+  services:
+    verdaccio:
+      image: verdaccio/verdaccio:6
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:4873"
+      volumes:
+        - verdaccio-storage:/verdaccio/storage
+  volumes:
+    verdaccio-storage:
+
+post_install: |
+  Verdaccio is running at http://your-server:${HTTP_PORT}
+
+  - Point npm at it: npm set registry http://your-server:${HTTP_PORT}
+  - Create a user with: npm adduser --registry http://your-server:${HTTP_PORT}

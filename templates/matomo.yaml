@@ -1,0 +1,71 @@
+id: matomo
+name: Matomo
+version: "1.0"
+description: Google Analytics alternative that protects your data and your customers' privacy
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+
+website: https://matomo.org
+documentation: https://matomo.org/guides/
+categories:
+  - analytics
+  - privacy
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Matomo web UI (auto-assigned)
+    type: port
+    default: "8087"
+    hidden: true
+  - name: DB_PASSWORD
+    description: MariaDB password for the matomo user
+    type: password
+    generate: password
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Matomo Web UI
+
+requirements:
+  memory: 1GB
+  storage: 4GB
+
+compose:
+  services:
+    matomo:
+      image: matomo:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        MATOMO_DATABASE_HOST: db
+        MATOMO_DATABASE_ADAPTER: mysql
+        MATOMO_DATABASE_USERNAME: matomo
+        MATOMO_DATABASE_PASSWORD: ${DB_PASSWORD}
+        MATOMO_DATABASE_DBNAME: matomo
+      volumes:
+        - matomo-data:/var/www/html
+      depends_on:
+        - db
+
+    db:
+      image: mariadb:11
+      container_name: ${APP_NAME}-db
+      restart: unless-stopped
+      command: --max-allowed-packet=64MB
+      environment:
+        MARIADB_DATABASE: matomo
+        MARIADB_USER: matomo
+        MARIADB_PASSWORD: ${DB_PASSWORD}
+        MARIADB_RANDOM_ROOT_PASSWORD: "yes"
+      volumes:
+        - matomo-db:/var/lib/mysql
+  volumes:
+    matomo-data:
+    matomo-db:
+
+post_install: |
+  Matomo is running at http://your-server:${HTTP_PORT}
+
+  - Complete the installer in the browser — the database fields are pre-filled
+    from the environment; just click through and create your admin user.

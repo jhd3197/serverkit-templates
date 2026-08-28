@@ -1,0 +1,61 @@
+id: rustdesk-server
+name: RustDesk Server
+version: "1.0"
+description: Self-hosted signaling and relay server for RustDesk — the open-source TeamViewer alternative
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxsaW5lIHgxPSI4IiB5MT0iMjEiIHgyPSIxNiIgeTI9IjIxIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTciIHgyPSIxMiIgeTI9IjIxIi8+PC9zdmc+
+website: https://rustdesk.com
+documentation: https://rustdesk.com/docs/en/self-host/
+categories:
+  - networking
+  - remote-access
+
+ports:
+  - port: "21115"
+    protocol: tcp
+    description: NAT type test
+  - port: "21116"
+    protocol: tcp
+    description: ID registration and heartbeat (TCP and UDP)
+  - port: "21117"
+    protocol: tcp
+    description: Relay
+
+requirements:
+  memory: 256MB
+  storage: 512MB
+
+compose:
+  services:
+    hbbs:
+      image: rustdesk/rustdesk-server:latest
+      container_name: ${APP_NAME}-hbbs
+      restart: unless-stopped
+      command: hbbs
+      ports:
+        - "21115:21115"
+        - "21116:21116"
+        - "21116:21116/udp"
+        - "21118:21118"
+      volumes:
+        - rustdesk-data:/root
+      depends_on:
+        - hbbr
+
+    hbbr:
+      image: rustdesk/rustdesk-server:latest
+      container_name: ${APP_NAME}-hbbr
+      restart: unless-stopped
+      command: hbbr
+      ports:
+        - "21117:21117"
+        - "21119:21119"
+      volumes:
+        - rustdesk-data:/root
+  volumes:
+    rustdesk-data:
+
+post_install: |
+  RustDesk server is running (fixed ports 21115-21119 — clients expect these).
+
+  - In each RustDesk client, set the ID server to this host. The public key is
+    in the rustdesk-data volume (id_ed25519.pub).

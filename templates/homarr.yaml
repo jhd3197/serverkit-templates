@@ -1,0 +1,53 @@
+id: homarr
+name: Homarr
+version: "1.0"
+description: Sleek customizable dashboard for your homelab with drag-and-drop widgets and app integrations
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjciIGhlaWdodD0iNyIvPjxyZWN0IHg9IjE0IiB5PSIzIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+PHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+PHJlY3QgeD0iMyIgeT0iMTQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz48L3N2Zz4=
+website: https://homarr.dev
+documentation: https://homarr.dev/docs/getting-started/
+categories:
+  - productivity
+  - dashboard
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Homarr web UI (auto-assigned)
+    type: port
+    default: "7575"
+    hidden: true
+  - name: SECRET_ENCRYPTION_KEY
+    description: 64-character hex key used to encrypt stored integration secrets
+    type: random
+    length: 64
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Homarr dashboard
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    homarr:
+      image: ghcr.io/homarr-labs/homarr:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:7575"
+      environment:
+        SECRET_ENCRYPTION_KEY: ${SECRET_ENCRYPTION_KEY}
+      volumes:
+        - homarr-appdata:/appdata
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+  volumes:
+    homarr-appdata:
+
+post_install: |
+  Homarr is running at http://your-server:${HTTP_PORT}
+
+  - Create your admin account on first load, then drag widgets onto your board.
+  - The Docker socket is mounted read-only for the container integrations.

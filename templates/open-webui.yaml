@@ -1,0 +1,60 @@
+id: open-webui
+name: Open WebUI
+version: "1.0"
+description: Feature-rich self-hosted ChatGPT-style interface for Ollama and any OpenAI-compatible API, with RAG and multi-user support
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==
+website: https://openwebui.com
+documentation: https://docs.openwebui.com
+categories:
+  - ai
+  - llm
+  - chat
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Open WebUI interface (auto-assigned)
+    type: port
+    default: "3000"
+    hidden: true
+  - name: OLLAMA_BASE_URL
+    description: URL of your Ollama server
+    default: "http://host.docker.internal:11434"
+  - name: WEBUI_SECRET_KEY
+    description: Secret key for signing sessions
+    type: password
+    generate: password
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Open WebUI
+
+requirements:
+  memory: 1GB
+  storage: 2GB
+
+compose:
+  services:
+    open-webui:
+      image: ghcr.io/open-webui/open-webui:main
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8080"
+      environment:
+        OLLAMA_BASE_URL: ${OLLAMA_BASE_URL}
+        WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
+      volumes:
+        - open-webui-data:/app/backend/data
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+  volumes:
+    open-webui-data:
+
+post_install: |
+  Open WebUI is running at http://your-server:${HTTP_PORT}
+
+  - The first account created becomes the admin.
+  - It is pre-wired to an Ollama server on the Docker host; change the
+    connection under Settings > Connections to use OpenAI-compatible APIs.

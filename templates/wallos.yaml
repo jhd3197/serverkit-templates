@@ -1,0 +1,48 @@
+id: wallos
+name: Wallos
+version: "1.0"
+description: Personal subscription tracker — monitor recurring costs, renewal dates, and spending by category
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMSIgeT0iNCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxsaW5lIHgxPSIxIiB5MT0iMTAiIHgyPSIyMyIgeTI9IjEwIi8+PC9zdmc+
+website: https://wallosapp.com
+documentation: https://github.com/ellite/Wallos#readme
+categories:
+  - finance
+  - productivity
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the Wallos web UI (auto-assigned)
+    type: port
+    default: "8282"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Wallos Web UI
+
+requirements:
+  memory: 256MB
+  storage: 512MB
+
+compose:
+  services:
+    wallos:
+      image: bellamy/wallos:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:80"
+      environment:
+        TZ: "Etc/UTC"
+      volumes:
+        - wallos-db:/var/www/html/db
+        - wallos-logos:/var/www/html/images/uploads/logos
+  volumes:
+    wallos-db:
+    wallos-logos:
+
+post_install: |
+  Wallos is running at http://your-server:${HTTP_PORT}
+
+  - Register the first user, then start adding your subscriptions.

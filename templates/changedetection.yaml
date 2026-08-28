@@ -1,0 +1,45 @@
+id: changedetection
+name: changedetection.io
+version: "1.0"
+description: Website change detection and monitoring with notifications to 90+ services
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEgMTJzNC04IDExLTggMTEgOCAxMSA4LTQgOC0xMSA4LTExLTgtMTEtOHoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+PC9zdmc+
+website: https://changedetection.io
+documentation: https://github.com/dgtlmoon/changedetection.io/wiki
+categories:
+  - monitoring
+  - automation
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the changedetection.io web UI (auto-assigned)
+    type: port
+    default: "5000"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: changedetection.io Web UI
+
+requirements:
+  memory: 512MB
+  storage: 1GB
+
+compose:
+  services:
+    changedetection:
+      image: dgtlmoon/changedetection.io:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:5000"
+      volumes:
+        - changedetection-data:/datastore
+  volumes:
+    changedetection-data:
+
+post_install: |
+  changedetection.io is running at http://your-server:${HTTP_PORT}
+
+  - Add URLs to watch and hook up notifications (ntfy, Gotify, email, etc.).
+  - For JavaScript-heavy sites, add a Playwright/Chrome fetcher container later.

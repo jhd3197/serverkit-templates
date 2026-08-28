@@ -1,0 +1,44 @@
+id: metube
+name: MeTube
+version: "1.0"
+description: Web UI for yt-dlp — download videos and audio from YouTube and hundreds of other sites
+icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiLz48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMTUiIHgyPSIxMiIgeTI9IjMiLz48L3N2Zz4=
+website: https://github.com/alexta69/metube
+documentation: https://github.com/alexta69/metube#readme
+categories:
+  - media
+  - downloads
+
+variables:
+  - name: HTTP_PORT
+    description: Port for the MeTube web UI (auto-assigned)
+    type: port
+    default: "8081"
+    hidden: true
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: MeTube Web UI
+
+requirements:
+  memory: 256MB
+  storage: 5GB
+
+compose:
+  services:
+    metube:
+      image: ghcr.io/alexta69/metube:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:8081"
+      volumes:
+        - metube-downloads:/downloads
+  volumes:
+    metube-downloads:
+
+post_install: |
+  MeTube is running at http://your-server:${HTTP_PORT}
+
+  - Paste a video URL to download it. Files land in the metube-downloads volume.
