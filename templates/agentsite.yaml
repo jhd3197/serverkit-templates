@@ -3,7 +3,7 @@ name: AgentSite
 version: "1.0"
 kind: repo
 description: AI-powered website builder with multi-agent orchestration, deployed straight from its Git repository.
-icon: https://serverkit.ai/imgs/template-icons/agentsite.png
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/agentsite.png
 categories:
   - ai
   - website

@@ -2,7 +2,7 @@ id: grocy
 name: Grocy
 version: "1.0"
 description: ERP for your fridge — groceries, chores, and household management with stock tracking and barcode support
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iOSIgY3k9IjIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMSIgcj0iMSIvPjxwYXRoIGQ9Ik0xIDFoNGwyLjY4IDEzLjM5YTIgMiAwIDAgMCAyIDEuNjFoOS43MmEyIDIgMCAwIDAgMi0xLjYxTDIzIDZINiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grocy.svg
 website: https://grocy.info
 documentation: https://github.com/grocy/grocy#readme
 categories:

@@ -2,7 +2,7 @@ id: calibre-web
 name: Calibre-Web
 version: "1.0"
 description: Clean web interface for browsing, reading, and downloading books from a Calibre ebook library.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCIvPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ii8+PC9zdmc+
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/calibre-web.svg
 website: https://github.com/janeczku/calibre-web
 documentation: https://github.com/linuxserver/docker-calibre-web
 categories:

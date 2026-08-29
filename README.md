@@ -487,10 +487,19 @@ rather than just showing a churned index.
 <details>
 <summary><strong>Icons</strong></summary>
 
-`icon` is an `https://` URL or a `data:image/` URI. Most templates inline an
-SVG data URI or point at `https://serverkit.ai/imgs/template-icons/…`. If the
-catalog grows substantially, icons should move into an `assets/<id>/` tree like
-[serverkit-extensions](https://github.com/jhd3197/serverkit-extensions) does.
+`icon` is an `https://` URL or a `data:image/` URI. Icon files live in this
+repo's `icons/` directory and templates reference them through jsDelivr, which
+serves proper image content types and CORS headers (raw.githubusercontent does
+not, and would break `<img>` rendering):
+
+```
+https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/<id>.svg
+```
+
+Add the logo (SVG preferred, PNG fallback — [dashboard-icons](https://github.com/homarr-labs/dashboard-icons)
+and [selfh.st/icons](https://selfh.st/icons/) cover most self-hosted apps) as
+`icons/<id>.*` in the same PR as the template. Merging to `master` publishes
+both together. Only templates with no public logo inline a data URI.
 
 </details>
 

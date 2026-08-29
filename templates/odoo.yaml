@@ -2,7 +2,7 @@ id: odoo
 name: Odoo
 version: "1.0"
 description: All-in-one open-source business suite — CRM, accounting, inventory, e-commerce, HR, and 40+ apps
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iNyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxwYXRoIGQ9Ik0xNiAyMVY1YTIgMiAwIDAgMC0yLTJoLTRhMiAyIDAgMCAwLTIgMnYxNiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/odoo.svg
 website: https://www.odoo.com
 documentation: https://www.odoo.com/documentation
 categories:

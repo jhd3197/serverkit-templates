@@ -2,7 +2,7 @@ id: ollama
 name: Ollama
 version: "1.0"
 description: Run Llama, Gemma, Mistral, Qwen, and other open LLMs locally with a simple API
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCIgcng9IjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjUiIHI9IjIiLz48cGF0aCBkPSJNMTIgN3Y0Ii8+PGNpcmNsZSBjeD0iOCIgY3k9IjE2IiByPSIxIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMSIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ollama.svg
 website: https://ollama.com
 documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
 categories:

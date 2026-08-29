@@ -2,7 +2,7 @@ id: filebrowser
 name: File Browser
 version: "2.27"
 description: Web-based file manager with upload, download, and file sharing features
-icon: https://serverkit.ai/imgs/template-icons/filebrowser.svg
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/filebrowser.svg
 website: https://filebrowser.org
 documentation: https://filebrowser.org/
 categories:

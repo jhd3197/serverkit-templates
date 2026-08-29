@@ -2,7 +2,7 @@ id: metabase
 name: Metabase
 version: "1.0"
 description: Open-source business intelligence and dashboards tool for exploring your data.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjEwIi8+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE2Ii8+PC9zdmc+
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/metabase.svg
 website: https://www.metabase.com
 documentation: https://www.metabase.com/docs/latest/
 categories:

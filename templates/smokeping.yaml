@@ -2,7 +2,7 @@ id: smokeping
 name: SmokePing
 version: "1.0"
 description: Network latency monitoring with beautiful interactive graphs — see jitter and packet loss over time
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjIgMTIgMTggMTIgMTUgMjEgOSAzIDYgMTIgMiAxMiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/smokeping.png
 website: https://oss.oetiker.ch/smokeping/
 documentation: https://oss.oetiker.ch/smokeping/doc/index.en.html
 categories:

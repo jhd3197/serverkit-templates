@@ -2,7 +2,7 @@ id: tandoor
 name: Tandoor Recipes
 version: "1.0"
 description: Smart recipe manager with meal planning, shopping lists, and cookbook imports for your household
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgMnY3YzAgMS4xLjkgMiAyIDJoNGEyIDIgMCAwIDAgMi0yVjIiLz48cGF0aCBkPSJNNyAydjIwIi8+PHBhdGggZD0iTTIxIDE1VjJhNSA1IDAgMCAwLTUgNXY2YzAgMS4xLjkgMiAyIDJoM3oiLz48cGF0aCBkPSJNMjEgMTV2NyIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/tandoor.svg
 website: https://tandoor.dev
 documentation: https://docs.tandoor.dev
 categories:

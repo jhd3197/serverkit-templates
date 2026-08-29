@@ -2,7 +2,7 @@ id: ollama-webui
 name: Ollama + Open WebUI
 version: "1.0"
 description: Local LLM inference with Ollama and a friendly chat interface (Open WebUI).
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjIiLz48cGF0aCBkPSJNOCAxMmg4TTEyIDh2OCIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ollama-webui.svg
 website: https://openwebui.com
 documentation: https://docs.openwebui.com
 categories:

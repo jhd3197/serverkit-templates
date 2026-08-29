@@ -2,7 +2,7 @@ id: pihole
 name: Pi-hole
 version: "1.0"
 description: Network-wide ad-blocking DNS sinkhole with a web dashboard.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIyMiAzIDIgMyAxMCAxMi40NiAxMCAxOSAxNCAyMSAxNCAxMi40NiAyMiAzIi8+PC9zdmc+
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pihole.svg
 website: https://pi-hole.net
 documentation: https://docs.pi-hole.net
 categories:

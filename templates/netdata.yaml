@@ -2,7 +2,7 @@ id: netdata
 name: Netdata
 version: "1.44"
 description: Real-time performance and health monitoring for systems and applications
-icon: https://serverkit.ai/imgs/template-icons/netdata.ico
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/netdata.ico
 website: https://netdata.cloud
 documentation: https://learn.netdata.cloud/docs/
 categories:

@@ -2,7 +2,7 @@ id: kopia
 name: Kopia
 version: "1.0"
 description: Fast and secure backup tool with encryption, deduplication, and cloud storage support — managed from a web UI
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjIyIiB5MT0iMTIiIHgyPSIyIiB5Mj0iMTIiLz48cGF0aCBkPSJNNS40NSA1LjExTDIgMTJ2NmEyIDIgMCAwIDAgMiAyaDE2YTIgMiAwIDAgMCAyLTJ2LTZsLTMuNDUtNi44OUEyIDIgMCAwIDAgMTYuNzYgNEg3LjI0YTIgMiAwIDAgMC0xLjc5IDEuMTF6Ii8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjYuMDEiIHkyPSIxNiIvPjxsaW5lIHgxPSIxMCIgeTE9IjE2IiB4Mj0iMTAuMDEiIHkyPSIxNiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kopia.svg
 website: https://kopia.io
 documentation: https://kopia.io/docs/
 categories:

@@ -2,7 +2,7 @@ id: adguard-home
 name: AdGuard Home
 version: "1.0"
 description: Network-wide ad and tracker blocking DNS server with parental controls and per-client settings
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/adguard-home.svg
 website: https://adguard.com/en/adguard-home/overview.html
 documentation: https://github.com/AdguardTeam/AdGuardHome/wiki
 categories:

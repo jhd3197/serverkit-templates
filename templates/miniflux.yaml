@@ -2,7 +2,7 @@ id: miniflux
 name: Miniflux
 version: "1.0"
 description: Minimalist and fast self-hosted RSS feed reader backed by PostgreSQL.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQgMTFhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik00IDRhMTYgMTYgMCAwIDEgMTYgMTYiLz48Y2lyY2xlIGN4PSI1IiBjeT0iMTkiIHI9IjEiLz48L3N2Zz4=
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/miniflux.svg
 website: https://miniflux.app
 documentation: https://miniflux.app/docs/index.html
 categories:

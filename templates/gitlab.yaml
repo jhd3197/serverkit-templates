@@ -2,7 +2,7 @@ id: gitlab
 name: GitLab CE
 version: "1.0"
 description: Complete DevOps platform — git hosting, CI/CD, issues, registry, and more (heavy, needs 4GB+ RAM)
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iMyIvPjxjaXJjbGUgY3g9IjYiIGN5PSI2IiByPSIzIi8+PHBhdGggZD0iTTYgMjFWOWE5IDkgMCAwIDAgOSA5Ii8+PC9zdmc+
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gitlab.svg
 website: https://about.gitlab.com
 documentation: https://docs.gitlab.com/ee/install/docker/
 categories:

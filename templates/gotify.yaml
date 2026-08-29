@@ -2,7 +2,7 @@ id: gotify
 name: Gotify
 version: "1.0"
 description: Self-hosted push notification server with Android client support.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOCA4QTYgNiAwIDAgMCA2IDhjMCA3LTMgOS0zIDloMTJzLTMtMi0zLTl6Ii8+PHBhdGggZD0iTTEwLjMgMjFhMiAyIDAgMCAwIDMuNCAwIi8+PC9zdmc+
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gotify.svg
 website: https://gotify.net
 documentation: https://gotify.net/docs/install
 categories:

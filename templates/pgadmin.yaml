@@ -2,7 +2,7 @@ id: pgadmin
 name: pgAdmin 4
 version: "8.2"
 description: Web-based PostgreSQL administration and development platform
-icon: https://serverkit.ai/imgs/template-icons/pgadmin.ico
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pgadmin.ico
 website: https://www.pgadmin.org
 documentation: https://www.pgadmin.org/docs/
 categories:

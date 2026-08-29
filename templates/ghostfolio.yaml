@@ -2,7 +2,7 @@ id: ghostfolio
 name: Ghostfolio
 version: "1.0"
 description: Open-source wealth management software to track stocks, ETFs, and crypto across your portfolio
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjMgNiAxMy41IDE1LjUgOC41IDEwLjUgMSAxOCIvPjxwb2x5bGluZSBwb2ludHM9IjE3IDYgMjMgNiAyMyAxMiIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ghostfolio.svg
 website: https://ghostfol.io
 documentation: https://github.com/ghostfolio/ghostfolio#readme
 categories:

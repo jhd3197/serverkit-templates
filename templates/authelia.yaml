@@ -2,7 +2,7 @@ id: authelia
 name: Authelia
 version: "4.37"
 description: Authentication and authorization server providing 2FA and SSO
-icon: https://serverkit.ai/imgs/template-icons/authelia.png
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/authelia.png
 website: https://www.authelia.com
 documentation: https://www.authelia.com/docs/
 categories:

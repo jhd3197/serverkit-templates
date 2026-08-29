@@ -2,7 +2,7 @@ id: chatwoot
 name: Chatwoot
 version: "1.0"
 description: Open-source customer engagement suite with live chat and a shared inbox.
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0Ii8+PGxpbmUgeDE9IjQuOTMiIHkxPSI0LjkzIiB4Mj0iOS4xNyIgeTI9IjkuMTciLz48bGluZSB4MT0iMTQuODMiIHkxPSIxNC44MyIgeDI9IjE5LjA3IiB5Mj0iMTkuMDciLz48bGluZSB4MT0iMTQuODMiIHkxPSI5LjE3IiB4Mj0iMTkuMDciIHkyPSI0LjkzIi8+PGxpbmUgeDE9IjQuOTMiIHkxPSIxOS4wNyIgeDI9IjkuMTciIHkyPSIxNC44MyIvPjwvc3ZnPg==
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/chatwoot.svg
 website: https://www.chatwoot.com
 documentation: https://www.chatwoot.com/docs/self-hosted/
 categories:

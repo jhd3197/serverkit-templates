@@ -2,7 +2,7 @@ id: bazarr
 name: Bazarr
 version: "1.0"
 description: Companion to Sonarr and Radarr that downloads and manages subtitles for your media library
-icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxsaW5lIHgxPSI2IiB5MT0iMTIiIHgyPSIxNCIgeTI9IjEyIi8+PGxpbmUgeDE9IjYiIHkxPSIxNiIgeDI9IjE4IiB5Mj0iMTYiLz48L3N2Zz4=
+icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/bazarr.svg
 website: https://www.bazarr.media
 documentation: https://wiki.bazarr.media
 categories:
