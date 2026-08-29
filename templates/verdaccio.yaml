@@ -2,7 +2,7 @@ id: verdaccio
 name: Verdaccio
 version: "1.0"
 description: Lightweight private npm proxy registry — cache packages and publish private modules
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/verdaccio.svg
+icon: https://serverkit.ai/imgs/template-icons/verdaccio.svg
 website: https://verdaccio.org
 documentation: https://verdaccio.org/docs/what-is-verdaccio
 categories:

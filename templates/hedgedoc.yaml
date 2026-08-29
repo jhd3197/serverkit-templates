@@ -2,7 +2,7 @@ id: hedgedoc
 name: HedgeDoc
 version: "1.0"
 description: Collaborative real-time markdown editor — write, present, and share notes with your team
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/hedgedoc.svg
+icon: https://serverkit.ai/imgs/template-icons/hedgedoc.svg
 website: https://hedgedoc.org
 documentation: https://docs.hedgedoc.org
 categories:

@@ -2,7 +2,7 @@ id: changedetection
 name: changedetection.io
 version: "1.0"
 description: Website change detection and monitoring with notifications to 90+ services
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/changedetection.svg
+icon: https://serverkit.ai/imgs/template-icons/changedetection.svg
 website: https://changedetection.io
 documentation: https://github.com/dgtlmoon/changedetection.io/wiki
 categories:

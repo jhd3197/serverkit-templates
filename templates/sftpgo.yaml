@@ -2,7 +2,7 @@ id: sftpgo
 name: SFTPGo
 version: "1.0"
 description: Full-featured SFTP, FTP/S, and WebDAV server with a web admin UI and virtual folders
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sftpgo.svg
+icon: https://serverkit.ai/imgs/template-icons/sftpgo.svg
 website: https://sftpgo.com
 documentation: https://docs.sftpgo.com
 categories:

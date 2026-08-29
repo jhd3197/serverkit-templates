@@ -2,7 +2,7 @@ id: posthog
 name: PostHog
 version: "1.0"
 description: Open-source product analytics with session replay, feature flags, A/B testing, and event autocapture.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/posthog.svg
+icon: https://serverkit.ai/imgs/template-icons/posthog.svg
 website: https://posthog.com
 documentation: https://posthog.com/docs/self-host
 categories:

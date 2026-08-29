@@ -2,7 +2,7 @@ id: 2fauth
 name: 2FAuth
 version: "1.0"
 description: Web app to manage and generate your two-factor authentication (2FA) codes — a self-hosted authenticator
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/2fauth.svg
+icon: https://serverkit.ai/imgs/template-icons/2fauth.svg
 website: https://docs.2fauth.app
 documentation: https://docs.2fauth.app/getting-started/installation/docker/
 categories:

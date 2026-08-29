@@ -2,7 +2,7 @@ id: mongodb
 name: MongoDB
 version: "1.0"
 description: Popular document database for modern applications — flexible JSON-like storage with powerful queries
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mongodb.svg
+icon: https://serverkit.ai/imgs/template-icons/mongodb.svg
 website: https://www.mongodb.com
 documentation: https://www.mongodb.com/docs/
 categories:

@@ -2,7 +2,7 @@ id: dokuwiki
 name: DokuWiki
 version: "1.0"
 description: Simple, versatile wiki that needs no database — clean syntax and easy file-based backups
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dokuwiki.svg
+icon: https://serverkit.ai/imgs/template-icons/dokuwiki.svg
 website: https://www.dokuwiki.org
 documentation: https://www.dokuwiki.org/manual
 categories:

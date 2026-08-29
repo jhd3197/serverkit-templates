@@ -2,7 +2,7 @@ id: rallly
 name: Rallly
 version: "1.0"
 description: Schedule group meetings without back-and-forth emails — an open-source Doodle alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/rallly.svg
+icon: https://serverkit.ai/imgs/template-icons/rallly.svg
 website: https://rallly.co
 documentation: https://support.rallly.co/self-hosting/introduction
 categories:

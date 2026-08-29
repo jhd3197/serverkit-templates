@@ -2,7 +2,7 @@ id: flowise
 name: Flowise
 version: "1.0"
 description: Low-code drag-and-drop builder for LLM agents and chains.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/flowise.svg
+icon: https://serverkit.ai/imgs/template-icons/flowise.svg
 website: https://flowiseai.com
 documentation: https://docs.flowiseai.com
 categories:

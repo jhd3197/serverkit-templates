@@ -2,7 +2,7 @@ id: pigallery2
 name: PiGallery2
 version: "1.0"
 description: Fast directory-first photo gallery — point it at your existing photo folders, no imports needed
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pigallery2.svg
+icon: https://serverkit.ai/imgs/template-icons/pigallery2.svg
 website: https://bpatrik.github.io/pigallery2/
 documentation: https://github.com/bpatrik/pigallery2#readme
 categories:

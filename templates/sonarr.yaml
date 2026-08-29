@@ -2,7 +2,7 @@ id: sonarr
 name: Sonarr
 version: "1.0"
 description: PVR for TV series that monitors, grabs, sorts, and renames episodes automatically
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sonarr.svg
+icon: https://serverkit.ai/imgs/template-icons/sonarr.svg
 website: https://sonarr.tv
 documentation: https://wiki.servarr.com/sonarr
 categories:

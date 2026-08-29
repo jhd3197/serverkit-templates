@@ -2,7 +2,7 @@ id: audiobookshelf
 name: Audiobookshelf
 version: "1.0"
 description: Self-hosted server for managing and streaming your audiobooks, podcasts, and ebooks.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/audiobookshelf.svg
+icon: https://serverkit.ai/imgs/template-icons/audiobookshelf.svg
 website: https://www.audiobookshelf.org
 documentation: https://www.audiobookshelf.org/docs
 categories:

@@ -2,7 +2,7 @@ id: postgres
 name: PostgreSQL
 version: "1.0"
 description: The world's most advanced open-source relational database
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/postgres.svg
+icon: https://serverkit.ai/imgs/template-icons/postgres.svg
 website: https://www.postgresql.org
 documentation: https://www.postgresql.org/docs/
 categories:

@@ -2,7 +2,7 @@ id: docmost
 name: Docmost
 version: "1.0"
 description: Open-source collaborative wiki and documentation software — an alternative to Confluence and Notion
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/docmost.svg
+icon: https://serverkit.ai/imgs/template-icons/docmost.svg
 website: https://docmost.com
 documentation: https://docmost.com/docs/
 categories:

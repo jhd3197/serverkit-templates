@@ -2,7 +2,7 @@ id: windmill
 name: Windmill
 version: "1.0"
 description: Developer platform to turn scripts into workflows, UIs, and scheduled jobs — an open-source Retool and Airflow alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/windmill.svg
+icon: https://serverkit.ai/imgs/template-icons/windmill.svg
 website: https://www.windmill.dev
 documentation: https://www.windmill.dev/docs/intro
 categories:

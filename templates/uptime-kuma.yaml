@@ -2,7 +2,7 @@ id: uptime-kuma
 name: Uptime Kuma
 version: "1.23"
 description: A fancy self-hosted monitoring tool for websites and services
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/uptime-kuma.svg
+icon: https://serverkit.ai/imgs/template-icons/uptime-kuma.svg
 categories:
   - monitoring
   - devops

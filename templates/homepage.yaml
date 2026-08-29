@@ -2,7 +2,7 @@ id: homepage
 name: Homepage
 version: "1.0"
 description: Modern, fast, fully static-generated dashboard with 100+ service widgets and Docker integration
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homepage.svg
+icon: https://serverkit.ai/imgs/template-icons/homepage.svg
 website: https://gethomepage.dev
 documentation: https://gethomepage.dev/configs/
 categories:

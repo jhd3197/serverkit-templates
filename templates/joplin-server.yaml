@@ -2,7 +2,7 @@ id: joplin-server
 name: Joplin Server
 version: "1.0"
 description: Sync server for Joplin — the open-source note-taking app with end-to-end encryption
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/joplin-server.svg
+icon: https://serverkit.ai/imgs/template-icons/joplin-server.svg
 website: https://joplinapp.org
 documentation: https://joplinapp.org/help/dev/spec/server/
 categories:

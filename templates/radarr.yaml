@@ -2,7 +2,7 @@ id: radarr
 name: Radarr
 version: "1.0"
 description: PVR for movies that monitors, grabs, sorts, and renames films automatically
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/radarr.svg
+icon: https://serverkit.ai/imgs/template-icons/radarr.svg
 website: https://radarr.video
 documentation: https://wiki.servarr.com/radarr
 categories:

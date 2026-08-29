@@ -2,7 +2,7 @@ id: netbox
 name: NetBox
 version: "1.0"
 description: The source of truth for your network — IPAM and DCIM for racks, devices, cables, VLANs, and prefixes
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/netbox.svg
+icon: https://serverkit.ai/imgs/template-icons/netbox.svg
 website: https://netboxlabs.com/community/
 documentation: https://docs.netbox.dev
 categories:

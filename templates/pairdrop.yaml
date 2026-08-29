@@ -2,7 +2,7 @@ id: pairdrop
 name: PairDrop
 version: "1.0"
 description: AirDrop for the web — share files between devices on your network directly in the browser
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pairdrop.svg
+icon: https://serverkit.ai/imgs/template-icons/pairdrop.svg
 website: https://pairdrop.net
 documentation: https://github.com/schlagmichdoch/PairDrop#readme
 categories:

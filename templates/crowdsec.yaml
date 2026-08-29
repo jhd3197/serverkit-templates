@@ -2,7 +2,7 @@ id: crowdsec
 name: CrowdSec
 version: "1.6"
 description: Collaborative security engine for detecting and blocking threats
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/crowdsec.png
+icon: https://serverkit.ai/imgs/template-icons/crowdsec.png
 website: https://www.crowdsec.net
 documentation: https://docs.crowdsec.net
 categories:

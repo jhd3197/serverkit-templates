@@ -2,7 +2,7 @@ id: transmission
 name: Transmission
 version: "1.0"
 description: Fast, easy, and free BitTorrent client with a lightweight web UI
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/transmission.svg
+icon: https://serverkit.ai/imgs/template-icons/transmission.svg
 website: https://transmissionbt.com
 documentation: https://github.com/transmission/transmission/blob/main/docs/README.md
 categories:

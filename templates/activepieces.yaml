@@ -2,7 +2,7 @@ id: activepieces
 name: Activepieces
 version: "1.0"
 description: Open-source no-code automation platform — a Zapier alternative with 280+ integrations and AI pieces
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/activepieces.svg
+icon: https://serverkit.ai/imgs/template-icons/activepieces.svg
 website: https://www.activepieces.com
 documentation: https://www.activepieces.com/docs
 categories:

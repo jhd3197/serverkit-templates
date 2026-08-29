@@ -2,7 +2,7 @@ id: drupal
 name: Drupal
 version: "1.0"
 description: Enterprise-grade open-source CMS for ambitious digital experiences
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/drupal.svg
+icon: https://serverkit.ai/imgs/template-icons/drupal.svg
 website: https://www.drupal.org
 documentation: https://www.drupal.org/documentation
 categories:

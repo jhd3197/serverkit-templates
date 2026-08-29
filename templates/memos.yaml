@@ -2,7 +2,7 @@ id: memos
 name: Memos
 version: "1.0"
 description: Lightweight, privacy-first note-taking and micro-blogging app.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/memos.svg
+icon: https://serverkit.ai/imgs/template-icons/memos.svg
 website: https://www.usememos.com
 documentation: https://www.usememos.com/docs
 categories:

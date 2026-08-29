@@ -2,7 +2,7 @@ id: librechat
 name: LibreChat
 version: "1.0"
 description: Open-source multi-model chat UI (OpenAI, Anthropic, Google, local) with conversation search.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/librechat.svg
+icon: https://serverkit.ai/imgs/template-icons/librechat.svg
 website: https://librechat.ai
 documentation: https://www.librechat.ai/docs
 categories:

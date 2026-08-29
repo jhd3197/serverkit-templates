@@ -2,7 +2,7 @@ id: komga
 name: Komga
 version: "1.0"
 description: Media server for comics, mangas, BDs, and magazines with OPDS support and a slick web reader
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/komga.svg
+icon: https://serverkit.ai/imgs/template-icons/komga.svg
 website: https://komga.org
 documentation: https://komga.org/docs/introduction
 categories:

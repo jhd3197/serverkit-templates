@@ -2,7 +2,7 @@ id: forgejo
 name: Forgejo
 version: "1.0"
 description: Self-hosted lightweight software forge — the community fork of Gitea powering Codeberg
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/forgejo.svg
+icon: https://serverkit.ai/imgs/template-icons/forgejo.svg
 website: https://forgejo.org
 documentation: https://forgejo.org/docs/latest/
 categories:

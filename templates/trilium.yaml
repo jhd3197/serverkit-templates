@@ -2,7 +2,7 @@ id: trilium
 name: Trilium Notes
 version: "1.0"
 description: Hierarchical note-taking application with rich editing, scripting, and knowledge-base features
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/trilium.svg
+icon: https://serverkit.ai/imgs/template-icons/trilium.svg
 website: https://github.com/TriliumNext/Notes
 documentation: https://github.com/TriliumNext/Notes/wiki
 categories:

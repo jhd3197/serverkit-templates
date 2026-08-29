@@ -2,7 +2,7 @@ id: linkding
 name: linkding
 version: "1.0"
 description: Minimal, fast self-hosted bookmark manager.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/linkding.svg
+icon: https://serverkit.ai/imgs/template-icons/linkding.svg
 website: https://linkding.link
 documentation: https://linkding.link/installation/
 categories:

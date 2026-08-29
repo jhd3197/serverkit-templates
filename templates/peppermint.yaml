@@ -2,7 +2,7 @@ id: peppermint
 name: Peppermint
 version: "1.0"
 description: Modern open-source ticket management and helpdesk — a lightweight Zendesk alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/peppermint.svg
+icon: https://serverkit.ai/imgs/template-icons/peppermint.svg
 website: https://peppermint.sh
 documentation: https://docs.peppermint.sh
 categories:

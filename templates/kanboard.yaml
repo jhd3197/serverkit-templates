@@ -2,7 +2,7 @@ id: kanboard
 name: Kanboard
 version: "1.0"
 description: Minimalist kanban project management — simple, fast, and self-contained
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kanboard.svg
+icon: https://serverkit.ai/imgs/template-icons/kanboard.svg
 website: https://kanboard.org
 documentation: https://docs.kanboard.org
 categories:

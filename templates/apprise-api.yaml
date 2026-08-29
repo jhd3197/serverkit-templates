@@ -2,7 +2,7 @@ id: apprise-api
 name: Apprise API
 version: "1.0"
 description: One API to send notifications to 100+ services — Telegram, Discord, Slack, email, ntfy, and more
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/apprise-api.svg
+icon: https://serverkit.ai/imgs/template-icons/apprise-api.svg
 website: https://github.com/caronc/apprise-api
 documentation: https://github.com/caronc/apprise-api#readme
 categories:

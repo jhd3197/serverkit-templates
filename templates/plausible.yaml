@@ -2,7 +2,7 @@ id: plausible
 name: Plausible Analytics
 version: "2.0"
 description: Privacy-friendly, lightweight alternative to Google Analytics
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/plausible.svg
+icon: https://serverkit.ai/imgs/template-icons/plausible.svg
 website: https://plausible.io
 documentation: https://plausible.io/docs
 categories:

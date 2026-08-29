@@ -2,7 +2,7 @@ id: victoriametrics
 name: VictoriaMetrics
 version: "1.0"
 description: Fast, cost-effective time series database and monitoring solution — a drop-in Prometheus alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/victoriametrics.svg
+icon: https://serverkit.ai/imgs/template-icons/victoriametrics.svg
 website: https://victoriametrics.com
 documentation: https://docs.victoriametrics.com
 categories:

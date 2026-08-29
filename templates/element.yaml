@@ -2,7 +2,7 @@ id: element
 name: Element
 version: "1.0"
 description: Glossy Matrix web client — secure decentralized chat with E2E encryption
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/element.svg
+icon: https://serverkit.ai/imgs/template-icons/element.svg
 website: https://element.io
 documentation: https://github.com/element-hq/element-web#readme
 categories:

@@ -2,7 +2,7 @@ id: sabnzbd
 name: SABnzbd
 version: "1.0"
 description: Free and easy binary newsreader — automated Usenet downloading with a full API
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sabnzbd.svg
+icon: https://serverkit.ai/imgs/template-icons/sabnzbd.svg
 website: https://sabnzbd.org
 documentation: https://sabnzbd.org/wiki/
 categories:

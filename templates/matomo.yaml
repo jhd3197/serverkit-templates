@@ -2,7 +2,7 @@ id: matomo
 name: Matomo
 version: "1.0"
 description: Google Analytics alternative that protects your data and your customers' privacy
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/matomo.svg
+icon: https://serverkit.ai/imgs/template-icons/matomo.svg
 website: https://matomo.org
 documentation: https://matomo.org/guides/
 categories:

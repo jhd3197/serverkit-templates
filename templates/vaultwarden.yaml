@@ -2,7 +2,7 @@ id: vaultwarden
 name: Vaultwarden
 version: "1.30"
 description: Lightweight Bitwarden-compatible password manager server
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/vaultwarden.svg
+icon: https://serverkit.ai/imgs/template-icons/vaultwarden.svg
 website: https://github.com/dani-garcia/vaultwarden
 documentation: https://github.com/dani-garcia/vaultwarden/wiki
 categories:

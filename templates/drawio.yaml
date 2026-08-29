@@ -2,7 +2,7 @@ id: drawio
 name: draw.io
 version: "1.0"
 description: Self-hosted diagrams.net — flowcharts, network diagrams, UML, and whiteboards in the browser
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/drawio.svg
+icon: https://serverkit.ai/imgs/template-icons/drawio.svg
 website: https://www.drawio.com
 documentation: https://github.com/jgraph/docker-drawio#readme
 categories:

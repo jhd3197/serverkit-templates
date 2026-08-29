@@ -2,7 +2,7 @@ id: plane
 name: Plane
 version: "1.0"
 description: Open-source project management and issue tracking with cycles, modules, and views (a Jira/Linear alternative).
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/plane.svg
+icon: https://serverkit.ai/imgs/template-icons/plane.svg
 website: https://plane.so
 documentation: https://docs.plane.so/self-hosting/methods/docker-compose
 categories:

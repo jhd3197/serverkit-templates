@@ -2,7 +2,7 @@ id: actualbudget
 name: Actual Budget
 version: "1.0"
 description: Privacy-first personal budgeting app using envelope budgeting with optional bank sync.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/actualbudget.svg
+icon: https://serverkit.ai/imgs/template-icons/actualbudget.svg
 website: https://actualbudget.org
 documentation: https://actualbudget.org/docs/install/docker
 categories:

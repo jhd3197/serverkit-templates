@@ -2,7 +2,7 @@ id: pinchflat
 name: Pinchflat
 version: "1.0"
 description: Your own YouTube media manager — auto-download channels and playlists for Plex and Jellyfin
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pinchflat.png
+icon: https://serverkit.ai/imgs/template-icons/pinchflat.png
 website: https://github.com/kieraneglin/pinchflat
 documentation: https://github.com/kieraneglin/pinchflat/wiki
 categories:

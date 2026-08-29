@@ -2,7 +2,7 @@ id: onlyoffice
 name: ONLYOFFICE Docs
 version: "1.0"
 description: Office suite server for collaborative editing of documents, spreadsheets, and presentations — integrates with Nextcloud and Seafile
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/onlyoffice.svg
+icon: https://serverkit.ai/imgs/template-icons/onlyoffice.svg
 website: https://www.onlyoffice.com
 documentation: https://helpcenter.onlyoffice.com/installation/docs-community-index.aspx
 categories:

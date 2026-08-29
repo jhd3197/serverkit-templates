@@ -2,7 +2,7 @@ id: kestra
 name: Kestra
 version: "1.0"
 description: Event-driven declarative orchestration platform — build, schedule, and monitor workflows in YAML
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kestra.svg
+icon: https://serverkit.ai/imgs/template-icons/kestra.svg
 website: https://kestra.io
 documentation: https://kestra.io/docs
 categories:

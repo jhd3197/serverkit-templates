@@ -2,7 +2,7 @@ id: frigate
 name: Frigate
 version: "1.0"
 description: Complete local NVR with realtime AI object detection for your IP cameras — no cloud required
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/frigate.svg
+icon: https://serverkit.ai/imgs/template-icons/frigate.svg
 website: https://frigate.video
 documentation: https://docs.frigate.video
 categories:

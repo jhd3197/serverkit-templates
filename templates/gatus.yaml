@@ -2,7 +2,7 @@ id: gatus
 name: Gatus
 version: "1.0"
 description: Automated developer-oriented status page — monitor HTTP, TCP, ICMP, and DNS with alerting
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gatus.svg
+icon: https://serverkit.ai/imgs/template-icons/gatus.svg
 website: https://gatus.io
 documentation: https://github.com/TwiN/gatus#readme
 categories:

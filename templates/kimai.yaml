@@ -2,7 +2,7 @@ id: kimai
 name: Kimai
 version: "1.0"
 description: Professional time-tracking for teams and freelancers with invoicing, projects, and detailed reports
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kimai.svg
+icon: https://serverkit.ai/imgs/template-icons/kimai.svg
 website: https://www.kimai.org
 documentation: https://www.kimai.org/documentation/
 categories:

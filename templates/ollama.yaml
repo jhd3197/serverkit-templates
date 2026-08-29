@@ -2,7 +2,7 @@ id: ollama
 name: Ollama
 version: "1.0"
 description: Run Llama, Gemma, Mistral, Qwen, and other open LLMs locally with a simple API
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ollama.svg
+icon: https://serverkit.ai/imgs/template-icons/ollama.svg
 website: https://ollama.com
 documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
 categories:

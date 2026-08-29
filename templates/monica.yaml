@@ -2,7 +2,7 @@ id: monica
 name: Monica
 version: "1.0"
 description: Personal CRM to remember everything about your friends, family, and business relationships
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/monica.svg
+icon: https://serverkit.ai/imgs/template-icons/monica.svg
 website: https://www.monicahq.com
 documentation: https://github.com/monicahq/monica/blob/main/docs/installation/providers/docker.md
 categories:

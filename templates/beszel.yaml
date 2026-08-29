@@ -2,7 +2,7 @@ id: beszel
 name: Beszel
 version: "1.0"
 description: Lightweight server monitoring hub with historical metrics and alerts.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/beszel.svg
+icon: https://serverkit.ai/imgs/template-icons/beszel.svg
 website: https://beszel.dev
 documentation: https://beszel.dev/guide/getting-started
 categories:

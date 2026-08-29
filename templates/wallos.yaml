@@ -2,7 +2,7 @@ id: wallos
 name: Wallos
 version: "1.0"
 description: Personal subscription tracker — monitor recurring costs, renewal dates, and spending by category
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wallos.svg
+icon: https://serverkit.ai/imgs/template-icons/wallos.svg
 website: https://wallosapp.com
 documentation: https://github.com/ellite/Wallos#readme
 categories:

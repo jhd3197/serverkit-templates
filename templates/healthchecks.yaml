@@ -2,7 +2,7 @@ id: healthchecks
 name: Healthchecks
 version: "1.0"
 description: Cron job and scheduled task monitoring — get alerted when your background jobs do not run on time
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/healthchecks.svg
+icon: https://serverkit.ai/imgs/template-icons/healthchecks.svg
 website: https://healthchecks.io
 documentation: https://healthchecks.io/docs/self_hosted/
 categories:

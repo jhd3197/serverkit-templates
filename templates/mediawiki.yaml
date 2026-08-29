@@ -2,7 +2,7 @@ id: mediawiki
 name: MediaWiki
 version: "1.0"
 description: The wiki software that powers Wikipedia — battle-tested collaborative knowledge bases
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mediawiki.svg
+icon: https://serverkit.ai/imgs/template-icons/mediawiki.svg
 website: https://www.mediawiki.org
 documentation: https://www.mediawiki.org/wiki/Manual:Contents
 categories:

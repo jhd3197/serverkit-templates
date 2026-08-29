@@ -2,7 +2,7 @@ id: joomla
 name: Joomla
 version: "1.0"
 description: Award-winning open-source CMS powering millions of websites, with thousands of extensions and templates
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/joomla.svg
+icon: https://serverkit.ai/imgs/template-icons/joomla.svg
 website: https://www.joomla.org
 documentation: https://docs.joomla.org
 categories:

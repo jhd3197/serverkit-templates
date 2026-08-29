@@ -2,7 +2,7 @@ id: lychee
 name: Lychee
 version: "1.0"
 description: Beautiful self-hosted photo management — upload, organize, tag, and share your photos
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/lychee.png
+icon: https://serverkit.ai/imgs/template-icons/lychee.png
 website: https://lycheeorg.dev
 documentation: https://lycheeorg.dev/docs/
 categories:

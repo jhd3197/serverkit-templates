@@ -2,7 +2,7 @@ id: penpot
 name: Penpot
 version: "1.0"
 description: Open-source design and prototyping platform for teams — the self-hosted Figma alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/penpot.svg
+icon: https://serverkit.ai/imgs/template-icons/penpot.svg
 website: https://penpot.app
 documentation: https://help.penpot.app/technical-guide/getting-started/
 categories:

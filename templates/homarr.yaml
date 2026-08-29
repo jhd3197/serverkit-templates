@@ -2,7 +2,7 @@ id: homarr
 name: Homarr
 version: "1.0"
 description: Sleek customizable dashboard for your homelab with drag-and-drop widgets and app integrations
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homarr.svg
+icon: https://serverkit.ai/imgs/template-icons/homarr.svg
 website: https://homarr.dev
 documentation: https://homarr.dev/docs/getting-started/
 categories:

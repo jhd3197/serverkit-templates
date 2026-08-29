@@ -2,7 +2,7 @@ id: prowlarr
 name: Prowlarr
 version: "1.0"
 description: Indexer manager and proxy that integrates your indexers with the PVR apps
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/prowlarr.svg
+icon: https://serverkit.ai/imgs/template-icons/prowlarr.svg
 website: https://wiki.servarr.com/prowlarr
 documentation: https://wiki.servarr.com/prowlarr
 categories:

@@ -2,7 +2,7 @@ id: technitium
 name: Technitium DNS
 version: "1.0"
 description: Authoritative and recursive DNS server with ad blocking, DNS-over-HTTPS, and a full web console
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/technitium.svg
+icon: https://serverkit.ai/imgs/template-icons/technitium.svg
 website: https://technitium.com/dns/
 documentation: https://github.com/TechnitiumSoftware/DnsServer/blob/master/README.md
 categories:

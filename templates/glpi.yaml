@@ -2,7 +2,7 @@ id: glpi
 name: GLPI
 version: "1.0"
 description: Full-featured IT service management — asset inventory, helpdesk tickets, and license tracking
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glpi.svg
+icon: https://serverkit.ai/imgs/template-icons/glpi.svg
 website: https://glpi-project.org
 documentation: https://glpi-project.org/documentation/
 categories:

@@ -2,7 +2,7 @@ id: esphome
 name: ESPHome
 version: "1.0"
 description: Create custom firmwares for ESP32/ESP8266 smart-home devices with simple YAML configuration
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/esphome.svg
+icon: https://serverkit.ai/imgs/template-icons/esphome.svg
 website: https://esphome.io
 documentation: https://esphome.io/guides/getting_started_command_line.html
 categories:

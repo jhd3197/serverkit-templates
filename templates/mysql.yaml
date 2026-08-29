@@ -2,7 +2,7 @@ id: mysql
 name: MySQL
 version: "1.0"
 description: The world's most popular open-source relational database
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mysql.svg
+icon: https://serverkit.ai/imgs/template-icons/mysql.svg
 website: https://www.mysql.com
 documentation: https://dev.mysql.com/doc/
 categories:

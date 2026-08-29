@@ -2,7 +2,7 @@ id: qbittorrent
 name: qBittorrent
 version: "1.0"
 description: Open-source BitTorrent client with a full-featured web UI
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/qbittorrent.svg
+icon: https://serverkit.ai/imgs/template-icons/qbittorrent.svg
 website: https://www.qbittorrent.org
 documentation: https://docs.linuxserver.io/images/docker-qbittorrent/
 categories:

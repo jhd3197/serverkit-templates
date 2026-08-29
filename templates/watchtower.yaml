@@ -2,7 +2,7 @@ id: watchtower
 name: Watchtower
 version: "1.0"
 description: Automatically update running Docker containers when new images are published
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/watchtower.svg
+icon: https://serverkit.ai/imgs/template-icons/watchtower.svg
 website: https://containrrr.dev/watchtower/
 documentation: https://containrrr.dev/watchtower/arguments/
 categories:

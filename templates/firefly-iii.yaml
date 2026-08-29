@@ -2,7 +2,7 @@ id: firefly-iii
 name: Firefly III
 version: "1.0"
 description: Self-hosted personal finance manager for budgeting, accounts, and money tracking.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/firefly-iii.svg
+icon: https://serverkit.ai/imgs/template-icons/firefly-iii.svg
 website: https://www.firefly-iii.org
 documentation: https://docs.firefly-iii.org
 categories:

@@ -2,7 +2,7 @@ id: influxdb
 name: InfluxDB
 version: "1.0"
 description: Purpose-built time series database for metrics, events, and IoT data
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/influxdb.svg
+icon: https://serverkit.ai/imgs/template-icons/influxdb.svg
 website: https://www.influxdata.com
 documentation: https://docs.influxdata.com/influxdb/v2/
 categories:

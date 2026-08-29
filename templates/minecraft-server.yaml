@@ -2,7 +2,7 @@ id: minecraft-server
 name: Minecraft Server
 version: "1.0"
 description: Dedicated Minecraft Java Edition server with automatic version management (itzg image)
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/minecraft-server.svg
+icon: https://serverkit.ai/imgs/template-icons/minecraft-server.svg
 website: https://www.minecraft.net
 documentation: https://docker-minecraft-server.readthedocs.io
 categories:

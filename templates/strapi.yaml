@@ -2,7 +2,7 @@ id: strapi
 name: Strapi
 version: "4.15"
 description: Open-source headless CMS with customizable API and admin panel
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/strapi.svg
+icon: https://serverkit.ai/imgs/template-icons/strapi.svg
 website: https://strapi.io
 documentation: https://docs.strapi.io
 categories:

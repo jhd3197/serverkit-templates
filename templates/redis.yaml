@@ -2,7 +2,7 @@ id: redis
 name: Redis
 version: "1.0"
 description: In-memory data store for caching, queues, sessions, and pub/sub
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/redis.svg
+icon: https://serverkit.ai/imgs/template-icons/redis.svg
 website: https://redis.io
 documentation: https://redis.io/docs/
 categories:

@@ -2,7 +2,7 @@ id: nocodb
 name: NocoDB
 version: "1.0"
 description: Open-source Airtable alternative — turns any database into a smart spreadsheet with forms, kanban, and APIs
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nocodb.svg
+icon: https://serverkit.ai/imgs/template-icons/nocodb.svg
 website: https://nocodb.com
 documentation: https://docs.nocodb.com
 categories:

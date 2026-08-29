@@ -2,7 +2,7 @@ id: signoz
 name: SigNoz
 version: "1.0"
 description: OpenTelemetry-native observability platform for traces, metrics, and logs (an open-source APM alternative to Datadog).
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/signoz.svg
+icon: https://serverkit.ai/imgs/template-icons/signoz.svg
 website: https://signoz.io
 documentation: https://signoz.io/docs/introduction/
 categories:

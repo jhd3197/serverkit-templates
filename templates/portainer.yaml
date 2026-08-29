@@ -2,7 +2,7 @@ id: portainer
 name: Portainer
 version: "2.19"
 description: Lightweight Docker management UI with container visualization
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/portainer.png
+icon: https://serverkit.ai/imgs/template-icons/portainer.png
 categories:
   - devops
   - docker

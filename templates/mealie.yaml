@@ -2,7 +2,7 @@ id: mealie
 name: Mealie
 version: "1.0"
 description: Self-hosted recipe manager and meal planner with one-click recipe import from any URL
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mealie.svg
+icon: https://serverkit.ai/imgs/template-icons/mealie.svg
 website: https://mealie.io
 documentation: https://docs.mealie.io
 categories:

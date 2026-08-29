@@ -2,7 +2,7 @@ id: roundcube
 name: Roundcube
 version: "1.0"
 description: Browser-based multilingual IMAP webmail client with a modern responsive interface
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/roundcube.svg
+icon: https://serverkit.ai/imgs/template-icons/roundcube.svg
 website: https://roundcube.net
 documentation: https://github.com/roundcube/roundcubemail/wiki
 categories:

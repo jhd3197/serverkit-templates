@@ -2,7 +2,7 @@ id: snipe-it
 name: Snipe-IT
 version: "1.0"
 description: IT asset management for tracking hardware, licenses, accessories, and consumables across your organization
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/snipe-it.png
+icon: https://serverkit.ai/imgs/template-icons/snipe-it.png
 website: https://snipeitapp.com
 documentation: https://snipe-it.readme.io
 categories:

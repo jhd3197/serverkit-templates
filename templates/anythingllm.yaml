@@ -2,7 +2,7 @@ id: anythingllm
 name: AnythingLLM
 version: "1.0"
 description: All-in-one private ChatGPT-style app with built-in RAG, AI agents, and document workspaces.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/anythingllm.svg
+icon: https://serverkit.ai/imgs/template-icons/anythingllm.svg
 website: https://anythingllm.com
 documentation: https://docs.anythingllm.com
 categories:

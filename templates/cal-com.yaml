@@ -2,7 +2,7 @@ id: cal-com
 name: Cal.com
 version: "1.0"
 description: Open-source scheduling infrastructure — the self-hosted Calendly alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/cal-com.svg
+icon: https://serverkit.ai/imgs/template-icons/cal-com.svg
 website: https://cal.com
 documentation: https://cal.com/docs/self-hosting
 categories:

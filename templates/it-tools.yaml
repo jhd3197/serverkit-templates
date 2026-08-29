@@ -2,7 +2,7 @@ id: it-tools
 name: IT-Tools
 version: "1.0"
 description: Collection of 80+ handy developer tools — JWT decoder, hash generators, converters, and more, all offline
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/it-tools.svg
+icon: https://serverkit.ai/imgs/template-icons/it-tools.svg
 website: https://it-tools.tech
 documentation: https://github.com/CorentinTh/it-tools#readme
 categories:

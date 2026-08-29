@@ -2,7 +2,7 @@ id: litellm
 name: LiteLLM
 version: "1.0"
 description: OpenAI-compatible proxy and gateway that routes requests across 100+ LLM providers.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/litellm.svg
+icon: https://serverkit.ai/imgs/template-icons/litellm.svg
 website: https://litellm.ai
 documentation: https://docs.litellm.ai
 categories:

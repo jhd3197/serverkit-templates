@@ -2,7 +2,7 @@ id: mailpit
 name: Mailpit
 version: "1.0"
 description: Email testing tool with a modern web UI — catch outgoing mail from your apps via SMTP
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mailpit.svg
+icon: https://serverkit.ai/imgs/template-icons/mailpit.svg
 website: https://mailpit.axllent.org
 documentation: https://mailpit.axllent.org/docs/
 categories:

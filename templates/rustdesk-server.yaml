@@ -2,7 +2,7 @@ id: rustdesk-server
 name: RustDesk Server
 version: "1.0"
 description: Self-hosted signaling and relay server for RustDesk — the open-source TeamViewer alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/rustdesk-server.svg
+icon: https://serverkit.ai/imgs/template-icons/rustdesk-server.svg
 website: https://rustdesk.com
 documentation: https://rustdesk.com/docs/en/self-host/
 categories:

@@ -2,7 +2,7 @@ id: wordpress
 name: WordPress
 version: "6.4"
 description: World's most popular content management system for blogs and websites
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wordpress.png
+icon: https://serverkit.ai/imgs/template-icons/wordpress.png
 website: https://wordpress.org
 documentation: https://wordpress.org/documentation/
 categories:

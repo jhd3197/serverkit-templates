@@ -2,7 +2,7 @@ id: metube
 name: MeTube
 version: "1.0"
 description: Web UI for yt-dlp — download videos and audio from YouTube and hundreds of other sites
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/metube.svg
+icon: https://serverkit.ai/imgs/template-icons/metube.svg
 website: https://github.com/alexta69/metube
 documentation: https://github.com/alexta69/metube#readme
 categories:

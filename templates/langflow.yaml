@@ -2,7 +2,7 @@ id: langflow
 name: Langflow
 version: "1.0"
 description: Visual framework for building multi-agent and RAG applications.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/langflow.svg
+icon: https://serverkit.ai/imgs/template-icons/langflow.svg
 website: https://www.langflow.org
 documentation: https://docs.langflow.org
 categories:

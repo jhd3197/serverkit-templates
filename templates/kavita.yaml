@@ -2,7 +2,7 @@ id: kavita
 name: Kavita
 version: "1.0"
 description: Fast and friendly self-hosted digital library for manga, comics, and ebooks with cross-device reading
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kavita.svg
+icon: https://serverkit.ai/imgs/template-icons/kavita.svg
 website: https://www.kavitareader.com
 documentation: https://wiki.kavitareader.com
 categories:

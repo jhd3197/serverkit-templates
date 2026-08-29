@@ -2,7 +2,7 @@ id: filestash
 name: Filestash
 version: "1.0"
 description: Modern web file manager that connects to SFTP, S3, FTP, WebDAV, Git, and more — a Dropbox-like UI over your existing storage
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/filestash.svg
+icon: https://serverkit.ai/imgs/template-icons/filestash.svg
 website: https://www.filestash.app
 documentation: https://www.filestash.app/docs/
 categories:

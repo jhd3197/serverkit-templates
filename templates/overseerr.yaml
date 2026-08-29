@@ -2,7 +2,7 @@ id: overseerr
 name: Overseerr
 version: "1.0"
 description: Request management and media discovery tool for Plex that integrates with Sonarr and Radarr
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/overseerr.svg
+icon: https://serverkit.ai/imgs/template-icons/overseerr.svg
 website: https://overseerr.dev
 documentation: https://docs.overseerr.dev
 categories:

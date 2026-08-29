@@ -2,7 +2,7 @@ id: etherpad
 name: Etherpad
 version: "1.0"
 description: Real-time collaborative document editing in the browser — the classic shared notepad
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/etherpad.svg
+icon: https://serverkit.ai/imgs/template-icons/etherpad.svg
 website: https://etherpad.org
 documentation: https://docs.etherpad.org
 categories:

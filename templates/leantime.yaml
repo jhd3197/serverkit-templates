@@ -2,7 +2,7 @@ id: leantime
 name: Leantime
 version: "1.0"
 description: Goals-oriented project management for non-project managers — built with ADHD and neurodiversity in mind
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/leantime.svg
+icon: https://serverkit.ai/imgs/template-icons/leantime.svg
 website: https://leantime.io
 documentation: https://docs.leantime.io
 categories:

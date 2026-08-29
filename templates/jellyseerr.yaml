@@ -2,7 +2,7 @@ id: jellyseerr
 name: Jellyseerr
 version: "1.0"
 description: Media request and discovery portal for Jellyfin/Plex and the PVR apps
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jellyseerr.svg
+icon: https://serverkit.ai/imgs/template-icons/jellyseerr.svg
 website: https://github.com/Fallenbagel/jellyseerr
 documentation: https://docs.jellyseerr.dev
 categories:

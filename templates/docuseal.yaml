@@ -2,7 +2,7 @@ id: docuseal
 name: DocuSeal
 version: "1.0"
 description: Open-source document signing — create fillable PDF forms and collect legally-binding e-signatures
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/docuseal.svg
+icon: https://serverkit.ai/imgs/template-icons/docuseal.svg
 website: https://www.docuseal.com
 documentation: https://www.docuseal.com/docs
 categories:

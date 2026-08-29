@@ -2,7 +2,7 @@ id: paperless-ngx
 name: Paperless-ngx
 version: "1.0"
 description: Document management system that scans, OCRs, indexes and archives your documents into a searchable online archive.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/paperless-ngx.svg
+icon: https://serverkit.ai/imgs/template-icons/paperless-ngx.svg
 website: https://docs.paperless-ngx.com
 documentation: https://docs.paperless-ngx.com/configuration/
 categories:

@@ -2,7 +2,7 @@ id: karakeep
 name: Karakeep
 version: "1.0"
 description: Self-hosted bookmark-everything app (formerly Hoarder) that saves links, notes, and images with AI tagging and full-text search.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/karakeep.svg
+icon: https://serverkit.ai/imgs/template-icons/karakeep.svg
 website: https://karakeep.app
 documentation: https://docs.karakeep.app
 categories:

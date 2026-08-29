@@ -2,7 +2,7 @@ id: baikal
 name: Baïkal
 version: "1.0"
 description: Lightweight CalDAV and CardDAV server — sync calendars and contacts across all your devices
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/baikal.svg
+icon: https://serverkit.ai/imgs/template-icons/baikal.svg
 website: https://sabre.io/baikal/
 documentation: https://sabre.io/baikal/install/
 categories:

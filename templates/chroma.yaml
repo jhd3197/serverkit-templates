@@ -2,7 +2,7 @@ id: chroma
 name: Chroma
 version: "1.0"
 description: Open-source vector database for embeddings and semantic search in AI and RAG applications.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/chroma.svg
+icon: https://serverkit.ai/imgs/template-icons/chroma.svg
 website: https://www.trychroma.com
 documentation: https://docs.trychroma.com
 categories:

@@ -2,7 +2,7 @@ id: typesense
 name: Typesense
 version: "1.0"
 description: Typo-tolerant search engine optimized for fast, instant search-as-you-type experiences.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/typesense.svg
+icon: https://serverkit.ai/imgs/template-icons/typesense.svg
 website: https://typesense.org
 documentation: https://typesense.org/docs/
 categories:

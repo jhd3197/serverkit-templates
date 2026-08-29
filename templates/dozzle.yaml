@@ -2,7 +2,7 @@ id: dozzle
 name: Dozzle
 version: "1.0"
 description: Realtime log viewer for Docker containers — no database, just a fast web UI over the Docker socket
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dozzle.svg
+icon: https://serverkit.ai/imgs/template-icons/dozzle.svg
 website: https://dozzle.dev
 documentation: https://dozzle.dev/guide/getting-started
 categories:

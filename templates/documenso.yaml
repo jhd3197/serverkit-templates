@@ -2,7 +2,7 @@ id: documenso
 name: Documenso
 version: "1.0"
 description: Open-source document signing platform for sending and signing documents online.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/documenso.svg
+icon: https://serverkit.ai/imgs/template-icons/documenso.svg
 website: https://documenso.com
 documentation: https://docs.documenso.com
 categories:

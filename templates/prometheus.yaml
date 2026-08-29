@@ -2,7 +2,7 @@ id: prometheus
 name: Prometheus
 version: "2.48"
 description: Open-source monitoring and alerting toolkit designed for reliability and scalability
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/prometheus.svg
+icon: https://serverkit.ai/imgs/template-icons/prometheus.svg
 website: https://prometheus.io
 documentation: https://prometheus.io/docs/
 categories:

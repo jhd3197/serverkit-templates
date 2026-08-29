@@ -2,7 +2,7 @@ id: grist
 name: Grist
 version: "1.0"
 description: Modern relational spreadsheet that combines the flexibility of a spreadsheet with the robustness of a database
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grist.svg
+icon: https://serverkit.ai/imgs/template-icons/grist.svg
 website: https://www.getgrist.com
 documentation: https://support.getgrist.com/self-managed/
 categories:

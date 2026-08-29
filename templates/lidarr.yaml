@@ -2,7 +2,7 @@ id: lidarr
 name: Lidarr
 version: "1.0"
 description: Music collection manager that monitors, grabs, sorts, and renames albums automatically
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/lidarr.svg
+icon: https://serverkit.ai/imgs/template-icons/lidarr.svg
 website: https://lidarr.audio
 documentation: https://wiki.servarr.com/lidarr
 categories:

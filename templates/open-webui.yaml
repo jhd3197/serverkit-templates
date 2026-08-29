@@ -2,7 +2,7 @@ id: open-webui
 name: Open WebUI
 version: "1.0"
 description: Feature-rich self-hosted ChatGPT-style interface for Ollama and any OpenAI-compatible API, with RAG and multi-user support
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/open-webui.svg
+icon: https://serverkit.ai/imgs/template-icons/open-webui.svg
 website: https://openwebui.com
 documentation: https://docs.openwebui.com
 categories:

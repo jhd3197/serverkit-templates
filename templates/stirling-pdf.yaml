@@ -2,7 +2,7 @@ id: stirling-pdf
 name: Stirling PDF
 version: "1.0"
 description: Local web toolkit for splitting, merging, converting and OCR-ing PDF files.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/stirling-pdf.svg
+icon: https://serverkit.ai/imgs/template-icons/stirling-pdf.svg
 website: https://www.stirlingpdf.com
 documentation: https://docs.stirlingpdf.com
 categories:

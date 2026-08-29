@@ -2,7 +2,7 @@ id: vikunja
 name: Vikunja
 version: "1.0"
 description: Self-hosted to-do list and task and project manager.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/vikunja.svg
+icon: https://serverkit.ai/imgs/template-icons/vikunja.svg
 website: https://vikunja.io
 documentation: https://vikunja.io/docs
 categories:

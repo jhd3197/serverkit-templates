@@ -2,7 +2,7 @@ id: nodebb
 name: NodeBB
 version: "1.0"
 description: Modern, real-time forum and community platform built on Node.js.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nodebb.svg
+icon: https://serverkit.ai/imgs/template-icons/nodebb.svg
 website: https://nodebb.org
 documentation: https://docs.nodebb.org
 categories:

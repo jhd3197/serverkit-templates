@@ -2,7 +2,7 @@ id: thelounge
 name: The Lounge
 version: "1.0"
 description: Modern always-on web IRC client — stay connected and never miss a message
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/thelounge.svg
+icon: https://serverkit.ai/imgs/template-icons/thelounge.svg
 website: https://thelounge.chat
 documentation: https://thelounge.chat/docs
 categories:

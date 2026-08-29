@@ -2,7 +2,7 @@ id: listmonk
 name: listmonk
 version: "1.0"
 description: High-performance self-hosted newsletter and mailing list manager with a modern dashboard
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/listmonk.svg
+icon: https://serverkit.ai/imgs/template-icons/listmonk.svg
 website: https://listmonk.app
 documentation: https://listmonk.app/docs/
 categories:

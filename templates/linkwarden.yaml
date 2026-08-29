@@ -2,7 +2,7 @@ id: linkwarden
 name: Linkwarden
 version: "1.0"
 description: Collaborative bookmark manager that archives full copies of every page you save
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/linkwarden.svg
+icon: https://serverkit.ai/imgs/template-icons/linkwarden.svg
 website: https://linkwarden.app
 documentation: https://docs.linkwarden.app
 categories:

@@ -9,752 +9,752 @@
       "name": "2FAuth",
       "version": "1.0",
       "description": "Web app to manage and generate your two-factor authentication (2FA) codes \u2014 a self-hosted authenticator",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/2fauth.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/2fauth.svg",
       "categories": [
         "security",
         "authentication"
       ],
-      "sha256": "7cb5a3d1d9ed9dc9c4e5571af5371ac98758840af2105eca7dde55b28a1a34cc"
+      "sha256": "72d323b125aa5c010a565c6a2803dd9c1d913bc919526b0b95e1af1623306307"
     },
     {
       "id": "activepieces",
       "name": "Activepieces",
       "version": "1.0",
       "description": "Open-source no-code automation platform \u2014 a Zapier alternative with 280+ integrations and AI pieces",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/activepieces.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/activepieces.svg",
       "categories": [
         "productivity",
         "automation"
       ],
-      "sha256": "59d8a9fd00bf26f3f3c41e22962178db7c7bf220f9fe1fa82a520dfd6cd72b02"
+      "sha256": "6f55e16496ed115aa811056f48a6d2d6a3b9bf4c0f1352c2b5bbf2ddd87a7e57"
     },
     {
       "id": "actualbudget",
       "name": "Actual Budget",
       "version": "1.0",
       "description": "Privacy-first personal budgeting app using envelope budgeting with optional bank sync.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/actualbudget.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/actualbudget.svg",
       "categories": [
         "finance",
         "productivity"
       ],
-      "sha256": "b9233c723a8a38d42e567693557bc38e3928eb1e12a3feeed19bb8ccb2fe0c04"
+      "sha256": "6643df8a147b014c09fd10d638b40e649bf0f3fda635c7265cb036f988880aa6"
     },
     {
       "id": "adguard-home",
       "name": "AdGuard Home",
       "version": "1.0",
       "description": "Network-wide ad and tracker blocking DNS server with parental controls and per-client settings",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/adguard-home.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/adguard-home.svg",
       "categories": [
         "networking",
         "security",
         "dns"
       ],
-      "sha256": "e36df9ab5ce0db0bc9509673d2bdb0560c6238e3583a4eb2175a03eb81d69f98"
+      "sha256": "37e6ea7e263a1567517303392d535da156547039985ec2ac6201eaa84977680a"
     },
     {
       "id": "agentsite",
       "name": "AgentSite",
       "version": "1.0",
       "description": "AI-powered website builder with multi-agent orchestration, deployed straight from its Git repository.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/agentsite.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/agentsite.png",
       "categories": [
         "ai",
         "website",
         "deployment"
       ],
-      "sha256": "c2e456a9fa5ae0fc23a6ccfb356f94d7b0a0d0d2be01617cc08eb3cd6312da06"
+      "sha256": "64cda4b6d78bc5a32e3b9a758a8a174ad3f5463e59705c658c499ebced93ed5c"
     },
     {
       "id": "anythingllm",
       "name": "AnythingLLM",
       "version": "1.0",
       "description": "All-in-one private ChatGPT-style app with built-in RAG, AI agents, and document workspaces.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/anythingllm.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/anythingllm.svg",
       "categories": [
         "ai",
         "llm",
         "chat",
         "rag"
       ],
-      "sha256": "baf3f047079051c4b75f39d738485ae937f6e4ce86f520d700d6d989ba43a134"
+      "sha256": "988a21c1a43e422ce7673614b72d5ab5a17cc9ab36b2b1009cdf997872a194db"
     },
     {
       "id": "apprise-api",
       "name": "Apprise API",
       "version": "1.0",
       "description": "One API to send notifications to 100+ services \u2014 Telegram, Discord, Slack, email, ntfy, and more",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/apprise-api.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/apprise-api.svg",
       "categories": [
         "notifications",
         "automation"
       ],
-      "sha256": "113afaf9419190c1ae4301a9ad44b71e16cc12b9889179e66d27df8ce1a89796"
+      "sha256": "faede296e3afc9882de0b1e123dbb07a7e414bad1b1921ed10bafd162330d313"
     },
     {
       "id": "appsmith",
       "name": "Appsmith",
       "version": "1.0",
       "description": "Open-source low-code platform to build internal tools, admin panels, and dashboards on any datasource",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/appsmith.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/appsmith.png",
       "categories": [
         "development",
         "low-code",
         "productivity"
       ],
-      "sha256": "b099a65270ce5235374b7c75cfb3b68e6cda0fc9afa1035dfd5ef91be95644c8"
+      "sha256": "e292bd174d07dd30d2c682885c3011c1d991a3911c6e455c398331932bab77e7"
     },
     {
       "id": "audiobookshelf",
       "name": "Audiobookshelf",
       "version": "1.0",
       "description": "Self-hosted server for managing and streaming your audiobooks, podcasts, and ebooks.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/audiobookshelf.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/audiobookshelf.svg",
       "categories": [
         "media",
         "audiobooks"
       ],
-      "sha256": "ee68b2b2b2b1e1037c11da53890c171275ec7f241f95a9bab00372a53b554b10"
+      "sha256": "6143abef8a134efa5e5939b1a6e8e8cd74b08705fd611fb886fc270bbf177ce6"
     },
     {
       "id": "authelia",
       "name": "Authelia",
       "version": "4.37",
       "description": "Authentication and authorization server providing 2FA and SSO",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/authelia.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/authelia.png",
       "categories": [
         "security",
         "authentication",
         "sso"
       ],
-      "sha256": "4115dc0f3d9d1961b05d0f356a03f23730a5d4511e9caa8e3f6fee20eb7ac99b"
+      "sha256": "b8a52861fe2a00f1c2adc69d2dba6004d8fb1a955e718cce6a0b81b76d74b022"
     },
     {
       "id": "authentik",
       "name": "Authentik",
       "version": "1.0",
       "description": "Open-source identity provider for single sign-on with OIDC, SAML, and LDAP.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/authentik.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/authentik.svg",
       "categories": [
         "security",
         "identity",
         "sso"
       ],
-      "sha256": "510271fffb20ea5c6e59e9fc1a5347f6bca5d6c3d98295ac4ea3ae3330523683"
+      "sha256": "dd091686d488fd1f77cc1b3d0653964b11513e1802fdc734383c5b6f0f296fb1"
     },
     {
       "id": "backrest",
       "name": "Backrest",
       "version": "1.0",
       "description": "Web UI and orchestrator for restic \u2014 scheduled, encrypted, deduplicated backups to local or cloud storage",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/backrest.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/backrest.svg",
       "categories": [
         "storage",
         "backup"
       ],
-      "sha256": "30a0d96f1f17f3e459c8ef1937da994eea249db93f4d2268fcbfca97b380a5fc"
+      "sha256": "2912b18b313e94e6e55060ee4bb0790846d7a8dd4afdccaa6fe8215fed71c70b"
     },
     {
       "id": "baikal",
       "name": "Ba\u00efkal",
       "version": "1.0",
       "description": "Lightweight CalDAV and CardDAV server \u2014 sync calendars and contacts across all your devices",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/baikal.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/baikal.svg",
       "categories": [
         "productivity",
         "sync"
       ],
-      "sha256": "aaff5b1784b42626c0dd6bf5787d5fcd4bb815e1ffc0e765f189c86691582db9"
+      "sha256": "89046bf5a2480923ed8e8e23b46d6c61e92351a34225eaeadce9b8811a6b529a"
     },
     {
       "id": "baserow",
       "name": "Baserow",
       "version": "1.0",
       "description": "Open-source no-code database and Airtable alternative with real-time collaboration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/baserow.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/baserow.svg",
       "categories": [
         "database",
         "productivity",
         "low-code"
       ],
-      "sha256": "061b731cc297bb93c6777f4c6dd81ca7036afc6988a7b38162735d3409f1324b"
+      "sha256": "954a94691e2a22dc61e04cdbea263e298cd12fd0fb2efeab5e1945b12ebbe893"
     },
     {
       "id": "bazarr",
       "name": "Bazarr",
       "version": "1.0",
       "description": "Companion to Sonarr and Radarr that downloads and manages subtitles for your media library",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/bazarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/bazarr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "121f51219dcc963e9c0ed65a1dd8e707b21b05d839a176dca61c1626c9a744d8"
+      "sha256": "c8cc24670c830427b378b100f453b301464b86a4bf7ba1b441fd925674d8a382"
     },
     {
       "id": "beszel",
       "name": "Beszel",
       "version": "1.0",
       "description": "Lightweight server monitoring hub with historical metrics and alerts.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/beszel.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/beszel.svg",
       "categories": [
         "monitoring"
       ],
-      "sha256": "89bddfaf5a84f51bbb3486657b3d5540d8e2304170f4258b519cbd258b4710dc"
+      "sha256": "2d34f2fc39a3a2609ecc8d12eeb83f097645e94b714cefbe0984d019b005d24c"
     },
     {
       "id": "bookstack",
       "name": "BookStack",
       "version": "23.12",
       "description": "Simple, self-hosted platform for organizing and storing information",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/bookstack.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/bookstack.png",
       "categories": [
         "productivity",
         "wiki",
         "documentation"
       ],
-      "sha256": "12331a34a61bc78a174d5f495a3135ec4e8ea856b1f10c75e63206883801fc26"
+      "sha256": "e1dd3790545e2712de84434e73441ed5f38caf6032f3888f5bcea9198e95c5e2"
     },
     {
       "id": "caddy",
       "name": "Caddy",
       "version": "2.7",
       "description": "Fast, multi-platform web server with automatic HTTPS",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/caddy.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/caddy.svg",
       "categories": [
         "networking",
         "proxy",
         "ssl"
       ],
-      "sha256": "22b0e9e3d59fdf1698dbac13dee95d6f787855fc20fbcbba2bf3820be3b4df86"
+      "sha256": "37be1453617878376ecddfd55279a8e2983aa9953a478ca150ba8c0214c32c64"
     },
     {
       "id": "cal-com",
       "name": "Cal.com",
       "version": "1.0",
       "description": "Open-source scheduling infrastructure \u2014 the self-hosted Calendly alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/cal-com.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/cal-com.svg",
       "categories": [
         "productivity",
         "scheduling"
       ],
-      "sha256": "737e87425dfb87ac35d03a093c0af142315a8d1878271fc973471e81543bd44a"
+      "sha256": "bb215ccc091ab4883615b65f0ed69445ed79a01f7ff70ea27113c9d4c080ad4b"
     },
     {
       "id": "calibre-web",
       "name": "Calibre-Web",
       "version": "1.0",
       "description": "Clean web interface for browsing, reading, and downloading books from a Calibre ebook library.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/calibre-web.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/calibre-web.svg",
       "categories": [
         "media",
         "ebooks",
         "productivity"
       ],
-      "sha256": "abd6cad5bdf13b2be4d594966b14d18c45b51af8a141285f292aec3e039c4629"
+      "sha256": "134c1ba75353593144a50809f78e29aeada3cb1b8d95c383ec95532a678b6663"
     },
     {
       "id": "changedetection",
       "name": "changedetection.io",
       "version": "1.0",
       "description": "Website change detection and monitoring with notifications to 90+ services",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/changedetection.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/changedetection.svg",
       "categories": [
         "monitoring",
         "automation"
       ],
-      "sha256": "a66233a12d165133994ffd3e54ba42c13717e3f5b2135a7ef7583937e7bee555"
+      "sha256": "d24250157562a212e064fe404f87065610c34e1a1c49092cf0919ad87c20c224"
     },
     {
       "id": "chatwoot",
       "name": "Chatwoot",
       "version": "1.0",
       "description": "Open-source customer engagement suite with live chat and a shared inbox.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/chatwoot.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/chatwoot.svg",
       "categories": [
         "business",
         "support",
         "communication"
       ],
-      "sha256": "1b8f33a085595afdb596b29991bddbbf9ebf820ecfa208a041975783b12caadb"
+      "sha256": "c236a74c10897be3d2fa23671738d4e0a6b36973e9743aafc6688f7f627153ed"
     },
     {
       "id": "chroma",
       "name": "Chroma",
       "version": "1.0",
       "description": "Open-source vector database for embeddings and semantic search in AI and RAG applications.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/chroma.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/chroma.svg",
       "categories": [
         "ai",
         "database",
         "search"
       ],
-      "sha256": "435e7d362d54ff55abd82c003ea09f193345cde40b5693ebd04d029c0211a214"
+      "sha256": "39f82287db3caa912fb841518d6e90f7cdf81a09edcc4ca22a4f84358a052ef7"
     },
     {
       "id": "code-server",
       "name": "Code Server",
       "version": "4.20",
       "description": "VS Code in the browser with full IDE features and extensions support",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/code-server.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/code-server.ico",
       "categories": [
         "development",
         "ide",
         "productivity"
       ],
-      "sha256": "838ac3cb0391a01c1db6228e1b3a0fb245fce1c2148ec48320663ee6d59f68a2"
+      "sha256": "f0173e5830a750c8859e245c6c5f5910d85c1427c55be5066c18e9eb31394fbf"
     },
     {
       "id": "crowdsec",
       "name": "CrowdSec",
       "version": "1.6",
       "description": "Collaborative security engine for detecting and blocking threats",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/crowdsec.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/crowdsec.png",
       "categories": [
         "security",
         "firewall",
         "threat-detection"
       ],
-      "sha256": "edc7c8e56793ad0f01f4e50d53d1fcaa96f97fb765b3de6fc0b08098a94f472b"
+      "sha256": "48ed713f575c5234720f6fad1d7a6c273a8dcd43a493813abcafae99e072f745"
     },
     {
       "id": "dashy",
       "name": "Dashy",
       "version": "1.0",
       "description": "Self-hosted startpage with status checking, themes, widgets, and a built-in UI config editor",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dashy.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/dashy.png",
       "categories": [
         "productivity",
         "dashboard"
       ],
-      "sha256": "88e9b973b0b876e9e1cf4336de169fa790be5dea23554c8214a3333797c424ec"
+      "sha256": "b460c23e5779475032ed9934a46b9ec49c8a1ec2ee6878d80a1f46acbf2dde93"
     },
     {
       "id": "directus",
       "name": "Directus",
       "version": "10.8",
       "description": "Open-source data platform with instant REST and GraphQL API for any SQL database",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/directus.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/directus.ico",
       "categories": [
         "cms",
         "headless",
         "api",
         "database"
       ],
-      "sha256": "3ccee65b2cff11e761e2183a7fa393ee29d505e53339ac2615ce826c861cbe09"
+      "sha256": "88925b7c9f7ea6e4fc0f735c074bef122f5c6223c85480bad4bc99e56f758d72"
     },
     {
       "id": "dockge",
       "name": "Dockge",
       "version": "1.0",
       "description": "Reactive self-hosted Docker Compose stack manager from the maker of Uptime Kuma",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dockge.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/dockge.svg",
       "categories": [
         "devops",
         "management"
       ],
-      "sha256": "45511827e4f548bdd1e53dbb66e7bde829edde3d0c6ee112d4783d6e5bd1505d"
+      "sha256": "763365de170afc545f61988d6bf9488a56c4b2b8834baf27accf3ff05161f0ad"
     },
     {
       "id": "docmost",
       "name": "Docmost",
       "version": "1.0",
       "description": "Open-source collaborative wiki and documentation software \u2014 an alternative to Confluence and Notion",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/docmost.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/docmost.svg",
       "categories": [
         "documents",
         "collaboration",
         "wiki"
       ],
-      "sha256": "cd3094b857bd5b25b0d7f2d2327adebbb818bd5ea894b46f33216e166bf9edb8"
+      "sha256": "7bab41b51a3b7143bd66f0e9076de47fc3fe81e553af8fee09b99afdeedd70e5"
     },
     {
       "id": "documenso",
       "name": "Documenso",
       "version": "1.0",
       "description": "Open-source document signing platform for sending and signing documents online.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/documenso.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/documenso.svg",
       "categories": [
         "business",
         "documents",
         "productivity"
       ],
-      "sha256": "a3fbcfc01453cd64c305aba35c5cd92f4d075ca339a167f95d89635ae4f70d35"
+      "sha256": "04aef4595ee2b55d8e968550cf3a5e34e86c15308ac27a247849c94cc51c3c0f"
     },
     {
       "id": "docuseal",
       "name": "DocuSeal",
       "version": "1.0",
       "description": "Open-source document signing \u2014 create fillable PDF forms and collect legally-binding e-signatures",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/docuseal.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/docuseal.svg",
       "categories": [
         "documents",
         "business"
       ],
-      "sha256": "3424309dc5b179153627c7836c66e7f10df5c72b0321011673e818e3e3e97a79"
+      "sha256": "e640a5a5b5703a3b75769ab133996839f7cd8d54621395ab1f3164a7b16e29bc"
     },
     {
       "id": "dokuwiki",
       "name": "DokuWiki",
       "version": "1.0",
       "description": "Simple, versatile wiki that needs no database \u2014 clean syntax and easy file-based backups",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dokuwiki.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/dokuwiki.svg",
       "categories": [
         "documents",
         "wiki"
       ],
-      "sha256": "0b203ed44cce96b95a9cfd5e78550b9aee979a7c7f5bfb2391a929c94aefd3ca"
+      "sha256": "5fd79809b409c6ea44ddb0dd3c2c18d2f61bd507f41c516653558c0a1c1116bf"
     },
     {
       "id": "dozzle",
       "name": "Dozzle",
       "version": "1.0",
       "description": "Realtime log viewer for Docker containers \u2014 no database, just a fast web UI over the Docker socket",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dozzle.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/dozzle.svg",
       "categories": [
         "monitoring",
         "devops"
       ],
-      "sha256": "424f8983db0c04d3973ff99ac275f41eee97ce84702c822b1123d62dde955639"
+      "sha256": "37bcbe5d228e61c4b59583b2b8d2b399b2d75a0fa592443acee9f5611bb28229"
     },
     {
       "id": "drawio",
       "name": "draw.io",
       "version": "1.0",
       "description": "Self-hosted diagrams.net \u2014 flowcharts, network diagrams, UML, and whiteboards in the browser",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/drawio.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/drawio.svg",
       "categories": [
         "productivity",
         "diagrams"
       ],
-      "sha256": "685fd8371bc8ea8256bc9604792df31473ac157390449ca2c2fd5ce2366c3497"
+      "sha256": "029be405ca7f47e32ef6f72a34b573c03cf46ef4689dbe979c31d86753b9ed0e"
     },
     {
       "id": "drone",
       "name": "Drone CI",
       "version": "2.22",
       "description": "Container-native continuous integration platform with simple pipeline configuration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/drone.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/drone.svg",
       "categories": [
         "devops",
         "ci-cd",
         "docker"
       ],
-      "sha256": "b413490d09866aba6c8094e27c22096ce897a451f9746091aa98e15e686f235d"
+      "sha256": "0a6305f21c9cf9d0cc158bea043942dcb0a2575f9461c1f7201128ff1d0ccbab"
     },
     {
       "id": "drupal",
       "name": "Drupal",
       "version": "1.0",
       "description": "Enterprise-grade open-source CMS for ambitious digital experiences",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/drupal.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/drupal.svg",
       "categories": [
         "cms",
         "website"
       ],
-      "sha256": "a61daef389952ad44da0ff3bdb4dca7acccfea961c8d177471b71645abc396d5"
+      "sha256": "ae1fb8a4c5b1fb3503fc7d0f29c811482a08cf2e0b71b8e951a6055569281e35"
     },
     {
       "id": "duplicati",
       "name": "Duplicati",
       "version": "2.0",
       "description": "Free backup software to store encrypted backups online",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/duplicati.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/duplicati.svg",
       "categories": [
         "storage",
         "backup",
         "encryption"
       ],
-      "sha256": "89eba3e65ceeed608f0a8fb5d059ae5abe13ab8dd649614e921a2099f19ff136"
+      "sha256": "b09c28eb2221f7fd7f4952486fa44926757c8ff25fc1da120d4b6895823af9b1"
     },
     {
       "id": "element",
       "name": "Element",
       "version": "1.0",
       "description": "Glossy Matrix web client \u2014 secure decentralized chat with E2E encryption",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/element.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/element.svg",
       "categories": [
         "collaboration",
         "chat"
       ],
-      "sha256": "1eb3621f0185bfcb5d4af47bcf20ce618c726265d6a84e19da6d2b64e7edabd7"
+      "sha256": "5ccef9bebf6d88a1c2eaeb99abad59e81e1794e64c504435453c3769dc6f997f"
     },
     {
       "id": "esphome",
       "name": "ESPHome",
       "version": "1.0",
       "description": "Create custom firmwares for ESP32/ESP8266 smart-home devices with simple YAML configuration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/esphome.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/esphome.svg",
       "categories": [
         "home-automation",
         "iot"
       ],
-      "sha256": "97e9e820cb61c2a20ca89c7249e0882ce5bf2988aa11a80ea818d7a944f764c2"
+      "sha256": "579ce2bfccaf8e8f2272abb92c0e8307b94133e7fa50d610889c3bf0898c29ea"
     },
     {
       "id": "espocrm",
       "name": "EspoCRM",
       "version": "1.0",
       "description": "Full-featured open-source CRM \u2014 leads, opportunities, accounts, email campaigns, and workflows",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/espocrm.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/espocrm.svg",
       "categories": [
         "business",
         "crm"
       ],
-      "sha256": "94ca61ab41caba2987b74bb9d52593b9256f551d479cbbf0d3c1a7da33a0895d"
+      "sha256": "efa9115e1286cc83efeabb49c9e82c2c9752b89f72de1dc49dd556357eb67918"
     },
     {
       "id": "etherpad",
       "name": "Etherpad",
       "version": "1.0",
       "description": "Real-time collaborative document editing in the browser \u2014 the classic shared notepad",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/etherpad.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/etherpad.svg",
       "categories": [
         "notes",
         "collaboration"
       ],
-      "sha256": "f457d7d6638e827db0542da93e38aa3986338f380d4babaad53a945736927c7d"
+      "sha256": "aeabed3222d9c50a243be12bf0a4cef5025b4ca76b2df43e89ec27a053395800"
     },
     {
       "id": "excalidraw",
       "name": "Excalidraw",
       "version": "0.17",
       "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/excalidraw.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/excalidraw.png",
       "categories": [
         "productivity",
         "diagrams",
         "whiteboard"
       ],
-      "sha256": "d556b38543f80b97bf848c07d97aa89be28e9451df1770bbb43af26e197581b1"
+      "sha256": "a2f9313f8801bce4e326eb69c0da6d5c9b621a469b5c79af5e454c32053af851"
     },
     {
       "id": "filebrowser",
       "name": "File Browser",
       "version": "2.27",
       "description": "Web-based file manager with upload, download, and file sharing features",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/filebrowser.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/filebrowser.svg",
       "categories": [
         "storage",
         "files",
         "management"
       ],
-      "sha256": "730c30256a7e3420e533a4b766acd638363c620a43afede99d3e176033f95c44"
+      "sha256": "4e0997efe8d816b574fa9177f90b236209fee46e225fb592c32126a081b1daa2"
     },
     {
       "id": "filestash",
       "name": "Filestash",
       "version": "1.0",
       "description": "Modern web file manager that connects to SFTP, S3, FTP, WebDAV, Git, and more \u2014 a Dropbox-like UI over your existing storage",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/filestash.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/filestash.svg",
       "categories": [
         "storage",
         "productivity"
       ],
-      "sha256": "30e80969467c13acd83bbc9bbb8076744b62ba6f35c932f6a4207074b44950d0"
+      "sha256": "6b283cb9a16d617f817f1316280e4b6e4682019a8b6de0cf299b95b8afca680a"
     },
     {
       "id": "firefly-iii",
       "name": "Firefly III",
       "version": "1.0",
       "description": "Self-hosted personal finance manager for budgeting, accounts, and money tracking.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/firefly-iii.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/firefly-iii.svg",
       "categories": [
         "finance",
         "productivity"
       ],
-      "sha256": "7f6c4cf53b23b70c10a66dccbf8d662401b34396f0657dbb0249b7c295e1ad19"
+      "sha256": "50be5990d0eaafc62303c37d5654903296a8c55f35a54f93546d895d7a830718"
     },
     {
       "id": "flaresolverr",
       "name": "FlareSolverr",
       "version": "1.0",
       "description": "Proxy server that solves Cloudflare challenges \u2014 companion service for Prowlarr and the *arr stack",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/flaresolverr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/flaresolverr.svg",
       "categories": [
         "media",
         "networking"
       ],
-      "sha256": "1eda3e65332ee26b4645c901f70d7dca8422d2880e01cd8b3e4bb9398f4e34ca"
+      "sha256": "55f46ab1e406f051e8a538cd8b2feb881b85b5e516b8ee4c00a1e2c9ed1cb04b"
     },
     {
       "id": "flask-hello-world",
       "name": "Flask - Hello World",
       "version": "1.0",
       "description": "Simple Flask app for testing and debugging. Shows server info, port, and connection status. No database needed.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/flask-hello-world.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/flask-hello-world.ico",
       "categories": [
         "development",
         "api",
         "testing"
       ],
-      "sha256": "0785d8926c78ec64fc56791ef2dd87e631344ebac9a154606f1087bf5a637255"
+      "sha256": "d9690feedf513026cea08b91be8d69fd5899af5451bcca8fb443312fc668fcd3"
     },
     {
       "id": "flowise",
       "name": "Flowise",
       "version": "1.0",
       "description": "Low-code drag-and-drop builder for LLM agents and chains.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/flowise.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/flowise.svg",
       "categories": [
         "ai",
         "llm",
         "workflow",
         "low-code"
       ],
-      "sha256": "e8254b7dc79777c3d0171c3825f78c83e33853e2ac2ad32aaabe7d00116d00d8"
+      "sha256": "785627ab4e0be824bcde66d7b025c035c7270a240b32a19bd0685045ce1928c0"
     },
     {
       "id": "forgejo",
       "name": "Forgejo",
       "version": "1.0",
       "description": "Self-hosted lightweight software forge \u2014 the community fork of Gitea powering Codeberg",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/forgejo.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/forgejo.svg",
       "categories": [
         "development",
         "git"
       ],
-      "sha256": "e87954387e71a07c13fea69e102182f58cdaa07a108be7af861ec0f891b4fa9e"
+      "sha256": "e8070cac1fddc235343c302eec778fa39f2f2ca533c1983c4057574a09fabf73"
     },
     {
       "id": "freshrss",
       "name": "FreshRSS",
       "version": "1.0",
       "description": "Free, self-hosted RSS and Atom feed aggregator for following news and websites in one place.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/freshrss.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/freshrss.svg",
       "categories": [
         "news",
         "rss",
         "productivity"
       ],
-      "sha256": "c8cfb59a29a63f699bced21d73715a542d68a8f9ab8897d2ebe2bbe22f9b6dbf"
+      "sha256": "3dcbe116b1d174112ad239ac60ce5f0f0a9615d37f44f7de7fdeccbe1eb4efdf"
     },
     {
       "id": "frigate",
       "name": "Frigate",
       "version": "1.0",
       "description": "Complete local NVR with realtime AI object detection for your IP cameras \u2014 no cloud required",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/frigate.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/frigate.svg",
       "categories": [
         "home-automation",
         "security",
         "cameras"
       ],
-      "sha256": "ec579912a7e6b21c5b163b22175f1eee18b92c09b213d814ee9b5dad6a79917b"
+      "sha256": "8e335044ff1d384e2208f20e67be23ed4e9f897dc935f44ab700bf9fd9f25c66"
     },
     {
       "id": "gatus",
       "name": "Gatus",
       "version": "1.0",
       "description": "Automated developer-oriented status page \u2014 monitor HTTP, TCP, ICMP, and DNS with alerting",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gatus.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/gatus.svg",
       "categories": [
         "monitoring",
         "devops"
       ],
-      "sha256": "e525839c268207474240f4f340faba0ed20d1de9b255f9a17a2176a2f3e2dc68"
+      "sha256": "0da6f9a732140f63a52986bee4888ac29fbe876f6525c6e5b649c22a26e14aaa"
     },
     {
       "id": "ghost",
       "name": "Ghost",
       "version": "5.75",
       "description": "Professional publishing platform for blogs and newsletters",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ghost.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/ghost.ico",
       "categories": [
         "cms",
         "blog",
         "publishing"
       ],
-      "sha256": "77e7efc738a32387f8affe90f593ded414170d82f7ccbdff386e2f7ce8e17a16"
+      "sha256": "ec0fdb22492b32d6cdd8f1a64876f29f6ca83b1be57d3f59c2652d36881a1b0d"
     },
     {
       "id": "ghostfolio",
       "name": "Ghostfolio",
       "version": "1.0",
       "description": "Open-source wealth management software to track stocks, ETFs, and crypto across your portfolio",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ghostfolio.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/ghostfolio.svg",
       "categories": [
         "finance",
         "productivity"
       ],
-      "sha256": "380bd9206963d7c65d1ef62710ac25a02b83b5e514f5fea39252da2c24d2e431"
+      "sha256": "783de63f0c317cdccb32c13b70db5da51669eed53a2756e5ce09b1471aa436c9"
     },
     {
       "id": "gitea",
       "name": "Gitea",
       "version": "1.21",
       "description": "Lightweight self-hosted Git service",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gitea.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/gitea.svg",
       "categories": [
         "devops",
         "git",
         "development"
       ],
-      "sha256": "395147eeeb081ad674d7935fee0c75dadc24b498e96fb5036dec570325d6b2a5"
+      "sha256": "34318511e488d4dd1d441f29e1d33e938f29691f1b8508750e468b02cc04a7d6"
     },
     {
       "id": "gitlab-runner",
       "name": "GitLab Runner",
       "version": "16.6",
       "description": "Application that works with GitLab CI/CD to run jobs in a pipeline",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gitlab-runner.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/gitlab-runner.png",
       "categories": [
         "devops",
         "ci-cd",
         "gitlab"
       ],
-      "sha256": "1a4a6cb56b25ef004d4cf486edccd9d20c462a1684ff1d4edaa46eb3eeacc8e1"
+      "sha256": "1b395d06b0e59d2901b75e363ed06b38af83008e803b4937567858ee6ad6cf09"
     },
     {
       "id": "gitlab",
       "name": "GitLab CE",
       "version": "1.0",
       "description": "Complete DevOps platform \u2014 git hosting, CI/CD, issues, registry, and more (heavy, needs 4GB+ RAM)",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gitlab.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/gitlab.svg",
       "categories": [
         "development",
         "devops",
         "git"
       ],
-      "sha256": "efb1e3c65ef3cdbb8c54d79f4e9dae76fcf66d5cf78cff29ad3d2039b865d286"
+      "sha256": "5cce3339f05a603d3cfa95c9bf1a531ae93df7dc91101ce901cd0ae2f6de4e14"
     },
     {
       "id": "glances",
       "name": "Glances",
       "version": "1.0",
       "description": "Cross-platform system monitoring \u2014 CPU, memory, disks, network, and containers in one web view",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glances.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/glances.svg",
       "categories": [
         "monitoring",
         "system"
       ],
-      "sha256": "4cd0ac130a2ca3bac979ccb11e6d32a5e273f58a5f2b23697e4f2d531dfd6a58"
+      "sha256": "bac0b949d47ad0b0ca166549dbdf0f22082fe1b76128c77d3e83e0f447552827"
     },
     {
       "id": "glitchtip",
       "name": "GlitchTip",
       "version": "1.0",
       "description": "Open-source error tracking, compatible with Sentry SDKs \u2014 simple to run, easy on resources",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glitchtip.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/glitchtip.svg",
       "categories": [
         "development",
         "monitoring"
       ],
-      "sha256": "a110fc31dc38f6302dd0078288b63e8473202adfe5fde80a3da231926e510915"
+      "sha256": "2d3fd11e600565e04eee4a00d887639c5e7a0d0a990830e4c14cb02c25b1c327"
     },
     {
       "id": "glpi",
       "name": "GLPI",
       "version": "1.0",
       "description": "Full-featured IT service management \u2014 asset inventory, helpdesk tickets, and license tracking",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glpi.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/glpi.svg",
       "categories": [
         "business",
         "helpdesk",
         "management"
       ],
-      "sha256": "3fdccb1f8709066990a26895ed1898ce02513922a8da7e13a076e7d454d7be37"
+      "sha256": "955b00271b17e4e5a5bba5ac8c38653d3be1cc859716f8726d9e34ef041cc00a"
     },
     {
       "id": "gods-eye-view",
@@ -774,1244 +774,1244 @@
       "name": "Gotify",
       "version": "1.0",
       "description": "Self-hosted push notification server with Android client support.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/gotify.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/gotify.svg",
       "categories": [
         "notifications",
         "messaging"
       ],
-      "sha256": "f43f1296c3d4202726d949da764bde205e780d7b905810bafc64cd42cf966a52"
+      "sha256": "01ba5b8ca28c3b2046313296137d11dc29400af5d70af17de56b9bd2a6b7df1d"
     },
     {
       "id": "grafana",
       "name": "Grafana",
       "version": "10.2",
       "description": "Open-source analytics and interactive visualization platform for metrics, logs, and traces",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grafana.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/grafana.svg",
       "categories": [
         "monitoring",
         "analytics",
         "visualization"
       ],
-      "sha256": "f4e9e749718ddf2f84096ac98403687a65f8cd6825bf7738a35113831a7f439a"
+      "sha256": "2c14a5b939282d529ae60eaf4258d794871ad5292b4d1ad267fc2660f1429fea"
     },
     {
       "id": "grav",
       "name": "Grav CMS",
       "version": "1.7",
       "description": "Modern flat-file CMS that is fast, simple, and flexible",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grav.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/grav.png",
       "categories": [
         "cms",
         "flat-file",
         "blog"
       ],
-      "sha256": "de974a7bb01881453bc5e8a9ab89a04d4b00c88b95e5bcdfc78076ac26ae78ca"
+      "sha256": "7c9a12b002f361f70856c06a123a85ca8403ff218e381eaf25fe83d7d0f1da52"
     },
     {
       "id": "grist",
       "name": "Grist",
       "version": "1.0",
       "description": "Modern relational spreadsheet that combines the flexibility of a spreadsheet with the robustness of a database",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grist.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/grist.svg",
       "categories": [
         "database",
         "productivity",
         "low-code"
       ],
-      "sha256": "4a815650394474dcb5645ce5119f93be09e64d9bb35b1175dc5af7b08e8b92a5"
+      "sha256": "6e9125b03cc2c423842ab3c9611ea793573a55fc394b4ca5162b42503c1e9e62"
     },
     {
       "id": "grocy",
       "name": "Grocy",
       "version": "1.0",
       "description": "ERP for your fridge \u2014 groceries, chores, and household management with stock tracking and barcode support",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/grocy.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/grocy.svg",
       "categories": [
         "productivity",
         "home"
       ],
-      "sha256": "b5935ea3f7a6715095a279225c2321ab0185604db015175739856c38b3555434"
+      "sha256": "a12ec14130b013053362e5f5d6675562f04c6ccac64d52798a2fe1078b38084c"
     },
     {
       "id": "healthchecks",
       "name": "Healthchecks",
       "version": "1.0",
       "description": "Cron job and scheduled task monitoring \u2014 get alerted when your background jobs do not run on time",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/healthchecks.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/healthchecks.svg",
       "categories": [
         "monitoring",
         "devops"
       ],
-      "sha256": "914779068b2c5127fd96e79d951fc282c554ac1e7b99645cdaf26b92e0500fd0"
+      "sha256": "da30ee77f59d6b8cc0c7ba61204e9653a3df314189a8f333d26d5c87b631a7c5"
     },
     {
       "id": "hedgedoc",
       "name": "HedgeDoc",
       "version": "1.0",
       "description": "Collaborative real-time markdown editor \u2014 write, present, and share notes with your team",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/hedgedoc.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/hedgedoc.svg",
       "categories": [
         "notes",
         "collaboration"
       ],
-      "sha256": "ff748d2badfc46b792009409572c99ea1986232d46a93b2a38413132dbabac7f"
+      "sha256": "4aca1da8a51503f5327740c6c80f214050c1ab8652e882cba90eea37745f69fa"
     },
     {
       "id": "homarr",
       "name": "Homarr",
       "version": "1.0",
       "description": "Sleek customizable dashboard for your homelab with drag-and-drop widgets and app integrations",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/homarr.svg",
       "categories": [
         "productivity",
         "dashboard"
       ],
-      "sha256": "2e3aaa17db262a72f294deef6f53274092d14605b410d1af8f8124de4629f776"
+      "sha256": "b759c88a1c9eb252c365d85330f51fbbb85d810d5d009ed081d98aba81ffb6b6"
     },
     {
       "id": "homeassistant",
       "name": "Home Assistant",
       "version": "2024.1",
       "description": "Open-source home automation platform with focus on local control and privacy",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homeassistant.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/homeassistant.png",
       "categories": [
         "home-automation",
         "iot",
         "smart-home"
       ],
-      "sha256": "89d1e11daf3b8040ef731cbfa4d3f78e453804e89b0891ef9daf3e75b9f68d22"
+      "sha256": "928199e59d930d4e293e3c7b7b7313e24554981e6fc584d700c963fb2d9596a4"
     },
     {
       "id": "homebox",
       "name": "HomeBox",
       "version": "1.0",
       "description": "Inventory and organization system for your home \u2014 track items, locations, warranties, and maintenance",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homebox.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/homebox.svg",
       "categories": [
         "productivity",
         "home"
       ],
-      "sha256": "fd7a1762f635b0cebea4a35733051e5384320781455ae7be79a49390e9301999"
+      "sha256": "adba7e8c3b0660e700d8ff9dbc3379bffb7233147f8d9a090e0b7255a1eb41f0"
     },
     {
       "id": "homepage",
       "name": "Homepage",
       "version": "1.0",
       "description": "Modern, fast, fully static-generated dashboard with 100+ service widgets and Docker integration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homepage.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/homepage.svg",
       "categories": [
         "productivity",
         "dashboard"
       ],
-      "sha256": "ea4fdde4afd62268606095ea4ee6260aba9d7108636132cbfb271a6153b0153d"
+      "sha256": "543e89832101d50a37865c68be6afaab8931e62ea662fc162d38585b37985bc2"
     },
     {
       "id": "immich",
       "name": "Immich",
       "version": "1.91",
       "description": "High-performance self-hosted photo and video backup solution with mobile apps",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/immich.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/immich.svg",
       "categories": [
         "media",
         "photos",
         "backup"
       ],
-      "sha256": "a3c4134be9e0d2054ab09185b83c181650f30e136be142d738192bb59f26d189"
+      "sha256": "126f0e0dc6f5a66a96aa0e853133c78ad46a48396aae52e1097b795057cb9e4e"
     },
     {
       "id": "influxdb",
       "name": "InfluxDB",
       "version": "1.0",
       "description": "Purpose-built time series database for metrics, events, and IoT data",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/influxdb.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/influxdb.svg",
       "categories": [
         "database",
         "monitoring"
       ],
-      "sha256": "3121dc28294827530622f5d6e34e9c7ee7cb52c77e2f0dc989845579ba76041f"
+      "sha256": "15dda515bec29db0da45d5332f47a4cfd87858c500ed05563b14cd819359be4a"
     },
     {
       "id": "it-tools",
       "name": "IT-Tools",
       "version": "1.0",
       "description": "Collection of 80+ handy developer tools \u2014 JWT decoder, hash generators, converters, and more, all offline",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/it-tools.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/it-tools.svg",
       "categories": [
         "development",
         "productivity"
       ],
-      "sha256": "b95acb8fa76f63f181abc72f7300f985a4e31086c73200613a9582c0dfc469ca"
+      "sha256": "d9657038b42e9288fb71352122e65d8d5f621113a0dd5aeb8345c1377b424535"
     },
     {
       "id": "jaeger",
       "name": "Jaeger",
       "version": "1.52",
       "description": "Open-source distributed tracing system for monitoring and troubleshooting microservices",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jaeger.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/jaeger.png",
       "categories": [
         "monitoring",
         "tracing",
         "observability"
       ],
-      "sha256": "31864589a55e61c129415d9b2a978e13debd1280c1119065788831fbe720c311"
+      "sha256": "e6623bfa726155e0be06cf9fa506a7c48cd80c0b82e97e29b02192ffe4cdf1e4"
     },
     {
       "id": "jellyfin",
       "name": "Jellyfin",
       "version": "10.8",
       "description": "Free and open-source media server for streaming movies, TV shows, music, and more",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jellyfin.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/jellyfin.svg",
       "categories": [
         "media",
         "streaming",
         "entertainment"
       ],
-      "sha256": "f45445386c9de7186753290bc525a218a6d9238c28c3f52d779c33c86a106e81"
+      "sha256": "c200ebc66e0f5019c9485972270ffab8be8816502f960ef1f4126f5133ae6037"
     },
     {
       "id": "jellyseerr",
       "name": "Jellyseerr",
       "version": "1.0",
       "description": "Media request and discovery portal for Jellyfin/Plex and the PVR apps",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jellyseerr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/jellyseerr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "3208909aa2f318895ff0583c8b97a7603efe47ea5b49a5d1f218cecfcf4bd0c3"
+      "sha256": "ed7431b09dbf42fddcea7a434be3c5884beaaef0a99c53777fe446ac2228473d"
     },
     {
       "id": "jenkins",
       "name": "Jenkins",
       "version": "2.426",
       "description": "Leading open-source automation server for building, deploying, and automating projects",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jenkins.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/jenkins.svg",
       "categories": [
         "devops",
         "ci-cd",
         "automation"
       ],
-      "sha256": "da7cfe6672cef3065e1a460d957849aaef4f7bee7a8900c475aa3c15b0df6638"
+      "sha256": "27d9dc6e5d9af8f5a56f8b6bac5a6b961cea8aef1066b1960614bff056f54622"
     },
     {
       "id": "jitsi",
       "name": "Jitsi Meet",
       "version": "9111",
       "description": "Secure, fully featured, and completely free video conferencing",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jitsi.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/jitsi.svg",
       "categories": [
         "collaboration",
         "video",
         "conferencing"
       ],
-      "sha256": "6fece5e52ef1a791749a39bb813058d7c52e32587c9e2e7e6d17910f072a97c1"
+      "sha256": "4396d25afefcfcd49384094c4af2c9cf79dfb77f28742e4e25765266c887ac4c"
     },
     {
       "id": "joomla",
       "name": "Joomla",
       "version": "1.0",
       "description": "Award-winning open-source CMS powering millions of websites, with thousands of extensions and templates",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/joomla.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/joomla.svg",
       "categories": [
         "cms",
         "website"
       ],
-      "sha256": "f39e83aa433b6921a9bd7506ba42c1fe8d9852027d2eb93dafa449c19bcb27db"
+      "sha256": "8215b62270dd6c166b3f50a644da36aa2bd8d5954e4bc6ee06a1dd195a481b0a"
     },
     {
       "id": "joplin-server",
       "name": "Joplin Server",
       "version": "1.0",
       "description": "Sync server for Joplin \u2014 the open-source note-taking app with end-to-end encryption",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/joplin-server.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/joplin-server.svg",
       "categories": [
         "notes",
         "productivity"
       ],
-      "sha256": "a3cd613ae0181fe3b8d456b5b5310241a2794b45a8aba9388bbdf96ae6ecf7ca"
+      "sha256": "d4243b6376ab8f218e1545b238b44aefd2c4e89c4a972f23724d6a0ea9caea34"
     },
     {
       "id": "kanboard",
       "name": "Kanboard",
       "version": "1.0",
       "description": "Minimalist kanban project management \u2014 simple, fast, and self-contained",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kanboard.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/kanboard.svg",
       "categories": [
         "productivity",
         "collaboration"
       ],
-      "sha256": "0b615924ed92b399f0abc145d93857f208b0fb11e465b0f565687d8d9597b9cf"
+      "sha256": "55b158cffd45f824432fe5dcb7cedd7fc32358db2fd5d74d9ae415d14220e84b"
     },
     {
       "id": "karakeep",
       "name": "Karakeep",
       "version": "1.0",
       "description": "Self-hosted bookmark-everything app (formerly Hoarder) that saves links, notes, and images with AI tagging and full-text search.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/karakeep.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/karakeep.svg",
       "categories": [
         "productivity",
         "bookmarks"
       ],
-      "sha256": "0b64f28583798131295a7ee97d2d908dc46abc734b0a4d18cc21b2996704665a"
+      "sha256": "5c5eeabb2624fa44fa14e824e0d17e773a632f5d3329a54ba84318570ceb7f30"
     },
     {
       "id": "kavita",
       "name": "Kavita",
       "version": "1.0",
       "description": "Fast and friendly self-hosted digital library for manga, comics, and ebooks with cross-device reading",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kavita.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/kavita.svg",
       "categories": [
         "media",
         "books"
       ],
-      "sha256": "9f61b46d8ad73b5629b4daa73833523947a937b4eb7c2cfef5dace2727790c4b"
+      "sha256": "27f5abec5c5cbb5e070da93e686e1c8b6151319dbaa433b7197cb692f6d9bd3c"
     },
     {
       "id": "kestra",
       "name": "Kestra",
       "version": "1.0",
       "description": "Event-driven declarative orchestration platform \u2014 build, schedule, and monitor workflows in YAML",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kestra.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/kestra.svg",
       "categories": [
         "development",
         "automation",
         "devops"
       ],
-      "sha256": "fae276b86330f80d4d3b1fe215123b2ded2f5826bfc9adb8d75a9d740821ce9b"
+      "sha256": "c26c8c0228c6ff9c37394aeab3d97db0bf18dc08466ffe849dac1400e224ab86"
     },
     {
       "id": "keycloak",
       "name": "Keycloak",
       "version": "23.0",
       "description": "Open-source identity and access management for modern applications",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/keycloak.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/keycloak.svg",
       "categories": [
         "security",
         "authentication",
         "sso"
       ],
-      "sha256": "764285b44e868633756178bbf16136cfda4b6e68c95e268efd607ff10dee91a2"
+      "sha256": "499ac09b2304a9b76f6c825017c18273e9ef89867ab091bb215669cd3f460421"
     },
     {
       "id": "kimai",
       "name": "Kimai",
       "version": "1.0",
       "description": "Professional time-tracking for teams and freelancers with invoicing, projects, and detailed reports",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kimai.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/kimai.svg",
       "categories": [
         "business",
         "productivity"
       ],
-      "sha256": "86bd121fc828675f270378cbaef3c68b33aef670b74c20a600c8835cec570ef9"
+      "sha256": "e3be213172ad943bf51e7a18f92092583a3ea4bad9030dddaac17327e3e429e0"
     },
     {
       "id": "komga",
       "name": "Komga",
       "version": "1.0",
       "description": "Media server for comics, mangas, BDs, and magazines with OPDS support and a slick web reader",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/komga.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/komga.svg",
       "categories": [
         "media",
         "books"
       ],
-      "sha256": "3e0b0a02d9d5933f15ab3fc8e900c677571b2bf9af4ce930c4b2e9a2710250e1"
+      "sha256": "66373ba625a239b71957f1a6227abd6c5aa1ade11aab436458ce2dd621a04d86"
     },
     {
       "id": "kopia",
       "name": "Kopia",
       "version": "1.0",
       "description": "Fast and secure backup tool with encryption, deduplication, and cloud storage support \u2014 managed from a web UI",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/kopia.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/kopia.svg",
       "categories": [
         "storage",
         "backup"
       ],
-      "sha256": "ab542b4caf7031e0a3300430703fac67e806d2ef750e0a049bb4c5ed5432f6e5"
+      "sha256": "d7091149221721a0bcf2bc1e401a34cc3eb9956747e70d6fc50c0b5c7f275b54"
     },
     {
       "id": "langflow",
       "name": "Langflow",
       "version": "1.0",
       "description": "Visual framework for building multi-agent and RAG applications.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/langflow.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/langflow.svg",
       "categories": [
         "ai",
         "llm",
         "workflow",
         "rag"
       ],
-      "sha256": "c72d74ce94baf54fafa6c911e24c11b2a2f093178fa475657a397bee5eab9cf8"
+      "sha256": "135aa77ceba488f0c3e813aa44309deb2ee7442e9879f1ee721769b9141ab7aa"
     },
     {
       "id": "leantime",
       "name": "Leantime",
       "version": "1.0",
       "description": "Goals-oriented project management for non-project managers \u2014 built with ADHD and neurodiversity in mind",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/leantime.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/leantime.svg",
       "categories": [
         "productivity",
         "collaboration"
       ],
-      "sha256": "e72ff68028c38635b56b2deea8702253e860aa1362dfb2ed7443138333e0e5d5"
+      "sha256": "17b838a7206dd807d85181733acc5b56cc970a0a92271081aae05689bf1cbc61"
     },
     {
       "id": "librechat",
       "name": "LibreChat",
       "version": "1.0",
       "description": "Open-source multi-model chat UI (OpenAI, Anthropic, Google, local) with conversation search.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/librechat.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/librechat.svg",
       "categories": [
         "ai",
         "llm",
         "chat"
       ],
-      "sha256": "8ee75733a0f742bfd261757886fb8da28b7073d1b815e750201cb0ce495dd5a3"
+      "sha256": "c6bb474356120fd7584f06fd265a5bda706a865859f10addf1aca4bd82071f04"
     },
     {
       "id": "librespeed",
       "name": "LibreSpeed",
       "version": "1.0",
       "description": "Lightweight self-hosted speed test \u2014 measure download, upload, ping, and jitter from any browser",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/librespeed.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/librespeed.svg",
       "categories": [
         "monitoring",
         "networking"
       ],
-      "sha256": "43ad4bf5fa67f60391fcb5d87d1c333e96257668afbf6584a63db377b19422a0"
+      "sha256": "89212e42b68db149783b20b49ed0012932788b36727df810a5fb5277bd567c3f"
     },
     {
       "id": "lidarr",
       "name": "Lidarr",
       "version": "1.0",
       "description": "Music collection manager that monitors, grabs, sorts, and renames albums automatically",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/lidarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/lidarr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "9968e1fff3c1adbce8ab42603540db660ce0d76ef62f0f2de14ebf72c36c9758"
+      "sha256": "d990b8280ee9107c5fa659b706118bfde610ad2c861170d9591450015c725d3d"
     },
     {
       "id": "linkding",
       "name": "linkding",
       "version": "1.0",
       "description": "Minimal, fast self-hosted bookmark manager.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/linkding.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/linkding.svg",
       "categories": [
         "productivity",
         "bookmarks"
       ],
-      "sha256": "8016dfc6e96983375bd096e4c8e088334dcc7fe1bc147268751db689a861c6ce"
+      "sha256": "05cb36fc042f1602b64f4c60207434d067c243bd2f06e5f227c6275a57538b4c"
     },
     {
       "id": "linkwarden",
       "name": "Linkwarden",
       "version": "1.0",
       "description": "Collaborative bookmark manager that archives full copies of every page you save",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/linkwarden.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/linkwarden.svg",
       "categories": [
         "productivity",
         "bookmarks"
       ],
-      "sha256": "7356ea32a7584d9d3b1bdf6acaa5df5b59c9c3761ca67b2266dcded5a6dcaa7c"
+      "sha256": "11e3522ddaa6a610987f05e5bfedf407ff2bcb6b9c2effce1827fb364210e69d"
     },
     {
       "id": "listmonk",
       "name": "listmonk",
       "version": "1.0",
       "description": "High-performance self-hosted newsletter and mailing list manager with a modern dashboard",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/listmonk.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/listmonk.svg",
       "categories": [
         "business",
         "email",
         "marketing"
       ],
-      "sha256": "9127765fdcd0d106a58321a71579c78fc9704f8443233aeb1b62710ca4aa89b0"
+      "sha256": "392917b407cdeb8393c7f580a498bdbc55f6e1d03ebbc3af6c0776bc480fc8ba"
     },
     {
       "id": "litellm",
       "name": "LiteLLM",
       "version": "1.0",
       "description": "OpenAI-compatible proxy and gateway that routes requests across 100+ LLM providers.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/litellm.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/litellm.svg",
       "categories": [
         "ai",
         "llm",
         "gateway"
       ],
-      "sha256": "6792a35e199112193fe2b0fa8d10eee69a187266d51bbadf82cddd44aabcd4f6"
+      "sha256": "fd43f6415c16424d5ceafdea6405a3c2bfe5fab49a732e255bd02b5de9bb1084"
     },
     {
       "id": "loki",
       "name": "Grafana Loki",
       "version": "2.9",
       "description": "Horizontally scalable, highly available log aggregation system inspired by Prometheus",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/loki.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/loki.svg",
       "categories": [
         "monitoring",
         "logging",
         "observability"
       ],
-      "sha256": "127467668682d324ee204ac60ce23bc93eac58a40c03b311ddb0ea43de5a4d9b"
+      "sha256": "b01ebb70a5d4ce8b17f29324317802bc800e5c7b371286302bd27614794d7b37"
     },
     {
       "id": "lychee",
       "name": "Lychee",
       "version": "1.0",
       "description": "Beautiful self-hosted photo management \u2014 upload, organize, tag, and share your photos",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/lychee.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/lychee.png",
       "categories": [
         "media",
         "photos"
       ],
-      "sha256": "d2afadba856914bb591c04b83c6e9c0e7f20053be91630b311a18d2eafdfa699"
+      "sha256": "4438f379d79ee9c530ecc156384506221c1030bdebb6fcf99a5f84a77adf5814"
     },
     {
       "id": "mailpit",
       "name": "Mailpit",
       "version": "1.0",
       "description": "Email testing tool with a modern web UI \u2014 catch outgoing mail from your apps via SMTP",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mailpit.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mailpit.svg",
       "categories": [
         "development",
         "email"
       ],
-      "sha256": "52bc443874b55d63fca39ab8a3f922267cc3736512292c9316dca932788ae2f6"
+      "sha256": "fe8ff382a9c2155daebac709214ccfb811393544fabc54856aa41e2f1c0706be"
     },
     {
       "id": "mariadb",
       "name": "MariaDB",
       "version": "1.0",
       "description": "Community-developed fork of MySQL \u2014 fast, stable, and drop-in compatible",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mariadb.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mariadb.svg",
       "categories": [
         "database",
         "development"
       ],
-      "sha256": "93d2dc12f7554dfc3f3866297ec1dc0bd22fba99162c27fc6c3e31d388e0f5e8"
+      "sha256": "8860f92e4466ba07e161522ccdc31096777b30a88fcde45d2ae1884ba582d86b"
     },
     {
       "id": "matomo",
       "name": "Matomo",
       "version": "1.0",
       "description": "Google Analytics alternative that protects your data and your customers' privacy",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/matomo.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/matomo.svg",
       "categories": [
         "analytics",
         "privacy"
       ],
-      "sha256": "00ab8d544ca310f3c2954f7d095846adb652b03a887a3a3b36219075e33e3fac"
+      "sha256": "543adef33d3690e2bdffc79d5a0b1e748782086bc90ee154a271f72eb2972dea"
     },
     {
       "id": "matrix-synapse",
       "name": "Matrix Synapse",
       "version": "1.98",
       "description": "Decentralized communication server for secure, federated messaging",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/matrix-synapse.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/matrix-synapse.svg",
       "categories": [
         "collaboration",
         "chat",
         "federation"
       ],
-      "sha256": "e16f5d50635783cc433673945f02994e6943a45156dc72d50772f7b8d91a0f13"
+      "sha256": "f1159123caa966f1dda4364878fad9f70a6ad8777eefc1552922e9054deee45e"
     },
     {
       "id": "mattermost",
       "name": "Mattermost",
       "version": "9.2",
       "description": "Open-source Slack alternative for secure team collaboration and messaging",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mattermost.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/mattermost.png",
       "categories": [
         "collaboration",
         "chat",
         "communication"
       ],
-      "sha256": "fb9fc8cb130547db888d007f1eca3066fce256a59defb870f67c00688cb7c572"
+      "sha256": "f0b1e6f88b4f9482ea14894b2c004dbeb4f29b8669cc5c03df329097ee6edb9a"
     },
     {
       "id": "mealie",
       "name": "Mealie",
       "version": "1.0",
       "description": "Self-hosted recipe manager and meal planner with one-click recipe import from any URL",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mealie.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mealie.svg",
       "categories": [
         "productivity",
         "home"
       ],
-      "sha256": "071e0cd5beb71d8a5fea386ad6049470939e946b0ab8423b26a413467be9c46f"
+      "sha256": "e8f6ecc89c4047bd7f70819ca6a22bb09f3340fb03d362f805ce95d47eac3ee0"
     },
     {
       "id": "mediawiki",
       "name": "MediaWiki",
       "version": "1.0",
       "description": "The wiki software that powers Wikipedia \u2014 battle-tested collaborative knowledge bases",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mediawiki.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mediawiki.svg",
       "categories": [
         "documents",
         "wiki"
       ],
-      "sha256": "e30f840de98b30a4aadd8655153516ca507f4cbd65071e3089ee3dcd1d580beb"
+      "sha256": "01f6d436b3cf57fb57770ea347218c6d6a1ff089f51066da8301ec62be9f2496"
     },
     {
       "id": "meilisearch",
       "name": "Meilisearch",
       "version": "1.0",
       "description": "Lightning-fast, typo-tolerant search engine that many apps rely on for instant full-text search.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/meilisearch.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/meilisearch.svg",
       "categories": [
         "search",
         "database"
       ],
-      "sha256": "807e2a9815b9500ded6cc19e368f4adeb61af9bd6c1bb59ca99e1aec39f1b81b"
+      "sha256": "d3a437733513acf918a1210bf808de45afd226f683b08074767e78885952cbf9"
     },
     {
       "id": "memos",
       "name": "Memos",
       "version": "1.0",
       "description": "Lightweight, privacy-first note-taking and micro-blogging app.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/memos.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/memos.svg",
       "categories": [
         "notes",
         "productivity"
       ],
-      "sha256": "4c6e992f10adbf7f57f18e26572b72287d9d540c4983c480c2ade1adc3778543"
+      "sha256": "68681ef8ba5eb087508e9076a5746f8893afe9fd3067ee1142fdee9be3b2a2df"
     },
     {
       "id": "metabase",
       "name": "Metabase",
       "version": "1.0",
       "description": "Open-source business intelligence and dashboards tool for exploring your data.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/metabase.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/metabase.svg",
       "categories": [
         "analytics",
         "business",
         "productivity"
       ],
-      "sha256": "171cd27b65c422fa6508c18428aed2cfa7b7bb68c3d5363340c7bcc5cf4c03e9"
+      "sha256": "9e30793c190ef27cd931c71812349bcc717ecfb26c4810353ca8dac2eb4e8c7a"
     },
     {
       "id": "metube",
       "name": "MeTube",
       "version": "1.0",
       "description": "Web UI for yt-dlp \u2014 download videos and audio from YouTube and hundreds of other sites",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/metube.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/metube.svg",
       "categories": [
         "media",
         "downloads"
       ],
-      "sha256": "0c0464e5d3a2de3cd1d61d0dd17c2424d02908060578ab695ebd3902a0534b39"
+      "sha256": "16867af9143dffe255d90e37f2fb33b5774e08c0cc37b3f04c4c00fdcc8fdad3"
     },
     {
       "id": "minecraft-server",
       "name": "Minecraft Server",
       "version": "1.0",
       "description": "Dedicated Minecraft Java Edition server with automatic version management (itzg image)",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/minecraft-server.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/minecraft-server.svg",
       "categories": [
         "gaming"
       ],
-      "sha256": "48cf4c46fdfa087150c78fbc2f97287c8484c9323a529dbb89574a65811554f8"
+      "sha256": "c33e1bb3516e1a6112a3f4c1508fa3f4fcb750b9314fd16886f7787e91f18574"
     },
     {
       "id": "miniflux",
       "name": "Miniflux",
       "version": "1.0",
       "description": "Minimalist and fast self-hosted RSS feed reader backed by PostgreSQL.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/miniflux.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/miniflux.svg",
       "categories": [
         "news",
         "rss"
       ],
-      "sha256": "aff1c0123e107d4efa06801ca9b945037648516909098a71f3b38f39bc196d8a"
+      "sha256": "ca766795426bc35d933c636a6ba29fc81d8208e901c4200c72abe3188be6528f"
     },
     {
       "id": "minio",
       "name": "MinIO",
       "version": "2024-01",
       "description": "High-performance, S3-compatible object storage for cloud-native applications",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/minio.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/minio.png",
       "categories": [
         "storage",
         "s3",
         "cloud"
       ],
-      "sha256": "da2a08614774678a86405e340aa5f599f2e69b2c46e834f1c40aa58decfa2e82"
+      "sha256": "cd965514070e21e69e49ac5e8898128c99a4447f02b913d397cb1745ea4dd3e8"
     },
     {
       "id": "mongo-express",
       "name": "Mongo Express",
       "version": "1.0",
       "description": "Web-based MongoDB admin interface for managing databases and collections",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mongo-express.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/mongo-express.ico",
       "categories": [
         "database",
         "mongodb",
         "management"
       ],
-      "sha256": "d147be19c0d8d238a6f6eddcccdad493b499dafebf83b0d7a7443bce0c592647"
+      "sha256": "0cab474cc46366946a425429e855954923070f16f922460b550b4ca316da9820"
     },
     {
       "id": "mongodb",
       "name": "MongoDB",
       "version": "1.0",
       "description": "Popular document database for modern applications \u2014 flexible JSON-like storage with powerful queries",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mongodb.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mongodb.svg",
       "categories": [
         "database",
         "development"
       ],
-      "sha256": "e218ceef676e3c79d2e2808377e55560756ef10a2b1ca06b6e089cb911dd3b93"
+      "sha256": "ad30182939e081c2eb0fb36a3494a412d9b6c450f232f2f8fb237bb9a899efc2"
     },
     {
       "id": "monica",
       "name": "Monica",
       "version": "1.0",
       "description": "Personal CRM to remember everything about your friends, family, and business relationships",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/monica.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/monica.svg",
       "categories": [
         "productivity",
         "crm"
       ],
-      "sha256": "4136f26ac7340fcbf8fdd906f703026f234aa960603f2cf59df16c199ff05161"
+      "sha256": "e0dfc2477503d4e3247820d3153a254d5bc222d463685099e282dc6c5cebcc27"
     },
     {
       "id": "mosquitto",
       "name": "Eclipse Mosquitto",
       "version": "2.0",
       "description": "Lightweight MQTT message broker for IoT and home automation",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mosquitto.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mosquitto.svg",
       "categories": [
         "home-automation",
         "iot",
         "messaging"
       ],
-      "sha256": "9d9c092dc09a2aebbe62287a5944c2c1d1bf88eb767abe864244fe0d83920644"
+      "sha256": "cad5d206986a86a960a4bc962e698c0fdc7118e737849744f137fd24b5804b0b"
     },
     {
       "id": "mysql",
       "name": "MySQL",
       "version": "1.0",
       "description": "The world's most popular open-source relational database",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mysql.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/mysql.svg",
       "categories": [
         "database",
         "development"
       ],
-      "sha256": "00c238b8e26ee1b825255df195282d0c2ec3136cb703960d5c75afcfdbb279c2"
+      "sha256": "a70e543a0008c74c697aeb8cfd768bb9be9496ccf3ebf1088670d8d37fb73a31"
     },
     {
       "id": "n8n",
       "name": "n8n",
       "version": "1.22",
       "description": "Extendable workflow automation tool for connecting apps and services",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/n8n.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/n8n.ico",
       "categories": [
         "productivity",
         "automation",
         "integration"
       ],
-      "sha256": "786f1c317afd2cd297cc655c8ad10bce065cf4f2da01e5b57ae280a179f8e8de"
+      "sha256": "3367a458502b1fde7681e7d2167d9443b334f0c3371e2c29822e64edf4fd660e"
     },
     {
       "id": "navidrome",
       "name": "Navidrome",
       "version": "0.50",
       "description": "Modern music server and streamer compatible with Subsonic/Airsonic",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/navidrome.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/navidrome.png",
       "categories": [
         "media",
         "music",
         "streaming"
       ],
-      "sha256": "8c9e3d64ac89ade3ea4731bcd462f49a7aaea143602b54e46ebd190320f941a6"
+      "sha256": "290f91e2bd4aac88f05c6b1de813ea30b75559c68074212cd9edddef8ae17f66"
     },
     {
       "id": "netbox",
       "name": "NetBox",
       "version": "1.0",
       "description": "The source of truth for your network \u2014 IPAM and DCIM for racks, devices, cables, VLANs, and prefixes",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/netbox.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/netbox.svg",
       "categories": [
         "networking",
         "documentation"
       ],
-      "sha256": "42fcfabc1e1532e22f3a0379608153d5084fdadbf3786b15c01a52791bc9be73"
+      "sha256": "1d5019117ade36134bad0f127fda6d11d207a4daebfe9139add7216bb47a0bb0"
     },
     {
       "id": "netdata",
       "name": "Netdata",
       "version": "1.44",
       "description": "Real-time performance and health monitoring for systems and applications",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/netdata.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/netdata.ico",
       "categories": [
         "monitoring",
         "metrics",
         "realtime"
       ],
-      "sha256": "fda9e8a6e727fa374a1f85ef0b4a2d17804d73b820cb4d6cc3bb4a966422cf9c"
+      "sha256": "413ea649807c642f26483aa4aa7c73190c07b8c05e765b7832ca6aeceda9b70f"
     },
     {
       "id": "nextcloud",
       "name": "Nextcloud",
       "version": "28.0",
       "description": "Self-hosted productivity platform with file sync and collaboration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nextcloud.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/nextcloud.svg",
       "categories": [
         "storage",
         "collaboration",
         "productivity"
       ],
-      "sha256": "edf7cb53958a848513fab22a11c742f11ee3a0ff5344ad7b83241e0c2c1bd3fd"
+      "sha256": "7e71a794abb889c40f63197407ea0b805601280f10690052382e75b60a968e4f"
     },
     {
       "id": "nginx-proxy-manager",
       "name": "Nginx Proxy Manager",
       "version": "2.10",
       "description": "Easy-to-use reverse proxy with SSL management",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nginx-proxy-manager.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/nginx-proxy-manager.png",
       "categories": [
         "networking",
         "proxy",
         "ssl"
       ],
-      "sha256": "1f4b4d0de8e07229f814b9bb2cc0edb10a3eaef4a3ae78c16fbcab27e94745ad"
+      "sha256": "0277a57b453669696d8c64ba174ca3bc51f6b1560c15034b988055c7ef93f829"
     },
     {
       "id": "nocodb",
       "name": "NocoDB",
       "version": "1.0",
       "description": "Open-source Airtable alternative \u2014 turns any database into a smart spreadsheet with forms, kanban, and APIs",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nocodb.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/nocodb.svg",
       "categories": [
         "database",
         "productivity",
         "low-code"
       ],
-      "sha256": "de8711e6d923727c7b1d5087a8ba28d7ad8bdcd86983b0d847cc0f76149090b8"
+      "sha256": "e9d6f27a68cf689a70be1fe73396e7059d7b8cb2b7dc1038a75781c6f82315b5"
     },
     {
       "id": "node-app",
       "name": "Node.js Application",
       "version": "20",
       "description": "Custom Node.js application. Supports Node 18-21. Perfect for Express, Next.js, or any Node.js project.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/node-app.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/node-app.svg",
       "categories": [
         "development",
         "api",
         "custom"
       ],
-      "sha256": "266bdf447884f88a567ce3cd96b95885782d289199dd6c702ae7101a4c002cfc"
+      "sha256": "3cea355cd9d14c43f5d96e59cf057f2346030b84f3f9b524ca0a0f4f254a8e4d"
     },
     {
       "id": "nodebb",
       "name": "NodeBB",
       "version": "1.0",
       "description": "Modern, real-time forum and community platform built on Node.js.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nodebb.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/nodebb.svg",
       "categories": [
         "community",
         "forum",
         "business"
       ],
-      "sha256": "ee6e5e398014d60d541dbe757ccbf041d29d33ad9757aa0d3e250569d88734b5"
+      "sha256": "c68dba15a5ee78c3f46a7ef943532f08d486467d9763d4c88349635dbb52dad7"
     },
     {
       "id": "nodered",
       "name": "Node-RED",
       "version": "3.1",
       "description": "Flow-based programming tool for wiring together hardware devices and APIs",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/nodered.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/nodered.svg",
       "categories": [
         "home-automation",
         "automation",
         "iot"
       ],
-      "sha256": "52fdc5aeaf1fa84624d04f2e7997eee7a448d0181c80d507cdab041291bd24a0"
+      "sha256": "231764355b8ef30f3bbc51fe7033b573b22e84f6a9d1d4cb9973ce3ee7851272"
     },
     {
       "id": "ntfy",
       "name": "ntfy",
       "version": "1.0",
       "description": "Simple HTTP-based pub/sub service that pushes notifications to your phone or desktop via a POST.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ntfy.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/ntfy.svg",
       "categories": [
         "notifications",
         "messaging"
       ],
-      "sha256": "ffacf393fc0ad409960d2e86db62015017b93e311e2ed7022058d4c1ba9e6610"
+      "sha256": "2c882b89e8dff325ead1132aee703683e4fc19e1f2d7cbe43d38556a501fc6cd"
     },
     {
       "id": "odoo",
       "name": "Odoo",
       "version": "1.0",
       "description": "All-in-one open-source business suite \u2014 CRM, accounting, inventory, e-commerce, HR, and 40+ apps",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/odoo.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/odoo.svg",
       "categories": [
         "business",
         "erp"
       ],
-      "sha256": "8ba9cb945f4bc9d3ae57ae74148b966acc6bcf8021ff94cb4252ad7f097d2c9d"
+      "sha256": "49c9763351e9fa8a353ea8e8825b9db3dfd6902074db3b68350af5099f07b187"
     },
     {
       "id": "ollama-webui",
       "name": "Ollama + Open WebUI",
       "version": "1.0",
       "description": "Local LLM inference with Ollama and a friendly chat interface (Open WebUI).",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ollama-webui.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/ollama-webui.svg",
       "categories": [
         "ai",
         "llm",
         "chat"
       ],
-      "sha256": "f5d99096d7241a5600ae4f5ddbb4a02433b3d16d3a3b54f05a4187e69ef17b0a"
+      "sha256": "ff589ee3ff5898430f37a0569603d6a289b82484719f914aaefa1f02fcaf38c9"
     },
     {
       "id": "ollama",
       "name": "Ollama",
       "version": "1.0",
       "description": "Run Llama, Gemma, Mistral, Qwen, and other open LLMs locally with a simple API",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/ollama.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/ollama.svg",
       "categories": [
         "ai",
         "llm"
       ],
-      "sha256": "89be837d2b146ebde116bbe3f999e6fa768930ffeafc1e6d82b43add82874d0f"
+      "sha256": "f40128ead062fdbeff792659bb8d391dd4ea7ea43bf1b11a9501907ff4370642"
     },
     {
       "id": "onlyoffice",
       "name": "ONLYOFFICE Docs",
       "version": "1.0",
       "description": "Office suite server for collaborative editing of documents, spreadsheets, and presentations \u2014 integrates with Nextcloud and Seafile",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/onlyoffice.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/onlyoffice.svg",
       "categories": [
         "documents",
         "collaboration"
       ],
-      "sha256": "a70ffe56c6fc20c723fd07b05a7478ac07e2fe0784458407385688fb6f77c1f5"
+      "sha256": "bcaf2260b72e139adf258975dd1a5ba5a71cc8697315ac22bcfe4ddf5181dad0"
     },
     {
       "id": "open-webui",
       "name": "Open WebUI",
       "version": "1.0",
       "description": "Feature-rich self-hosted ChatGPT-style interface for Ollama and any OpenAI-compatible API, with RAG and multi-user support",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/open-webui.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/open-webui.svg",
       "categories": [
         "ai",
         "llm",
         "chat"
       ],
-      "sha256": "224b5928dd8530cf1a71a5de41d69d0626e02ec57698e9dbca070bf7c3f7b529"
+      "sha256": "40fae7de12b04ac6f109706361870a9749cd8f31cc3fdcab8194ddf008651e25"
     },
     {
       "id": "outline",
       "name": "Outline",
       "version": "0.74",
       "description": "Beautiful, real-time collaborative team wiki and knowledge base",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/outline.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/outline.svg",
       "categories": [
         "productivity",
         "wiki",
         "collaboration"
       ],
-      "sha256": "b0f9b83297bbb1946372fbe5a785975d69985020229cde14d05de77a6e1ce098"
+      "sha256": "8867bfdfa5b3ab5eb703c91855c2ddb1faad2416c8aa7d80e7499209d10c0810"
     },
     {
       "id": "overseerr",
       "name": "Overseerr",
       "version": "1.0",
       "description": "Request management and media discovery tool for Plex that integrates with Sonarr and Radarr",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/overseerr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/overseerr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "b6221e1a8ffdbee2bf1578cd7d5bfd70681606207eadd58981c98672050d2a01"
+      "sha256": "a1966d5809df41f331fbf7a81045a9d3277594fca5816a62e8a52afb74cfb0e7"
     },
     {
       "id": "pairdrop",
       "name": "PairDrop",
       "version": "1.0",
       "description": "AirDrop for the web \u2014 share files between devices on your network directly in the browser",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pairdrop.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/pairdrop.svg",
       "categories": [
         "storage",
         "sharing"
       ],
-      "sha256": "fc7f3722d7686d4f2cede26a6a6c4ecc110481477bf2fa081ae4fa2c74d399c1"
+      "sha256": "e5d1ba86e93fbcf479f8a6bf0787f56af9d83e3544bf4b51409d639c6383ea63"
     },
     {
       "id": "paperless-ngx",
       "name": "Paperless-ngx",
       "version": "1.0",
       "description": "Document management system that scans, OCRs, indexes and archives your documents into a searchable online archive.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/paperless-ngx.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/paperless-ngx.svg",
       "categories": [
         "documents",
         "productivity"
       ],
-      "sha256": "0cf36503fd4e88f93fb711a217a74285d799e72c801efdb3381852d8894ecc6d"
+      "sha256": "7a70a56078ccc20163159ab7b8e25fa664e355425209f193cd04b46614dd309f"
     },
     {
       "id": "passbolt",
       "name": "Passbolt",
       "version": "1.0",
       "description": "Open-source password manager built for team collaboration, with browser extensions and granular sharing",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/passbolt.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/passbolt.svg",
       "categories": [
         "security",
         "passwords"
       ],
-      "sha256": "acaece98bde6d6dedff732d16a534cc1c23941e7f5aeeb364ee255b37ffb81db"
+      "sha256": "0508cc52ebce7178e42c3292fc1ebed75d4035bdf2264b31c31a27fc991fb7b7"
     },
     {
       "id": "payload",
       "name": "Payload CMS",
       "version": "2.5",
       "description": "Modern TypeScript headless CMS with powerful admin panel and customization",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/payload.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/payload.svg",
       "categories": [
         "cms",
         "headless",
         "typescript"
       ],
-      "sha256": "34ebe40a5951a3d98d9a56ac6aaa01f83aae28e5e8786a69b4f8e676236d546c"
+      "sha256": "16bef46389849093cdb0cfa2d7d1ecba3ffaf4cd1c5814a0967b884465a6fd65"
     },
     {
       "id": "penpot",
       "name": "Penpot",
       "version": "1.0",
       "description": "Open-source design and prototyping platform for teams \u2014 the self-hosted Figma alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/penpot.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/penpot.svg",
       "categories": [
         "collaboration",
         "design"
       ],
-      "sha256": "8ec94143a70d3c52ce295cbe603882efe57dc94f4092b509e535f53611103480"
+      "sha256": "8e27154567a37e67d53e3177e8ca826309b5b70aa40d89cf321ee096e2d0956c"
     },
     {
       "id": "peppermint",
       "name": "Peppermint",
       "version": "1.0",
       "description": "Modern open-source ticket management and helpdesk \u2014 a lightweight Zendesk alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/peppermint.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/peppermint.svg",
       "categories": [
         "business",
         "helpdesk"
       ],
-      "sha256": "1671dcfb4d01e843a1b0d7c0e62f4b9b5bdb1673c76b035854debc5d2fc669d5"
+      "sha256": "54a06dbeccefbe6729e0e33b18ab636a40e2539b5eccb39539163346b1e961fd"
     },
     {
       "id": "pgadmin",
       "name": "pgAdmin 4",
       "version": "8.2",
       "description": "Web-based PostgreSQL administration and development platform",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pgadmin.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/pgadmin.ico",
       "categories": [
         "database",
         "postgresql",
         "management"
       ],
-      "sha256": "0ff4b6ee17f3fc9d0aca367366a5063f98ae1e7a840e99b068115ec5d1288e21"
+      "sha256": "1514d7079b8b87df64996ac6bb52e44b6cbffb05219f9284d39337d18202cecd"
     },
     {
       "id": "photoprism",
       "name": "PhotoPrism",
       "version": "231128",
       "description": "AI-powered photo management application with face recognition and auto-tagging",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/photoprism.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/photoprism.svg",
       "categories": [
         "media",
         "photos",
         "ai"
       ],
-      "sha256": "3c54b39ee91124e5f09c17a877130f1ea320c813a3e38bfe42f5c023e8224b4f"
+      "sha256": "fc772eff921d5fe6d1b0ccae27890394309ecd974ff8472583469425bdbac83b"
     },
     {
       "id": "php-app",
       "name": "PHP Application",
       "version": "8.3",
       "description": "Custom PHP application with Apache. Supports PHP 8.0-8.3. Perfect for Laravel, WordPress themes, or any PHP project.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/php-app.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/php-app.svg",
       "categories": [
         "development",
         "web",
         "custom"
       ],
-      "sha256": "269d33b95f6c7ae6c3639fd30085f3570634bcde63bd96a382b8a88f347550f9"
+      "sha256": "3bc5794b5f8023dd34d59bba0a523584dce61361b9dd883e9e4404dd15ccbcc0"
     },
     {
       "id": "phpmyadmin",
       "name": "phpMyAdmin",
       "version": "5.2",
       "description": "Web-based MySQL and MariaDB administration tool",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/phpmyadmin.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/phpmyadmin.png",
       "categories": [
         "database",
         "mysql",
         "management"
       ],
-      "sha256": "553774c89ab6fac093948a5c331af66a86e07a57625599270747041299be9925"
+      "sha256": "a1b32d3add0248a1a3210f0a9b2fb632631bbf3e30a480d3bb982991ed8d30bb"
     },
     {
       "id": "pigallery2",
       "name": "PiGallery2",
       "version": "1.0",
       "description": "Fast directory-first photo gallery \u2014 point it at your existing photo folders, no imports needed",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pigallery2.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/pigallery2.svg",
       "categories": [
         "media",
         "photos"
       ],
-      "sha256": "de1e1dee9462a43b77291dbbaf8d3d54d79f0de788390118631dfa97fbaa0238"
+      "sha256": "336b6521b97f02eebccc82b6bb22e4859183992145c790f2b2d3ea56b3aabe29"
     },
     {
       "id": "pihole",
       "name": "Pi-hole",
       "version": "1.0",
       "description": "Network-wide ad-blocking DNS sinkhole with a web dashboard.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pihole.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/pihole.svg",
       "categories": [
         "networking",
         "dns",
         "security"
       ],
-      "sha256": "5a75de12e341f4895378b0a284278eb18ef35d8d98a78c0389959c8bab7abc67"
+      "sha256": "f985426988e6bb82e57036d23f9e52aebc239f0f3cd99379201d2f167fda4a7e"
     },
     {
       "id": "pinchflat",
       "name": "Pinchflat",
       "version": "1.0",
       "description": "Your own YouTube media manager \u2014 auto-download channels and playlists for Plex and Jellyfin",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pinchflat.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/pinchflat.png",
       "categories": [
         "media",
         "downloads"
       ],
-      "sha256": "71e885c2c1dc2c2d3805fd61b66acf7857c5f3bd07b630f31ee30a457643e369"
+      "sha256": "667196698d535335ccd3da71e9cfdeee8fb0648e0a271f48756fd34418bbcb4c"
     },
     {
       "id": "pingvin-share",
       "name": "Pingvin Share",
       "version": "1.0",
       "description": "Self-hosted file sharing platform \u2014 a WeTransfer alternative with links, expiry, and password protection",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pingvin-share.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/pingvin-share.svg",
       "categories": [
         "storage",
         "sharing"
       ],
-      "sha256": "eb9bc31fc0f1222d50c301a4b398ba503b27c2c236c2b47330109878299a31b9"
+      "sha256": "0057abd5ebda4aa08e8a12878385d6f9575b9284a167fa62e01fea14f8706294"
     },
     {
       "id": "plane",
       "name": "Plane",
       "version": "1.0",
       "description": "Open-source project management and issue tracking with cycles, modules, and views (a Jira/Linear alternative).",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/plane.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/plane.svg",
       "categories": [
         "productivity",
         "project-management"
       ],
-      "sha256": "9a1365db3cf17c0bfb2dc7dcd81c699c09adcc9e01843503a5ac270c3ad68863"
+      "sha256": "e7b5bdb09c93b371bcfa92ca3c90433c6f3be5600c1d40e80db1393fa0652afe"
     },
     {
       "id": "planka",
       "name": "Planka",
       "version": "1.0",
       "description": "Elegant open-source kanban board for workgroups \u2014 a realtime Trello alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/planka.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/planka.svg",
       "categories": [
         "productivity",
         "collaboration"
       ],
-      "sha256": "cacfe8f8de8f7cd97a39c0ae5a48e71320a6e51d62d20465d2c67be655bba46f"
+      "sha256": "b7c5aa1e9f6c3528ae5d77fb34456f75ba7050179fbff6f40a3fcdaaa2aa359b"
     },
     {
       "id": "plausible",
       "name": "Plausible Analytics",
       "version": "2.0",
       "description": "Privacy-friendly, lightweight alternative to Google Analytics",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/plausible.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/plausible.svg",
       "categories": [
         "analytics",
         "privacy",
         "monitoring"
       ],
-      "sha256": "33ebad28872f89a28e94fe6832331bc1272132395975f206fbcbe49d27295328"
+      "sha256": "5dff86ff1199dacccee66aa79b2eb4bc52effb8741ed2fb242f294f2ba1169a0"
     },
     {
       "id": "plex",
       "name": "Plex Media Server",
       "version": "1.32",
       "description": "Organize and stream your personal media collection to any device",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/plex.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/plex.png",
       "categories": [
         "media",
         "streaming",
         "entertainment"
       ],
-      "sha256": "0b0f748ab464f487fbad2f6dd60260583fd6acf36c683d7037bd2c33a0878a6c"
+      "sha256": "05f5ea97141645daffb61ce2e853285e62bfe05086a8168919f26febb3df3b16"
     },
     {
       "id": "pocket-id",
       "name": "Pocket ID",
       "version": "1.0",
       "description": "Simple OIDC provider with passkey-first authentication for your self-hosted services",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pocket-id.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/pocket-id.svg",
       "categories": [
         "security",
         "authentication"
       ],
-      "sha256": "2d4e386e64707b04d1fdb482940a5365efe2d322e005baa359b998370316cd71"
+      "sha256": "58e33e6d36745c93f62d91916fd5b91cfb7bb0e6b87f2df4c186e70288b44d65"
     },
     {
       "id": "portainer",
       "name": "Portainer",
       "version": "2.19",
       "description": "Lightweight Docker management UI with container visualization",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/portainer.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/portainer.png",
       "categories": [
         "devops",
         "docker",
         "management"
       ],
-      "sha256": "30174aa30219c0fc4b9c08d46180b3a2f16bb4106b2827bbd00603ab2e552f69"
+      "sha256": "bd39eab5a4cdecbec66dc7efe8b19455e54a78e1e0a545ef35bff125af01633d"
     },
     {
       "id": "postgres",
       "name": "PostgreSQL",
       "version": "1.0",
       "description": "The world's most advanced open-source relational database",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/postgres.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/postgres.svg",
       "categories": [
         "database",
         "development"
       ],
-      "sha256": "c89d0da9f401f846b3fca1456ce7da867d9956aff264507b8c003262c56dd9cf"
+      "sha256": "d84c1120c5f5357aa7b46370aa02ed9bf5b34c65fe7a16e7a6a7094288b28bb6"
     },
     {
       "id": "posthog",
       "name": "PostHog",
       "version": "1.0",
       "description": "Open-source product analytics with session replay, feature flags, A/B testing, and event autocapture.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/posthog.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/posthog.svg",
       "categories": [
         "analytics",
         "business"
       ],
-      "sha256": "e6946264f4b215a2cdd9a48e2f9cd4228940dd01327cf42205dca1beb45d9bf4"
+      "sha256": "dd7dd967e69dde6967f0808056ee25954926251f6dcfb4d0ed54c3ef13499c67"
     },
     {
       "id": "prometheus",
       "name": "Prometheus",
       "version": "2.48",
       "description": "Open-source monitoring and alerting toolkit designed for reliability and scalability",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/prometheus.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/prometheus.svg",
       "categories": [
         "monitoring",
         "metrics",
         "alerting"
       ],
-      "sha256": "baa21d8b51de40e0b9a2b323784ffa620a74b3b8d973d435fb3174f6fd40d422"
+      "sha256": "020ec30f21feb7ce9603e763d3909b5aa9c332913ac571caf2512ce4294725df"
     },
     {
       "id": "prompture-hub",
@@ -2033,186 +2033,186 @@
       "name": "Prowlarr",
       "version": "1.0",
       "description": "Indexer manager and proxy that integrates your indexers with the PVR apps",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/prowlarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/prowlarr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "ea6a3b4ed0afca78564cb046fd13f5002849604bb3edf83fb234c14086810611"
+      "sha256": "61a3767f897b4ac00b11703b190226dff6802f61c97daf73f243c2537da99cb5"
     },
     {
       "id": "python-app",
       "name": "Python Application",
       "version": "3.12",
       "description": "Custom Python application. Supports Python 3.9-3.12. Perfect for Flask, FastAPI, Django, or any Python project.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/python-app.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/python-app.svg",
       "categories": [
         "development",
         "api",
         "custom"
       ],
-      "sha256": "0e2e9d025e8299da9c26b5261e6870b51fe0240404090cb632c1336f244b09bd"
+      "sha256": "3456395e6dc4386990a9f81aaf0a0d9af34f9b524666dd093307330d246fc704"
     },
     {
       "id": "qbittorrent",
       "name": "qBittorrent",
       "version": "1.0",
       "description": "Open-source BitTorrent client with a full-featured web UI",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/qbittorrent.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/qbittorrent.svg",
       "categories": [
         "media",
         "downloads"
       ],
-      "sha256": "2edfff69d6b2970573a889840a6fe4dc0615a9e9817f68de9830426b1d679088"
+      "sha256": "ed4dd4b135394ae4b0b7d31e8735a36b679d237eb9632d29528f7b3fa02b3de5"
     },
     {
       "id": "qdrant",
       "name": "Qdrant",
       "version": "1.0",
       "description": "Vector similarity search engine for AI/LLM and semantic-search applications.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/qdrant.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/qdrant.svg",
       "categories": [
         "ai",
         "database",
         "search"
       ],
-      "sha256": "f017e89241be6ebf18edfc8638bbc7355e22e0882eaa4334b13e845e7e2b3475"
+      "sha256": "204554924480566bb80c3a029ce7a942f57ccb9fa827cb07d6b2044220d98a28"
     },
     {
       "id": "radarr",
       "name": "Radarr",
       "version": "1.0",
       "description": "PVR for movies that monitors, grabs, sorts, and renames films automatically",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/radarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/radarr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "eb8237db0306e45e556ab4155305e66bb1fc081cb5be68d14ce5fe1150cd603d"
+      "sha256": "aaac0e55ba2c1987736f6ed8a4723636ceda5361105c01f44bf2551e0df3adfc"
     },
     {
       "id": "rallly",
       "name": "Rallly",
       "version": "1.0",
       "description": "Schedule group meetings without back-and-forth emails \u2014 an open-source Doodle alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/rallly.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/rallly.svg",
       "categories": [
         "productivity",
         "collaboration"
       ],
-      "sha256": "f50a6ef9024c13867fe366a6bfc099c30096031f08b3a57d5fe6562fa12b0417"
+      "sha256": "d48ecee9d4559e4287fb298a8b00cdf25fe5a3c738800407f90eb0a65914e336"
     },
     {
       "id": "redis-commander",
       "name": "Redis Commander",
       "version": "0.8",
       "description": "Web-based Redis management tool for viewing and editing data",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/redis-commander.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/redis-commander.ico",
       "categories": [
         "database",
         "redis",
         "management"
       ],
-      "sha256": "64250867299fcde60575bb3319443239f4e4523d4f0d6658a2621513bc36bedf"
+      "sha256": "c03ad9d9097c0cf0f94594b748a8cee4d1d7a9c900327c2d7eb73b862202fdf4"
     },
     {
       "id": "redis",
       "name": "Redis",
       "version": "1.0",
       "description": "In-memory data store for caching, queues, sessions, and pub/sub",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/redis.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/redis.svg",
       "categories": [
         "database",
         "development"
       ],
-      "sha256": "ee914831aeab12dcb62b02ea1af8acea820391192bfdfae1f43235fe2dd9c4dc"
+      "sha256": "0a9c7a511e62972c8f884339bddc4dd653d39be67a13ec979bbf1cd001a66299"
     },
     {
       "id": "registry",
       "name": "Docker Registry",
       "version": "2.8",
       "description": "Private Docker container image registry for storing and distributing container images",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/registry.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/registry.png",
       "categories": [
         "devops",
         "docker",
         "registry"
       ],
-      "sha256": "b514821a807af44cd35f16fab408e2956960ad072a310e1c8d7eb319cf9b8d76"
+      "sha256": "c2971b9248e9a1fabb5ac475eb9b18fd663b3696be81d41fa41e13f9a6724ed5"
     },
     {
       "id": "rocketchat",
       "name": "Rocket.Chat",
       "version": "6.5",
       "description": "Open-source team communication platform with chat, video, and file sharing",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/rocketchat.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/rocketchat.svg",
       "categories": [
         "collaboration",
         "chat",
         "communication"
       ],
-      "sha256": "7d49dc743dc1b21bc025355473a4f92ce9a449f1d543616596e33e5c042cc7cf"
+      "sha256": "988ba2144e65e2d6456ecc263b9a320b840cb325fe227db5ef6d01495911111c"
     },
     {
       "id": "roundcube",
       "name": "Roundcube",
       "version": "1.0",
       "description": "Browser-based multilingual IMAP webmail client with a modern responsive interface",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/roundcube.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/roundcube.svg",
       "categories": [
         "productivity",
         "email"
       ],
-      "sha256": "d6a42b31ff863fadeeecd605b3fe377488f225d0b222bb4e4cc751522619f830"
+      "sha256": "3a0c4abc6b33b9ac4927db539f2989f94b927a3cfd5d8660fc83cb9c63796a04"
     },
     {
       "id": "rustdesk-server",
       "name": "RustDesk Server",
       "version": "1.0",
       "description": "Self-hosted signaling and relay server for RustDesk \u2014 the open-source TeamViewer alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/rustdesk-server.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/rustdesk-server.svg",
       "categories": [
         "networking",
         "remote-access"
       ],
-      "sha256": "7ce5eaafa3fd258e4adcda24a9fc15c6fa98d77d5da1890328b1ca9437d46bca"
+      "sha256": "147a1a6ff7f52de49a9535617b7bec5385d6ba65b4638092539ace813202379d"
     },
     {
       "id": "sabnzbd",
       "name": "SABnzbd",
       "version": "1.0",
       "description": "Free and easy binary newsreader \u2014 automated Usenet downloading with a full API",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sabnzbd.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/sabnzbd.svg",
       "categories": [
         "media",
         "downloads"
       ],
-      "sha256": "e8d15c3f1721e4de310d25bdeb46a38abd31b116c128ec760792102d425e28b6"
+      "sha256": "723111d6eba235cf14e5de4585e4e70f815e23504cd310fb21d99b3bf32b4054"
     },
     {
       "id": "seafile",
       "name": "Seafile",
       "version": "11.0",
       "description": "Open-source file sync and share platform with built-in collaboration",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/seafile.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/seafile.png",
       "categories": [
         "storage",
         "sync",
         "collaboration"
       ],
-      "sha256": "e90b99522c9ed3839b74e907b7ea1cd338b98cb3f6225f9ddab72b3d957f0ac6"
+      "sha256": "f4aabe764acae37b14a2ec776463a71076f8268b2c5b6b92a8eead02b80452e7"
     },
     {
       "id": "searxng",
       "name": "SearXNG",
       "version": "1.0",
       "description": "Privacy-respecting metasearch engine that aggregates results from many sources without tracking you.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/searxng.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/searxng.svg",
       "categories": [
         "search",
         "privacy"
       ],
-      "sha256": "4ce9b8b1898dd04eda4284d96d7e2de820af8141d494310b537c59018b18b114"
+      "sha256": "c6363f20c520136abfc314a44853810d70d36e470e860dc4ce587a1a14bfa0bf"
     },
     {
       "id": "securo",
@@ -2231,436 +2231,436 @@
       "name": "SFTPGo",
       "version": "1.0",
       "description": "Full-featured SFTP, FTP/S, and WebDAV server with a web admin UI and virtual folders",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sftpgo.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/sftpgo.svg",
       "categories": [
         "storage",
         "networking"
       ],
-      "sha256": "39c0f7a6393399b09f1f9abf220f68a3648a76dfe20157afb032013c69b22ab6"
+      "sha256": "ca59f5f0ca3957946321b7e381ea07ab50a2197e33124407e23eb53cebe74c31"
     },
     {
       "id": "shlink",
       "name": "Shlink",
       "version": "1.0",
       "description": "Self-hosted URL shortener with detailed visit analytics, QR codes, and a full REST API",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/shlink.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/shlink.svg",
       "categories": [
         "productivity",
         "networking"
       ],
-      "sha256": "14474484678cb920294354db472f47be7ce121e40c78af37185c78fffb17c306"
+      "sha256": "63bb12e6f362094b963f45990310ed2ab528e42bb0b7809a779c5d57793507f7"
     },
     {
       "id": "signoz",
       "name": "SigNoz",
       "version": "1.0",
       "description": "OpenTelemetry-native observability platform for traces, metrics, and logs (an open-source APM alternative to Datadog).",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/signoz.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/signoz.svg",
       "categories": [
         "monitoring",
         "observability",
         "apm"
       ],
-      "sha256": "6ff7fb7bc39464360fbf212bca0135a6dfd594f49415004cbe5e4d7537e26aec"
+      "sha256": "49276cc424e3edcdb24004c0047a864e377cc30c5a8dc463fcdbfd233b373fea"
     },
     {
       "id": "smokeping",
       "name": "SmokePing",
       "version": "1.0",
       "description": "Network latency monitoring with beautiful interactive graphs \u2014 see jitter and packet loss over time",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/smokeping.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/smokeping.png",
       "categories": [
         "monitoring",
         "networking"
       ],
-      "sha256": "bd8ab5bccf644168ea0d03a526e7a8766480fcf721732b32d0fe578c7a184244"
+      "sha256": "0b2f17f7731108cc64ae0a8d981b59c7b9d26ae18bd8de272fc0035798f5169a"
     },
     {
       "id": "snipe-it",
       "name": "Snipe-IT",
       "version": "1.0",
       "description": "IT asset management for tracking hardware, licenses, accessories, and consumables across your organization",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/snipe-it.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/snipe-it.png",
       "categories": [
         "business",
         "management"
       ],
-      "sha256": "7d49db587d7d12e903f2fec14100272828699c1c62a73bf48d776cf2116c267b"
+      "sha256": "3a09299ee675bddeb0afdf528b8fb9704bdd5144d049316ba399b2eb9f2fe109"
     },
     {
       "id": "sonarqube",
       "name": "SonarQube",
       "version": "10.3",
       "description": "Continuous inspection of code quality and security vulnerabilities",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sonarqube.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/sonarqube.ico",
       "categories": [
         "devops",
         "code-quality",
         "security"
       ],
-      "sha256": "4a84b5283b61414c7463a93be7af3652a9818659b665513b2da619d8e57025e6"
+      "sha256": "b5632b791bf12ba85620f4b8ed0238ce9f760c57dd93702b0e5e8195d673ef23"
     },
     {
       "id": "sonarr",
       "name": "Sonarr",
       "version": "1.0",
       "description": "PVR for TV series that monitors, grabs, sorts, and renames episodes automatically",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/sonarr.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/sonarr.svg",
       "categories": [
         "media",
         "automation"
       ],
-      "sha256": "91a948cdbfe41eaac580572011aef9476068c1f172f16f5e95cfecc042935655"
+      "sha256": "9f89f9e110d69b7cf7108ac4a40499126a6daf3fe33560cb8a19b47aa3b8954a"
     },
     {
       "id": "stirling-pdf",
       "name": "Stirling PDF",
       "version": "1.0",
       "description": "Local web toolkit for splitting, merging, converting and OCR-ing PDF files.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/stirling-pdf.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/stirling-pdf.svg",
       "categories": [
         "documents",
         "productivity",
         "pdf"
       ],
-      "sha256": "5baded428f4c0b82a5da633e3224e88c43cbc82cb53708e143b1b1fd60cb7ef6"
+      "sha256": "78268bbef15a747376e85ded89dbfed2ff936763f8dd57b09eda9b5892255811"
     },
     {
       "id": "strapi",
       "name": "Strapi",
       "version": "4.15",
       "description": "Open-source headless CMS with customizable API and admin panel",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/strapi.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/strapi.svg",
       "categories": [
         "cms",
         "headless",
         "api"
       ],
-      "sha256": "47f67374721f5bbb4c8f1bdc55728c7687134ea65496d6888712ff2eab539d44"
+      "sha256": "46d89eb3c5f5aedbd0356cdf70b5526845c66ca7eaced65125129957e45ca795"
     },
     {
       "id": "syncthing",
       "name": "Syncthing",
       "version": "1.27",
       "description": "Continuous file synchronization for decentralized, peer-to-peer sync",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/syncthing.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/syncthing.svg",
       "categories": [
         "storage",
         "sync",
         "backup"
       ],
-      "sha256": "9bfb2875f5877c8c859daef521e6a48b624a3dfb38558a7ac91d917d0cbcec03"
+      "sha256": "68e9a79001ca76e6c82b8c2fd829bac6eb31375a094d219465f30e65fea7dbaa"
     },
     {
       "id": "tandoor",
       "name": "Tandoor Recipes",
       "version": "1.0",
       "description": "Smart recipe manager with meal planning, shopping lists, and cookbook imports for your household",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/tandoor.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/tandoor.svg",
       "categories": [
         "productivity",
         "home"
       ],
-      "sha256": "13e739beeeed76260b0866f41917da154548d0b8d120fc64d7f5afe73994fec2"
+      "sha256": "22c2ee069fed11718898cafc96f76e0b7a89939b7f123330e9bf8fbbe8c7fe68"
     },
     {
       "id": "tautulli",
       "name": "Tautulli",
       "version": "1.0",
       "description": "Monitoring and statistics dashboard for your Plex Media Server with notifications and history",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/tautulli.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/tautulli.svg",
       "categories": [
         "media",
         "monitoring"
       ],
-      "sha256": "16dbe9a70f3828623ac4be0363ca3867648dec386449fc72d7a7f5a5c952a0b7"
+      "sha256": "d510f6145bc68abf03837a283d70f4201b41da3195115140e1be7fdbcf7b7dde"
     },
     {
       "id": "technitium",
       "name": "Technitium DNS",
       "version": "1.0",
       "description": "Authoritative and recursive DNS server with ad blocking, DNS-over-HTTPS, and a full web console",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/technitium.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/technitium.svg",
       "categories": [
         "networking",
         "dns",
         "security"
       ],
-      "sha256": "a5c7abb1981a2a72260e3089717183c32cd892eff2b19c0b1bc51860d022713c"
+      "sha256": "5fa1aae8b6dd2186964b71289a827642329a87598db8521997a2275eb6df7e52"
     },
     {
       "id": "thelounge",
       "name": "The Lounge",
       "version": "1.0",
       "description": "Modern always-on web IRC client \u2014 stay connected and never miss a message",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/thelounge.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/thelounge.svg",
       "categories": [
         "collaboration",
         "chat"
       ],
-      "sha256": "6e83458698e2af7e669e746927937f7976f190a38bab4de42d43aebf1effe52c"
+      "sha256": "30373cb4b14e2a2d872790245ab4ad2e57b7233d402f53b2cbeee9afa5e5c19f"
     },
     {
       "id": "traefik",
       "name": "Traefik",
       "version": "3.0",
       "description": "Modern HTTP reverse proxy and load balancer with automatic HTTPS",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/traefik.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/traefik.png",
       "categories": [
         "networking",
         "proxy",
         "ssl"
       ],
-      "sha256": "ad7615533d6f02426961c6d3a00f5b75f6231a6cc666f5e486653fd298ed827d"
+      "sha256": "f257b67b07ef7ecaa7f9a35c1603a047f5bed8d77d75cfb4b2cd4f9f5b6c1c32"
     },
     {
       "id": "transmission",
       "name": "Transmission",
       "version": "1.0",
       "description": "Fast, easy, and free BitTorrent client with a lightweight web UI",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/transmission.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/transmission.svg",
       "categories": [
         "media",
         "downloads"
       ],
-      "sha256": "903a608c197a951ba07018e4123c0faeb6d82a70a33b1b8edbeb1eca115f9e7a"
+      "sha256": "4207a953207b2a814cb078368e7a73cd7b778fe4b6a7e533d0629fbaf195c8d2"
     },
     {
       "id": "trilium",
       "name": "Trilium Notes",
       "version": "1.0",
       "description": "Hierarchical note-taking application with rich editing, scripting, and knowledge-base features",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/trilium.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/trilium.svg",
       "categories": [
         "notes",
         "productivity"
       ],
-      "sha256": "493b6eaad0d4422754bb4872a828cd2f3d733513867c96b3c9735230f75d22b5"
+      "sha256": "9d65a54af01a025d94738b1f31e34efa4d518948ff6a96202a872a22d02e7440"
     },
     {
       "id": "twenty",
       "name": "Twenty",
       "version": "1.0",
       "description": "Modern open-source CRM \u2014 a community-driven Salesforce alternative with a Notion-like feel",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/twenty.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/twenty.svg",
       "categories": [
         "business",
         "crm"
       ],
-      "sha256": "f33d3aeb357922b5c65c7f15c904c2ce745bfdec371703fad10fbde576138858"
+      "sha256": "31b0a601f525d01213646793e82ce861e4c9235fb384ab5fc1ff45e88c730e19"
     },
     {
       "id": "typesense",
       "name": "Typesense",
       "version": "1.0",
       "description": "Typo-tolerant search engine optimized for fast, instant search-as-you-type experiences.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/typesense.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/typesense.svg",
       "categories": [
         "search",
         "database"
       ],
-      "sha256": "d3a6d2b7493d1c2cbbd27a71df1c3e118325f5d5937dfb8dc80ad5b7d7544246"
+      "sha256": "cbc6a93a989baa4745207a2b0b9d6e48370435f50470757dafbd8c6914dfdecb"
     },
     {
       "id": "umami",
       "name": "Umami",
       "version": "2.9",
       "description": "Simple, fast, privacy-focused alternative to Google Analytics",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/umami.ico",
+      "icon": "https://serverkit.ai/imgs/template-icons/umami.ico",
       "categories": [
         "analytics",
         "privacy",
         "monitoring"
       ],
-      "sha256": "eefda6fdc4fa7f82c724252e2dc8ce78fac2e866db49e9fd02dea55e29fb7d2e"
+      "sha256": "1841aff6bcdcfbec4216a4b77cd1bc7c21b676a0057fc705e655178ced6ebb51"
     },
     {
       "id": "uptime-kuma",
       "name": "Uptime Kuma",
       "version": "1.23",
       "description": "A fancy self-hosted monitoring tool for websites and services",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/uptime-kuma.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/uptime-kuma.svg",
       "categories": [
         "monitoring",
         "devops"
       ],
-      "sha256": "5d3cb85e9151d59755d7d0e38d46bef9ecf922968f45d77abe19306ba78dca87"
+      "sha256": "8944625d3d67eca7147bb6a3af558c67fb410824323ea95587352a580f1319cb"
     },
     {
       "id": "vault",
       "name": "HashiCorp Vault",
       "version": "1.15",
       "description": "Secrets management and data protection platform for securing sensitive data",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/vault.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/vault.svg",
       "categories": [
         "devops",
         "security",
         "secrets"
       ],
-      "sha256": "4857131b92691cdaa7d26ee0db08c004f0f6855ae97ccad53c6b2452a78a9bef"
+      "sha256": "5afa0a3cea44252742eabf48ade4e8da1fb9f77a681bdcfd07e3eb5654d44fcd"
     },
     {
       "id": "vaultwarden",
       "name": "Vaultwarden",
       "version": "1.30",
       "description": "Lightweight Bitwarden-compatible password manager server",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/vaultwarden.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/vaultwarden.svg",
       "categories": [
         "security",
         "passwords",
         "privacy"
       ],
-      "sha256": "62230bf2f97a2cd939b1208eef917765225c2d99c271706178bcbe91c92b5fa5"
+      "sha256": "3ef166506155ef1185dffb47dd09a16756cd746201a8e038d5c9e8d4fc0f4b56"
     },
     {
       "id": "verdaccio",
       "name": "Verdaccio",
       "version": "1.0",
       "description": "Lightweight private npm proxy registry \u2014 cache packages and publish private modules",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/verdaccio.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/verdaccio.svg",
       "categories": [
         "development",
         "devops"
       ],
-      "sha256": "5b31f2345871d82e4248ef377e680cf7695940b747a0ca61b53b9158912d8a32"
+      "sha256": "80163b7231048b354ba24eca78e0f304d057ce5a9b95cf60fc3b772fa801137a"
     },
     {
       "id": "victoriametrics",
       "name": "VictoriaMetrics",
       "version": "1.0",
       "description": "Fast, cost-effective time series database and monitoring solution \u2014 a drop-in Prometheus alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/victoriametrics.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/victoriametrics.svg",
       "categories": [
         "monitoring",
         "database"
       ],
-      "sha256": "5a2b88a16d61e028c896cdad6ff5e1a119203a0702d76cf68f6b759304b01772"
+      "sha256": "13a6cefec7d51277464eba9c03e3f7112cb9c5bb3c915455da35599f4e584e9c"
     },
     {
       "id": "vikunja",
       "name": "Vikunja",
       "version": "1.0",
       "description": "Self-hosted to-do list and task and project manager.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/vikunja.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/vikunja.svg",
       "categories": [
         "productivity",
         "tasks"
       ],
-      "sha256": "99b68b99864af0cf9ac8ed96dd6d9743a70348f42440da69b0e6d62edad29275"
+      "sha256": "12e12b7a76cd12f59e5842b83a02970fc6d46c56bc12cb87f8a9e97379c07ded"
     },
     {
       "id": "wallabag",
       "name": "Wallabag",
       "version": "1.0",
       "description": "Save and classify articles to read later \u2014 a self-hosted alternative to Pocket",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wallabag.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/wallabag.svg",
       "categories": [
         "productivity",
         "bookmarks"
       ],
-      "sha256": "aa55ae84aac8dc09362c12351853698400e715c36699b1074f7d0f9120878679"
+      "sha256": "bd841ece79be2428ca184691f9f64387ea59b20fc221cf604cf133e2fb9eda53"
     },
     {
       "id": "wallos",
       "name": "Wallos",
       "version": "1.0",
       "description": "Personal subscription tracker \u2014 monitor recurring costs, renewal dates, and spending by category",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wallos.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/wallos.svg",
       "categories": [
         "finance",
         "productivity"
       ],
-      "sha256": "d3f8f101714be9d7a2c4ca965bdb98e0b891b8508ea532357cb31af541185fa5"
+      "sha256": "dca5b6d21aab05c136d13c60a582ec382407feac1190c725c13450d3559bd76e"
     },
     {
       "id": "watchtower",
       "name": "Watchtower",
       "version": "1.0",
       "description": "Automatically update running Docker containers when new images are published",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/watchtower.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/watchtower.svg",
       "categories": [
         "devops",
         "automation"
       ],
-      "sha256": "f8a6d042eaf5d6f51a80bf73f8f921f1adb5496411ebebf527294e40673b0884"
+      "sha256": "e1aec536d91e06a64647cffed5cf55fd67e90b952b406751f9b09b8498a75bba"
     },
     {
       "id": "wg-easy",
       "name": "WG-Easy",
       "version": "1.0",
       "description": "The easiest way to run WireGuard VPN with a web admin UI.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wg-easy.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/wg-easy.svg",
       "categories": [
         "networking",
         "vpn",
         "security"
       ],
-      "sha256": "d89cafcf760de03fba3ea37544eadfb99413634d95d5ce64dc5cdcbbd5a2cb1a"
+      "sha256": "405cfd385f89247b609a30239cff38a76cc7d55a2e8d7a8224fb06fa1f851d2f"
     },
     {
       "id": "wikijs",
       "name": "Wiki.js",
       "version": "2.5",
       "description": "Modern and powerful wiki app built on Node.js",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wikijs.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/wikijs.svg",
       "categories": [
         "productivity",
         "wiki",
         "documentation"
       ],
-      "sha256": "0f7a2300e02e01551a0e532e9fe4b51e6b31cf75c26d21515b4d20e1ff11b0fc"
+      "sha256": "59d45c60c386d9c7a4ab02bee4120aaf222c51d4f688c88177bc4ef299a8853a"
     },
     {
       "id": "windmill",
       "name": "Windmill",
       "version": "1.0",
       "description": "Developer platform to turn scripts into workflows, UIs, and scheduled jobs \u2014 an open-source Retool and Airflow alternative",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/windmill.svg",
+      "icon": "https://serverkit.ai/imgs/template-icons/windmill.svg",
       "categories": [
         "development",
         "automation"
       ],
-      "sha256": "f8cacfd3f00509cf929a41cfeb68949e88f7195decb5384b5e4ab34a7bd76ead"
+      "sha256": "aca00869a9643b76ae6585555e20225a6e32fb52fb1fd15c9282fd912988a14a"
     },
     {
       "id": "wordpress-external-db",
       "name": "WordPress (External Database)",
       "version": "6.4",
       "description": "WordPress CMS connecting to an existing external MySQL database. Use this for dev/prod setups sharing the same database with different table prefixes.",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wordpress-external-db.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/wordpress-external-db.png",
       "categories": [
         "cms",
         "blog",
         "website",
         "development"
       ],
-      "sha256": "f2a98d108cbbb3235cd035f0d374434ec70eb25b4abaa724033da48ddd9a2e56"
+      "sha256": "0bb48c603b9d9e0474d599a872811c9e13ee9867e1618518a91001ca263d0ea2"
     },
     {
       "id": "wordpress",
       "name": "WordPress",
       "version": "6.4",
       "description": "World's most popular content management system for blogs and websites",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wordpress.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/wordpress.png",
       "categories": [
         "cms",
         "blog",
         "website"
       ],
-      "sha256": "073404dd3119d601796842a028db460bae9aba294271c3723d1bfebcdc83e0e5"
+      "sha256": "589540e620ffa5925e9397a660477cc991d51eae70952b05d642acd19517552a"
     },
     {
       "id": "zigbee2mqtt",
       "name": "Zigbee2MQTT",
       "version": "1.35",
       "description": "Bridge Zigbee devices to MQTT without proprietary bridges or gateways",
-      "icon": "https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/zigbee2mqtt.png",
+      "icon": "https://serverkit.ai/imgs/template-icons/zigbee2mqtt.png",
       "categories": [
         "home-automation",
         "iot",
         "zigbee"
       ],
-      "sha256": "2395155d6f487fc55bf49cb50d0dfb0fc4a2e1c3abbe4b0f93bf39197c563af2"
+      "sha256": "d96844fe8b7b718f048f994b89f7fe8724bb260f0beca53a78e92a046b2f7877"
     }
   ]
 }

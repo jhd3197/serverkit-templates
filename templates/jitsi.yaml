@@ -2,7 +2,7 @@ id: jitsi
 name: Jitsi Meet
 version: "9111"
 description: Secure, fully featured, and completely free video conferencing
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/jitsi.svg
+icon: https://serverkit.ai/imgs/template-icons/jitsi.svg
 website: https://jitsi.org
 documentation: https://jitsi.github.io/handbook/
 categories:

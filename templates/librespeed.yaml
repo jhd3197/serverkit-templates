@@ -2,7 +2,7 @@ id: librespeed
 name: LibreSpeed
 version: "1.0"
 description: Lightweight self-hosted speed test — measure download, upload, ping, and jitter from any browser
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/librespeed.svg
+icon: https://serverkit.ai/imgs/template-icons/librespeed.svg
 website: https://librespeed.org
 documentation: https://github.com/librespeed/speedtest#readme
 categories:

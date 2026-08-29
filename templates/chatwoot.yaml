@@ -2,7 +2,7 @@ id: chatwoot
 name: Chatwoot
 version: "1.0"
 description: Open-source customer engagement suite with live chat and a shared inbox.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/chatwoot.svg
+icon: https://serverkit.ai/imgs/template-icons/chatwoot.svg
 website: https://www.chatwoot.com
 documentation: https://www.chatwoot.com/docs/self-hosted/
 categories:

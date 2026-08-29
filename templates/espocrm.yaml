@@ -2,7 +2,7 @@ id: espocrm
 name: EspoCRM
 version: "1.0"
 description: Full-featured open-source CRM — leads, opportunities, accounts, email campaigns, and workflows
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/espocrm.svg
+icon: https://serverkit.ai/imgs/template-icons/espocrm.svg
 website: https://www.espocrm.com
 documentation: https://docs.espocrm.com
 categories:

@@ -2,7 +2,7 @@ id: mariadb
 name: MariaDB
 version: "1.0"
 description: Community-developed fork of MySQL — fast, stable, and drop-in compatible
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/mariadb.svg
+icon: https://serverkit.ai/imgs/template-icons/mariadb.svg
 website: https://mariadb.org
 documentation: https://mariadb.com/kb/en/documentation/
 categories:

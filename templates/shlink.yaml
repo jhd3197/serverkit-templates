@@ -2,7 +2,7 @@ id: shlink
 name: Shlink
 version: "1.0"
 description: Self-hosted URL shortener with detailed visit analytics, QR codes, and a full REST API
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/shlink.svg
+icon: https://serverkit.ai/imgs/template-icons/shlink.svg
 website: https://shlink.io
 documentation: https://shlink.io/documentation/
 categories:

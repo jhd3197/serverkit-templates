@@ -2,7 +2,7 @@ id: qdrant
 name: Qdrant
 version: "1.0"
 description: Vector similarity search engine for AI/LLM and semantic-search applications.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/qdrant.svg
+icon: https://serverkit.ai/imgs/template-icons/qdrant.svg
 website: https://qdrant.tech
 documentation: https://qdrant.tech/documentation/
 categories:

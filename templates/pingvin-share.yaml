@@ -2,7 +2,7 @@ id: pingvin-share
 name: Pingvin Share
 version: "1.0"
 description: Self-hosted file sharing platform — a WeTransfer alternative with links, expiry, and password protection
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pingvin-share.svg
+icon: https://serverkit.ai/imgs/template-icons/pingvin-share.svg
 website: https://github.com/stonith404/pingvin-share
 documentation: https://stonith404.github.io/pingvin-share/
 categories:

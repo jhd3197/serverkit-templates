@@ -2,7 +2,7 @@ id: planka
 name: Planka
 version: "1.0"
 description: Elegant open-source kanban board for workgroups — a realtime Trello alternative
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/planka.svg
+icon: https://serverkit.ai/imgs/template-icons/planka.svg
 website: https://planka.app
 documentation: https://docs.planka.cloud
 categories:

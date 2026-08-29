@@ -2,7 +2,7 @@ id: glances
 name: Glances
 version: "1.0"
 description: Cross-platform system monitoring — CPU, memory, disks, network, and containers in one web view
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glances.svg
+icon: https://serverkit.ai/imgs/template-icons/glances.svg
 website: https://nicolargo.github.io/glances/
 documentation: https://glances.readthedocs.io
 categories:

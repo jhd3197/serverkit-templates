@@ -2,7 +2,7 @@ id: dockge
 name: Dockge
 version: "1.0"
 description: Reactive self-hosted Docker Compose stack manager from the maker of Uptime Kuma
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dockge.svg
+icon: https://serverkit.ai/imgs/template-icons/dockge.svg
 website: https://dockge.kuma.pet
 documentation: https://github.com/louislam/dockge#readme
 categories:

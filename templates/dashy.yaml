@@ -2,7 +2,7 @@ id: dashy
 name: Dashy
 version: "1.0"
 description: Self-hosted startpage with status checking, themes, widgets, and a built-in UI config editor
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/dashy.png
+icon: https://serverkit.ai/imgs/template-icons/dashy.png
 website: https://dashy.to
 documentation: https://dashy.to/docs/
 categories:

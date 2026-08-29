@@ -2,7 +2,7 @@ id: glitchtip
 name: GlitchTip
 version: "1.0"
 description: Open-source error tracking, compatible with Sentry SDKs — simple to run, easy on resources
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/glitchtip.svg
+icon: https://serverkit.ai/imgs/template-icons/glitchtip.svg
 website: https://glitchtip.com
 documentation: https://glitchtip.com/documentation
 categories:

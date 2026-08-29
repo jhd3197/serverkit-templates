@@ -488,18 +488,20 @@ rather than just showing a churned index.
 <summary><strong>Icons</strong></summary>
 
 `icon` is an `https://` URL or a `data:image/` URI. Icon files live in this
-repo's `icons/` directory and templates reference them through jsDelivr, which
-serves proper image content types and CORS headers (raw.githubusercontent does
-not, and would break `<img>` rendering):
+repo's `icons/` directory — the canonical home — and templates reference them
+through the serverkit.ai proxy, which serves them from this repo's raw tree
+with proper image content types (raw.githubusercontent serves `.svg` as
+`text/plain`, which browsers refuse to render in `<img>`):
 
 ```
-https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/<id>.svg
+https://serverkit.ai/imgs/template-icons/<id>.svg
 ```
 
 Add the logo (SVG preferred, PNG fallback — [dashboard-icons](https://github.com/homarr-labs/dashboard-icons)
 and [selfh.st/icons](https://selfh.st/icons/) cover most self-hosted apps) as
 `icons/<id>.*` in the same PR as the template. Merging to `master` publishes
-both together. Only templates with no public logo inline a data URI.
+both together — the proxy picks new files up from the branch tip, no website
+deploy needed. Only templates with no public logo inline a data URI.
 
 </details>
 

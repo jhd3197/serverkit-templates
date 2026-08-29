@@ -2,7 +2,7 @@ id: wallabag
 name: Wallabag
 version: "1.0"
 description: Save and classify articles to read later — a self-hosted alternative to Pocket
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wallabag.svg
+icon: https://serverkit.ai/imgs/template-icons/wallabag.svg
 website: https://wallabag.org
 documentation: https://doc.wallabag.org
 categories:

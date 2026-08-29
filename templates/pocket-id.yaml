@@ -2,7 +2,7 @@ id: pocket-id
 name: Pocket ID
 version: "1.0"
 description: Simple OIDC provider with passkey-first authentication for your self-hosted services
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/pocket-id.svg
+icon: https://serverkit.ai/imgs/template-icons/pocket-id.svg
 website: https://pocket-id.org
 documentation: https://pocket-id.org/docs/setup/installation/
 categories:

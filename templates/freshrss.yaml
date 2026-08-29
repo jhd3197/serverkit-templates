@@ -2,7 +2,7 @@ id: freshrss
 name: FreshRSS
 version: "1.0"
 description: Free, self-hosted RSS and Atom feed aggregator for following news and websites in one place.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/freshrss.svg
+icon: https://serverkit.ai/imgs/template-icons/freshrss.svg
 website: https://freshrss.org
 documentation: https://freshrss.github.io/FreshRSS/
 categories:

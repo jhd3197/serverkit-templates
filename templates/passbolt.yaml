@@ -2,7 +2,7 @@ id: passbolt
 name: Passbolt
 version: "1.0"
 description: Open-source password manager built for team collaboration, with browser extensions and granular sharing
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/passbolt.svg
+icon: https://serverkit.ai/imgs/template-icons/passbolt.svg
 website: https://www.passbolt.com
 documentation: https://www.passbolt.com/docs
 categories:

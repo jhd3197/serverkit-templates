@@ -2,7 +2,7 @@ id: homebox
 name: HomeBox
 version: "1.0"
 description: Inventory and organization system for your home — track items, locations, warranties, and maintenance
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/homebox.svg
+icon: https://serverkit.ai/imgs/template-icons/homebox.svg
 website: https://homebox.software
 documentation: https://homebox.software/en/quick-start.html
 categories:

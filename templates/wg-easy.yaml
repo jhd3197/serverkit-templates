@@ -2,7 +2,7 @@ id: wg-easy
 name: WG-Easy
 version: "1.0"
 description: The easiest way to run WireGuard VPN with a web admin UI.
-icon: https://cdn.jsdelivr.net/gh/jhd3197/serverkit-templates@master/icons/wg-easy.svg
+icon: https://serverkit.ai/imgs/template-icons/wg-easy.svg
 website: https://github.com/wg-easy/wg-easy
 documentation: https://github.com/wg-easy/wg-easy/wiki
 categories:
