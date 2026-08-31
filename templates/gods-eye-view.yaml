@@ -2,7 +2,7 @@ id: gods-eye-view
 name: God's Eye View
 version: "1.0"
 kind: repo
-description: Spy-satellite simulator in your browser — live aircraft, ships, satellites, earthquakes, and public cameras on a photorealistic 3D globe, with AI voice control
+description: "Spy-satellite simulator in your browser — live aircraft, ships, satellites, earthquakes, and public cameras on a photorealistic 3D globe, with AI voice control. Runs a key-brokering server: put it behind authentication and set provider budget caps before exposing it."
 icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48bGluZSB4MT0iMiIgeTE9IjEyIiB4Mj0iMjIiIHkyPSIxMiIvPjxwYXRoIGQ9Ik0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg==
 website: https://github.com/bilawalsidhu/gods-eye-view
 documentation: https://github.com/bilawalsidhu/gods-eye-view#readme
@@ -11,27 +11,54 @@ categories:
   - maps
   - ai
 
-# Deployed from its Git repository through the New Service wizard (like
-# AgentSite). It is a Node/Vite app — no Dockerfile upstream — so the hints
-# below carry the build and start commands.
+# Deployed from its Git repository (like AgentSite). Upstream ships no
+# Dockerfile, so nixpacks builds the image from package.json — that is why
+# app_type is `docker` and not a language name: the deploy path resolves to
+# docker/flask/django/php/static only, and every one of those runs a built
+# image or a document root. There is no `node` app type.
+#
+# The start command is NOT `vite preview`. This app's API proxying lives in
+# vite.config.js dev-server middleware, and only 2 of its ~13 middlewares
+# also register configurePreviewServer, so a preview build loses most live
+# layers. `npm run dev` is genuinely the app's server, per upstream's README.
+#
+# `npm ci` over `npm install`: the repo commits package-lock.json, and ci is
+# the reproducible one.
 repo:
   url: https://github.com/bilawalsidhu/gods-eye-view.git
   branch: main
   service_name: gods-eye-view
-  app_type: node
+  app_type: docker
+  build_method: nixpacks
   port: 4173
-  build_command: npm install
+  build_command: npm ci
   start_command: npm run dev -- --host 0.0.0.0 --port 4173
   healthcheck_path: /
   manifest_files:
     - package.json
-  # GOOGLE_MAPS_API_KEY is the only required key (Map Tiles API enabled, and
-  # restrict it — it is client-exposed by design). Everything else is optional
-  # and lights up extra layers.
+  # GOOGLE_MAPS_API_KEY is the only required key (Map Tiles API enabled).
+  # Everything else is optional and lights up extra layers.
+  #
+  # These are secrets in the real sense: the server brokers them on the
+  # client's behalf, so anyone who can reach this service can spend them.
+  # Upstream's README is blunt about it — "a LAN-visible server brokers your
+  # configured API keys to anyone who can reach it" — and ServerKit puts this
+  # on a public domain. Set provider-side budget caps (Google Cloud budgets,
+  # OpenAI usage limits) BEFORE exposing it; the two throttles below are
+  # app-level guards, not billing caps.
   env:
     - key: GOOGLE_MAPS_API_KEY
       required: true
       secret: true
+    - key: GEV_RATELIMIT_GOOGLE_PER_MIN
+      required: false
+      secret: false
+    - key: GEV_RATELIMIT_OPENAI_PER_MIN
+      required: false
+      secret: false
+    - key: OPENSKY_AUTH_MODE
+      required: false
+      secret: false
     - key: CESIUM_ION_TOKEN
       required: false
       secret: true

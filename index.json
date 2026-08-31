@@ -1,7 +1,7 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-08-28",
+  "updated": "2026-08-30",
   "count": 213,
   "templates": [
     {
@@ -760,14 +760,14 @@
       "id": "gods-eye-view",
       "name": "God's Eye View",
       "version": "1.0",
-      "description": "Spy-satellite simulator in your browser \u2014 live aircraft, ships, satellites, earthquakes, and public cameras on a photorealistic 3D globe, with AI voice control",
+      "description": "Spy-satellite simulator in your browser \u2014 live aircraft, ships, satellites, earthquakes, and public cameras on a photorealistic 3D globe, with AI voice control. Runs a key-brokering server: put it behind authentication and set provider budget caps before exposing it.",
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48bGluZSB4MT0iMiIgeTE9IjEyIiB4Mj0iMjIiIHkyPSIxMiIvPjxwYXRoIGQ9Ik0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg==",
       "categories": [
         "media",
         "maps",
         "ai"
       ],
-      "sha256": "edec48c5e9398514d74e4102248bab349d1d768d77593d0bd0bea70c3ac9c228"
+      "sha256": "efe9be4ce5d8a67533648f42e2fd9319031a63cec9551d5e108f29e2969b6e87"
     },
     {
       "id": "gotify",
