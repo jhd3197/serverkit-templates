@@ -1,0 +1,51 @@
+id: solidping
+name: SolidPing
+version: "0.38"
+description: Uptime and synthetic monitoring with 40+ check types, status pages, incidents and on-call alerts.
+icon: https://serverkit.ai/imgs/template-icons/solidping.svg
+categories:
+  - monitoring
+  - devops
+website: https://www.solidping.io
+documentation: https://docs.solidping.io
+
+variables:
+  - name: HTTP_PORT
+    type: port
+    default: "4000"
+    hidden: true
+    description: Port for the web interface (auto-assigned if not specified)
+
+compose:
+  services:
+    app:
+      image: ghcr.io/fclairamb/solidping:latest
+      container_name: ${APP_NAME}
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT}:4000"
+      volumes:
+        - data:/data
+
+  volumes:
+    data:
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Web Interface
+
+requirements:
+  memory: 256MB
+  storage: 1GB
+
+post_install: |
+  SolidPing is now running!
+
+  Access the web interface at: http://your-server:${HTTP_PORT}
+
+  Sign in with admin@solidping.io / solidpass. You will be asked to
+  change the password on first login.
+
+  Data (SQLite) is stored in the "data" volume. Health check:
+  http://your-server:${HTTP_PORT}/api/mgmt/health

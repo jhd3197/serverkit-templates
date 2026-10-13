@@ -1,8 +1,8 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-10-11",
-  "count": 217,
+  "updated": "2026-10-13",
+  "count": 218,
   "templates": [
     {
       "id": "2fauth",
@@ -2323,6 +2323,18 @@
         "management"
       ],
       "sha256": "3a09299ee675bddeb0afdf528b8fb9704bdd5144d049316ba399b2eb9f2fe109"
+    },
+    {
+      "id": "solidping",
+      "name": "SolidPing",
+      "version": "0.38",
+      "description": "Uptime and synthetic monitoring with 40+ check types, status pages, incidents and on-call alerts.",
+      "icon": "https://serverkit.ai/imgs/template-icons/solidping.svg",
+      "categories": [
+        "monitoring",
+        "devops"
+      ],
+      "sha256": "26a64cc1e0e2314df345e27ed22ca659025124ddb60c50e9d1fc8cee5b824328"
     },
     {
       "id": "sonarqube",
