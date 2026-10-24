@@ -49,7 +49,7 @@ No ServerKit yet? [Install it in one line](https://github.com/jhd3197/ServerKit#
 - [🎮 Gaming](#-gaming) — 2
 - [🏠 Home Automation](#-home-automation) — 6
 - [🎬 Media & Downloads](#-media--downloads) — 26
-- [📈 Monitoring & Status](#-monitoring--status) — 17
+- [📈 Monitoring & Status](#-monitoring--status) — 18
 - [🌐 Networking & DNS](#-networking--dns) — 9
 - [📰 News & RSS](#-news--rss) — 2
 - [🗒️ Notes & Wikis](#-notes--wikis) — 5
@@ -64,7 +64,7 @@ No ServerKit yet? [Install it in one line](https://github.com/jhd3197/ServerKit#
 ## 📦 The Templates
 
 <!-- BEGIN TEMPLATE CATALOG -->
-**217 templates** and counting — grouped by primary category.
+**218 templates** and counting — grouped by primary category.
 
 ### 🤖 AI & LLM
 
@@ -282,6 +282,7 @@ No ServerKit yet? [Install it in one line](https://github.com/jhd3197/ServerKit#
 | **[Prometheus](https://prometheus.io)** | Open-source monitoring and alerting toolkit designed for reliability and scalability | [Install](https://serverkit.ai/templates/prometheus) · [YAML](templates/prometheus.yaml) |
 | **[SigNoz](https://signoz.io)** | OpenTelemetry-native observability platform for traces, metrics, and logs (an open-source APM alternative to Datadog). | [Install](https://serverkit.ai/templates/signoz) · [YAML](templates/signoz.yaml) |
 | **[SmokePing](https://oss.oetiker.ch/smokeping/)** | Network latency monitoring with beautiful interactive graphs — see jitter and packet loss over time | [Install](https://serverkit.ai/templates/smokeping) · [YAML](templates/smokeping.yaml) |
+| **[SolidPing](https://www.solidping.io)** | Uptime and synthetic monitoring with 40+ check types, status pages, incidents and on-call alerts. | [Install](https://serverkit.ai/templates/solidping) · [YAML](templates/solidping.yaml) |
 | **[Uptime Kuma](https://uptime.kuma.pet)** | A fancy self-hosted monitoring tool for websites and services | [Install](https://serverkit.ai/templates/uptime-kuma) · [YAML](templates/uptime-kuma.yaml) |
 | **[VictoriaMetrics](https://victoriametrics.com)** | Fast, cost-effective time series database and monitoring solution — a drop-in Prometheus alternative | [Install](https://serverkit.ai/templates/victoriametrics) · [YAML](templates/victoriametrics.yaml) |
 
