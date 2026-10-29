@@ -1,6 +1,6 @@
 id: wordpress-external-db
 name: WordPress (External Database)
-version: "6.4"
+version: "7.1.3"
 description: WordPress CMS connecting to an existing external MySQL database. Use this for dev/prod setups sharing the same database with different table prefixes.
 icon: https://serverkit.ai/imgs/template-icons/wordpress-external-db.png
 website: https://wordpress.org
@@ -13,9 +13,9 @@ categories:
 
 variables:
   - name: VERSION
-    description: WordPress image tag (WP core + PHP variant, e.g. 6.4-php8.2-apache)
+    description: WordPress image tag (WP core + PHP variant, e.g. 7.1.3-php8.3-apache)
     type: string
-    default: "6.4-apache"
+    default: "7.1.3-php8.3-apache"
     hidden: true
   - name: HTTP_PORT
     description: HTTP port for WordPress
@@ -59,10 +59,17 @@ volumes:
     path: /var/www/html
     description: WordPress files
 
+requirements:
+  memory: 512MB
+  storage: 2GB
+
 compose:
   services:
     wordpress:
-      image: wordpress:${VERSION}
+      image: serverkit-wp-runtime:${APP_NAME}
+      build:
+        context: .
+        dockerfile: Dockerfile.serverkit-php
       container_name: ${APP_NAME}
       restart: unless-stopped
       environment:
@@ -78,3 +85,13 @@ compose:
 
   volumes:
     wordpress_html:
+
+files:
+  - path: Dockerfile.serverkit-php
+    content: |
+      FROM wordpress:${VERSION}
+      RUN php -r '$v=PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION; $min=["8.2"=>"8.2.35","8.3"=>"8.3.36"]; exit(isset($min[$v]) && version_compare(PHP_VERSION,$min[$v],">=") ? 0 : 1);' \
+       && docker-php-ext-install pdo_mysql
+      RUN printf 'session.upload_progress.enabled=0\n' > /usr/local/etc/php/conf.d/zz-serverkit-security.ini \
+       && printf 'php_admin_flag session.upload_progress.enabled Off\n' > /etc/apache2/conf-available/serverkit-php-security.conf \
+       && a2enconf serverkit-php-security

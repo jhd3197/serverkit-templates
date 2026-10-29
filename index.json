@@ -2687,7 +2687,7 @@
     {
       "id": "wordpress-external-db",
       "name": "WordPress (External Database)",
-      "version": "6.4",
+      "version": "7.1.3",
       "description": "WordPress CMS connecting to an existing external MySQL database. Use this for dev/prod setups sharing the same database with different table prefixes.",
       "icon": "https://serverkit.ai/imgs/template-icons/wordpress-external-db.png",
       "categories": [
@@ -2696,12 +2696,12 @@
         "website",
         "development"
       ],
-      "sha256": "0bb48c603b9d9e0474d599a872811c9e13ee9867e1618518a91001ca263d0ea2"
+      "sha256": "61583681bd7335814282b44d726a33649de632bf3c94a8e6112e290b5969ff82"
     },
     {
       "id": "wordpress",
       "name": "WordPress",
-      "version": "6.4",
+      "version": "7.1.3",
       "description": "World's most popular content management system for blogs and websites",
       "icon": "https://serverkit.ai/imgs/template-icons/wordpress.png",
       "categories": [
@@ -2709,7 +2709,7 @@
         "blog",
         "website"
       ],
-      "sha256": "589540e620ffa5925e9397a660477cc991d51eae70952b05d642acd19517552a"
+      "sha256": "ae65b781bc7ed24235ac32d9e5c16f46aea121f639f9bffc54ad81f8e2dc7e7e"
     },
     {
       "id": "zigbee2mqtt",
