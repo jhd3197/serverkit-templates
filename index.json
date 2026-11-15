@@ -1,7 +1,7 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-10-24",
+  "updated": "2026-11-14",
   "count": 218,
   "templates": [
     {
@@ -2696,7 +2696,7 @@
         "website",
         "development"
       ],
-      "sha256": "61583681bd7335814282b44d726a33649de632bf3c94a8e6112e290b5969ff82"
+      "sha256": "4ce34f5ae619b97c314aac6fa89c0ed1c753e7973a21dea2fbaa6599d0837bde"
     },
     {
       "id": "wordpress",
@@ -2709,7 +2709,7 @@
         "blog",
         "website"
       ],
-      "sha256": "ae65b781bc7ed24235ac32d9e5c16f46aea121f639f9bffc54ad81f8e2dc7e7e"
+      "sha256": "a35a13a9554cb6a40a3248d88a05315101de73ea5a6d5aec1071ae4c42315c7e"
     },
     {
       "id": "zigbee2mqtt",
