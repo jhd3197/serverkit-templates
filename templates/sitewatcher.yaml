@@ -1,0 +1,58 @@
+id: sitewatcher
+name: SiteWatcher
+version: "0.4.0"
+description: Website uptime, response times, TLS certificates, and domain expiry in one self-hosted monitor.
+icon: https://raw.githubusercontent.com/NikKurkov/sitewatcher/main/assets/brand/favicon.svg
+categories:
+  - monitoring
+website: https://monitoring.kurkov.dev/demo
+documentation: https://github.com/NikKurkov/sitewatcher/blob/main/docs/usage.en.md
+
+variables:
+  - name: HTTP_PORT
+    type: port
+    default: "18080"
+    hidden: true
+    description: Local HTTP port for the web dashboard
+
+compose:
+  services:
+    web:
+      image: ghcr.io/nikkurkov/sitewatcher@sha256:c66f8916f531331b11c732ee389f2d255e68f21707e155e5db76454c54894e8d
+      command: [sitewatcher, web]
+      restart: unless-stopped
+      environment:
+        DATABASE_PATH: /data/sitewatcher.db
+        SITEWATCHER_WEB_BIND: 0.0.0.0
+      ports:
+        - "127.0.0.1:${HTTP_PORT}:8080"
+      volumes:
+        - sitewatcher-data:/data
+      healthcheck:
+        test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://127.0.0.1:8080/healthz", timeout=3)']
+        interval: 15s
+        timeout: 5s
+        start_period: 10s
+    worker:
+      image: ghcr.io/nikkurkov/sitewatcher@sha256:c66f8916f531331b11c732ee389f2d255e68f21707e155e5db76454c54894e8d
+      command: [sitewatcher, worker]
+      restart: unless-stopped
+      environment:
+        DATABASE_PATH: /data/sitewatcher.db
+      volumes:
+        - sitewatcher-data:/data
+      depends_on:
+        web:
+          condition: service_healthy
+  volumes:
+    sitewatcher-data:
+
+ports:
+  - port: "${HTTP_PORT}"
+    protocol: http
+    description: Web dashboard
+
+post_install: |
+  Run sitewatcher setup once in the web container terminal and choose a username and password.
+  Open http://127.0.0.1:${HTTP_PORT} on the Docker host. Use an SSH tunnel if the host is remote.
+  The dashboard and worker share one volume at /data.
