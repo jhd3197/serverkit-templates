@@ -1,8 +1,8 @@
 {
   "name": "serverkit-official",
   "schema_version": 1,
-  "updated": "2026-11-14",
-  "count": 218,
+  "updated": "2026-11-27",
+  "count": 219,
   "templates": [
     {
       "id": "2fauth",
@@ -2299,6 +2299,17 @@
         "apm"
       ],
       "sha256": "49276cc424e3edcdb24004c0047a864e377cc30c5a8dc463fcdbfd233b373fea"
+    },
+    {
+      "id": "sitewatcher",
+      "name": "SiteWatcher",
+      "version": "0.4.0",
+      "description": "Website uptime, response times, TLS certificates, and domain expiry in one self-hosted monitor.",
+      "icon": "https://raw.githubusercontent.com/NikKurkov/sitewatcher/main/assets/brand/favicon.svg",
+      "categories": [
+        "monitoring"
+      ],
+      "sha256": "03cd440b7f58725412bed1f0e29134a0a64d64a369bcc79d536b64c1661ea696"
     },
     {
       "id": "smokeping",
